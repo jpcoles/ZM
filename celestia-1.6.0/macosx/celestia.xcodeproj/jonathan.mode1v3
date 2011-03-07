@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AA9F132529EB006C2B25</string>
+						<string>ABD1AAAD13252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB91C6B8132529CF008239F8</string>
@@ -256,7 +256,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AAA0132529EB006C2B25</string>
+						<string>ABD1AAAE13252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB91C6B9132529CF008239F8</string>
@@ -296,7 +296,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AAA1132529EB006C2B25</string>
+						<string>ABD1AAB013252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB91C6BB132529CF008239F8</string>
@@ -336,7 +336,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AAA2132529EB006C2B25</string>
+						<string>ABD1AAB113252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB91C6BC132529CF008239F8</string>
@@ -376,7 +376,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AAA3132529EB006C2B25</string>
+						<string>ABD1AAB213252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB91C6BD132529CF008239F8</string>
@@ -416,7 +416,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>ABD1AAA4132529EB006C2B25</string>
+						<string>ABD1AAB313252B8F006C2B25</string>
 						<key>history</key>
 						<array>
 							<string>AB19CAEC131FDFE500BFC094</string>
@@ -553,7 +553,7 @@
 							<real>283</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>57 205 1676 973 0 0 1920 1178 </string>
+						<string>58 205 1676 973 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -581,7 +581,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ABD1AA9C132529EB006C2B25</string>
+										<string>ABD1AAAC13252B8F006C2B25</string>
 										<key>history</key>
 										<array>
 											<string>ABCFBFB112BE16160066D908</string>
@@ -671,7 +671,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1371, 615}}</string>
 								<key>RubberWindowFrame</key>
-								<string>57 205 1676 973 0 0 1920 1178 </string>
+								<string>58 205 1676 973 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -691,7 +691,7 @@
 								<key>Frame</key>
 								<string>{{0, 620}, {1371, 312}}</string>
 								<key>RubberWindowFrame</key>
-								<string>57 205 1676 973 0 0 1920 1178 </string>
+								<string>58 205 1676 973 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -866,7 +866,7 @@
 		<string>/Users/jonathan/uni/Zoology/ZM/celestia-1.6.0/macosx/celestia.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>57 205 1676 973 0 0 1920 1178 </string>
+	<string>58 205 1676 973 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
