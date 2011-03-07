@@ -1,0 +1,90 @@
+{
+	Name   "Proszę wybrać"
+	Target "Sol"
+	Description "Proszę wybrać cel podróży z górnej listy. Kliknij najpierw na małą strzałkę obok pola wyboru, a następnie kliknij miejsce docelowe. Po kliknięciu na przycisk \"Przejdź do\" Celestia leci do żądanego miejsca."
+}
+
+{
+	Name   "Jowisz"
+	Target "Sol/Jupiter"
+	Description "Jowisz jest największą planetą naszego Układu Słonecznego i piąty od słońca. Podobnie jak inne duże zewnętrzne planety, Jowisz jest gazowym gigantem, bez stałej powierzchni. Wielka czerwona plama jest największą i najdłużej istniejącą burzą w burzliwej atmosferze Jowisza; ta plama wielkości Ziemi szaleje już od co najmniej 300 lat."
+}
+
+{
+	Name "Pluto i Charon"
+	Target "Sol/Pluto"
+	Distance 40000
+	DistanceUnits "km"
+	Description "Pluton orbituje wokół naszego słońca w średniej odległości blisko sześć miliardów kilometrów. Jego księżyc Charon jest tak duży, że oba są często określane jako 'podwójne planety'. Tymczasem jednak, anulowano status planety Plutona.\nPluton ma dwa inne (mniejsze) księżyce: Hydra i Nix."
+}
+
+{
+	Name "Eros"
+	Target "Sol/Eros"
+	Description "Eros jest blisko ziemi asteroidą w kształcie ziemniaka około 33 km długości. Dzięki sondzie NEAR Shoemaker, wiadomo na ten temat więcej o Erosie niż o jakichkolwiek innych asteroidach. W dniu 14 lutego 2001 wylądował na Erosie NEAR i stał się pierwszym statkiem kosmicznym który kiedykolwiek wylądował na asteroidzie."
+}
+
+{
+	Name "Droga Mleczna"
+	Target "Milky Way"
+	Distance 270000
+	DistanceUnits "ly"
+	Description "Droga Mleczna to galaktyka, w której znajduje się nasz Układ Słoneczny.\nNasz Układ Słoneczny znajduje się w jednym z ramion spiralnych, które pięknie wygląda z odległości 270000 lat świetlnych. Jeśli odwiedzasz to miejsce, może konieczne być lekkie obrócenie galaktyki przy przytrzymaniu prawego przycisku myszy, aby zobaczyć można ramię spirali."
+}
+
+{
+	Name "Alfa Centauri"
+	Target "Alpha Centauri"
+	Distance 90
+	DistanceUnits "au"
+	Description "Alfa Centauri A i B są razem z Proxima Centauri, najbliższym systemem gwiazd od nas. Alfa Cen A jest bardzo podobna do naszego Słońca, choć nieco starsza i jaśniejsza. Alfa Centauri B jest ciemniejsza i czerwieńsza a Proxima jest tak ciemna, że nie może być dojrzana gołym okiem, nawet jeśli jest to najbliższa gwiazda od Słońca."
+}
+
+{
+	Name "Plejady"
+	Target "Alcyone"
+	Distance 35
+	DistanceUnits "ly"
+	Description "Plejady to grupa młodych jasnych gwiazd. Plejady nazwane są po siedmiu siostrach z mitologii greckiej, nawet teleskopem da się spojrzeć, że istnieje znaczne więcej niż siedem gwiazd w tej gromadzie."
+}
+
+{
+	Name "Hiady"
+	Target "63 Tau"
+	Distance 25
+	DistanceUnits "ly"
+	Description "Nazwany po pięciu córek Atlasa i Ajtry, Hiady są jedną z najbardziej widocznych otwartych gromad gwiazd na niebie. Szacuje się, że gwiazdy  Hiady mają około 660 milionów lat - ponad sześć razy więcej niż gorętsze, błękitniejże gwiazdy Plejad, które znajdują się w pobliżu naszego nocnego nieba."
+}
+
+{
+	Name "Gliese 876 b"
+	Target "Gliese 876/b"
+	Description "Gliese 876 b jest wielką planetą orbitującą czerwoną gwiazdę karłowatą. Orbituje w stosunku 2:1 do innych planet w tym systemie."
+}
+
+{
+	Name "Ida i Daktyl"
+	Target "Sol/Ida"
+	Distance 200
+	DistanceUnits "km"
+	Description "Sonda kosmiczna Galileo fotografowała asteroida 243 Ida w roku 1993 w drodze do Jowisza. Te zdjęcia ujawniły, że Ida ma niewielką satelitę, którą nazwano później Daktyl. Odkryto później kilka innych asteroid które także mają satelity."
+}
+
+{
+	Name "51 Pegasi b"
+	Target "51 Peg/b"
+	Description "W roku 1995 51 Pegasi b była pierwszą odkrytą planetą orbitującą nad normalną gwiazdą zamiast słońca. Jest to ogromna planeta gazowa, która orbituje nad swoją gwiazdą domową niezwykle blisko - mniej niż jedna piąta odległości pomiędzy Merkury i Słońca. Że ten olbrzym gazowy, może istnieć tak blisko gwiazdy, zmusiło astronomów do ponownego rozpatrzenia ich teorii powstawania Układu Słonecznego."
+}
+
+{
+	Name "Albireo"
+	Target "Albireo"
+	Distance 0.6
+	Description "Ze względu na pomarańczowe i niebiesko-białe barwne kolory swoich gwiazd, podwójna gwiazda Albireo uważana jest za jedną z najładniejszych par na niebie. Pomarańczowa gwiazda to olbrzym typu K, a jej towarzysz to karzeł klasy B."
+}
+
+{
+	Name "Kometa Borrelly'ego"
+	Target "Sol/Borrelly"
+	Description "22 Września 2001 roku Kometa Borrelly'ego została drugą kometą która kiedykolwiek została fotografowana przez sondę z bliskiej odległości. Pomimo Deep Space 1 nie została stworzona do asysty grawitacyjnej komety, to sonda osiągnęła zbliżeniu o 2200 km do jądra komety i wykonała najwyższej rozdzielczości zdjęcia jądra komety które są dotychczas dostępne."
+}
