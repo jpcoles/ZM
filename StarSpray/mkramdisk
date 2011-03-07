@@ -1,0 +1,8 @@
+#!/bin/bash
+
+NUMSECTORS=2000000
+mydev=`hdid -nomount ram://$NUMSECTORS`
+newfs_hfs $mydev
+mkdir /tmp/mymount
+mount -t hfs $mydev /tmp/mymount
+

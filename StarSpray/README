@@ -1,0 +1,93 @@
+About StarSpray 
+---------------
+
+StarSpray is an interactive 3D particule simulator. Particles are placed in 3D world
+and then allowed to collapse under their mutual gravitational attraction.
+
+StarSpray is designed with a client-server architecture. The graphical interface
+is run on the client and connects to the server, which runs the simulation software.
+The two programs can be run on the same machine if desired.
+
+USAGE
+-----
+
+    starspray-server <port>
+
+    <port> is any freely available port value >= 1024 and <= 65536
+    
+
+    starspray <server> <port>
+
+    The IP address of the server to connect to with the same port number as
+    given to the server. If the server is running on the same machine as the
+    client, then the IP address can be given as 127.0.0.1
+
+
+    StarSpray assumes the presence of a 3D mouse, although a 2D mouse can be
+    used with limited functionality. Only the SpaceNavigator from 3DConnexion
+    has been tested:
+
+            http://www.3dconnexion.com/3dmouse/spacenavigator.php
+
+
+PKDGRAV
+-------
+
+    PKDGRAV is the simulation program used to calculate the movement of the 
+    particles. This version is time limited because a final release has not
+    yet been made public. It is intended to be used solely with StarSpray. 
+
+
+ADDITIONAL OPTIONS
+------------------
+
+    In addition to the server and port values (which must be given first),
+    StarSpray accepts a number of other commandline options.
+
+    --photo-path=PATH           The path to look for photos to lens
+    --bcolor="black"
+    --bcolor="white"            Choose a background color of black or white
+    --fullscreen                Turn on fullscreen mode
+
+
+CONTROLS
+--------
+
+    While running StarSpray, the following controls are available. The keys
+    specified below can be changed by editing keys.h and recompiling. 
+    Input can be given in upper or lower case.
+
+    Key                 Description
+    ---                 -----------
+
+    SPACE               Move the camera around the simulation. This
+                        helps discern the location of the particles better
+                        in 3-space.
+
+    R                   Run the simulation. StarSpray will transfer the
+                        current particle position/velocity data to the server
+                        and wait for the server to send the next frame back.
+                        By default, only 1500 steps will be run. This can
+                        be changed by setting env.maxTimesteps to a different
+                        value in client.c
+
+    S                   Stop the simulation.
+
+    P                   Pause the simulation.
+
+    X                   Clear the screen. This can only be done if the 
+                        simulation is completely stopped (not paused).
+
+    L                   Lens the newest file in the path given with the
+                        --photo-path option.
+
+    CMD-Q               Quit
+
+
+NOTES
+-----
+
+    The number of particles that can be placed at once limited by the value of
+    env.maxParticles in main.c. This is 10,000 by default. A number should be
+    chosen such that there is minimal strain on the system running the simulation.
+

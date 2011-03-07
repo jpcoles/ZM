@@ -1,0 +1,17 @@
+#!/bin/bash
+
+HOST=127.0.0.1
+#HOST=172.19.2.50
+PORT=1234
+
+export PATH=.:$PATH
+
+# Loop endlessly just in case StarSpray crashes (!)
+
+while [ true ]; do
+    ./starspray $HOST $PORT --photo-path=/Users/jonathan/Pictures/Photo\ Booth/ 
+#--bcolor=white
+    #(cd Starspray && ./starspray $HOST $PORT --fullscreen --bcolor=white --photo-path=/Volumes/demo/Pictures/Photo\ Booth/)
+    sleep 2
+done
+
