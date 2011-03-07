@@ -1,0 +1,3193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wxfile.cpp:443
+msgid ""
+"\n"
+"\n"
+"Click \"No\" if the script is from an untrusted source."
+msgstr ""
+
+#: wxperl.cpp:367
+msgid ""
+"\n"
+"\n"
+"If that fails, search your system for a perl*.dll"
+msgstr ""
+
+#: wxpython.cpp:274
+msgid ""
+"\n"
+"\n"
+"If that fails, search your system for a python*.dll"
+msgstr ""
+
+#: wxcontrol.cpp:386
+msgid ""
+"\n"
+"(+n/-n is relative to current count)"
+msgstr ""
+
+#: wxlayer.cpp:1507
+msgid ""
+"\n"
+"(enter 0 to make it the first layer)"
+msgstr ""
+
+#: wxprefs.cpp:4021
+msgid ""
+"\n"
+"- Different key combinations can be assigned to the same action."
+msgstr ""
+
+#: wxprefs.cpp:4022
+msgid ""
+"\n"
+"- The Escape key is reserved for hard-wired actions."
+msgstr ""
+
+#: wxprefs.cpp:2841 wxview.cpp:2343
+msgid ""
+"\n"
+"OnChar: key=%d (%c) mods=%d"
+msgstr ""
+
+#: wxperl.cpp:390
+msgid ""
+"\n"
+"You need to install Perl "
+msgstr ""
+
+#: wxperl.cpp:369 wxpython.cpp:276
+msgid ""
+"\n"
+"file and enter the full path to that file."
+msgstr ""
+
+#: wxperl.cpp:365 wxpython.cpp:272
+msgid ""
+"\n"
+"otherwise change the version numbers to match the"
+msgstr ""
+
+#: wxperl.cpp:366 wxpython.cpp:273
+msgid ""
+"\n"
+"version installed on your system and try again."
+msgstr ""
+
+#: wxalgos.cpp:732 wxalgos.cpp:742 wxalgos.cpp:878 wxlayer.cpp:2549 wxlayer.cpp:2550 wxlayer.cpp:2559 wxlayer.cpp:2568 wxlayer.cpp:2569 wxlayer.cpp:2699 wxlayer.cpp:2700 wxprefs.cpp:2516 wxprefs.cpp:2517 wxprefs.cpp:2531 wxprefs.cpp:2540 wxprefs.cpp:2541 wxprefs.cpp:2569 wxprefs.cpp:3917 wxprefs.cpp:3918 wxstatus.cpp:402
+msgid " "
+msgstr ""
+
+#: wxutils.cpp:85
+msgid " error:"
+msgstr ""
+
+#: wxlayer.cpp:2674
+msgid " from "
+msgstr ""
+
+#: wxutils.cpp:61
+msgid " note:"
+msgstr ""
+
+#: wxprefs.cpp:276
+msgid " nullaction "
+msgstr ""
+
+#: wxlayer.cpp:2677 wxprefs.cpp:3848
+msgid " to "
+msgstr ""
+
+#: wxprefs.cpp:844
+msgid " to change the following keyboard shortcuts:"
+msgstr ""
+
+#: wxutils.cpp:73
+msgid " warning:"
+msgstr ""
+
+#: wxselect.cpp:129
+msgid " x "
+msgstr ""
+
+#: wxalgos.cpp:734 wxedit.cpp:399 wxedit.cpp:491 wxlayer.cpp:2552 wxprefs.cpp:2519
+msgid "%d"
+msgstr ""
+
+#: wxlayer.cpp:2554 wxprefs.cpp:2529
+msgid "%d,%d,%d"
+msgstr ""
+
+#: wxmain.cpp:2082
+msgid "%d: "
+msgstr ""
+
+#: wxcontrol.cpp:1428
+msgid "%g gens in %g secs (%g gens/sec)."
+msgstr ""
+
+#: wxhelp.cpp:314
+msgid "%s"
+msgstr ""
+
+#: wxprefs.cpp:4504
+msgid "%s must be from %d to %d."
+msgstr ""
+
+#: wxfile.cpp:128
+msgid "%s%s [%s]"
+msgstr ""
+
+#: wxfile.cpp:131
+msgid "%s%s [%s] - Golly"
+msgstr ""
+
+#: wxmain.cpp:2339
+msgid "&Help"
+msgstr ""
+
+#: wxprefs.cpp:858
+msgid "&lt;"
+msgstr ""
+
+#: wxprefs.cpp:865
+msgid "&nbsp;"
+msgstr ""
+
+#: wxprefs.cpp:862
+msgid "&nbsp;</td><td>&nbsp;"
+msgstr ""
+
+#: wxprefs.cpp:2567
+msgid "(best if power of 2)"
+msgstr ""
+
+#: wxalgos.cpp:927
+msgid "(currently using default icons)"
+msgstr ""
+
+#: wxgolly.cpp:338
+msgid ".  Copyright 2010 The Golly Gang."
+msgstr ""
+
+#: wxprefs.cpp:4175
+msgid "/Applications"
+msgstr ""
+
+#: wxprefs.cpp:4177
+msgid "/usr/bin"
+msgstr ""
+
+#: ruletable_algo.cpp:554
+msgid "0,1,2,3,4,5,6,7,8,9},{0,1,8,7,6,5,4,3,2,9"
+msgstr ""
+
+#: ruletable_algo.cpp:541
+msgid ""
+"0,1,2,3,4,5,6,7,8,9},{0,2,3,4,5,6,7,8,1,9},{0,3,4,5,6,7,8,1,2,9},{0,4,5,6,7,8,1,2,3,9},\n"
+"          {0,5,6,7,8,1,2,3,4,9},{0,6,7,8,1,2,3,4,5,9},{0,7,8,1,2,3,4,5,6,9},{0,8,1,2,3,4,5,6,7,9"
+msgstr ""
+
+#: ruletable_algo.cpp:551
+msgid ""
+"0,1,2,3,4,5,6,7,8,9},{0,2,3,4,5,6,7,8,1,9},{0,3,4,5,6,7,8,1,2,9},{0,4,5,6,7,8,1,2,3,9},\n"
+"          {0,5,6,7,8,1,2,3,4,9},{0,6,7,8,1,2,3,4,5,9},{0,7,8,1,2,3,4,5,6,9},{0,8,1,2,3,4,5,6,7,9},\n"
+"          {0,8,7,6,5,4,3,2,1,9},{0,7,6,5,4,3,2,1,8,9},{0,6,5,4,3,2,1,8,7,9},{0,5,4,3,2,1,8,7,6,9},\n"
+"          {0,4,3,2,1,8,7,6,5,9},{0,3,2,1,8,7,6,5,4,9},{0,2,1,8,7,6,5,4,3,9},{0,1,8,7,6,5,4,3,2,9"
+msgstr ""
+
+#: ruletable_algo.cpp:537
+msgid "0,1,2,3,4,5,6,7,8,9},{0,3,4,5,6,7,8,1,2,9},{0,5,6,7,8,1,2,3,4,9},{0,7,8,1,2,3,4,5,6,9"
+msgstr ""
+
+#: ruletable_algo.cpp:545
+msgid ""
+"0,1,2,3,4,5,6,7,8,9},{0,3,4,5,6,7,8,1,2,9},{0,5,6,7,8,1,2,3,4,9},{0,7,8,1,2,3,4,5,6,9},\n"
+"          {0,1,8,7,6,5,4,3,2,9},{0,7,6,5,4,3,2,1,8,9},{0,5,4,3,2,1,8,7,6,9},{0,3,2,1,8,7,6,5,4,9"
+msgstr ""
+
+#: ruletable_algo.cpp:573
+msgid ""
+"0,1,2,3,4,5,6,7},{0,2,3,4,5,6,1,7},{0,3,4,5,6,1,2,7},\n"
+"                           {0,4,5,6,1,2,3,7},{0,5,6,1,2,3,4,7},{0,6,1,2,3,4,5,7},\n"
+"                           {0,6,5,4,3,2,1,7},{0,5,4,3,2,1,6,7},{0,4,3,2,1,6,5,7},\n"
+"                           {0,3,2,1,6,5,4,7},{0,2,1,6,5,4,3,7},{0,1,6,5,4,3,2,7"
+msgstr ""
+
+#: ruletable_algo.cpp:567
+msgid ""
+"0,1,2,3,4,5,6,7},{0,2,3,4,5,6,1,7},{0,3,4,5,6,1,2,7},\n"
+"          {0,4,5,6,1,2,3,7},{0,5,6,1,2,3,4,7},{0,6,1,2,3,4,5,7"
+msgstr ""
+
+#: ruletable_algo.cpp:563
+msgid "0,1,2,3,4,5,6,7},{0,3,4,5,6,1,2,7},{0,5,6,1,2,3,4,7"
+msgstr ""
+
+#: ruletable_algo.cpp:560
+msgid "0,1,2,3,4,5,6,7},{0,4,5,6,1,2,3,7"
+msgstr ""
+
+#: ruletable_algo.cpp:534
+msgid "0,1,2,3,4,5},{0,1,4,3,2,5"
+msgstr ""
+
+#: ruletable_algo.cpp:527
+msgid "0,1,2,3,4,5},{0,2,3,4,1,5},{0,3,4,1,2,5},{0,4,1,2,3,5"
+msgstr ""
+
+#: ruletable_algo.cpp:531
+msgid ""
+"0,1,2,3,4,5},{0,2,3,4,1,5},{0,3,4,1,2,5},{0,4,1,2,3,5},\n"
+"          {0,4,3,2,1,5},{0,3,2,1,4,5},{0,2,1,4,3,5},{0,1,4,3,2,5"
+msgstr ""
+
+#: ruletable_algo.cpp:557
+msgid "0,1,2,3},{0,2,1,3"
+msgstr ""
+
+#: wxalgos.cpp:830
+msgid "15x15.  The bottom row contains icons of size 7x7 and is optional; if it isn't "
+msgstr ""
+
+#: wxmain.cpp:2173
+msgid "1:1"
+msgstr ""
+
+#: wxmain.cpp:2177
+msgid "1:16"
+msgstr ""
+
+#: wxmain.cpp:2174
+msgid "1:2"
+msgstr ""
+
+#: wxmain.cpp:2175
+msgid "1:4"
+msgstr ""
+
+#: wxmain.cpp:2176
+msgid "1:8"
+msgstr ""
+
+#: wxperl.cpp:393
+msgid "5.10 or later."
+msgstr ""
+
+#: wxperl.cpp:395
+msgid "5.8.x."
+msgstr ""
+
+#: wxedit.cpp:306 wxtimeline.cpp:238
+msgid "9"
+msgstr ""
+
+#: wxalgos.cpp:872 wxlayer.cpp:2687 wxprefs.cpp:3905
+msgid "999"
+msgstr ""
+
+#: wxlayer.cpp:2693 wxprefs.cpp:3911
+msgid "999,999,999"
+msgstr ""
+
+#: wxhelp.cpp:223 wxprefs.cpp:858
+msgid "<"
+msgstr ""
+
+#: wxprefs.cpp:884
+msgid "</body></html>"
+msgstr ""
+
+#: wxprefs.cpp:873
+msgid "</table></center>"
+msgstr ""
+
+#: wxprefs.cpp:868
+msgid "</td></tr>"
+msgstr ""
+
+#: wxprefs.cpp:841
+msgid "<body bgcolor=\"#FFFFCE\">"
+msgstr ""
+
+#: wxprefs.cpp:880
+msgid "<dd>%s</dd>"
+msgstr ""
+
+#: wxprefs.cpp:840
+msgid "<html><title>Golly Help: Keyboard Shortcuts</title>"
+msgstr ""
+
+#: wxprefs.cpp:845
+msgid "<p><center>"
+msgstr ""
+
+#: wxprefs.cpp:842
+msgid "<p><font size=+1><b>Keyboard shortcuts</b></font>"
+msgstr ""
+
+#: wxprefs.cpp:876
+msgid "<p>The following actions currently have no keyboard shortcuts:<p>"
+msgstr ""
+
+#: wxprefs.cpp:843
+msgid "<p>Use <a href=\"prefs:keyboard\">Preferences > Keyboard</a>"
+msgstr ""
+
+#: wxprefs.cpp:846
+msgid "<table cellspacing=1 border=2 cols=2 width=\"90%\">"
+msgstr ""
+
+#: wxprefs.cpp:847
+msgid "<tr><td align=center>Key Combination</td><td align=center>Action</td></tr>"
+msgstr ""
+
+#: wxprefs.cpp:860
+msgid "<tr><td align=right>"
+msgstr ""
+
+#: wxhelp.cpp:227
+msgid ">"
+msgstr ""
+
+#: wxstatus.cpp:305 wxstatus.cpp:367
+msgid "?"
+msgstr ""
+
+#: wxhelp.cpp:1210 wxmain.cpp:2325
+msgid "About Golly"
+msgstr ""
+
+#: wxprefs.cpp:4000
+msgid "Action"
+msgstr ""
+
+#: wxrule.cpp:543
+msgid "Add"
+msgstr ""
+
+#: wxmain.cpp:2275
+msgid "Add Layer"
+msgstr ""
+
+#: wxundo.cpp:852
+msgid "AddGenChange bug: undo list NOT empty!"
+msgstr ""
+
+#: wxundo.cpp:872
+msgid "AddGenChange bug: undo list is empty!"
+msgstr ""
+
+#: wxselect.cpp:1743
+msgid "Adding flipped selection"
+msgstr ""
+
+#: wxselect.cpp:2089
+msgid "Adding rotated selection"
+msgstr ""
+
+#: wxselect.cpp:596
+msgid "Advance Outside"
+msgstr ""
+
+#: wxselect.cpp:372
+msgid "Advance Selection"
+msgstr ""
+
+#: wxundo.cpp:1131
+msgid "Algorithm Change"
+msgstr ""
+
+#: wxhelp.cpp:444
+msgid "Algorithm could not be changed (pattern is too big to convert)."
+msgstr ""
+
+#: wxalgos.cpp:356
+msgid "Algorithm did not set name and/or creator"
+msgstr ""
+
+#: wxcontrol.cpp:2039
+msgid "Algorithm has changed and pattern has changed."
+msgstr ""
+
+#: wxcontrol.cpp:2042
+msgid "Algorithm has changed."
+msgstr ""
+
+#: wxrule.cpp:557
+msgid "Algorithm:"
+msgstr ""
+
+#: wxmain.cpp:2298
+msgid "Algorithms"
+msgstr ""
+
+#: wxview.h:196
+msgid "All cells are dead."
+msgstr ""
+
+#: wxalgos.cpp:935 wxfile.cpp:926 wxprefs.cpp:4165 wxprefs.cpp:4195
+msgid "All files (*)|*"
+msgstr ""
+
+#: wxprefs.cpp:3327
+msgid "Allow beep sound"
+msgstr ""
+
+#: wxprefs.cpp:3294
+msgid "Always change rule if one is specified"
+msgstr ""
+
+#: wxmain.cpp:2161
+msgid "And"
+msgstr ""
+
+#: wxprefs.cpp:4163
+msgid "Applications (*.app)|*.app"
+msgstr ""
+
+#: wxprefs.cpp:4161
+msgid "Applications (*.exe)|*.exe"
+msgstr ""
+
+#: wxprefs.cpp:3725
+msgid "Ask to save changes to layer before:"
+msgstr ""
+
+#: wxmain.cpp:2240
+msgid "Auto Fit"
+msgstr ""
+
+#: wxmain.cpp:511
+msgid "Auto fit"
+msgstr ""
+
+#: wxlayer.cpp:2108
+msgid "Bad index in GetLayer!"
+msgstr ""
+
+#: wxprefs.cpp:658
+msgid "Bad key_action value: %s"
+msgstr ""
+
+#: wxfile.cpp:1029
+msgid "Bitmap has mask!"
+msgstr ""
+
+#: wxprefs.cpp:3717
+msgid "Border thickness for tiled layers:"
+msgstr ""
+
+#: wxmain.cpp:2158
+msgid "Bottom Left"
+msgstr ""
+
+#: wxmain.cpp:2157
+msgid "Bottom Right"
+msgstr ""
+
+#: wxprefs.cpp:3603
+msgid "Bottom left corner"
+msgstr ""
+
+#: wxprefs.cpp:3602
+msgid "Bottom right corner"
+msgstr ""
+
+#: wxmain.cpp:2317
+msgid "Bounded Grids"
+msgstr ""
+
+#: wxmain.cpp:2270
+msgid "Buffered"
+msgstr ""
+
+#: wxcontrol.cpp:1892
+msgid "Bug detected in ChangeAlgorithm!"
+msgstr ""
+
+#: wxundo.cpp:398
+msgid "Bug detected in DoChange!"
+msgstr ""
+
+#: wxundo.cpp:473
+msgid "Bug detected in ForgetCellChanges!"
+msgstr ""
+
+#: wxprefs.cpp:630
+msgid "Bug detected in GetActionName!"
+msgstr ""
+
+#: wxrule.cpp:823
+msgid "Bug detected in OnChooseAlgo!"
+msgstr ""
+
+#: wxrule.cpp:842
+msgid "Bug detected in OnChooseName!"
+msgstr ""
+
+#: wxview.cpp:1622
+msgid "Bug detected in ProcessKey!"
+msgstr ""
+
+#: wxundo.cpp:1204
+msgid "Bug detected in RememberScriptFinish!"
+msgstr ""
+
+#: wxscript.cpp:1152
+msgid "Bug detected in SavePendingChanges!"
+msgstr ""
+
+#: wxundo.cpp:910
+msgid "Bug detected in SyncUndoHistory!"
+msgstr ""
+
+#: wxrule.cpp:1049
+msgid "Bug detected in TransferDataFromWindow!"
+msgstr ""
+
+#: wxprefs.cpp:4444
+msgid "Bug in GetCheckVal!"
+msgstr ""
+
+#: wxprefs.cpp:4457
+msgid "Bug in GetChoiceVal!"
+msgstr ""
+
+#: wxprefs.cpp:4470
+msgid "Bug in GetRadioVal!"
+msgstr ""
+
+#: wxprefs.cpp:4482
+msgid "Bug in GetSpinVal!"
+msgstr ""
+
+#: wxlayer.cpp:2127
+msgid "Bug in GetUniqueCloneID!"
+msgstr ""
+
+#: wxundo.cpp:1358
+msgid "Bug in RedoChange!"
+msgstr ""
+
+#: wxfile.cpp:1532
+msgid "Bug in SavePattern!"
+msgstr ""
+
+#: wxundo.cpp:1291
+msgid "Bug in UndoChange!"
+msgstr ""
+
+#: wxprefs.cpp:4558
+msgid "Bug in ValidatePage!"
+msgstr ""
+
+#: wxperl.cpp:3013
+msgid "Bug: usage is g_fatal($string)"
+msgstr ""
+
+#: wxprefs.cpp:4173
+msgid "C:\\Program Files"
+msgstr ""
+
+#: wxhelp.cpp:907
+msgid "Cannot change preferences while a script is running."
+msgstr ""
+
+#: wxhelp.cpp:427
+msgid "Cannot change rule while a script is running."
+msgstr ""
+
+#: wxhelp.cpp:423
+msgid "Cannot change rule while generating a pattern."
+msgstr ""
+
+#: wxhelp.cpp:773
+msgid "Cannot create new layer for lexicon pattern."
+msgstr ""
+
+#: wxhelp.cpp:868
+msgid "Cannot download file while a script is running."
+msgstr ""
+
+#: wxhelp.cpp:865
+msgid "Cannot download file while generating a pattern."
+msgstr ""
+
+#: wxhelp.cpp:878
+msgid "Cannot extract zip entry while a script is running."
+msgstr ""
+
+#: wxhelp.cpp:899
+msgid "Cannot load lexicon pattern while a script is running."
+msgstr ""
+
+#: wxhelp.cpp:915 wxmain.cpp:1783
+msgid "Cannot open file while a script is running."
+msgstr ""
+
+#: wxmain.cpp:1781
+msgid "Cannot run script while another script is running."
+msgstr ""
+
+#: wxprefs.cpp:3931
+msgid "Cell colors:"
+msgstr ""
+
+#: wxmain.cpp:2319
+msgid "Changes"
+msgstr ""
+
+#: wxcontrol.cpp:1741
+msgid "Checking cell states"
+msgstr ""
+
+#: wxcontrol.cpp:1673
+msgid "Checking cells outside grid"
+msgstr ""
+
+#: wxprefs.cpp:4009
+msgid "Choose File..."
+msgstr ""
+
+#: wxprefs.cpp:4239
+msgid "Choose a folder for downloaded files"
+msgstr ""
+
+#: wxprefs.cpp:4255
+msgid "Choose a folder for your rules"
+msgstr ""
+
+#: wxfile.cpp:1687
+msgid "Choose a new pattern folder"
+msgstr ""
+
+#: wxfile.cpp:1696
+msgid "Choose a new script folder"
+msgstr ""
+
+#: wxfile.cpp:939
+msgid "Choose a pattern"
+msgstr ""
+
+#: wxprefs.cpp:4200
+msgid "Choose a pattern, script or HTML file"
+msgstr ""
+
+#: wxfile.cpp:971
+msgid "Choose a script"
+msgstr ""
+
+#: wxprefs.cpp:4168
+msgid "Choose a text editor"
+msgstr ""
+
+#: wxalgos.cpp:941
+msgid "Choose an icon file"
+msgstr ""
+
+#: wxmain.cpp:2209 wxselect.cpp:1061
+msgid "Clear"
+msgstr ""
+
+#: wxprefs.cpp:1789 wxprefs.cpp:1795
+msgid "Clear All Files"
+msgstr ""
+
+#: wxprefs.cpp:1788 wxprefs.cpp:1794
+msgid "Clear Missing Files"
+msgstr ""
+
+#: wxmain.cpp:2210 wxselect.cpp:1204
+msgid "Clear Outside"
+msgstr ""
+
+#: wxlayer.cpp:658
+msgid "Clear the board"
+msgstr ""
+
+#: wxselect.cpp:1031
+msgid "Clearing selection"
+msgstr ""
+
+#: wxview.cpp:379
+msgid "Click where you want to paste..."
+msgstr ""
+
+#: wxview.cpp:372
+msgid "Clipboard pattern is bigger than selection."
+msgstr ""
+
+#: wxview.cpp:360
+msgid "Clipboard pattern is too big."
+msgstr ""
+
+#: wxmain.cpp:2276
+msgid "Clone Layer"
+msgstr ""
+
+#: wxhelp.cpp:236 wxinfo.cpp:160
+msgid "Close"
+msgstr ""
+
+#: wxprefs.cpp:3039
+msgid "Color"
+msgstr ""
+
+#: wxedit.cpp:362
+msgid "Color:"
+msgstr ""
+
+#: wxhelp.cpp:231 wxmain.cpp:2295
+msgid "Contents"
+msgstr ""
+
+#: wxmain.cpp:2334 wxprefs.cpp:3036
+msgid "Control"
+msgstr ""
+
+#: wxmain.cpp:2310
+msgid "Control Menu"
+msgstr ""
+
+#: wxcontrol.cpp:1943
+msgid "Converting pattern"
+msgstr ""
+
+#: wxmain.cpp:2162 wxmain.cpp:2208
+msgid "Copy"
+msgstr ""
+
+#: wxselect.cpp:525
+msgid "Copying advanced pattern"
+msgstr ""
+
+#: wxselect.cpp:386
+msgid "Copying advanced selection"
+msgstr ""
+
+#: wxcontrol.cpp:340
+msgid "Copying pattern"
+msgstr ""
+
+#: wxselect.cpp:1344 wxselect.cpp:882
+msgid "Copying selection"
+msgstr ""
+
+#: wxundo.cpp:1584
+msgid "Could not allocate cellarray!"
+msgstr ""
+
+#: wxhelp.cpp:569
+msgid "Could not connect to server:\n"
+msgstr ""
+
+#: wxfile.cpp:1052
+msgid "Could not convert clipboard bitmap!"
+msgstr ""
+
+#: wxundo.cpp:1574
+msgid "Could not copy prevfile!"
+msgstr ""
+
+#: wxundo.cpp:1656
+msgid "Could not copy redolist!"
+msgstr ""
+
+#: wxlayer.cpp:2329
+msgid "Could not copy tempstart file!"
+msgstr ""
+
+#: wxfile.cpp:995
+msgid "Could not copy text to clipboard!"
+msgstr ""
+
+#: wxundo.cpp:1613
+msgid "Could not copy undolist!"
+msgstr ""
+
+#: wxperl.cpp:3202
+msgid "Could not create Perl interpreter!"
+msgstr ""
+
+#: wxprefs.cpp:1691
+msgid ""
+"Could not create a user-specific data directory!\n"
+"Will try to use the application directory instead."
+msgstr ""
+
+#: wxrule.cpp:503
+msgid "Could not create algo help window!"
+msgstr ""
+
+#: wxhelp.cpp:1017
+msgid "Could not create file:\n"
+msgstr ""
+
+#: wxhelp.cpp:309
+msgid "Could not create help window!"
+msgstr ""
+
+#: wxfile.cpp:698
+msgid "Could not create html file:\n"
+msgstr ""
+
+#: wxinfo.cpp:246
+msgid "Could not create info window!"
+msgstr ""
+
+#: wxfile.cpp:472 wxfile.cpp:575
+msgid "Could not create input stream for zip file:\n"
+msgstr ""
+
+#: wxfile.cpp:1215
+msgid "Could not create script file!"
+msgstr ""
+
+#: wxprefs.cpp:1706
+msgid "Could not create temporary directory:\n"
+msgstr ""
+
+#: wxview.cpp:713
+msgid "Could not create temporary file for clipboard data!"
+msgstr ""
+
+#: wxfile.cpp:1096 wxhelp.cpp:826
+msgid "Could not create tempstart file!"
+msgstr ""
+
+#: wxprefs.cpp:2274
+msgid "Could not create your download directory:\n"
+msgstr ""
+
+#: wxprefs.cpp:2269
+msgid "Could not create your rules directory:\n"
+msgstr ""
+
+#: wxmain.cpp:1989
+msgid "Could not delete temporary directory:\n"
+msgstr ""
+
+#: wxhelp.cpp:565
+msgid "Could not download file (error %d):\n"
+msgstr ""
+
+#: wxmain.cpp:2118 wxmain.cpp:2133
+msgid "Could not find Layer menu!"
+msgstr ""
+
+#: wxfile.cpp:533
+msgid "Could not find zip file entry:\n"
+msgstr ""
+
+#: wxfile.cpp:1056
+msgid "Could not get clipboard bitmap!"
+msgstr ""
+
+#: wxfile.cpp:1016
+msgid "Could not get clipboard text!"
+msgstr ""
+
+#: wxhelp.cpp:860 wxrule.cpp:199
+msgid "Could not launch browser!"
+msgstr ""
+
+#: wxview.cpp:760
+msgid ""
+"Could not load clipboard pattern\n"
+"(probably due to unknown rule)."
+msgstr ""
+
+#: wxalgos.cpp:443
+msgid "Could not load icon bitmaps from file:\n"
+msgstr ""
+
+#: wxfile.cpp:288
+msgid "Could not load image from file!"
+msgstr ""
+
+#: wxperl.cpp:373
+msgid "Could not load the Perl library"
+msgstr ""
+
+#: wxpython.cpp:280
+msgid "Could not load the Python library"
+msgstr ""
+
+#: wxhelp.cpp:853 wxhelp.cpp:857 wxrule.cpp:192 wxrule.cpp:196
+msgid "Could not open URL!"
+msgstr ""
+
+#: wxfile.cpp:1000 wxfile.cpp:1065
+msgid "Could not open clipboard!"
+msgstr ""
+
+#: wxfile.cpp:524 wxhelp.cpp:552
+msgid "Could not open output stream for file:\n"
+msgstr ""
+
+#: wxprefs.cpp:1808
+msgid "Could not read preferences file!"
+msgstr ""
+
+#: wxprefs.cpp:1374
+msgid "Could not save preferences file!"
+msgstr ""
+
+#: wxtimeline.cpp:864
+msgid "Could not start recording!"
+msgstr ""
+
+#: wxview.cpp:717
+msgid "Could not write clipboard data to temporary file!  Maybe disk is full?"
+msgstr ""
+
+#: wxlayer.cpp:2670
+msgid "Create Gradient"
+msgstr ""
+
+#: wxprefs.cpp:3728
+msgid "Creating a new pattern"
+msgstr ""
+
+#: wxmain.cpp:2320
+msgid "Credits"
+msgstr ""
+
+#: wxcontrol.cpp:157
+msgid "Current gen < starting gen!"
+msgstr ""
+
+#: wxlayer.cpp:629
+msgid "Current layer"
+msgstr ""
+
+#: wxmain.cpp:2227
+msgid "Cursor Mode"
+msgstr ""
+
+#: wxmain.cpp:2207 wxselect.cpp:1444
+msgid "Cut"
+msgstr ""
+
+#: wxselect.cpp:1342
+msgid "Cutting selection"
+msgstr ""
+
+#: wxlayer.cpp:2669
+msgid "Default Colors"
+msgstr ""
+
+#: wxalgos.cpp:859
+msgid "Default Icons"
+msgstr ""
+
+#: wxprefs.cpp:4532
+msgid "Default base step"
+msgstr ""
+
+#: wxprefs.cpp:3389
+msgid "Default base step:"
+msgstr ""
+
+#: wxprefs.cpp:3861
+msgid "Default colors for:"
+msgstr ""
+
+#: wxstatus.cpp:322
+msgid "Delay = %gs"
+msgstr ""
+
+#: wxstatus.cpp:383
+msgid "Delay=%gs"
+msgstr ""
+
+#: wxprefs.cpp:815 wxrule.cpp:542
+msgid "Delete"
+msgstr ""
+
+#: wxmain.cpp:2279
+msgid "Delete Layer"
+msgstr ""
+
+#: wxmain.cpp:2280
+msgid "Delete Other Layers"
+msgstr ""
+
+#: wxmain.cpp:2245
+msgid "Delete Timeline"
+msgstr ""
+
+#: wxtimeline.cpp:281
+msgid "Delete timeline"
+msgstr ""
+
+#: wxprefs.cpp:3730
+msgid "Deleting layer"
+msgstr ""
+
+#: wxscript.cpp:588 wxundo.cpp:641 wxview.cpp:893 wxview.cpp:913
+msgid "Deselection"
+msgstr ""
+
+#: wxmain.cpp:2205
+msgid "Disable Undo/Redo"
+msgstr ""
+
+#: wxprefs.cpp:3598
+msgid "Disabled"
+msgstr ""
+
+#: wxfile.cpp:446
+msgid "Do you want to run this script?"
+msgstr ""
+
+#: wxutils.cpp:406
+msgid "Don't Save"
+msgstr ""
+
+#: wxprefs.cpp:825
+msgid "Down"
+msgstr ""
+
+#: wxhelp.cpp:524
+msgid "Downloading file"
+msgstr ""
+
+#: wxprefs.cpp:3223
+msgid "Downloads..."
+msgstr ""
+
+#: wxedit.cpp:265 wxmain.cpp:2166
+msgid "Draw"
+msgstr ""
+
+#: wxview.cpp:2043
+msgid "Drawing"
+msgstr ""
+
+#: wxview.cpp:2544
+msgid "Drawing is not allowed at scales greater than 1 cell per pixel."
+msgstr ""
+
+#: wxview.cpp:2540
+msgid "Drawing is not allowed if there is a timeline."
+msgstr ""
+
+#: wxview.cpp:1700
+msgid "Drawing is not allowed outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxview.cpp:2536
+msgid "Drawing is not allowed outside grid."
+msgstr ""
+
+#: wxview.cpp:2532
+msgid "Drawing is not allowed while a script is running."
+msgstr ""
+
+#: wxundo.cpp:49
+msgid "Due to lack of memory, some changes can't be undone!"
+msgstr ""
+
+#: wxmain.cpp:2277
+msgid "Duplicate Layer"
+msgstr ""
+
+#: wxlayer.cpp:2322
+msgid "Duplicating layer"
+msgstr ""
+
+#: wxmain.cpp:2333 wxprefs.cpp:3035
+msgid "Edit"
+msgstr ""
+
+#: wxmain.cpp:2309
+msgid "Edit Menu"
+msgstr ""
+
+#: wxprefs.cpp:2040
+msgid "Empty name in named_rule entry: "
+msgstr ""
+
+#: wxprefs.cpp:2042
+msgid "Empty rule in named_rule entry: "
+msgstr ""
+
+#: wxprefs.cpp:810
+msgid "End"
+msgstr ""
+
+#: wxprefs.cpp:818
+msgid "Enter"
+msgstr ""
+
+#: wxcontrol.cpp:386
+msgid "Enter a new generation count:"
+msgstr ""
+
+#: wxlayer.cpp:1534
+msgid "Enter a new name for the current layer:"
+msgstr ""
+
+#: wxrule.cpp:538
+msgid "Enter a new rule:"
+msgstr ""
+
+#: wxfile.cpp:503 wxhelp.cpp:533
+msgid "Error occurred while writing file:\n"
+msgstr ""
+
+#: wxlayer.cpp:668
+msgid "Example One"
+msgstr ""
+
+#: wxfile.cpp:1461
+msgid "Extended RLE (*.rle)|*.rle"
+msgstr ""
+
+#: wxfile.cpp:494
+msgid "Extracting file"
+msgstr ""
+
+#: wxpython.cpp:2973
+msgid "Failed to append Scripts path!"
+msgstr ""
+
+#: wxundo.cpp:1643
+msgid "Failed to copy redolist!"
+msgstr ""
+
+#: wxundo.cpp:1665
+msgid "Failed to copy temporary file in redolist!"
+msgstr ""
+
+#: wxundo.cpp:1622
+msgid "Failed to copy temporary file in undolist!"
+msgstr ""
+
+#: wxundo.cpp:765
+msgid "Failed to copy temporary file!"
+msgstr ""
+
+#: wxundo.cpp:1600
+msgid "Failed to copy undolist!"
+msgstr ""
+
+#: wxundo.cpp:1129
+msgid "Failed to create algochange node!"
+msgstr ""
+
+#: wxlayer.cpp:2164
+msgid "Failed to create boldpen!"
+msgstr ""
+
+#: wxview.cpp:2969
+msgid "Failed to create cell brush!"
+msgstr ""
+
+#: wxundo.cpp:501
+msgid "Failed to create cellstates node!"
+msgstr ""
+
+#: wxprefs.cpp:1130
+msgid "Failed to create cross cursor!"
+msgstr ""
+
+#: wxlayer.cpp:2162
+msgid "Failed to create deadbrush!"
+msgstr ""
+
+#: wxview.cpp:2966
+msgid "Failed to create drag timer!"
+msgstr ""
+
+#: wxedit.cpp:746
+msgid "Failed to create edit bar button!"
+msgstr ""
+
+#: wxedit.cpp:297
+msgid "Failed to create edit bar font!"
+msgstr ""
+
+#: wxedit.cpp:838
+msgid "Failed to create edit bar!"
+msgstr ""
+
+#: wxundo.cpp:536
+msgid "Failed to create flip node!"
+msgstr ""
+
+#: wxundo.cpp:817
+msgid "Failed to create genchange node!"
+msgstr ""
+
+#: wxlayer.cpp:2163
+msgid "Failed to create gridpen!"
+msgstr ""
+
+#: wxprefs.cpp:1137
+msgid "Failed to create hand cursor!"
+msgstr ""
+
+#: wxlayer.cpp:553
+msgid "Failed to create layer bar bitmap button!"
+msgstr ""
+
+#: wxlayer.cpp:654
+msgid "Failed to create layer bar!"
+msgstr ""
+
+#: wxgolly.cpp:330
+msgid "Failed to create main window!"
+msgstr ""
+
+#: wxmain.cpp:2331
+msgid "Failed to create menu bar!"
+msgstr ""
+
+#: wxundo.cpp:1018
+msgid "Failed to create namechange node!"
+msgstr ""
+
+#: wxlayer.cpp:1179
+msgid "Failed to create new layer!"
+msgstr ""
+
+#: wxlayer.cpp:2203 wxlayer.cpp:2260
+msgid "Failed to create new undo/redo object!"
+msgstr ""
+
+#: wxalgos.cpp:413
+msgid "Failed to create new universe!"
+msgstr ""
+
+#: wxmain.cpp:2473
+msgid "Failed to create pattern directory control!"
+msgstr ""
+
+#: wxprefs.cpp:1111
+msgid "Failed to create pencil cursor!"
+msgstr ""
+
+#: wxprefs.cpp:1118
+msgid "Failed to create pick cursor!"
+msgstr ""
+
+#: wxmain.cpp:2603
+msgid "Failed to create right pane!"
+msgstr ""
+
+#: wxundo.cpp:581
+msgid "Failed to create rotation node!"
+msgstr ""
+
+#: wxundo.cpp:1083
+msgid "Failed to create rulechange node!"
+msgstr ""
+
+#: wxmain.cpp:2485
+msgid "Failed to create script directory control!"
+msgstr ""
+
+#: wxundo.cpp:1226
+msgid "Failed to create scriptfinish node!"
+msgstr ""
+
+#: wxundo.cpp:1184
+msgid "Failed to create scriptstart node!"
+msgstr ""
+
+#: wxedit.cpp:325 wxprefs.cpp:3887
+msgid "Failed to create scroll bar!"
+msgstr ""
+
+#: wxundo.cpp:636
+msgid "Failed to create selchange node!"
+msgstr ""
+
+#: wxundo.cpp:937
+msgid "Failed to create setgen node!"
+msgstr ""
+
+#: wxundo.cpp:558
+msgid "Failed to create simple rotation node!"
+msgstr ""
+
+#: wxmain.cpp:2595
+msgid "Failed to create split window!"
+msgstr ""
+
+#: wxstatus.cpp:558
+msgid "Failed to create status bar font!"
+msgstr ""
+
+#: wxmain.cpp:2584
+msgid "Failed to create status bar!"
+msgstr ""
+
+#: wxlayer.cpp:914
+msgid "Failed to create tile window!"
+msgstr ""
+
+#: wxtimeline.cpp:602
+msgid "Failed to create timeline bar button!"
+msgstr ""
+
+#: wxtimeline.cpp:234
+msgid "Failed to create timeline bar font!"
+msgstr ""
+
+#: wxtimeline.cpp:725
+msgid "Failed to create timeline bar!"
+msgstr ""
+
+#: wxtimeline.cpp:277
+msgid "Failed to create timeline scroll bar!"
+msgstr ""
+
+#: wxtimeline.cpp:258
+msgid "Failed to create timeline slider!"
+msgstr ""
+
+#: wxmain.cpp:401
+msgid "Failed to create tool bar button!"
+msgstr ""
+
+#: wxmain.cpp:504
+msgid "Failed to create tool bar!"
+msgstr ""
+
+#: wxmain.cpp:2632
+msgid "Failed to create viewport window!"
+msgstr ""
+
+#: wxlayer.cpp:2168
+msgid "Failed to create viewport!"
+msgstr ""
+
+#: wxprefs.cpp:1144
+msgid "Failed to create zoomin cursor!"
+msgstr ""
+
+#: wxprefs.cpp:1151
+msgid "Failed to create zoomout cursor!"
+msgstr ""
+
+#: wxprefs.cpp:2890
+msgid "Failed to find wxChoice control!"
+msgstr ""
+
+#: wxmain.cpp:2236
+msgid "Faster"
+msgstr ""
+
+#: wxmain.cpp:2332 wxprefs.cpp:3034
+msgid "File"
+msgstr ""
+
+#: wxmain.cpp:2316
+msgid "File Formats"
+msgstr ""
+
+#: wxmain.cpp:2308
+msgid "File Menu"
+msgstr ""
+
+#: wxfile.cpp:382
+msgid ""
+"File could not be loaded by any algorithm\n"
+"(probably due to an unknown rule)."
+msgstr ""
+
+#: wxmain.cpp:2252
+msgid "Fit Pattern"
+msgstr ""
+
+#: wxmain.cpp:2253
+msgid "Fit Selection"
+msgstr ""
+
+#: wxundo.cpp:538
+msgid "Flip"
+msgstr ""
+
+#: wxmain.cpp:2223
+msgid "Flip Left-Right"
+msgstr ""
+
+#: wxmain.cpp:2222
+msgid "Flip Top-Bottom"
+msgstr ""
+
+#: wxselect.cpp:1593
+msgid "Flipping left-right"
+msgstr ""
+
+#: wxselect.cpp:1588
+msgid "Flipping top-bottom"
+msgstr ""
+
+#: wxtimeline.cpp:359
+msgid "Frames recorded: %d"
+msgstr ""
+
+#: wxmain.cpp:2250
+msgid "Full Screen"
+msgstr ""
+
+#: wxhelp.cpp:191
+msgid "GET---"
+msgstr ""
+
+#: wxstatus.cpp:290
+msgid "Generation = "
+msgstr ""
+
+#: wxstatus.cpp:352
+msgid "Generation="
+msgstr ""
+
+#: wxstatus.cpp:567
+msgid "Generation=9.999999e+999"
+msgstr ""
+
+#: wxprefs.cpp:3943
+msgid "Global colors used by all algorithms:"
+msgstr ""
+
+#: wxgolly.cpp:275 wxprefs.cpp:1719
+msgid "Golly"
+msgstr ""
+
+#: wxhelp.cpp:268
+msgid "Golly Help: Contents"
+msgstr ""
+
+#: wxalgos.cpp:828
+msgid "Golly can load icon bitmaps from BMP/GIF/PNG/TIFF files.  The picture below "
+msgstr ""
+
+#: wxfile.cpp:256
+msgid "Golly cannot import JPEG data, only BMP/GIF/PNG/TIFF."
+msgstr ""
+
+#: wxprefs.cpp:3857
+msgid "Grid border: "
+msgstr ""
+
+#: wxlayer.cpp:672 wxmain.cpp:2341 wxprefs.cpp:813
+msgid "Help"
+msgstr ""
+
+#: wxmain.cpp:2313
+msgid "Help Menu"
+msgstr ""
+
+#: wxhelp.cpp:1024
+msgid "Help/"
+msgstr ""
+
+#: wxmain.cpp:1422
+msgid "Help/Lexicon/lex.htm"
+msgstr ""
+
+#: wxhelp.cpp:1221
+msgid "Help/about.html"
+msgstr ""
+
+#: wxmain.cpp:1421
+msgid "Help/algos.html"
+msgstr ""
+
+#: wxmain.cpp:1423
+msgid "Help/archives.html"
+msgstr ""
+
+#: wxmain.cpp:1436
+msgid "Help/bounded.html"
+msgstr ""
+
+#: wxmain.cpp:1438
+msgid "Help/changes.html"
+msgstr ""
+
+#: wxmain.cpp:1430
+msgid "Help/control.html"
+msgstr ""
+
+#: wxmain.cpp:1439
+msgid "Help/credits.html"
+msgstr ""
+
+#: wxmain.cpp:1429
+msgid "Help/edit.html"
+msgstr ""
+
+#: wxmain.cpp:1428
+msgid "Help/file.html"
+msgstr ""
+
+#: wxmain.cpp:1435
+msgid "Help/formats.html"
+msgstr ""
+
+#: wxmain.cpp:1433
+msgid "Help/help.html"
+msgstr ""
+
+#: wxhelp.cpp:181 wxmain.cpp:1418
+msgid "Help/index.html"
+msgstr ""
+
+#: wxmain.cpp:1419
+msgid "Help/intro.html"
+msgstr ""
+
+#: wxmain.cpp:1432
+msgid "Help/layer.html"
+msgstr ""
+
+#: wxmain.cpp:1427
+msgid "Help/mouse.html"
+msgstr ""
+
+#: wxmain.cpp:1424
+msgid "Help/perl.html"
+msgstr ""
+
+#: wxmain.cpp:1437
+msgid "Help/problems.html"
+msgstr ""
+
+#: wxmain.cpp:1425
+msgid "Help/python.html"
+msgstr ""
+
+#: wxmain.cpp:1434
+msgid "Help/refs.html"
+msgstr ""
+
+#: wxmain.cpp:1420
+msgid "Help/tips.html"
+msgstr ""
+
+#: wxmain.cpp:1431
+msgid "Help/view.html"
+msgstr ""
+
+#: wxmain.cpp:2297
+msgid "Hints and Tips"
+msgstr ""
+
+#: wxprefs.cpp:809
+msgid "Home"
+msgstr ""
+
+#: wxmain.cpp:2241 wxmain.cpp:512
+msgid "Hyperspeed"
+msgstr ""
+
+#: wxalgos.cpp:553
+msgid "Icon file does not exist:\n"
+msgstr ""
+
+#: wxedit.cpp:363
+msgid "Icon:"
+msgstr ""
+
+#: wxperl.cpp:365
+msgid "If Perl isn't installed then you'll have to Cancel,"
+msgstr ""
+
+#: wxpython.cpp:272
+msgid "If Python isn't installed then you'll have to Cancel,"
+msgstr ""
+
+#: wxprefs.cpp:3307
+msgid "If the cursor is dragged outside the viewport:"
+msgstr ""
+
+#: wxmain.cpp:1877
+msgid "If you don't save, your changes will be lost."
+msgstr ""
+
+#: wxfile.cpp:1031
+msgid "Image has alpha!"
+msgstr ""
+
+#: wxfile.cpp:1030
+msgid "Image has mask!"
+msgstr ""
+
+#: wxprefs.cpp:814
+msgid "Insert"
+msgstr ""
+
+#: wxmain.cpp:2296
+msgid "Introduction"
+msgstr ""
+
+#: wxmain.cpp:2269
+msgid "Invert Colors"
+msgstr ""
+
+#: wxprefs.cpp:3992
+msgid "Key Combination"
+msgstr ""
+
+#: wxprefs.cpp:3040
+msgid "Keyboard"
+msgstr ""
+
+#: wxmain.cpp:2305
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: wxmain.cpp:2318
+msgid "Known Problems"
+msgstr ""
+
+#: wxmain.cpp:2112 wxmain.cpp:2129 wxmain.cpp:2336 wxprefs.cpp:3038
+msgid "Layer"
+msgstr ""
+
+#: wxmain.cpp:2312
+msgid "Layer Menu"
+msgstr ""
+
+#: wxprefs.cpp:822
+msgid "Left"
+msgstr ""
+
+#: wxmain.cpp:2299
+msgid "Life Lexicon"
+msgstr ""
+
+#: wxalgos.cpp:858
+msgid "Load Icon File..."
+msgstr ""
+
+#: wxalgos.cpp:817
+msgid "Load Icons"
+msgstr ""
+
+#: wxprefs.cpp:3903
+msgid "Load Icons..."
+msgstr ""
+
+#: wxfile.cpp:351
+msgid "Loading "
+msgstr ""
+
+#: wxprefs.cpp:2568
+msgid "MB (0 means no limit)"
+msgstr ""
+
+#: wxprefs.cpp:2563
+msgid "MB (best if ~70% of RAM)"
+msgstr ""
+
+#: wxprefs.cpp:2565
+msgid "MB (best if ~80% of RAM)"
+msgstr ""
+
+#: wxfile.cpp:1470
+msgid "Macrocell (*.mc)|*.mc"
+msgstr ""
+
+#: wxalgos.cpp:227
+msgid "Malloc failed in ReverseImageColors!"
+msgstr ""
+
+#: wxprefs.cpp:4536
+msgid "Maximum delay"
+msgstr ""
+
+#: wxprefs.cpp:3421
+msgid "Maximum delay:"
+msgstr ""
+
+#: wxprefs.cpp:4530
+msgid "Maximum memory"
+msgstr ""
+
+#: wxprefs.cpp:3386
+msgid "Maximum memory:"
+msgstr ""
+
+#: wxprefs.cpp:4520
+msgid "Maximum number of recent patterns"
+msgstr ""
+
+#: wxprefs.cpp:3195
+msgid "Maximum number of recent patterns:"
+msgstr ""
+
+#: wxprefs.cpp:4522
+msgid "Maximum number of recent scripts"
+msgstr ""
+
+#: wxprefs.cpp:3199
+msgid "Maximum number of recent scripts:"
+msgstr ""
+
+#: wxmain.cpp:2159 wxmain.cpp:2254
+msgid "Middle"
+msgstr ""
+
+#: wxprefs.cpp:4534
+msgid "Minimum delay"
+msgstr ""
+
+#: wxprefs.cpp:3418
+msgid "Minimum delay:"
+msgstr ""
+
+#: wxprefs.cpp:3549
+msgid "Minimum scale for grid:"
+msgstr ""
+
+#: wxprefs.cpp:2033
+msgid "Missing \"|\" separator in named_rule entry: "
+msgstr ""
+
+#: wxmain.cpp:2306
+msgid "Mouse Shortcuts"
+msgstr ""
+
+#: wxprefs.cpp:3553
+msgid "Mouse wheel action:"
+msgstr ""
+
+#: wxedit.cpp:268 wxmain.cpp:2169
+msgid "Move"
+msgstr ""
+
+#: wxlayer.cpp:1512
+msgid "Move Layer"
+msgstr ""
+
+#: wxmain.cpp:2282
+msgid "Move Layer..."
+msgstr ""
+
+#: wxlayer.cpp:1506
+msgid "Move the current layer to a new position:"
+msgstr ""
+
+#: wxlayer.cpp:2656
+msgid "NOTE:  Changes made here are temporary and only affect the current layer and "
+msgstr ""
+
+#: wxundo.cpp:1020
+msgid "Name Change"
+msgstr ""
+
+#: wxlayer.cpp:1534
+msgid "Name Layer"
+msgstr ""
+
+#: wxmain.cpp:2283
+msgid "Name Layer..."
+msgstr ""
+
+#: wxprefs.cpp:3289
+msgid "Never change rule"
+msgstr ""
+
+#: wxmain.cpp:2179
+msgid "New Pattern"
+msgstr ""
+
+#: wxmain.cpp:514
+msgid "New pattern"
+msgstr ""
+
+#: wxview.cpp:2080
+msgid "New selection aborted."
+msgstr ""
+
+#: wxselect.cpp:2002
+msgid "New selection would be outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxselect.cpp:1960
+msgid "New selection would be outside grid boundary."
+msgstr ""
+
+#: wxmain.cpp:2230
+msgid "Next Generation"
+msgstr ""
+
+#: wxmain.cpp:2231
+msgid "Next Step"
+msgstr ""
+
+#: wxprefs.cpp:716
+msgid "No action in key_action value: %s"
+msgstr ""
+
+#: wxinfo.cpp:153
+msgid "No comments found."
+msgstr ""
+
+#: wxfile.cpp:1060
+msgid "No data in clipboard."
+msgstr ""
+
+#: wxcontrol.cpp:1240
+msgid "No more frames can be recorded (maximum = %d)."
+msgstr ""
+
+#: wxselect.cpp:1404
+msgid "No more memory for clipboard data!"
+msgstr ""
+
+#: wxprefs.cpp:669
+msgid "Non-displayable key in key_action: code = %d"
+msgstr ""
+
+#: wxselect.cpp:1311
+msgid "Not enough memory for clipboard data!"
+msgstr ""
+
+#: wxrender.cpp:199
+msgid "Not enough memory for controls bitmap!"
+msgstr ""
+
+#: wxrender.cpp:244
+msgid "Not enough memory for dark controls bitmap!"
+msgstr ""
+
+#: wxrender.cpp:419
+msgid "Not enough memory for gray bitmap!"
+msgstr ""
+
+#: wxrender.cpp:1490
+msgid "Not enough memory for layer bitmap!"
+msgstr ""
+
+#: wxrender.cpp:411
+msgid "Not enough memory for selection bitmap!"
+msgstr ""
+
+#: wxview.cpp:2211
+msgid "Not enough memory to do buffering!"
+msgstr ""
+
+#: wxedit.cpp:558
+msgid "Not enough memory to render edit bar!"
+msgstr ""
+
+#: wxstatus.cpp:446
+msgid "Not enough memory to render status bar!"
+msgstr ""
+
+#: wxtimeline.cpp:404
+msgid "Not enough memory to render timeline bar!"
+msgstr ""
+
+#: wxprefs.cpp:3451
+msgid "Note that Golly looks for .colors/icons/table/tree files\n"
+msgstr ""
+
+#: wxprefs.cpp:4021
+msgid "Note:"
+msgstr ""
+
+#: wxhelp.cpp:1228
+msgid "OK"
+msgstr ""
+
+#: wxperl.cpp:407
+msgid "Oh dear, the Perl library is not loaded!"
+msgstr ""
+
+#: wxpython.cpp:308
+msgid "Oh dear, the Python library is not loaded!"
+msgstr ""
+
+#: wxprefs.cpp:3127
+msgid "On creating a new pattern:"
+msgstr ""
+
+#: wxprefs.cpp:3167
+msgid "On opening a pattern file:"
+msgstr ""
+
+#: wxprefs.cpp:2782 wxview.cpp:2276
+msgid "OnKeyDown: key=%d (%c) mods=%d"
+msgstr ""
+
+#: wxmain.cpp:2300
+msgid "Online Archives"
+msgstr ""
+
+#: wxprefs.cpp:3292
+msgid "Only change rule if one is specified and the universe is empty"
+msgstr ""
+
+#: wxprefs.cpp:3707
+msgid "Opacity percentage when drawing stacked layers:"
+msgstr ""
+
+#: wxprefs.cpp:3975
+msgid "Open Chosen File"
+msgstr ""
+
+#: wxmain.cpp:2182
+msgid "Open Clipboard"
+msgstr ""
+
+#: wxmain.cpp:2181
+msgid "Open Pattern..."
+msgstr ""
+
+#: wxmain.cpp:2183
+msgid "Open Recent"
+msgstr ""
+
+#: wxmain.cpp:515
+msgid "Open pattern"
+msgstr ""
+
+#: wxprefs.cpp:3729
+msgid "Opening a pattern file"
+msgstr ""
+
+#: wxhelp.cpp:870
+msgid "Opening a zip file in a text editor is not a good idea."
+msgstr ""
+
+#: wxmain.cpp:2163
+msgid "Or"
+msgstr ""
+
+#: wxrule.cpp:539
+msgid "Or select a named rule:"
+msgstr ""
+
+#: wxview.cpp:1062
+msgid "Origin changed."
+msgstr ""
+
+#: wxview.cpp:1057
+msgid "Origin not changed."
+msgstr ""
+
+#: wxview.h:202
+msgid "Origin restored."
+msgstr ""
+
+#: wxprefs.cpp:812
+msgid "PageDown"
+msgstr ""
+
+#: wxprefs.cpp:811
+msgid "PageUp"
+msgstr ""
+
+#: wxmain.cpp:2212 wxview.cpp:693
+msgid "Paste"
+msgstr ""
+
+#: wxmain.cpp:2214
+msgid "Paste Location"
+msgstr ""
+
+#: wxmain.cpp:2213
+msgid "Paste Mode"
+msgstr ""
+
+#: wxview.cpp:462
+msgid "Paste aborted."
+msgstr ""
+
+#: wxview.cpp:810
+msgid "Paste location is Bottom Left."
+msgstr ""
+
+#: wxview.cpp:807
+msgid "Paste location is Bottom Right."
+msgstr ""
+
+#: wxview.cpp:813
+msgid "Paste location is Middle."
+msgstr ""
+
+#: wxview.cpp:816
+msgid "Paste location is Top Left."
+msgstr ""
+
+#: wxview.cpp:804
+msgid "Paste location is Top Right."
+msgstr ""
+
+#: wxview.cpp:839
+msgid "Paste mode is And."
+msgstr ""
+
+#: wxview.cpp:830
+msgid "Paste mode is Copy."
+msgstr ""
+
+#: wxview.cpp:833
+msgid "Paste mode is Or."
+msgstr ""
+
+#: wxview.cpp:836
+msgid "Paste mode is Xor."
+msgstr ""
+
+#: wxmain.cpp:2215
+msgid "Paste to Selection"
+msgstr ""
+
+#: wxprefs.cpp:3853
+msgid "Paste: "
+msgstr ""
+
+#: wxview.cpp:491
+msgid "Pasting is not allowed outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxview.cpp:562
+msgid "Pasting pattern"
+msgstr ""
+
+#: wxselect.cpp:2093
+msgid "Pasting rotated selection"
+msgstr ""
+
+#: wxinfo.cpp:129 wxmain.cpp:2273
+msgid "Pattern Info"
+msgstr ""
+
+#: wxcontrol.cpp:1850
+msgid "Pattern cannot be converted (outside +/- 10^9 boundary)."
+msgstr ""
+
+#: wxcontrol.cpp:1775
+msgid "Pattern has changed (new rule has fewer states)."
+msgstr ""
+
+#: wxcontrol.cpp:2046
+msgid "Pattern has changed."
+msgstr ""
+
+#: wxcontrol.cpp:1147
+msgid "Pattern is empty."
+msgstr ""
+
+#: wxcontrol.cpp:1153
+msgid "Pattern is oscillating (period = %d)."
+msgstr ""
+
+#: wxfile.cpp:1486 wxselect.cpp:452 wxview.h:201
+msgid "Pattern is outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxcontrol.cpp:1149
+msgid "Pattern is stable."
+msgstr ""
+
+#: wxlayer.cpp:2319
+msgid "Pattern is too big to duplicate."
+msgstr ""
+
+#: wxcontrol.cpp:1056 wxcontrol.cpp:971
+msgid "Pattern is too big!"
+msgstr ""
+
+#: wxfile.cpp:1541
+msgid "Pattern saved in file: "
+msgstr ""
+
+#: wxcontrol.cpp:1635 wxcontrol.cpp:1723
+msgid "Pattern too big to check (outside +/- 10^9 boundary)."
+msgstr ""
+
+#: wxcontrol.cpp:1707
+msgid "Pattern was truncated (live cells were outside grid)."
+msgstr ""
+
+#: wxprefs.cpp:4546
+msgid "Percentage opacity"
+msgstr ""
+
+#: wxmain.cpp:910
+msgid "Perl"
+msgstr ""
+
+#: wxmain.cpp:2302
+msgid "Perl Scripting"
+msgstr ""
+
+#: wxscript.cpp:1110
+msgid "Perl error:"
+msgstr ""
+
+#: wxfile.cpp:967
+msgid "Perl or Python (*.pl;*.py)|*.pl;*.py"
+msgstr ""
+
+#: wxedit.cpp:266 wxmain.cpp:2167
+msgid "Pick"
+msgstr ""
+
+#: wxview.cpp:2568
+msgid "Picking is not allowed at scales greater than 1 cell per pixel."
+msgstr ""
+
+#: wxview.cpp:2564
+msgid "Picking is not allowed outside grid."
+msgstr ""
+
+#: wxview.cpp:2560
+msgid "Picking is not allowed while a script is running."
+msgstr ""
+
+#: wxtimeline.cpp:208 wxtimeline.cpp:662 wxtimeline.cpp:675
+msgid "Play backwards"
+msgstr ""
+
+#: wxtimeline.cpp:209 wxtimeline.cpp:668 wxtimeline.cpp:694
+msgid "Play forwards"
+msgstr ""
+
+#: wxstatus.cpp:298
+msgid "Population = "
+msgstr ""
+
+#: wxstatus.cpp:360
+msgid "Population="
+msgstr ""
+
+#: wxstatus.cpp:569
+msgid "Population=9.999999e+999"
+msgstr ""
+
+#: wxprefs.cpp:3595
+msgid "Position of translucent buttons:"
+msgstr ""
+
+#: wxperl.cpp:3032
+msgid "Possible problem in boot_golly!"
+msgstr ""
+
+#: wxprefs.cpp:3017
+msgid "Preferences"
+msgstr ""
+
+#: wxmain.cpp:2198
+msgid "Preferences..."
+msgstr ""
+
+#: wxpython.cpp:3023
+msgid "PyRun_SimpleString failed!"
+msgstr ""
+
+#: wxmain.cpp:910 wxpython.cpp:2967
+msgid "Python"
+msgstr ""
+
+#: wxmain.cpp:2303
+msgid "Python Scripting"
+msgstr ""
+
+#: wxscript.cpp:1113
+msgid "Python error:"
+msgstr ""
+
+#: wxmain.cpp:2201
+msgid "Quit"
+msgstr ""
+
+#: wxprefs.cpp:3731
+msgid "Quitting application"
+msgstr ""
+
+#: wxlayer.cpp:2707 wxprefs.cpp:3924
+msgid "RGB: "
+msgstr ""
+
+#: wxfile.cpp:1463
+msgid "RLE (*.rle)|*.rle"
+msgstr ""
+
+#: wxmain.cpp:2221 wxselect.cpp:1567
+msgid "Random Fill"
+msgstr ""
+
+#: wxmain.cpp:2065
+msgid "Random Fill (%d%c)"
+msgstr ""
+
+#: wxprefs.cpp:4526
+msgid "Random fill percentage"
+msgstr ""
+
+#: wxprefs.cpp:3278
+msgid "Random fill percentage:"
+msgstr ""
+
+#: wxselect.cpp:1523
+msgid "Randomly filling selection"
+msgstr ""
+
+#: wxedit.cpp:263 wxmain.cpp:2204
+msgid "Redo"
+msgstr ""
+
+#: wxundo.cpp:1444
+msgid "Redo "
+msgstr ""
+
+#: wxmain.cpp:2315
+msgid "References"
+msgstr ""
+
+#: wxhelp.cpp:559
+msgid "Remote file does not exist:\n"
+msgstr ""
+
+#: wxmain.cpp:2218
+msgid "Remove Selection"
+msgstr ""
+
+#: wxprefs.cpp:3130 wxprefs.cpp:3170
+msgid "Remove selection"
+msgstr ""
+
+#: wxmain.cpp:2233 wxmain.cpp:508
+msgid "Reset"
+msgstr ""
+
+#: wxprefs.cpp:3517
+msgid "Reset/Undo will restore view"
+msgstr ""
+
+#: wxmain.cpp:2255
+msgid "Restore Origin"
+msgstr ""
+
+#: wxselect.cpp:2069 wxselect.cpp:488
+msgid "Restoring selection"
+msgstr ""
+
+#: wxprefs.cpp:820
+msgid "Return"
+msgstr ""
+
+#: wxprefs.cpp:823
+msgid "Right"
+msgstr ""
+
+#: wxpython.cpp:2997
+msgid "RollbackImporter code failed!"
+msgstr ""
+
+#: wxmain.cpp:2225
+msgid "Rotate Anticlockwise"
+msgstr ""
+
+#: wxmain.cpp:2224
+msgid "Rotate Clockwise"
+msgstr ""
+
+#: wxselect.cpp:1768
+msgid "Rotating selection +90 degrees"
+msgstr ""
+
+#: wxselect.cpp:1769
+msgid "Rotating selection -90 degrees"
+msgstr ""
+
+#: wxselect.cpp:1971 wxselect.cpp:1988 wxundo.cpp:560 wxundo.cpp:583
+msgid "Rotation"
+msgstr ""
+
+#: wxundo.cpp:1085
+msgid "Rule Change"
+msgstr ""
+
+#: wxcontrol.cpp:2032
+msgid "Rule has changed and pattern has changed."
+msgstr ""
+
+#: wxcontrol.cpp:2035
+msgid "Rule has changed."
+msgstr ""
+
+#: wxhelp.cpp:456
+msgid "Rule is not valid in any algorithm: "
+msgstr ""
+
+#: wxhelp.cpp:696
+msgid "Rule-related file was not installed:\n"
+msgstr ""
+
+#: wxmain.cpp:2192
+msgid "Run Clipboard"
+msgstr ""
+
+#: wxmain.cpp:2193
+msgid "Run Recent"
+msgstr ""
+
+#: wxmain.cpp:2191
+msgid "Run Script..."
+msgstr ""
+
+#: wxutils.cpp:405
+msgid "Save"
+msgstr ""
+
+#: wxmain.cpp:2189
+msgid "Save Extended RLE"
+msgstr ""
+
+#: wxmain.cpp:2188
+msgid "Save Pattern..."
+msgstr ""
+
+#: wxfile.cpp:1501 wxmain.cpp:516
+msgid "Save pattern"
+msgstr ""
+
+#: wxmain.cpp:1875
+msgid "Save the changes to \"%s\"?"
+msgstr ""
+
+#: wxmain.cpp:1872
+msgid "Save the changes to layer %d: \"%s\"?"
+msgstr ""
+
+#: wxselect.cpp:482
+msgid "Saving and erasing selection"
+msgstr ""
+
+#: wxselect.cpp:234
+msgid "Saving cell changes"
+msgstr ""
+
+#: wxselect.cpp:1103
+msgid "Saving outside selection"
+msgstr ""
+
+#: wxselect.cpp:2045
+msgid "Saving part of pattern"
+msgstr ""
+
+#: wxselect.cpp:464
+msgid "Saving pattern"
+msgstr ""
+
+#: wxselect.cpp:1199 wxselect.cpp:331
+msgid "Saving selection"
+msgstr ""
+
+#: wxstatus.cpp:316
+msgid "Scale = 1:%d"
+msgstr ""
+
+#: wxstatus.cpp:314
+msgid "Scale = 2^%d:1"
+msgstr ""
+
+#: wxstatus.cpp:377
+msgid "Scale=1:%d"
+msgstr ""
+
+#: wxstatus.cpp:375
+msgid "Scale=2^%d:1"
+msgstr ""
+
+#: wxstatus.cpp:571
+msgid "Scale=2^9999:1"
+msgstr ""
+
+#: wxundo.cpp:1186 wxundo.cpp:1228
+msgid "Script Changes"
+msgstr ""
+
+#: wxscript.cpp:1124
+msgid "Script aborted."
+msgstr ""
+
+#: wxmain.cpp:904 wxpython.cpp:2965
+msgid "Scripts"
+msgstr ""
+
+#: wxprefs.cpp:3311
+msgid "Scroll when drawing cells (using the pencil cursor)"
+msgstr ""
+
+#: wxprefs.cpp:3315
+msgid "Scroll when moving view (using the hand cursor)"
+msgstr ""
+
+#: wxprefs.cpp:3313
+msgid "Scroll when selecting cells (using the cross cursor)"
+msgstr ""
+
+#: wxedit.cpp:267 wxmain.cpp:2168
+msgid "Select"
+msgstr ""
+
+#: wxmain.cpp:2217 wxview.cpp:901
+msgid "Select All"
+msgstr ""
+
+#: wxscript.cpp:593 wxview.cpp:2034
+msgid "Selection"
+msgstr ""
+
+#: wxview.h:200
+msgid "Selection is outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxselect.cpp:864
+msgid "Selection is too big to shrink."
+msgstr ""
+
+#: wxselect.cpp:127
+msgid "Selection wd x ht = "
+msgstr ""
+
+#: wxprefs.cpp:3849
+msgid "Selection: "
+msgstr ""
+
+#: wxmain.cpp:2247
+msgid "Set Algorithm"
+msgstr ""
+
+#: wxcontrol.cpp:451
+msgid "Set Base Step"
+msgstr ""
+
+#: wxmain.cpp:2238
+msgid "Set Base Step..."
+msgstr ""
+
+#: wxcontrol.cpp:388 wxundo.cpp:939
+msgid "Set Generation"
+msgstr ""
+
+#: wxmain.cpp:2234
+msgid "Set Generation..."
+msgstr ""
+
+#: wxlayer.cpp:2646
+msgid "Set Layer Colors"
+msgstr ""
+
+#: wxmain.cpp:2284
+msgid "Set Layer Colors..."
+msgstr ""
+
+#: wxmain.cpp:2186
+msgid "Set Pattern Folder..."
+msgstr ""
+
+#: wxrule.cpp:494
+msgid "Set Rule"
+msgstr ""
+
+#: wxmain.cpp:2248
+msgid "Set Rule..."
+msgstr ""
+
+#: wxmain.cpp:2259
+msgid "Set Scale"
+msgstr ""
+
+#: wxmain.cpp:2196
+msgid "Set Script Folder..."
+msgstr ""
+
+#: wxmain.cpp:510
+msgid "Set algorithm"
+msgstr ""
+
+#: wxprefs.cpp:3135 wxprefs.cpp:3179
+msgid "Set cursor:"
+msgstr ""
+
+#: wxprefs.cpp:3138
+msgid "Set scale:"
+msgstr ""
+
+#: wxprefs.cpp:3376
+msgid "Settings for this algorithm:"
+msgstr ""
+
+#: wxmain.cpp:2264
+msgid "Show All States"
+msgstr ""
+
+#: wxmain.cpp:2268
+msgid "Show Cell Icons"
+msgstr ""
+
+#: wxmain.cpp:2263
+msgid "Show Edit Bar"
+msgstr ""
+
+#: wxmain.cpp:2266
+msgid "Show Exact Numbers"
+msgstr ""
+
+#: wxmain.cpp:2267
+msgid "Show Grid Lines"
+msgstr ""
+
+#: wxmain.cpp:2242
+msgid "Show Hash Info"
+msgstr ""
+
+#: wxmain.cpp:2262
+msgid "Show Layer Bar"
+msgstr ""
+
+#: wxmain.cpp:2185
+msgid "Show Patterns"
+msgstr ""
+
+#: wxmain.cpp:2195
+msgid "Show Scripts"
+msgstr ""
+
+#: wxmain.cpp:2265
+msgid "Show Status Bar"
+msgstr ""
+
+#: wxmain.cpp:2271
+msgid "Show Timeline"
+msgstr ""
+
+#: wxmain.cpp:2261
+msgid "Show Tool Bar"
+msgstr ""
+
+#: wxprefs.cpp:3526
+msgid "Show bold grid lines every"
+msgstr ""
+
+#: wxprefs.cpp:3512
+msgid "Show button tips"
+msgstr ""
+
+#: wxmain.cpp:522
+msgid "Show help window"
+msgstr ""
+
+#: wxlayer.cpp:2684 wxprefs.cpp:3900
+msgid "Show icons"
+msgstr ""
+
+#: wxmain.cpp:521
+msgid "Show pattern information"
+msgstr ""
+
+#: wxedit.cpp:272
+msgid "Show/hide all states"
+msgstr ""
+
+#: wxmain.cpp:518
+msgid "Show/hide patterns"
+msgstr ""
+
+#: wxmain.cpp:519
+msgid "Show/hide scripts"
+msgstr ""
+
+#: wxmain.cpp:2219 wxselect.cpp:828 wxselect.cpp:888
+msgid "Shrink Selection"
+msgstr ""
+
+#: wxmain.cpp:2237
+msgid "Slower"
+msgstr ""
+
+#: wxview.cpp:698
+msgid "Some cell states were reduced."
+msgstr ""
+
+#: wxrule.cpp:889
+msgid "Sorry, but rule names must not contain \"|\"."
+msgstr ""
+
+#: wxprefs.cpp:1711
+msgid "Sorry, temporary directory does not exist:\n"
+msgstr ""
+
+#: wxprefs.cpp:826
+msgid "Space"
+msgstr ""
+
+#: wxrule.cpp:775
+msgid "Spaces are not allowed in rule strings."
+msgstr ""
+
+#: wxprefs.cpp:4540
+msgid "Spacing of bold grid lines"
+msgstr ""
+
+#: wxmain.cpp:2289
+msgid "Stack Layers"
+msgstr ""
+
+#: wxmain.cpp:2229 wxmain.cpp:676
+msgid "Start Generating"
+msgstr ""
+
+#: wxmain.cpp:674
+msgid "Start Playing Timeline"
+msgstr ""
+
+#: wxmain.cpp:2244 wxmain.cpp:682
+msgid "Start Recording"
+msgstr ""
+
+#: wxmain.cpp:473 wxmain.cpp:507
+msgid "Start generating"
+msgstr ""
+
+#: wxtimeline.cpp:206 wxtimeline.cpp:650
+msgid "Start recording"
+msgstr ""
+
+#: wxlayer.cpp:665
+msgid "Start simulation"
+msgstr ""
+
+#: wxcontrol.cpp:163
+msgid "Starting pattern cannot be restored!"
+msgstr ""
+
+#: wxcontrol.cpp:111
+msgid "Starting pattern is outside +/- 10^9 boundary."
+msgstr ""
+
+#: wxedit.cpp:304 wxedit.cpp:361
+msgid "State:"
+msgstr ""
+
+#: wxalgos.cpp:881 wxlayer.cpp:2703 wxprefs.cpp:3921
+msgid "State: "
+msgstr ""
+
+#: wxprefs.cpp:3846
+msgid "Status bar: "
+msgstr ""
+
+#: wxpython.cpp:2961
+msgid "StderrCatcher code failed!"
+msgstr ""
+
+#: wxstatus.cpp:325
+msgid "Step = %d^%d"
+msgstr ""
+
+#: wxlayer.cpp:664
+msgid "Step simulation one generation"
+msgstr ""
+
+#: wxstatus.cpp:385
+msgid "Step=%d^%d"
+msgstr ""
+
+#: wxstatus.cpp:573
+msgid "Step=1000000000^9"
+msgstr ""
+
+#: wxmain.cpp:669
+msgid "Stop Generating"
+msgstr ""
+
+#: wxmain.cpp:672
+msgid "Stop Playing Timeline"
+msgstr ""
+
+#: wxmain.cpp:680
+msgid "Stop Recording"
+msgstr ""
+
+#: wxmain.cpp:667
+msgid "Stop Script\tEscape"
+msgstr ""
+
+#: wxlayer.cpp:663
+msgid "Stop Simulation"
+msgstr ""
+
+#: wxmain.cpp:467
+msgid "Stop generating"
+msgstr ""
+
+#: wxtimeline.cpp:681 wxtimeline.cpp:688
+msgid "Stop playing"
+msgstr ""
+
+#: wxtimeline.cpp:643
+msgid "Stop recording"
+msgstr ""
+
+#: wxmain.cpp:465
+msgid "Stop script"
+msgstr ""
+
+#: wxlayer.cpp:674
+msgid "Switch to English"
+msgstr ""
+
+#: wxlayer.cpp:673
+msgid "Switch to German"
+msgstr ""
+
+#: wxlayer.cpp:207
+msgid "Switch to this layer"
+msgstr ""
+
+#: wxmain.cpp:2287
+msgid "Synchronize Cursors"
+msgstr ""
+
+#: wxmain.cpp:2286
+msgid "Synchronize Views"
+msgstr ""
+
+#: wxprefs.cpp:816
+msgid "Tab"
+msgstr ""
+
+#: wxcontrol.cpp:452
+msgid "Temporarily change the current base step:"
+msgstr ""
+
+#: wxprefs.cpp:3219
+msgid "Text Editor..."
+msgstr ""
+
+#: wxrule.cpp:899
+msgid "That name is already used for another rule."
+msgstr ""
+
+#: wxperl.cpp:388
+msgid "The Perl library does not have this symbol:\n"
+msgstr ""
+
+#: wxpython.cpp:295
+msgid "The Python library does not have this symbol:\n"
+msgstr ""
+
+#: wxtimeline.cpp:376
+msgid "The current algorithm does not support timelines."
+msgstr ""
+
+#: wxfile.cpp:1778
+msgid "The currently running script might clobber any changes you make."
+msgstr ""
+
+#: wxfile.cpp:298
+msgid "The file does not exist:\n"
+msgstr ""
+
+#: wxrule.cpp:1035 wxrule.cpp:876
+msgid "The new rule is not valid in any algorithm."
+msgstr ""
+
+#: wxscript.cpp:1183
+msgid "The script file does not exist:\n"
+msgstr ""
+
+#: wxtimeline.cpp:828
+msgid "The timeline can't be extended any further (max frames = %d)."
+msgstr ""
+
+#: wxview.h:197
+msgid "There are no live cells in the selection."
+msgstr ""
+
+#: wxview.h:198
+msgid "There are no live cells outside the selection."
+msgstr ""
+
+#: wxtimeline.cpp:821
+msgid "There is no pattern to record."
+msgstr ""
+
+#: wxview.h:199
+msgid "There is no selection."
+msgstr ""
+
+#: wxgolly.cpp:336
+msgid "This is Golly version "
+msgstr ""
+
+#: wxprefs.cpp:3580
+msgid "Thumb scroll range:"
+msgstr ""
+
+#: wxprefs.cpp:4542
+msgid "Thumb scrolling range"
+msgstr ""
+
+#: wxmain.cpp:2290
+msgid "Tile Layers"
+msgstr ""
+
+#: wxprefs.cpp:4548
+msgid "Tile border thickness"
+msgstr ""
+
+#: wxprefs.cpp:2035
+msgid "Too many \"|\" separators in named_rule entry: "
+msgstr ""
+
+#: wxmain.cpp:2155
+msgid "Top Left"
+msgstr ""
+
+#: wxmain.cpp:2156
+msgid "Top Right"
+msgstr ""
+
+#: wxprefs.cpp:3600
+msgid "Top left corner"
+msgstr ""
+
+#: wxprefs.cpp:3601
+msgid "Top right corner"
+msgstr ""
+
+#: wxprefs.cpp:3989
+msgid "Type a key combination, then select the desired action:"
+msgstr ""
+
+#: wxrule.cpp:885
+msgid "Type in a name for the new rule."
+msgstr ""
+
+#: wxrule.cpp:404
+msgid "UNKNOWN"
+msgstr ""
+
+#: wxprefs.cpp:2883
+msgid "UNKNOWN KEY"
+msgstr ""
+
+#: wxrule.cpp:405
+msgid "UNNAMED"
+msgstr ""
+
+#: wxedit.cpp:262 wxmain.cpp:2203
+msgid "Undo"
+msgstr ""
+
+#: wxundo.cpp:1429
+msgid "Undo "
+msgstr ""
+
+#: wxundo.cpp:1220
+msgid "Unexpected RememberScriptFinish call!"
+msgstr ""
+
+#: wxundo.cpp:1177
+msgid "Unexpected RememberScriptStart call!"
+msgstr ""
+
+#: wxedit.cpp:639 wxlayer.cpp:407 wxmain.cpp:313 wxtimeline.cpp:442
+msgid "Unexpected button id!"
+msgstr ""
+
+#: wxscript.cpp:1257
+msgid "Unexpected extension in script file:\n"
+msgstr ""
+
+#: wxprefs.cpp:768
+msgid "Unknown action in key_action: %s"
+msgstr ""
+
+#: wxprefs.cpp:701
+msgid "Unknown key in key_action: %s"
+msgstr ""
+
+#: wxprefs.cpp:733
+msgid "Unknown modifier in key_action: %s"
+msgstr ""
+
+#: wxprefs.cpp:824
+msgid "Up"
+msgstr ""
+
+#: wxprefs.cpp:3868
+msgid "Use gradient from "
+msgstr ""
+
+#: wxutils.cpp:338
+msgid "Value must be from %d to %d."
+msgstr ""
+
+#: wxmain.cpp:2335 wxprefs.cpp:3037
+msgid "View"
+msgstr ""
+
+#: wxmain.cpp:2311
+msgid "View Menu"
+msgstr ""
+
+#: wxprefs.cpp:3286
+msgid "When pasting a clipboard pattern:"
+msgstr ""
+
+#: wxalgos.cpp:467
+msgid "Wrong bitmap height in icon file (must be 15 or 22):\n"
+msgstr ""
+
+#: wxalgos.cpp:471
+msgid "Wrong bitmap width in icon file (must be multiple of 15):\n"
+msgstr ""
+
+#: wxstatus.cpp:330
+msgid "X ="
+msgstr ""
+
+#: wxstatus.cpp:576
+msgid "X = "
+msgstr ""
+
+#: wxstatus.cpp:390
+msgid "XY="
+msgstr ""
+
+#: wxmain.cpp:2164
+msgid "Xor"
+msgstr ""
+
+#: wxstatus.cpp:331
+msgid "Y ="
+msgstr ""
+
+#: wxstatus.cpp:578
+msgid "Y = "
+msgstr ""
+
+#: wxprefs.cpp:3521
+msgid "Y coordinates increase upwards"
+msgstr ""
+
+#: wxstatus.cpp:493
+msgid "You can't change the generation count if there is a timeline."
+msgstr ""
+
+#: wxstatus.cpp:506
+msgid "You can't change the step size if there is a timeline."
+msgstr ""
+
+#: wxscript.cpp:1173
+msgid "You can't run a script if there is a timeline."
+msgstr ""
+
+#: wxselect.cpp:2113
+msgid "You can't undo this change!"
+msgstr ""
+
+#: wxrule.cpp:894
+msgid "You can't use that name smarty pants."
+msgstr ""
+
+#: wxlayer.cpp:1441
+msgid "You cannot switch to another layer while this script is running."
+msgstr ""
+
+#: wxprefs.cpp:3444
+msgid "Your Rules..."
+msgstr ""
+
+#: wxmain.cpp:2170 wxmain.cpp:2257
+msgid "Zoom In"
+msgstr ""
+
+#: wxmain.cpp:2171 wxmain.cpp:2258
+msgid "Zoom Out"
+msgstr ""
+
+#: wxedit.cpp:269 wxlayer.cpp:661
+msgid "Zoom in"
+msgstr "AHAHAH"
+
+#: wxedit.cpp:270 wxlayer.cpp:660
+msgid "Zoom out"
+msgstr ""
+
+#: wxlayer.cpp:2658
+msgid "a pattern file or create a new pattern, or if you change the current algorithm "
+msgstr ""
+
+#: wxscript.cpp:1157
+msgid "bug1"
+msgstr ""
+
+#: wxscript.cpp:1300
+msgid "bug2"
+msgstr ""
+
+#: wxprefs.cpp:3533
+msgid "cells"
+msgstr ""
+
+#: wxfile.cpp:1092
+msgid "clipboard"
+msgstr ""
+
+#: wxmain.cpp:2116
+msgid "foo"
+msgstr ""
+
+#: wxprefs.cpp:1681
+msgid "golly"
+msgstr ""
+
+#: wxalgos.cpp:846
+msgid "height = 22 (15+7)"
+msgstr ""
+
+#: wxprefs.cpp:3453
+msgid "in the above folder before looking in the Rules folder."
+msgstr ""
+
+#: wxlayer.cpp:2657
+msgid "its clones.  The colors will be reset to their default values if you open "
+msgstr ""
+
+#: wxscript.cpp:1359
+msgid "key=%d ch=%c"
+msgstr ""
+
+#: wxhelp.cpp:183
+msgid "lexicon"
+msgstr ""
+
+#: wxprefs.cpp:3431 wxprefs.cpp:3439
+msgid "millisecs"
+msgstr ""
+
+#: wxlayer.cpp:2659
+msgid "or rule.  If you want to change the default colors, use Preferences > Color."
+msgstr ""
+
+#: wxalgos.cpp:829
+msgid "shows how the bitmaps must be arranged.  The top row contains icons of size "
+msgstr ""
+
+#: wxalgos.cpp:831
+msgid "supplied then Golly will create 7x7 icons by scaling down the 15x15 icons."
+msgstr ""
+
+#: wxprefs.cpp:3590
+msgid "times view size"
+msgstr ""
+
+#: wxundo.cpp:50
+msgid "to Gen "
+msgstr ""
+
+#: wxlayer.cpp:2147 wxmain.h:68
+msgid "untitled"
+msgstr ""
+
+#: wxalgos.cpp:842
+msgid "width = 15xN"
+msgstr ""
+
+#: wxmain.cpp:665
+msgid "x"
+msgstr ""
+
+#: wxalgos.cpp:936 wxfile.cpp:934
+msgid "|BMP (*.bmp)|*.bmp"
+msgstr ""
+
+#: wxalgos.cpp:937 wxfile.cpp:935
+msgid "|GIF (*.gif)|*.gif"
+msgstr ""
+
+#: wxfile.cpp:932
+msgid "|Gzip (*.gz)|*.gz"
+msgstr ""
+
+#: wxprefs.cpp:4198
+msgid "|HTML (*.html;*.htm)|*.html;*.htm"
+msgstr ""
+
+#: wxfile.cpp:1496
+msgid "|Life 1.05 (*.lif)|*.lif"
+msgstr ""
+
+#: wxfile.cpp:929
+msgid "|Life 1.05/1.06 (*.lif)|*.lif"
+msgstr ""
+
+#: wxfile.cpp:931
+msgid "|MCell (*.mcl)|*.mcl"
+msgstr ""
+
+#: wxfile.cpp:1480 wxfile.cpp:928
+msgid "|Macrocell (*.mc)|*.mc"
+msgstr ""
+
+#: wxalgos.cpp:938 wxfile.cpp:936
+msgid "|PNG (*.png)|*.png"
+msgstr ""
+
+#: wxprefs.cpp:4196
+msgid "|Pattern (*.rle;*.mc;*.lif)|*.rle;*.mc;*.lif"
+msgstr ""
+
+#: wxfile.cpp:968
+msgid "|Perl (*.pl)|*.pl"
+msgstr ""
+
+#: wxfile.cpp:969
+msgid "|Python (*.py)|*.py"
+msgstr ""
+
+#: wxfile.cpp:927
+msgid "|RLE (*.rle)|*.rle"
+msgstr ""
+
+#: wxprefs.cpp:4197
+msgid "|Script (*.pl;*.py)|*.pl;*.py"
+msgstr ""
+
+#: wxalgos.cpp:939 wxfile.cpp:937
+msgid "|TIFF (*.tiff;*.tif)|*.tiff;*.tif"
+msgstr ""
+
+#: wxfile.cpp:933
+msgid "|Zip (*.zip;*.gar)|*.zip;*.gar"
+msgstr ""
+
+#: wxfile.cpp:930
+msgid "|dblife (*.l)|*.l"
+msgstr ""
