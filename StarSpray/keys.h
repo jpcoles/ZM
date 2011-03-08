@@ -14,12 +14,12 @@
 
 /* More sensible keys */
 #define KEY_CLEAR case 'x': case 'X':
-#define KEY_SPIN  case ' ':
+//#define KEY_SPIN  case ' ':
 #define KEY_START case 'r': case 'R':
 #define KEY_STOP  case 's': case 'S':
 #define KEY_PAUSE case 'p': case 'P':
 //#define KEY_PRINT case 'w': case 'W':
-#define KEY_PHOTO case 'l': case 'L':
+//#define KEY_PHOTO case 'l': case 'L':
 #endif
 
 #endif

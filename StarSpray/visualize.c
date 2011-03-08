@@ -225,27 +225,93 @@ void on2DDrag(int x0, int y0)
         env.btns[i].state &= inButton(i, x0, y0);
 }
 
+#define DOT(x0,y0,z0, x1,y1,z1) ((x0)*(x1) + (y0)*(y1) + (z0)*(z1))
+
+#define NORM(xo,yo,zo, x0,y0,z0) do {\
+        float _r = sqrt(DOT(x0,y0,z0,x0,y0,z0)); assert(_r > 0); \
+        xo = (x0)/_r; \
+        yo = (y0)/_r; \
+        zo = (z0)/_r; } while(0)
+
+#define CROSS(xo,yo,zo, x0,y0,z0, x1,y1,z1, f) do {\
+        float _xo = y0 * z1 - z0 * y1; \
+        float _yo = z0 * x1 - x0 * z1; \
+        float _zo = x0 * y1 - y0 * x1; \
+        float _r = sqrt(DOT(_xo,_yo,_zo,_xo,_yo,_zo)); assert(_r > 0); \
+        xo = f*_xo/_r; \
+        yo = f*_yo/_r; \
+        zo = f*_zo/_r; } while(0)
+
+void strafe(float v)
+{
+    float xd,yd,zd;
+
+    double r0 = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+
+    CROSS(xd,yd,zd, env.eye.x,  env.eye.y,  env.eye.z,
+                    env.eye.ux, env.eye.uy, env.eye.uz, 1);
+
+    //r = env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z;
+    double l = r0 * 10 * M_PI/180;
+
+    xd *= v;
+    yd *= v;
+    zd *= v;
+
+    env.eye.x += xd;
+    env.eye.y += yd;
+    env.eye.z += zd;
+
+    double r = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+    r = r0/r;
+    env.eye.x *= r;
+    env.eye.y *= r;
+    env.eye.z *= r;
+}
+
 void on3DDrag(int x0, int y0, int z0)
 {
     float x1, y1, z1;
     float xd, yd, zd;
+    float xn, yn, zn;
     float x, y, z;
     float r;
 
-    x1 =  x0 / 1000.0;
-    y1 = -z0 / 1000.0;
-    z1 = -y0 / 1000.0;
+        y1 = -y0 / 1000.0;
+        x1 = -x0 / 1000.0;
+        z1 = -z0 / 1000.0;
 
+    fprintf(stderr, "%i %i %i\n", x0,y0,z0);
 
-    if (0) //env.simStatus == SIM_STOPPED)
+    if (env.simStatus == SIM_STOPPED)
     {
-        xd = x1*cos(-env.eye.angle) - z1*sin(-env.eye.angle);
-        yd = y1;
-        zd = x1*sin(-env.eye.angle) + z1*cos(-env.eye.angle);
+        //x1 = -x0 / 1000.0;
+        //y1 = -z0 / 1000.0;
+        //z1 = -y0 / 1000.0;
 
-        x = env.pointer.x + xd;
-        y = env.pointer.y + yd;
-        z = env.pointer.z - zd;
+        //xd = x1*cos(-env.eye.angle) - z1*sin(-env.eye.angle);
+        //yd = y1;
+        //zd = x1*sin(-env.eye.angle) + z1*cos(-env.eye.angle);
+
+        x = env.pointer.x;
+        y = env.pointer.y;
+        z = env.pointer.z;
+
+        CROSS(xd,yd,zd, env.eye.x,  env.eye.y,  env.eye.z,
+                        env.eye.ux, env.eye.uy, env.eye.uz, 1);
+        x += x1*xd;
+        y += x1*yd;
+        z += x1*zd;
+
+        NORM(xd,yd,zd, env.eye.ux, env.eye.uy, env.eye.uz);
+        x -= xd*z1;
+        y += yd*z1;
+        z -= zd*z1;
+
+        NORM(xd,yd,zd, env.eye.x, env.eye.y, env.eye.z);
+        x -= xd*y1;
+        y -= yd*y1;
+        z -= zd*y1;
 
         r = x*x + y*y + z*z;
 
@@ -267,37 +333,104 @@ void on3DDrag(int x0, int y0, int z0)
 
         double r;
 
-//      double r = env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z;
+
 //      double dot = (x1*env.eye.x + y1*env.eye.y + z1*env.eye.z)/r;
 //      xd = env.eye.x * dot;
 //      yd = env.eye.y * dot;
 //      zd = env.eye.z * dot;
 
-        xd = env.eye.y * z1 - env.eye.z * y1;
-        yd = env.eye.z * x1 - env.eye.x * z1;
-        zd = env.eye.x * y1 - env.eye.y * x1;
+//      yd = env.eye.x * y1 - env.eye.y * x1;
+//      zd = env.eye.y * z1 - env.eye.z * y1;
+//      xd = env.eye.z * x1 - env.eye.x * z1;
 
-        r = sqrt(xd*xd + yd*yd + zd*zd);
-        xd /= r;
-        yd /= r;
-        zd /= r;
+        //env.eye.x -= z1;
+        //env.eye.y -= z1;
+        //env.eye.z -= z1;
+        r = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
 
-        r = env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z;
-        double l = r * 10 * M_PI/180;
+        NORM(xn,yn,zn, env.eye.x, env.eye.y, env.eye.z);
 
-        //xd *= l;
-        //yd *= l;
-        //zd *= l;
+        while (fabs(y1) > 1e-10) 
+        {
+            xd = xn * y1;
+            yd = yn * y1;
+            zd = zn * y1;
 
-        fprintf(stderr, "%f %f %f\n", xd, yd, zd);
+            double d = DOT(env.eye.x,    env.eye.y,    env.eye.z, 
+                           env.eye.x-xd, env.eye.y-yd, env.eye.z-zd);
+
+            if (d > 0)
+            {
+                env.eye.x -= xd;
+                env.eye.y -= yd;
+                env.eye.z -= zd;
+                r = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+                if (r < 1.01)
+                {
+                    env.eye.x /= r/1.01;
+                    env.eye.y /= r/1.01;
+                    env.eye.z /= r/1.01;
+                }
+                else if (r > 70.01)
+                {
+                    env.eye.x /= r/70.01;
+                    env.eye.y /= r/70.01;
+                    env.eye.z /= r/70.01;
+                }
+                break;
+            }
+            else
+            {
+                y1 /= 2;
+            }
+        }
+
+        strafe(x1 * 10 * M_PI/180);
+
+        //fprintf(stderr, "%f %f %f %f %f\n", r, l, xd, yd, zd);
+
+
+        CROSS(xd,yd,zd, env.eye.x,  env.eye.y,  env.eye.z,
+                        env.eye.ux, env.eye.uy, env.eye.uz, -1);
+
+        CROSS(env.eye.ux, env.eye.uy, env.eye.uz, 
+              env.eye.x,  env.eye.y,  env.eye.z,
+              xd, yd, zd, 1);
+
+        //fprintf(stderr, "%f %f %f\n", env.eye.ux, env.eye.uy, env.eye.uz);
+
+        //--------------------------------------------------------------------------------
+
+        double r0 = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+
+        xd = env.eye.ux;
+        yd = env.eye.uy;
+        zd = env.eye.uz;
+        double l = r0 * 10 * M_PI/180;
+
+        xd *= l * z1;
+        yd *= l * z1;
+        zd *= l * z1;
 
         env.eye.x += xd;
         env.eye.y += yd;
         env.eye.z += zd;
 
-        env.eye.ux = env.eye.y * zd - env.eye.z * yd;
-        env.eye.uy = env.eye.z * xd - env.eye.x * zd;
-        env.eye.uz = env.eye.x * yd - env.eye.y * xd;
+        r = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+        r = r0/r;
+        env.eye.x *= r;
+        env.eye.y *= r;
+        env.eye.z *= r;
+
+        //fprintf(stderr, "%f %f %f %f %f\n", r, l, xd, yd, zd);
+
+        CROSS(xd,yd,zd, env.eye.x,  env.eye.y,  env.eye.z,
+                        env.eye.ux, env.eye.uy, env.eye.uz, -1);
+
+        CROSS(env.eye.ux, env.eye.uy, env.eye.uz, 
+              env.eye.x,  env.eye.y,  env.eye.z,
+              xd, yd, zd, 1);
+
     }
 }
 
@@ -442,7 +575,10 @@ void onUpdate()
     }
     else
     {
-        gluLookAt(env.eye.x, env.eye.y, env.eye.z,  0.0, 0.0, 0.0,  0.0, 1.0, 0.);
+        gluLookAt(env.eye.x, env.eye.y, env.eye.z,  
+                  0.0, 0.0, 0.0,  
+                  env.eye.ux, env.eye.uy, env.eye.uz);  
+        //gluLookAt(env.eye.x, env.eye.y, env.eye.z,  0.0, 0.0, 0.0,  0.0, 1.0, 0.);
     }
 
     //glColor4f(1,1,1,.5);
@@ -490,13 +626,16 @@ void onUpdate()
                 break;
         }
 
+
         glTranslatef(env.pointer.x, env.pointer.y, env.pointer.z);
-        glRotated(-env.eye.angle * 180/M_PI, 0, 1, 0);
-        glutWireCube(.2);
+        //glRotated(-env.eye.angle * 180/M_PI, 0, 1, 0);
+        glutWireSphere(.2, 15, 15);
 
         glPopMatrix();
     }
 
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);                 // Enable light source
 
@@ -577,7 +716,7 @@ void onUpdate()
             //color_ramp_grey(&r, &g, &b);
             //color_ramp_hot2cold(&r, &g, &b);
         }
-        glColor3f(r, g, b);
+        glColor4f(r, g, b, 0.7);
 
         if (env.simStatus == SIM_RUNNING)
         {
@@ -711,12 +850,7 @@ void onTimer(int value)
                 pl->movingParticleIndex++;
             }
         }
-    }
-
-    if (env.spinning)
-    {
-        env.eye.angle += 0.009;
-        if (env.eye.angle > 2*M_PI) env.eye.angle -= 2*M_PI;
+        strafe(0.01);
     }
 
         //const double eye.angle = .5 * 3.14159265358979/180.0;

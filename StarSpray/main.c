@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     env.screenWidth = 1024;
     env.screenHeight = 768;
     env.eye.x = env.eye.ox = 0; 
-    env.eye.y = env.eye.oy = 0;
+    env.eye.y = env.eye.oy = 3;
     env.eye.z = env.eye.oz = 3;
     env.eye.ux = 0;
     env.eye.uy = 1;
