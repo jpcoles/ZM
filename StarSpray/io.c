@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <png.h>
 #include "starspray.h"
 #include "io.h"
 #include "tipsyio.h"
@@ -229,6 +230,122 @@ void load_jpeg_image(char *fname, JSAMPROW *buf, int *buf_h, int *buf_w)
     jpeg_finish_decompress(&cinfo);
     jpeg_destroy_decompress(&cinfo);
 
+}
+
+void load_png_image(char *fname, png_bytep *buf, int *buf_h, int *buf_w)
+{
+    char header[8];
+    png_structp png_ptr;
+    png_infop info_ptr;
+    png_uint_32 width, height;
+    int bit_depth, color_type, interlace_type;
+    FILE* fp = NULL;
+
+    fp = fopen(fname, "rb");
+    if (fp == NULL)
+    {
+        fprintf(stderr, "can't open %s\n", fname);
+        return;
+    }
+
+    fread(header, 1, sizeof(header), fp);
+    if (png_sig_cmp((unsigned char*) header, 0, sizeof(header)))
+    {
+        fprintf(stderr, "%s is not a PNG file\n", fname);
+        fclose(fp);
+        return;
+    }
+
+    png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING,
+                                     NULL, NULL, NULL);
+    if (png_ptr == NULL)
+    {
+        fclose(fp);
+        return;
+    }
+
+    info_ptr = png_create_info_struct(png_ptr);
+    if (info_ptr == NULL)
+    {
+        fclose(fp);
+        png_destroy_read_struct(&png_ptr, (png_infopp) NULL, (png_infopp) NULL);
+        return;
+    }
+
+#if 0
+    if (setjmp(png_jmpbuf(png_ptr)))
+    {
+        fclose(fp);
+        png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp) NULL);
+        fprintf(stderr, "Error reading PNG image file %s\n", fname);
+        return;
+    }
+#endif
+
+    png_init_io(png_ptr, fp);
+    //png_set_read_fn(png_ptr, (void*) fp, PNGReadData);
+    png_set_sig_bytes(png_ptr, sizeof(header));
+
+    png_read_info(png_ptr, info_ptr);
+
+
+
+    // TODO: consider using paletted textures if they're available
+    if (color_type == PNG_COLOR_TYPE_PALETTE)
+    {
+        png_set_palette_to_rgb(png_ptr);
+    }
+
+    if (color_type == PNG_COLOR_TYPE_GRAY && bit_depth < 8)
+    {
+        png_set_gray_1_2_4_to_8(png_ptr);
+    }
+
+    if (png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS))
+    {
+        png_set_tRNS_to_alpha(png_ptr);
+    }
+
+    // TODO: consider passing images with < 8 bits/component to
+    // GL without expanding
+    if (bit_depth == 16)
+        png_set_strip_16(png_ptr);
+    else if (bit_depth < 8)
+        png_set_packing(png_ptr);
+
+    png_read_update_info(png_ptr, info_ptr);
+
+    png_get_IHDR(png_ptr, info_ptr,
+                 &width, &height, &bit_depth,
+                 &color_type, &interlace_type,
+                 NULL, NULL);
+
+
+    int row_stride = png_get_rowbytes(png_ptr, info_ptr);
+
+    *buf_w = width;
+    *buf_h = height;
+    *buf  = (png_bytep)MALLOC(png_byte, *buf_h * row_stride);
+    if (*buf == NULL)
+    {
+        fclose(fp);
+        png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp) NULL);
+        return;
+    }
+
+
+    png_start_read_image(png_ptr);
+
+    for (int i = height-1; i >= 0; i--)
+    {
+        png_bytep row_pointer = (*buf) + i * row_stride;
+        png_read_row(png_ptr, row_pointer, NULL);
+    }
+
+    png_read_end(png_ptr, NULL);
+    png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
+
+    fclose(fp);
 }
 
 void print_message(int message)

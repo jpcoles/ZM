@@ -49,6 +49,7 @@ int main(int argc, char **argv)
     env.eye.uy = 1;
     env.eye.uz = 0;
 
+    env.showInfo = INFO_NONE;
 
     env.eye.angle = 0;
     env.eye.roll = 
@@ -60,6 +61,7 @@ int main(int argc, char **argv)
     env.current_movie_frame = 0;
     env.message = NO_MESSAGE;
     env.message_time = 0;
+    env.sceneChanged = 1;
 
     //if (argc < 2) help();
 
@@ -130,14 +132,20 @@ int main(int argc, char **argv)
     env.frame_buffer     = (JSAMPROW)MALLOC(char, env.screenWidth * env.screenHeight * 4); assert(env.frame_buffer     != NULL);
     env.message_image    = (JSAMPROW)MALLOC(char, env.screenWidth * env.screenHeight * 3); assert(env.message_image    != NULL);
 
+    int o=40;
+    int s=10;
+#define O(x) (o+=x+s,-o)
     ButtonImage btns[] = 
         { 
-          {"Buttons/buttons_info_1.jpg",    "Buttons/buttons_info_2.jpg",    -(40),               8, 0,0, NULL,NULL, 0, BTN_INFO},
-          {"Buttons/buttons_english_1.jpg", "Buttons/buttons_english_2.jpg", -(40+10+120),        8, 0,0, NULL,NULL, 0, BTN_ENGLISH},
-          {"Buttons/buttons_deutsch_1.jpg", "Buttons/buttons_deutsch_2.jpg", -(40+10+120+10+120), 8, 0,0, NULL,NULL, 0, BTN_DEUTSCH},
-          {"Buttons/buttons_info_1.jpg", "Buttons/buttons_info_2.jpg", -(40+10+120+10+120+10+120), 8, 0,0, NULL,NULL, 0, BTN_DEMO1},
-          {"Buttons/buttons_info_1.jpg", "Buttons/buttons_info_2.jpg", -(40+10+120+10+120+10+120+10+40), 8, 0,0, NULL,NULL, 0, BTN_DEMO2},
-          //{"CHlang2.jpg", 1920-40, 0, 0,0,0}
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    -(o),   8, 0,0, NULL,NULL, 0, BTN_INFO},
+          {"Buttons/buttons_english.png", "Buttons/buttons_english.png", O(120), 8, 0,0, NULL,NULL, 0, BTN_ENGLISH},
+          {"Buttons/buttons_deutsch.png", "Buttons/buttons_deutsch.png", O(120), 8, 0,0, NULL,NULL, 0, BTN_DEUTSCH},
+          {"Buttons/buttons_zurueck.png", "Buttons/buttons_zurueck.png", O(80),  8, 0,0, NULL,NULL, 0, BTN_RESET},
+          {"Buttons/buttons_stopp.png",   "Buttons/buttons_stopp.png",   O(80),  8, 0,0, NULL,NULL, 0, BTN_STOP},
+          {"Buttons/buttons_start.png",   "Buttons/buttons_start.png",   O(40),  8, 0,0, NULL,NULL, 0, BTN_PLAY},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(120), 8, 0,0, NULL,NULL, 0, BTN_DEMO1},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(40), 8, 0,0, NULL,NULL, 0, BTN_DEMO2},
+          //{"CHlang2.png", 1920-40, 0, 0,0,0}
         };
 
     fprintf(stderr, "%ld %ld\n", sizeof(btns), sizeof(btns[0]));
@@ -148,9 +156,15 @@ int main(int argc, char **argv)
     for (i=0; i < env.nButtons; i++)
     {
         //fprintf(stderr, "%s %i %i %i %i\n", env.btns[i].fname, env.btns[i].x, env.btns[i].y, env.btns[i].w, env.btns[i].h);
-        load_jpeg_image(env.btns[i].fname_up,   &env.btns[i].img_up,   &env.btns[i].h, &env.btns[i].w);
-        load_jpeg_image(env.btns[i].fname_down, &env.btns[i].img_down, &env.btns[i].h, &env.btns[i].w);
+        //load_jpeg_image(env.btns[i].fname_up,   &env.btns[i].img_up,   &env.btns[i].h, &env.btns[i].w);
+        //load_jpeg_image(env.btns[i].fname_down, &env.btns[i].img_down, &env.btns[i].h, &env.btns[i].w);
+        load_png_image(env.btns[i].fname_up,   &env.btns[i].img_up,   &env.btns[i].h, &env.btns[i].w);
+        load_png_image(env.btns[i].fname_down, &env.btns[i].img_down, &env.btns[i].h, &env.btns[i].w);
     }
+
+    int h,w;
+    load_png_image("info_english.png", &env.info_english, &h, &w);
+    load_png_image("info_deutsch.png", &env.info_deutsch, &h, &w);
 
     if (env.make_movie)
     {

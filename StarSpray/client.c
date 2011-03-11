@@ -16,7 +16,7 @@ enum ACTIONS { DO_NOTHING, LOAD_NEXT_FRAME, START_SIMULATOR, STOP_SIMULATOR };
 
 static pthread_cond_t client_cond = PTHREAD_COND_INITIALIZER;
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-static enum ACTIONS action = DO_NOTHING;
+static volatile enum ACTIONS action = DO_NOTHING;
 
 int client_start(int argc, char **argv)
 {
@@ -64,7 +64,6 @@ static void *client_run(void *arg)
                 action = DO_NOTHING;
                 break;
             case LOAD_NEXT_FRAME:
-                action = DO_NOTHING;
                 if (env.currentTimestep <= env.maxTimesteps)
                 {
                     pthread_mutex_unlock(&mutex);
@@ -74,8 +73,9 @@ static void *client_run(void *arg)
                     {
                         case 0:
                             env.currentTimestep++;
-                            break;
+                            /* No break */
                         case -1:
+                            action = DO_NOTHING;
                             break;
                         default:
                             //client_stop_simulation();
@@ -94,6 +94,7 @@ static void *client_run(void *arg)
                 }
                 break;
         }
+        pthread_cond_signal(&client_cond);
         pthread_mutex_unlock(&mutex);
     }
 
@@ -103,6 +104,8 @@ static void *client_run(void *arg)
 void client_start_simulation()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
+
     if (env.simStatus != SIM_RUNNING 
     &&  env.simStatus != SIM_PAUSED
     &&  env.simStatus != SIM_STARTING) 
@@ -127,6 +130,8 @@ void client_start_simulation()
 void client_stop_simulation()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
+
     if (env.simStatus != SIM_STOPPED && env.simStatus != SIM_STOPPING) 
     {
         env.simStatus = SIM_STOPPING;
@@ -140,6 +145,8 @@ void client_stop_simulation()
 void client_pause_simulation()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
+
     if (env.simStatus == SIM_RUNNING)
     {
         env.simStatus = SIM_PAUSED;
@@ -152,6 +159,8 @@ void client_pause_simulation()
 void client_resume_simulation()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
+
     if (env.simStatus == SIM_PAUSED)
     {
         env.simStatus = SIM_RUNNING;
@@ -172,6 +181,7 @@ void client_toggle_pause()
 void client_load_next_frame()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
     action = LOAD_NEXT_FRAME;
     pthread_cond_signal(&client_cond);
     pthread_mutex_unlock(&mutex);
@@ -180,6 +190,8 @@ void client_load_next_frame()
 void client_clear_particles()
 {
     pthread_mutex_lock(&mutex);
+    while (action != DO_NOTHING) pthread_cond_wait(&client_cond, &mutex);
+
     if (env.simStatus == SIM_STOPPED)
     {
         env.pList.nParticles = 0;

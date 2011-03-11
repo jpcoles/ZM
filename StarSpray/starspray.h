@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <stdio.h>
+#include <png.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -44,6 +45,13 @@ extern "C" {
 #define BTN_DEUTSCH     2
 #define BTN_DEMO1       3
 #define BTN_DEMO2       4
+#define BTN_PLAY        5
+#define BTN_STOP        6
+#define BTN_RESET       7
+
+#define INFO_NONE       0
+#define INFO_ENGLISH    1
+#define INFO_DEUTSCH    2
 
 typedef struct
 {
@@ -86,8 +94,8 @@ typedef struct
     char *fname_up;
     char *fname_down;
     int x,y, w,h;
-    JSAMPROW img_up;
-    JSAMPROW img_down;
+    png_bytep img_up;
+    png_bytep img_down;
     int state;
     int id;
 } ButtonImage;
@@ -113,6 +121,9 @@ typedef struct
     int spinning;
 
     int simStatus;
+    int showInfo;
+    png_bytep info_english;
+    png_bytep info_deutsch;
 
     //char *addr;
     //int port;
@@ -133,6 +144,8 @@ typedef struct
 
     int nButtons;
     ButtonImage *btns;
+
+    int sceneChanged;
 
 } Environment;
 

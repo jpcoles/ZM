@@ -32,7 +32,7 @@ int startSimulator()
     if ((ret=system("mkdir -p sim"))) return ret;
     if ((ret=system("rm -f sim/starspray.0* sim/starspray.log .lockfile starspray.pid"))) return ret;
     fprintf(stderr, "Launching pkdgrav...");
-    if ((ret=system(PKDGRAV " jonathan.par > /dev/null & echo $! > starspray.pid"))) return ret;
+    if ((ret=system(PKDGRAV " -sz 1 jonathan.par > /dev/null & echo $! > starspray.pid"))) return ret;
     //if ((ret=system(PKDGRAV " jonathan.par > /dev/null & echo $! > starspray.pid"))) return ret;
     fprintf(stderr, "done.\n");
     fprintf(stderr, "Waiting for startup...");
@@ -89,7 +89,7 @@ int write_config_file(char *filename)
         "achOutName   = sim/starspray\n"
         "achInFile    = starspray-ic.std\n"
         "nSteps	      = %i\n"
-        "dExtraStore  = 10.0\n"
+        "#dExtraStore  = 10.0\n"
         "dDelta       = 0.01\n"
         "#bPeriodic   = 1\n"
         "#dPeriod     = 1e20\n"
@@ -108,7 +108,7 @@ int write_config_file(char *filename)
         "\n"
         "bOverwrite   = 1\n"
         "bParaRead    = 1\n"
-        "bParaWrite   = 0\n"
+        "bParaWrite   = 1\n"
         "\n"
         "dTheta       = 1.2 # accuracy of forces\n"
         "\n"

@@ -30,10 +30,11 @@ CFLAGS  		+=	-O3
 
 CFLAGS  		+=	-Itipsylib
 CFLAGS 			+=	-Ijpeg-6b 
+CFLAGS 			+=	-I/usr/X11/include
 
-LDFLAGS 		+= 	-Ltipsylib 
+LDFLAGS 		+= 	-Ltipsylib -L/usr/X11/lib
 
-LIBS			+= 	-ltipsy
+LIBS			+= 	-ltipsy -lpng
 
 
 ifeq ($(PLATFORM), Darwin)

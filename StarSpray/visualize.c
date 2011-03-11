@@ -26,7 +26,7 @@ void doSpray();
 void clearParticles();
 void toggleSpinning();
 
-const float ENV_RADIUS = 2;
+float ENV_RADIUS = 2;
 const float SPRAY_RADIUS = 0.1;
 
 float starColor[] = {0.8f, 0.72f, 0.0f, 1.0f};
@@ -36,7 +36,9 @@ const int cred = 256;
 int *cmass = NULL;
 
 
-GLuint sphere;
+GLuint sphere = 1;
+GLuint scene = 2;
+
 
 void viz_init()
 {
@@ -55,7 +57,7 @@ void viz_init()
     //glutTimerFunc(30,onTimer,0);
     //glutIdleFunc(onIdle);
 
-    glutMotionFunc(on2DDrag);
+    //glutMotionFunc(on2DDrag);
     glutMouseFunc(onClick);
     glutKeyboardFunc(onKeyboard);
 
@@ -86,6 +88,9 @@ void viz_init()
     glEnable(GL_DEPTH_TEST);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glEnable(GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glEnable(GL_CULL_FACE);
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
@@ -115,9 +120,9 @@ void viz_init()
     //========================================================================
     //========================================================================
 
-    sphere = glGenLists(1);
+    glGenLists(2);
     glNewList(sphere, GL_COMPILE);
-    glutSolidSphere(0.02, 10, 10);
+    glutSolidSphere(0.02, 20, 20);
     glEndList();
 
     //glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -128,7 +133,7 @@ int inButton(int i, int x, int y)
 {
     int in = 0;
 
-    if (0 <= x && x < env.nButtons)
+    if (0 <= i && i < env.nButtons)
     {
         if (env.btns[i].img_up != NULL)
         {
@@ -149,15 +154,12 @@ void doSpray()
     if (env.simStatus != SIM_STOPPED) return;
 
     float x, y, z;
-    x = env.eye.x/2 - env.pointer.x;
-    y = env.eye.y/2-4 - env.pointer.y;
-    z = env.eye.z/2 - env.pointer.z;
+    x = env.eye.x - 2*env.eye.ux;
+    y = env.eye.y - 2*env.eye.uy;
+    z = env.eye.z - 2*env.eye.uz;
 
     // a little random offset from the spray can
     float r = 0.2*drand48();
-    x *= r;
-    y *= r;
-    z *= r;
 
     unsigned int i, pi, ci;
     for (i=0; i < 5 && env.pList.nParticles < env.maxParticles; i++)
@@ -174,13 +176,9 @@ void doSpray()
         env.pList.dest[pi+1] = env.pointer.y + yy;
         env.pList.dest[pi+2] = env.pointer.z + zz;
 
-        //env.pList.pos[pi+0] = env.eye.x/2 + xx + x;
-        //env.pList.pos[pi+1] = env.eye.y/2-4 + yy + y;
-        //env.pList.pos[pi+2] = env.eye.z/2 + zz + z;
-
-        env.pList.pos[pi+0] = env.eye.x/2 + x;
-        env.pList.pos[pi+1] = env.eye.y/2-4 + y;
-        env.pList.pos[pi+2] = env.eye.z/2 + z;
+        env.pList.pos[pi+0] = x;
+        env.pList.pos[pi+1] = y;
+        env.pList.pos[pi+2] = z;
 
         env.pList.vel[pi+0] = 
         env.pList.vel[pi+1] = 
@@ -252,7 +250,7 @@ void strafe(float v)
                     env.eye.ux, env.eye.uy, env.eye.uz, 1);
 
     //r = env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z;
-    double l = r0 * 10 * M_PI/180;
+    //double l = r0 * 10 * M_PI/180;
 
     xd *= v;
     yd *= v;
@@ -299,27 +297,29 @@ void on3DDrag(int x0, int y0, int z0)
 
         CROSS(xd,yd,zd, env.eye.x,  env.eye.y,  env.eye.z,
                         env.eye.ux, env.eye.uy, env.eye.uz, 1);
-        x += x1*xd;
-        y += x1*yd;
-        z += x1*zd;
+        x += xd*x1;
+        y += yd*x1;
+        z += zd*x1;
 
         NORM(xd,yd,zd, env.eye.ux, env.eye.uy, env.eye.uz);
-        x -= xd*z1;
+        x += xd*z1;
         y += yd*z1;
-        z -= zd*z1;
+        z += zd*z1;
 
         NORM(xd,yd,zd, env.eye.x, env.eye.y, env.eye.z);
         x -= xd*y1;
         y -= yd*y1;
         z -= zd*y1;
 
-        r = x*x + y*y + z*z;
+        r = sqrt(x*x + y*y + z*z);
+        double r0 = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+        r0 *= 0.4;
 
-        if (r > ENV_RADIUS)
+        if (r > r0)
         {
-            x /= r/ENV_RADIUS;
-            y /= r/ENV_RADIUS;
-            z /= r/ENV_RADIUS;
+            x /= r/r0;
+            y /= r/r0;
+            z /= r/r0;
         }
 
         env.pointer.x = x; //fminf(fmaxf(-1, env.pointer.x + x0 / 1000.0), 1);
@@ -385,7 +385,9 @@ void on3DDrag(int x0, int y0, int z0)
             }
         }
 
-        strafe(x1 * 10 * M_PI/180);
+        double r0 = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
+
+        strafe(x1*r0 * 10 * M_PI/180);
 
         //fprintf(stderr, "%f %f %f %f %f\n", r, l, xd, yd, zd);
 
@@ -401,7 +403,6 @@ void on3DDrag(int x0, int y0, int z0)
 
         //--------------------------------------------------------------------------------
 
-        double r0 = sqrt(env.eye.x*env.eye.x + env.eye.y*env.eye.y + env.eye.z*env.eye.z);
 
         xd = env.eye.ux;
         yd = env.eye.uy;
@@ -469,16 +470,58 @@ void onClick(int button, int state, int x, int y)
                         case BTN_INFO:
                             break;
                         case BTN_ENGLISH:
+                            if (env.showInfo == INFO_ENGLISH)
+                                env.showInfo = INFO_NONE;
+                            else
+                                env.showInfo = INFO_ENGLISH;
                             break;
                         case BTN_DEUTSCH:
+                            if (env.showInfo == INFO_DEUTSCH)
+                                env.showInfo = INFO_NONE;
+                            else
+                                env.showInfo = INFO_DEUTSCH;
                             break;
+                        case BTN_PLAY:
+                            client_start_simulation();
+                            env.sceneChanged = 1;
+                            break;
+                        case BTN_STOP:
+                            client_stop_simulation();
+                            env.sceneChanged = 1;
+                            break;
+                        case BTN_RESET:
+                            client_stop_simulation();
+                            clearParticles();
+                            env.sceneChanged = 1;
+                            env.eye.x = env.eye.ox = 0; 
+                            env.eye.y = env.eye.oy = 3;
+                            env.eye.z = env.eye.oz = 3;
+                            env.eye.ux = 0;
+                            env.eye.uy = 1;
+                            env.eye.uz = 0;
+                            break;
+
                         case BTN_DEMO1:
                             client_stop_simulation();
                             ic_sphere();
+                            env.sceneChanged = 1;
+                            env.eye.x = env.eye.ox = 0; 
+                            env.eye.y = env.eye.oy = 3;
+                            env.eye.z = env.eye.oz = 3;
+                            env.eye.ux = 0;
+                            env.eye.uy = 1;
+                            env.eye.uz = 0;
                             break;
                         case BTN_DEMO2:
                             client_stop_simulation();
                             ic_cold_sphere();
+                            env.sceneChanged = 1;
+                            env.eye.x = env.eye.ox = 0; 
+                            env.eye.y = env.eye.oy = 3;
+                            env.eye.z = env.eye.oz = 3;
+                            env.eye.ux = 0;
+                            env.eye.uy = 1;
+                            env.eye.uz = 0;
                             break;
                     }
                 }
@@ -530,6 +573,8 @@ void onKeyboard(unsigned char key, int x, int y)
         default: 
             break;
     }
+
+    env.sceneChanged = 1;
 }
 
 void onReshape(int width, int height) 
@@ -560,26 +605,15 @@ void onUpdate()
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    glMatrixMode(GL_MODELVIEW);             // Select The Modelview Matrix
     glLoadIdentity();                   // Reset The Modelview Matrix
 
 //    glutSwapBuffers();
 //    return;
 
-    if (0) //env.simStatus & SIM_RUNNING)
-    {
-        glRotatef(env.eye.roll, 0, 0, 1);
-        glRotatef(env.eye.pitch, 0, 1, 0);
-        glRotatef(env.eye.heading, 1, 0, 0);
-        glTranslated(env.eye.x, env.eye.y, -env.eye.z);
-        //glTranslatef(0, 0, -5);
-    }
-    else
-    {
-        gluLookAt(env.eye.x, env.eye.y, env.eye.z,  
-                  0.0, 0.0, 0.0,  
-                  env.eye.ux, env.eye.uy, env.eye.uz);  
-        //gluLookAt(env.eye.x, env.eye.y, env.eye.z,  0.0, 0.0, 0.0,  0.0, 1.0, 0.);
-    }
+    gluLookAt(env.eye.x, env.eye.y, env.eye.z,  
+              0.0, 0.0, 0.0,  
+              env.eye.ux, env.eye.uy, env.eye.uz);  
 
     //glColor4f(1,1,1,.5);
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE);
@@ -613,7 +647,7 @@ void onUpdate()
 
     if (env.simStatus == SIM_STOPPED)
     {
-        glDisable(GL_LIGHTING);
+        //glDisable(GL_LIGHTING);
         glPushMatrix();
 
         switch (env.background)
@@ -632,21 +666,23 @@ void onUpdate()
         glutWireSphere(.2, 15, 15);
 
         glPopMatrix();
+        //glEnable(GL_LIGHTING);
     }
 
-    glEnable (GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);                 // Enable light source
+    //glEnable (GL_BLEND);
+    //glEnable(GL_LIGHT0);                 // Enable light source
 
 #if 1
     GLfloat light_pos[] = {env.eye.x, env.eye.y, env.eye.z, 1};
 
-    GLfloat light_dir[] = {env.pointer.x-env.eye.x, env.pointer.y-env.eye.y, env.pointer.z-env.eye.z};
+    //GLfloat light_dir[] = {-env.eye.x, -env.eye.y, -env.eye.z};
+    //GLfloat light_amb[] = {0.7, 0.7, 0.7, 0.7};
+    //GLfloat light_dir[] = {env.pointer.x-env.eye.x, env.pointer.y-env.eye.y, env.pointer.z-env.eye.z};
     //GLfloat light_dir[] = {env.eye.x-env.pointer.x, env.eye.y-env.pointer.y, env.eye.z-env.pointer.z};
 
     glLightfv(GL_LIGHT0, GL_POSITION,       light_pos);
-    glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, light_dir);
+    //glLightfv(GL_LIGHT0, GL_AMBIENT, light_amb);
+    //glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, light_dir);
 
 #endif
 
@@ -688,46 +724,58 @@ void onUpdate()
 #endif
 
 #if 1
-    unsigned int pi=0, ci=0;
-    const float R = 0.02;
-    for (i=0; i < env.pList.nParticles; i++, pi+=3, ci+=4)
+    if (!env.sceneChanged)
     {
-        glPushMatrix();
-        glTranslatef(env.pList.pos[pi+0],env.pList.pos[pi+1],env.pList.pos[pi+2]);
-        //glColor4f(env.pList.clr[ci+0],env.pList.clr[ci+1],env.pList.clr[ci+2],env.pList.clr[ci+3]);
-        //glColor3f(env.pList.clr[ci+0],env.pList.clr[ci+1],env.pList.clr[ci+2]);
+        glCallList(scene);
+    } 
+    else
+    {
+        glNewList(scene, GL_COMPILE_AND_EXECUTE);
 
-        float r = fabsf(env.pList.vel[pi+0]); 
-        float g = fabsf(env.pList.vel[pi+1]); 
-        float b = fabsf(env.pList.vel[pi+2]); 
-
-
-        //if (r == 0 && g == 0 && b == 0)
-        if (i >= env.pList.movingParticleIndex)
+        unsigned int pi=0, ci=0;
+        const float R = 0.02;
+        for (i=0; i < env.pList.nParticles; i++, pi+=3, ci+=4)
         {
-            r = env.pList.clr[ci+0];
-            g = env.pList.clr[ci+1];
-            b = env.pList.clr[ci+2];
-        }
-        else
-        {
-            color_ramp_astro(&r, &g, &b);
-            //color_ramp_wrbb(&r, &g, &b);
-            //color_ramp_grey(&r, &g, &b);
-            //color_ramp_hot2cold(&r, &g, &b);
-        }
-        glColor4f(r, g, b, 0.7);
+            glPushMatrix();
+            glTranslatef(env.pList.pos[pi+0],env.pList.pos[pi+1],env.pList.pos[pi+2]);
+            //glColor4f(env.pList.clr[ci+0],env.pList.clr[ci+1],env.pList.clr[ci+2],env.pList.clr[ci+3]);
+            //glColor3f(env.pList.clr[ci+0],env.pList.clr[ci+1],env.pList.clr[ci+2]);
 
-        if (env.simStatus == SIM_RUNNING)
-        {
-        }
-        else
-        {
-            //glColor3fv(starColor);
+            float r = fabsf(env.pList.vel[pi+0]); 
+            float g = fabsf(env.pList.vel[pi+1]); 
+            float b = fabsf(env.pList.vel[pi+2]); 
+
+
+            //if (r == 0 && g == 0 && b == 0)
+            if (i >= env.pList.movingParticleIndex)
+            {
+                r = env.pList.clr[ci+0];
+                g = env.pList.clr[ci+1];
+                b = env.pList.clr[ci+2];
+            }
+            else
+            {
+                color_ramp_astro(&r, &g, &b);
+                //color_ramp_wrbb(&r, &g, &b);
+                //color_ramp_grey(&r, &g, &b);
+                //color_ramp_hot2cold(&r, &g, &b);
+            }
+            glColor4f(r, g, b, 0.7);
+
+            if (env.simStatus == SIM_RUNNING)
+            {
+            }
+            else
+            {
+                //glColor3fv(starColor);
+            }
+
+            glCallList(sphere);
+            glPopMatrix();
         }
 
-        glCallList(sphere);
-        glPopMatrix();
+        glEndList();
+        env.sceneChanged = 0;
     }
 #endif
 
@@ -752,12 +800,11 @@ void onUpdate()
         if (env.btns[i].img_up != NULL)
         {
             glRasterPos2i(env.screenWidth + env.btns[i].x, env.btns[i].y);
-            glPixelStoref(GL_UNPACK_ALIGNMENT, 4);
             if (env.btns[i].state == 1)
             {
                 glDrawPixels(env.btns[i].w,
                              env.btns[i].h,
-                             GL_RGB,
+                             GL_RGBA,
                              GL_UNSIGNED_BYTE, 
                              env.btns[i].img_down);
             }
@@ -765,19 +812,81 @@ void onUpdate()
             {
                 glDrawPixels(env.btns[i].w,
                              env.btns[i].h,
-                             GL_RGB,
+                             GL_RGBA,
                              GL_UNSIGNED_BYTE, 
                              env.btns[i].img_up);
             }
         }
     }
+
+    if (env.showInfo == INFO_ENGLISH)
+    {
+        glRasterPos2i((env.screenWidth-1024)/2, (env.screenHeight-768)/2);
+        glDrawPixels(1024,
+                     768,
+                     GL_RGBA,
+                     GL_UNSIGNED_BYTE, 
+                     env.info_english);
+    }
+    if (env.showInfo == INFO_DEUTSCH)
+    {
+        glRasterPos2i((env.screenWidth-1024)/2, (env.screenHeight-768)/2);
+        glDrawPixels(1024,
+                     768,
+                     GL_RGBA,
+                     GL_UNSIGNED_BYTE, 
+                     env.info_deutsch);
+    }
+
     
     //glEnable(GL_DEPTH_TEST);
     //glPopMatrix();
     
-    glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
-    glPopMatrix();
+
+//  glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
+//  glLoadIdentity();                   // Reset The Projection Matrix
+//  gluOrtho2D(0,env.screenWidth, 0, env.screenHeight);
+//  
+//  glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
+//  glLoadIdentity();                   // Reset The Projection Matrix
+
+    char text[256];
+    char *tp;
+    sprintf(text, "%5i / %i", env.pList.movingParticleIndex, env.maxParticles);
+
+    glDisable(GL_LIGHTING);
+    //glPushMatrix();
+    glColor3f(1,1,1);
+    glRasterPos2i(5,30);
+    for (tp = text; *tp != '\0'; tp++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *tp);
+        //glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *tp);
+        //glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *tp);
+    }
+
+    if (env.simStatus == SIM_RUNNING)
+    {
+        tp = "|/-\\";
+        glColor3f(1,1,1);
+        glRasterPos2i(5,15);
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, tp[env.currentTimestep % 4]);
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, ' ');
+        for (int i=0; i < env.maxTimesteps; i+=150)
+        {
+            if (i < env.currentTimestep)
+                glutBitmapCharacter(GLUT_BITMAP_9_BY_15, '|');
+            else
+                glutBitmapCharacter(GLUT_BITMAP_9_BY_15, '-');
+        }
+        glutBitmapCharacter(GLUT_BITMAP_9_BY_15, '|');
+    }
+    //glPopMatrix();
+    glEnable(GL_LIGHTING);
+
     glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
+    glPopMatrix();
+    glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
     glPopMatrix();
 
 
@@ -801,6 +910,7 @@ void onTimer(int value)
     if (env.simStatus == SIM_RUNNING)
     {
         client_load_next_frame();
+        env.sceneChanged = 1;
     }
     else if (env.simStatus != SIM_PAUSED)
     {
@@ -808,6 +918,7 @@ void onTimer(int value)
         unsigned int i, pi, ci;
         for (i=pl->movingParticleIndex; i < pl->nParticles; i++)
         {
+            env.sceneChanged = 1;
             pi = i * 3;
             ci = i * 4;
 
