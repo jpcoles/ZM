@@ -643,7 +643,7 @@ NSString* fatalErrorMessage;
 - (IBAction) toggleFullScreen: (id) sender
 {
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
-    SetSystemUIMode(kUIModeAllHidden, 0);
+    //SetSystemUIMode(kUIModeAllHidden, 0);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
 	[[self window] setBackgroundColor:[NSColor blackColor]];
 	return;
