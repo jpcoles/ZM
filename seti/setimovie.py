@@ -2,6 +2,7 @@ import matplotlib as mpl
 from matplotlib import rc
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
+from math import floor
 
 test = 0
 
@@ -56,7 +57,9 @@ if test:
     pl.ion()
 
 oc = None
-for i,t in enumerate(np.arange(qoffs+128*pt,nseconds, dt)):
+T = np.arange(0,nseconds, dt)
+#T = np.arange(qoffs+128*pt,nseconds, dt)
+for i,t in enumerate(T):
     f = pl.figure(figsize=fs, dpi=dpi, facecolor='k', edgecolor='k')
 
     #help(mpl)
@@ -76,16 +79,16 @@ for i,t in enumerate(np.arange(qoffs+128*pt,nseconds, dt)):
     pl.subplots_adjust(0.1,0.1,0.9,0.9)
 
 
-    #rc('ytick', color='k')
-    #rc('xtick', color='k')
+    rc('ytick', color='k')
+    rc('xtick', color='k')
     ax = f.add_subplot(223, projection='3d')
     ax.w_xaxis._AXINFO['x']['color'] = (0.4,0.4,0.4)
     ax.w_xaxis._AXINFO['y']['color'] = (0.4,0.4,0.4)
     ax.w_xaxis._AXINFO['z']['color'] = (0.4,0.4,0.4)
     ax.set_axis_bgcolor('k')
-    #ax.w_xaxis.set_major_locator(mpl.ticker.FixedLocator([-20]));
-    #ax.w_yaxis.set_major_locator(mpl.ticker.FixedLocator([20]));
-    #ax.w_zaxis.set_major_locator(mpl.ticker.FixedLocator([0]));
+    ax.w_xaxis.set_major_locator(mpl.ticker.FixedLocator([-20]));
+    ax.w_yaxis.set_major_locator(mpl.ticker.FixedLocator([20]));
+    ax.w_zaxis.set_major_locator(mpl.ticker.FixedLocator([0]));
     ax.w_zaxis.line.set_color((0,0,0))
     ax.w_xaxis.line.set_color((0,0,0))
     ax.w_yaxis.line.set_color((0,0,0))
@@ -111,7 +114,7 @@ for i,t in enumerate(np.arange(qoffs+128*pt,nseconds, dt)):
 
     ax.plot(cx,cy,cz, color='y', lw=1, alpha=1.0)
 
-    c = int((t-qoffs) / pt)
+    c = floor((t-qoffs) / pt)
     if oc is not None and c != oc:
         oc = c
         c = '#FFFFFF'
@@ -129,7 +132,7 @@ for i,t in enumerate(np.arange(qoffs+128*pt,nseconds, dt)):
     ax.set_ylim3d(xmin=-20,xmax=20)
     ax.set_zlim3d(xmin=0,xmax=40)
     pl.savefig('sm%05i.png' % i, facecolor='k')
-    print i
+    print '[%.3f/%.3f] [%i/%i]' % (t, T[-1], i, T.shape[0])
     #ax.w_xaxis._AXINFO['color'] = (0,0,0)
     if test:
         pl.draw()

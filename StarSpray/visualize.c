@@ -538,6 +538,7 @@ void onClick(int button, int state, int x, int y)
 
 void onKeyboard(unsigned char key, int x, int y)
 {
+    fprintf(stderr, "key %i\n", key);
     switch (key)
     {
 #ifdef KEY_CLEAR

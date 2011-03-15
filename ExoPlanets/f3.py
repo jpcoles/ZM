@@ -1,3 +1,4 @@
+import kiosk
 import matplotlib as mpl
 from matplotlib import rc
 from operator import add
@@ -248,7 +249,7 @@ def redraw():
 
 class HelpText(wx.StaticText):
     def __init__( self, parent, str, size, **kwargs ):
-        wx.StaticText.__init__( self, parent, size=(600,200), pos=(1350,65)) #, **kwargs )
+        wx.StaticText.__init__( self, parent, size=(600,240), pos=(1350,65)) #, **kwargs )
         self.Wrap(-1)
         font = wx.Font(size, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
         self.SetFont(font)
@@ -282,7 +283,7 @@ class HelpText(wx.StaticText):
 
 class PlanetInfoText(wx.StaticText):
     def __init__( self, parent, str, size, **kwargs ):
-        wx.StaticText.__init__( self, parent, label=str, size=(500,200), pos=(1350,140)) #, **kwargs )
+        wx.StaticText.__init__( self, parent, label=str, size=(500,200), pos=(1350,300)) #, **kwargs )
         #font = wx.Font(size, wx.SWISS, wx.NORMAL, wx.NORMAL)
         #font = wx.Font(size, wx.NORMAL, wx.SYS_SYSTEM_FIXED_FONT, wx.NORMAL, face='Krungthep')
         font = wx.Font(size, wx.NORMAL, wx.SYS_SYSTEM_FIXED_FONT, wx.NORMAL, face='Courier New Bold')
@@ -521,6 +522,7 @@ class EPFrame(wx.Frame):
 
     def __init__(self, parent, id, title, size):
         wx.Frame.__init__(self, parent, id, title, size=size, pos=(-350,-30))
+        self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         panelStyle = wx.SIMPLE_BORDER
         panelStyle = wx.DOUBLE_BORDER
@@ -549,12 +551,12 @@ class EPFrame(wx.Frame):
             sections.append(s)
 
         #CHbmp   = wx.Image('Buttons/buttons_deutsch_1.png', wx.BITMAP_TYPE_PNG).ConvertToBitmap()
-        CHbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_deutsch_1.png', wx.BITMAP_TYPE_PNG))
-        CHOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_deutsch_2.png', wx.BITMAP_TYPE_PNG))
-        ENbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_english_1.png', wx.BITMAP_TYPE_PNG))
-        ENOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_english_2.png', wx.BITMAP_TYPE_PNG))
-        Helpbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info_1.png',    wx.BITMAP_TYPE_PNG))
-        HelpOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info_2.png',    wx.BITMAP_TYPE_PNG))
+        CHbmp       = wx.BitmapFromImage(wx.Image('Buttons/buttons_deutsch.png', wx.BITMAP_TYPE_PNG))
+        CHOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_deutsch.png', wx.BITMAP_TYPE_PNG))
+        ENbmp       = wx.BitmapFromImage(wx.Image('Buttons/buttons_english.png', wx.BITMAP_TYPE_PNG))
+        ENOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_english.png', wx.BITMAP_TYPE_PNG))
+        Helpbmp     = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
+        HelpOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
 
         w,pnl,box = secCtrl = make_section(p, wx.HORIZONTAL, wx.NORTH)
 
@@ -564,17 +566,12 @@ class EPFrame(wx.Frame):
         bp = wx.Panel(p, -1, style=wx.NO_BORDER, size=(1920,1), pos=(0,1080-50))
         bp.SetBackgroundColour('#222222')
 
-        #CHbutton   = wx.BitmapButton(pnl, -1, CHbmp,   style=wx.BU_EXACTFIT, size=(120,40))
-        CHbutton = gbuttons.GenBitmapButton(p, -1, CHbmp, style=wx.NO_BORDER,size=(120,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
-        #CHbutton = platebtn.PlateButton(p, -1, "", CHbmp, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
-        #ENbutton   = wx.BitmapButton(p, -1, ENbmp,   style=wx.BU_EXACTFIT, size=(120,40))
-        ENbutton = gbuttons.GenBitmapButton(p, -1, ENbmp, style=wx.NO_BORDER,size=(120,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
-        Helpbutton = platebtn.PlateButton(p, -1, "", Helpbmp, style=platebtn.PB_STYLE_DEFAULT, size=(40,40))
-        #Helpbutton = platebtn.PlateButton(p, -1, Helpbmp, style=wx.BU_EXACTFIT, size=(40,40))
-        Helpbutton.SetPressColor(wx.RED)
-        #CHbutton.SetPressColor(wx.RED)
+        CHbutton   = gbuttons.GenBitmapButton(p, -1, CHbmp,   style=wx.NO_BORDER,size=(120,40))
+        ENbutton   = gbuttons.GenBitmapButton(p, -1, ENbmp,   style=wx.NO_BORDER,size=(120,40))
+        Helpbutton = gbuttons.GenBitmapButton(p, -1, Helpbmp, style=wx.NO_BORDER,size=(40,40))
         CHbutton.SetBitmapSelected(CHOverbmp)
         ENbutton.SetBitmapSelected(ENOverbmp)
+        Helpbutton.SetBitmapSelected(HelpOverbmp)
         print CHbutton.GetSize()
 
         Helpbutton.SetBitmapSelected(HelpOverbmp)
@@ -650,6 +647,9 @@ class EPFrame(wx.Frame):
             if lang != 'english': 
                 lang = 'english'
                 redraw()
+
+    def OnQuit(self, event):
+        print 'Quit from keyboard disabled.'
 
 class EPApp(wx.App):
 
