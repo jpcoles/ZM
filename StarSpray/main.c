@@ -11,6 +11,7 @@
 #include "io.h"
 #include "display.h"
 #include "starspray.h"
+#include "kiosk.h"
 #if defined(HAVE_GPU) && defined(HAVE_NVIDIA_GPU)
 #include "nvidia.h"
 #endif
@@ -191,6 +192,7 @@ int main(int argc, char **argv)
     }
 #endif
 
+    kiosk();
     display_start(argc, argv); // never returns
 
     return 0;

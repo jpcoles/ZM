@@ -13,13 +13,13 @@ OBJS			 = 	main.o client.o \
 	 			display.o visualize.o \
 		 		simulator-local.o io.o \
 		 		color_ramp.o net.o \
-		 		tipsyio.o ic.o
+		 		tipsyio.o ic.o kiosk.o
 HDRS			 = 	client.h color_ramp.h \
 		 		display.h io.h keys.h \
 		 		net.h server.h \
 		 		simulation.h simulator.h \
 		 		starspray.h tipsyio.h \
-		 		visualize.h ic.h
+		 		visualize.h ic.h kiosk.h
 
 SVR_OBJS		 = 	net.o
 SVR_CXXOBJS		 =	server.o tipsyio.o
@@ -39,6 +39,7 @@ LIBS			+= 	-ltipsy -lpng
 
 ifeq ($(PLATFORM), Darwin)
 LDFLAGS 		+= 	-framework OpenGL -framework GLUT -framework ApplicationServices
+LDFLAGS			+= 	-framework Carbon
 LIBS 		 	+= 	-lpthread 
 endif
 

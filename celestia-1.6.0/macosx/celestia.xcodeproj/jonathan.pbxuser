@@ -149,6 +149,9 @@
 			AB9588FC132FD12300F446D7 /* PBXTextBookmark */ = AB9588FC132FD12300F446D7 /* PBXTextBookmark */;
 			AB9588FF132FD12300F446D7 /* PBXTextBookmark */ = AB9588FF132FD12300F446D7 /* PBXTextBookmark */;
 			AB958900132FD12300F446D7 /* PBXTextBookmark */ = AB958900132FD12300F446D7 /* PBXTextBookmark */;
+			AB958902132FE18900F446D7 /* PBXTextBookmark */ = AB958902132FE18900F446D7 /* PBXTextBookmark */;
+			AB958903132FE18900F446D7 /* PBXTextBookmark */ = AB958903132FE18900F446D7 /* PBXTextBookmark */;
+			AB958904132FE18900F446D7 /* PBXTextBookmark */ = AB958904132FE18900F446D7 /* PBXTextBookmark */;
 			ABCFBFB112BE16160066D908 = ABCFBFB112BE16160066D908 /* PBXTextBookmark */;
 			ABCFBFB312BE16160066D908 = ABCFBFB312BE16160066D908 /* PBXTextBookmark */;
 			ABCFBFB412BE16160066D908 = ABCFBFB412BE16160066D908 /* PBXTextBookmark */;
@@ -877,7 +880,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 646";
 		rLen = 0;
-		rLoc = 19948;
+		rLoc = 20122;
 		rType = 0;
 		vrLen = 1316;
 		vrLoc = 19490;
@@ -893,6 +896,36 @@
 		vrLoc = 20254;
 	};
 	AB958900132FD12300F446D7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0E02A484DA014901DC /* CelestiaController.h */;
+		name = "CelestiaController.h: 34";
+		rLen = 18;
+		rLoc = 840;
+		rType = 0;
+		vrLen = 2002;
+		vrLoc = 142;
+	};
+	AB958902132FE18900F446D7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 646";
+		rLen = 0;
+		rLoc = 19928;
+		rType = 0;
+		vrLen = 1155;
+		vrLoc = 19348;
+	};
+	AB958903132FE18900F446D7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 632";
+		rLen = 0;
+		rLoc = 19561;
+		rType = 0;
+		vrLen = 2547;
+		vrLoc = 19886;
+	};
+	AB958904132FE18900F446D7 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F5040B0E02A484DA014901DC /* CelestiaController.h */;
 		name = "CelestiaController.h: 34";
@@ -1173,7 +1206,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 646";
 		rLen = 0;
-		rLoc = 19948;
+		rLoc = 20122;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 19496;
@@ -1437,9 +1470,9 @@
 	};
 	F5040B0F02A484DA014901DC /* CelestiaController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1153, 12389}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1153, 12324}}";
 			sepNavSelRange = "{19561, 0}";
-			sepNavVisRange = "{20254, 2733}";
+			sepNavVisRange = "{19886, 2547}";
 			sepNavWindowFrame = "{{124, 0}, {1212, 1028}}";
 		};
 	};

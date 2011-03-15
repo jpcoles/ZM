@@ -642,8 +642,15 @@ NSString* fatalErrorMessage;
 /* Full screen toggle method. Uses a borderless window that covers the screen so that context menus continue to work. */
 - (IBAction) toggleFullScreen: (id) sender
 {
+	options = kUIOptionDisableAppleMenu
+			//| kUIOptionDisableProcessSwitch
+			| kUIOptionDisableForceQuit
+			| kUIOptionDisableSessionTerminate
+			| kUIOptionDisableHide
+	;
+	
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
-    //SetSystemUIMode(kUIModeAllHidden, 0);
+    //SetSystemUIMode(kUIModeAllHidden, options);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
 	[[self window] setBackgroundColor:[NSColor blackColor]];
 	return;
