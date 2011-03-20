@@ -101,17 +101,22 @@ class MovieInfoText(wx.StaticText):
             self.SetLabel('')
 
 class HelpText(wx.StaticText):
-    def __init__( self, parent, str, size, **kwargs ):
-        wx.StaticText.__init__( self, parent, size=(600,100), pos=(1350,65)) #, **kwargs )
+    def __init__( self, parent, str, size, pos, **kwargs ):
+        self.str = str
+        wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
         self.Wrap(-1)
-        font = wx.Font(size, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
+        font = wx.Font(20, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
+        #font = wx.Font(22, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
         self.SetFont(font)
         self.SetForegroundColour('WHITE')
         self.SetBackgroundColour('BLACK')
         self.draw(force=True)
 
+    def select(self, index):
+        pass
+
     def draw(self, force=False):
-        self.SetLabel(_(INFOTEXT))
+        self.SetLabel(_(self.str))
 
 def mybox(p, x,y,w,h, c):
     j = wx.Panel(p, -1, style=wx.NO_BORDER, size=(w,1), pos=(x,y))
@@ -138,7 +143,7 @@ class PCFrame(wx.Frame):
     def __init__(self, parent, id, title, size):
         #wx.Frame.__init__(self, parent, id, title, size=size, pos=(0,0))
         wx.Frame.__init__(self, parent, id, title, size=size, pos=(-350,-30))
-        self.Bind(wx.EVT_CLOSE, self.OnQuit)
+        #self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         panelStyle = wx.SIMPLE_BORDER
         panelStyle = wx.DOUBLE_BORDER
@@ -196,11 +201,7 @@ class PCFrame(wx.Frame):
         #self.Bind(wx.EVT_BUTTON, self.OnButton, ENbutton)
         #self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
 
-        HelpText(p,
-                'Explore the exoplanets that have been found so far. These plots are kept up to date with the latest discoveries!\n\n',
-                #'Click on the plots at the bottom of the screen to see different relations.\n\n'
-                #'Click on a point in the main plot to show information about that planet.',
-                22)
+        HelpText(p, INFOTEXT, (600,100), (1350,65))
 
         self.info_text = MovieInfoText(p, '', 20)
         self.info_text.SetBackgroundColour('BLACK')
