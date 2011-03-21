@@ -113,6 +113,12 @@ class Simulation
     void setFrame(ObserverFrame::CoordinateSystem, const Selection& refObject);
     const ObserverFrame* getFrame() const;
 
+	void setLanguage(int l);
+	int  getLanguage();
+	
+	void setMode(int m);
+	int getMode();
+	
  private:
     SolarSystem* getSolarSystem(const Star* star);
 
@@ -132,6 +138,9 @@ class Simulation
 
     float faintestVisible;
     bool pauseState;
+	
+	int language;
+	int mode;
 };
 
 #endif // _CELENGINE_SIMULATION_H_

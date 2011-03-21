@@ -17,6 +17,13 @@
     NSDateFormatter *zeroFormat;
 #endif
     BOOL setupDone;
+	
+	IBOutlet NSTextField *dateFieldLabel;
+	IBOutlet NSTextField *dateFormatLabel;
+    IBOutlet NSTextField *timeFieldLabel;
+	IBOutlet NSTextField *timeFormatLabel;
 }
 - (IBAction)setTime:(id)sender;
+- (IBAction)showWindow:(id)sender;
+
 @end

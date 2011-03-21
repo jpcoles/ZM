@@ -639,10 +639,87 @@ NSString* fatalErrorMessage;
 	[appCore cancelScript];
 }
 
+- (IBAction) setDeutsch: (id) sender
+{
+	[[appCore simulation] setLanguage:0];
+	[btnObjBrowser setImage:[NSImage imageNamed:@"buttons_objekt_auswahl.png"]];
+	[btnGotoObject setImage:[NSImage imageNamed:@"buttons_geh_zu_objekt.png"]];
+	[btnSetTime setImage:[NSImage imageNamed:@"buttons_tag_zeit.png"]];
+	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_experten_modus.png"]];
+	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_einfacher_modus.png"]];	
+}
+		   
+- (IBAction) setEnglish: (id) sender
+{
+	[[appCore simulation] setLanguage:1];
+	[btnObjBrowser setImage:[NSImage imageNamed:@"buttons_object_browser.png"]];
+	[btnGotoObject setImage:[NSImage imageNamed:@"buttons_go_to_object.png"]];
+	[btnSetTime setImage:[NSImage imageNamed:@"buttons_set_time.png"]];
+	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_expert_mode.png"]];
+	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_simple_mode.png"]];
+}
+
+- (IBAction) setExpertMode: (id) sender
+{
+	[self setEnglish:nil];
+
+	[[appCore simulation] setMode:1];
+	[btnReset setHidden:YES];
+	[btnPlay setHidden:YES];
+	[btnStop setHidden:YES];
+	[btnObjBrowser setHidden:YES];
+	[btnGotoObject setHidden:YES];
+	[btnSetTime setHidden:YES];
+	
+	int options = kUIOptionDisableAppleMenu
+	//| kUIOptionDisableProcessSwitch
+	| kUIOptionDisableForceQuit
+	| kUIOptionDisableSessionTerminate
+	| kUIOptionDisableHide
+	;
+	
+	[[self window] setStyleMask: NSBorderlessWindowMask]; 
+	SetSystemUIMode(kUIModeContentHidden, options);
+	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
+}
+
+- (IBAction) setNoviceMode: (id) sender
+{
+	[[appCore simulation] setMode:0];
+	[btnReset setHidden:NO];
+	[btnPlay setHidden:NO];
+	[btnStop setHidden:NO];
+	[btnObjBrowser setHidden:NO];
+	[btnGotoObject setHidden:NO];
+	[btnSetTime setHidden:NO];
+	
+	int options = kUIOptionDisableAppleMenu
+	//| kUIOptionDisableProcessSwitch
+	| kUIOptionDisableForceQuit
+	| kUIOptionDisableSessionTerminate
+	| kUIOptionDisableHide
+	;
+	
+	[[self window] setStyleMask: NSBorderlessWindowMask]; 
+    SetSystemUIMode(kUIModeAllHidden, options);
+	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
+	
+}
+
+
 /* Full screen toggle method. Uses a borderless window that covers the screen so that context menus continue to work. */
 - (IBAction) toggleFullScreen: (id) sender
 {
-	options = kUIOptionDisableAppleMenu
+	[self setDeutsch:nil];
+	[self setNoviceMode:nil];
+
+	[[self window] setStyleMask: NSBorderlessWindowMask]; 
+	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
+	[[self window] setBackgroundColor:[NSColor blackColor]];
+	
+	return;
+	
+	int options = kUIOptionDisableAppleMenu
 			//| kUIOptionDisableProcessSwitch
 			| kUIOptionDisableForceQuit
 			| kUIOptionDisableSessionTerminate

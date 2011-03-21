@@ -13,6 +13,11 @@
     IBOutlet NSTextField *longitudeField;
     IBOutlet NSTextField *objectField;
     IBOutlet NSPopUpButton *unitsButton;
+	
+	IBOutlet NSTextField *distanceFieldLabel;
+    IBOutlet NSTextField *latitudeFieldLabel;
+    IBOutlet NSTextField *longitudeFieldLabel;
+    IBOutlet NSTextField *objectFieldLabel;
 }
 - (IBAction)gotoObject:(id)sender;
 - (IBAction)showWindow:(id)sender;

@@ -25,7 +25,9 @@ Simulation::Simulation(Universe* _universe) :
     closestSolarSystem(NULL),
     selection(),
     faintestVisible(5.0f),
-    pauseState(false)
+    pauseState(false),
+	language(0),
+	mode(0)
 {
     activeObserver = new Observer();
     observers.insert(observers.end(), activeObserver);
@@ -555,3 +557,24 @@ SolarSystem* Simulation::getNearestSolarSystem() const
 {
     return closestSolarSystem;
 }
+
+void Simulation::setLanguage(int l)
+{
+	language = l;
+}
+
+int Simulation::getLanguage()
+{
+	return language;
+}
+
+void Simulation::setMode(int m)
+{
+	mode = m;
+}
+
+int Simulation::getMode()
+{
+	return mode;
+}
+

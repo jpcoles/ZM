@@ -41,6 +41,24 @@
         [objectField setStringValue:[body name]];
         [unitsButton selectItemAtIndex:UNITS_KM];
     }
+	
+	if ([sim getLanguage])
+	{
+		[distanceFieldLabel setStringValue:@"Distance:"];
+		[latitudeFieldLabel setStringValue:@"Latitude:"];
+		[longitudeFieldLabel setStringValue:@"Longitude:"];
+		[objectFieldLabel setStringValue:@"Object:"];
+
+	}
+	else
+	{
+		[distanceFieldLabel setStringValue:@"Distanz:"];
+		[latitudeFieldLabel setStringValue:@"Breitengrad:"];
+		[longitudeFieldLabel setStringValue:@"Längengrad:"];
+		[objectFieldLabel setStringValue:@"Objekt:"];
+		
+	}
+	
 	[[self window] setLevel:NSFloatingWindowLevel];
     [super showWindow:sender];
 }

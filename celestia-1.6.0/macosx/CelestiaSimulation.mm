@@ -228,4 +228,24 @@ FrameOfReference getFrame() const;
     [self simulation]->setFrame((ObserverFrame::CoordinateSystem)[[Astro coordinateSystem:cs] intValue], [sel selection]);
 }
 
+-(void)setLanguage:(int)l
+{
+	[self simulation]->setLanguage(l);
+}
+
+-(int)getLanguage
+{
+	return [self simulation]->getLanguage();
+}
+
+-(void)setMode:(int)m
+{
+	[self simulation]->setMode(m);
+}
+
+-(int)getMode
+{
+	return [self simulation]->getMode();
+}
+
 @end

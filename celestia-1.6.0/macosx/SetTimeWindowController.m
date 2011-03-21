@@ -23,7 +23,8 @@
 #if MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_4
     dateTimeFormat = [[NSDateFormatter alloc] init];
     [ dateTimeFormat setFormatterBehavior: NSDateFormatterBehavior10_4 ];
-    [ dateTimeFormat setDateFormat: @"MM/dd/uuuu HH:mm:ss" ];
+    [ dateTimeFormat setDateFormat: @"dd/MM/uuuu HH:mm:ss" ];
+
     // uuuu handles -ve (BCE) years
     // 1 BCE = 0 (not -1)
     // Reference: Unicode Technical Standard #35
@@ -209,9 +210,15 @@
         }
         else
         {
-            NSRunAlertPanel(NSLocalizedString(@"Improper Date or Time Format",@""),
-                            NSLocalizedString(@"Please enter the date as \"mm/dd/yyyy\" and the time as \"hh:mm:ss\".",@""),
-                            nil,nil,nil);
+			if ([[[CelestiaAppCore sharedAppCore] simulation] getLanguage])
+				NSRunAlertPanel(NSLocalizedString(@"Improper Date or Time Format",@""),
+								NSLocalizedString(@"Please enter the date as \"DD/MM/YYYY\" and the time as \"HH:MM:SS\".",@""),
+								nil,nil,nil);
+			else
+				NSRunAlertPanel(NSLocalizedString(@"Falsch Datum und Zeit Format",@""),
+								NSLocalizedString(@"Bitte benutzen Sie \"TT/MM/JJJJ\" und \"HH:MM:SS\".",@""),
+								nil,nil,nil);
+			
         }
     }
     else if (jdField == sender)
@@ -236,5 +243,27 @@
             }
         }
     }
+}
+
+- (IBAction)showWindow:(id)sender
+{
+		if ([[[CelestiaAppCore sharedAppCore] simulation] getLanguage])
+	{
+		[dateFieldLabel setStringValue:@"Date:"];
+		[dateFormatLabel setStringValue:@"DD/MM/YYYY"];
+		[timeFieldLabel setStringValue:@"Time:"];
+		[timeFormatLabel setStringValue:@"HH:MM"];
+	}
+	else
+	{
+		[dateFieldLabel setStringValue:@"Datum:"];
+		[dateFormatLabel setStringValue:@"TT/MM/JJJJ"];
+		[timeFieldLabel setStringValue:@"Zeit:"];
+		[timeFormatLabel setStringValue:@"HH:MM"];
+		
+	}
+		
+	[[self window] setLevel:NSFloatingWindowLevel];
+    [super showWindow:sender];
 }
 @end

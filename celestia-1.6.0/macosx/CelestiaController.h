@@ -47,6 +47,16 @@
     NSString* lastScript;
     NSString *pendingScript;
     NSString *pendingUrl;
+	
+	IBOutlet NSButton *btnReset;
+	IBOutlet NSButton *btnPlay;
+	IBOutlet NSButton *btnStop;
+	IBOutlet NSButton *btnObjBrowser;
+	IBOutlet NSButton *btnGotoObject;
+	IBOutlet NSButton *btnSetTime;
+	IBOutlet NSButton *btnExpertMode;
+	IBOutlet NSButton *btnNoviceMode;
+
 }
 
 - (IBAction) stopDemo: (id) sender;
@@ -84,4 +94,11 @@
 -(IBAction)activateMenuItem:(id)item;
 
 -(void)showHelp:(id)sender;
+
+- (IBAction) setDeutsch: (id) sender;
+- (IBAction) setEnglish: (id) sender;
+- (IBAction) setExpertMode: (id) sender;
+- (IBAction) setNoviceMode: (id) sender;
+
+
 @end

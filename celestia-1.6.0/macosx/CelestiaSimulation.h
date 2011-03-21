@@ -53,4 +53,9 @@
 -(void)setObserverMode:(NSString*)m;
 -(NSString*)observerMode;
 -(void)setFrame:(NSString*)cs selection:(CelestiaSelection*)sel;
+-(void)setLanguage:(int)l;
+-(int)getLanguage;
+-(void)setMode:(int)m;
+-(int)getMode;
+
 @end
