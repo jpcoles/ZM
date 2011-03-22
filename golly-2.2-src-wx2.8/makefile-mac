@@ -82,7 +82,7 @@ LDFLAGS = -isysroot /Developer/SDKs/MacOSX10.6.sdk -arch i386 \
 CXXBASE = -isysroot /Developer/SDKs/MacOSX10.6.sdk -arch i386 \
    -DVERSION=$(APP_VERSION) -DZLIB -O5 -Wall -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor \
    -fno-strict-aliasing -fno-common
-LDBASE = -isysroot /Developer/SDKs/MacOSX10.6.sdk -arch i386 -lz
+LDBASE = -isysroot /Developer/SDKs/MacOSX10.6.sdk -arch i386 -lz -framework Carbon
 
 EXTRALIBS = -lz -lpthread -liconv
 #!!! OpenGL is required for wxMac-2.8.8
@@ -91,7 +91,7 @@ EXTRALIBS_GUI = -framework WebKit #!!! -framework OpenGL
 OBJDIR = ObjMac
 BASEH = bigint.h ghashbase.h hlifealgo.h jvnalgo.h lifealgo.h lifepoll.h \
    liferender.h liferules.h platform.h qlifealgo.h readpattern.h \
-   util.h viewport.h writepattern.h ruletreealgo.h generationsalgo.h ruletable_algo.h
+   util.h viewport.h writepattern.h ruletreealgo.h generationsalgo.h ruletable_algo.h kiosk.h
 BASEOBJ = $(OBJDIR)/bigint.o $(OBJDIR)/lifealgo.o $(OBJDIR)/hlifealgo.o \
    $(OBJDIR)/hlifedraw.o $(OBJDIR)/qlifealgo.o $(OBJDIR)/qlifedraw.o \
    $(OBJDIR)/jvnalgo.o $(OBJDIR)/ruletreealgo.o \
@@ -99,7 +99,7 @@ BASEOBJ = $(OBJDIR)/bigint.o $(OBJDIR)/lifealgo.o $(OBJDIR)/hlifealgo.o \
    $(OBJDIR)/ghashbase.o $(OBJDIR)/ghashdraw.o $(OBJDIR)/readpattern.o \
    $(OBJDIR)/writepattern.o $(OBJDIR)/liferules.o $(OBJDIR)/util.o \
    $(OBJDIR)/liferender.o $(OBJDIR)/viewport.o $(OBJDIR)/lifepoll.o \
-   $(OBJDIR)/generationsalgo.o
+   $(OBJDIR)/generationsalgo.o $(OBJDIR)/kiosk.o
 WXH = wxalgos.h wxedit.h wxgolly.h wxhelp.h wxinfo.h wxlayer.h wxmain.h \
    wxperl.h wxprefs.h wxpython.h wxrender.h wxrule.h wxscript.h wxselect.h wxstatus.h \
    wxtimeline.h wxundo.h wxutils.h wxview.h
@@ -289,6 +289,9 @@ $(OBJDIR)/wxmain.o: wxmain.cpp
 
 $(OBJDIR)/wxgolly.o: wxgolly.cpp
 	$(CXXC) $(CXXFLAGS) -c -o $@ wxgolly.cpp
+
+$(OBJDIR)/kiosk.o: kiosk.c
+	$(CXXC) $(CXXFLAGS) -c -o $@ kiosk.c
 
 srcdist:
 	-rm -rf $(RELEASENAME)-src

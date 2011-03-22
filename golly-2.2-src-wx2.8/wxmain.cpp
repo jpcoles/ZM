@@ -56,6 +56,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "wxtimeline.h"    // for CreateTimelineBar, TimelineExists, etc
 #include "wxmain.h"
 
+#include "kiosk.h"
+
 #ifdef __WXMAC__
    #include <Carbon/Carbon.h>    // for GetCurrentProcess, etc
 #endif
@@ -2674,6 +2676,8 @@ MainFrame::MainFrame()
    generating = false;        // not generating pattern
    fullscreen = false;        // not in full screen mode
    showbanner = true;         // avoid first file clearing banner message
+
+   kiosk();
 }
 
 // -----------------------------------------------------------------------------
