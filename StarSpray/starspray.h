@@ -40,14 +40,20 @@ extern "C" {
 #define MSG_LENSING 2
 #define MSG_STILL_PRINTING 3
 
-#define BTN_INFO        0
-#define BTN_ENGLISH     1
-#define BTN_DEUTSCH     2
-#define BTN_DEMO1       3
-#define BTN_DEMO2       4
-#define BTN_PLAY        5
-#define BTN_STOP        6
-#define BTN_RESET       7
+#define WITH_BUTTONS 0
+
+#define BTN_ENGLISH_INFO    97
+#define BTN_DEUTSCH_INFO    113
+#define BTN_INFO_CLOSE      0
+#define BTN_DEMO1           100
+#define BTN_DEMO2           101
+#define BTN_DEMO3           102
+#define BTN_DEMO4           103
+#define BTN_DEMO5           104
+#define BTN_DEMO6           105
+#define BTN_PLAY            119
+#define BTN_STOP            50
+#define BTN_RESET           115
 
 #define INFO_NONE       0
 #define INFO_ENGLISH    1
@@ -142,8 +148,10 @@ typedef struct
     int message_time;
     JSAMPROW message_image;; 
 
+#if WITH_BUTTONS
     int nButtons;
     ButtonImage *btns;
+#endif
 
     int sceneChanged;
 

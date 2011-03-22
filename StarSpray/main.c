@@ -133,19 +133,20 @@ int main(int argc, char **argv)
     env.frame_buffer     = (JSAMPROW)MALLOC(char, env.screenWidth * env.screenHeight * 4); assert(env.frame_buffer     != NULL);
     env.message_image    = (JSAMPROW)MALLOC(char, env.screenWidth * env.screenHeight * 3); assert(env.message_image    != NULL);
 
+#if WITH_BUTTONS
     int o=40;
     int s=10;
 #define O(x) (o+=x+s,-o)
     ButtonImage btns[] = 
         { 
-          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    -(o),   8, 0,0, NULL,NULL, 0, BTN_INFO},
-          {"Buttons/buttons_english.png", "Buttons/buttons_english.png", O(120), 8, 0,0, NULL,NULL, 0, BTN_ENGLISH},
-          {"Buttons/buttons_deutsch.png", "Buttons/buttons_deutsch.png", O(120), 8, 0,0, NULL,NULL, 0, BTN_DEUTSCH},
-          {"Buttons/buttons_zurueck.png", "Buttons/buttons_zurueck.png", O(80),  8, 0,0, NULL,NULL, 0, BTN_RESET},
-          {"Buttons/buttons_stopp.png",   "Buttons/buttons_stopp.png",   O(80),  8, 0,0, NULL,NULL, 0, BTN_STOP},
-          {"Buttons/buttons_start.png",   "Buttons/buttons_start.png",   O(40),  8, 0,0, NULL,NULL, 0, BTN_PLAY},
-          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(120), 8, 0,0, NULL,NULL, 0, BTN_DEMO1},
-          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(40), 8, 0,0, NULL,NULL, 0, BTN_DEMO2},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    -(o),   10, 0,0, NULL,NULL, 0, BTN_INFO},
+          {"Buttons/buttons_english.png", "Buttons/buttons_english.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_ENGLISH},
+          {"Buttons/buttons_deutsch.png", "Buttons/buttons_deutsch.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_DEUTSCH},
+          {"Buttons/buttons_zurueck.png", "Buttons/buttons_zurueck.png", O(80),  10, 0,0, NULL,NULL, 0, BTN_RESET},
+          {"Buttons/buttons_stopp.png",   "Buttons/buttons_stopp.png",   O(80),  10, 0,0, NULL,NULL, 0, BTN_STOP},
+          {"Buttons/buttons_start.png",   "Buttons/buttons_start.png",   O(40),  10, 0,0, NULL,NULL, 0, BTN_PLAY},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(120), 10, 0,0, NULL,NULL, 0, BTN_DEMO1},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    O(40),  10, 0,0, NULL,NULL, 0, BTN_DEMO2},
           //{"CHlang2.png", 1920-40, 0, 0,0,0}
         };
 
@@ -162,6 +163,7 @@ int main(int argc, char **argv)
         load_png_image(env.btns[i].fname_up,   &env.btns[i].img_up,   &env.btns[i].h, &env.btns[i].w);
         load_png_image(env.btns[i].fname_down, &env.btns[i].img_down, &env.btns[i].h, &env.btns[i].w);
     }
+#endif
 
     int h,w;
     load_png_image("info_english.png", &env.info_english, &h, &w);

@@ -129,6 +129,7 @@ void viz_init()
     //glPixelStorei(GL_PACK_ALIGNMENT, 1);
 }
 
+#if WITH_BUTTONS
 int inButton(int i, int x, int y)
 {
     int in = 0;
@@ -146,6 +147,7 @@ int inButton(int i, int x, int y)
 
     return in;
 }
+#endif
 
 void doSpray()
 {
@@ -219,8 +221,10 @@ void on2DDrag(int x0, int y0)
     oldx = x;
     oldz = z;
 
+#if WITH_BUTTONS
     for (int i=0; i < env.nButtons; i++)
         env.btns[i].state &= inButton(i, x0, y0);
+#endif
 }
 
 #define DOT(x0,y0,z0, x1,y1,z1) ((x0)*(x1) + (y0)*(y1) + (z0)*(z1))
@@ -453,8 +457,21 @@ void on3DRotate(int rx0, int ry0, int rz0)
 }
 #endif
 
+#define runIC(f) do { \
+    client_stop_simulation(); \
+    f; \
+    env.sceneChanged = 1; \
+    env.eye.x = env.eye.ox = 0;  \
+    env.eye.y = env.eye.oy = 3; \
+    env.eye.z = env.eye.oz = 3; \
+    env.eye.ux = 0; \
+    env.eye.uy = 1; \
+    env.eye.uz = 0; \
+} while(0)
+
 void onClick(int button, int state, int x, int y) 
 {
+#if WITH_BUTTONS
     for (int i=0; i < env.nButtons; i++)
     {
         if (inButton(i, x, y))
@@ -490,38 +507,26 @@ void onClick(int button, int state, int x, int y)
                             env.sceneChanged = 1;
                             break;
                         case BTN_RESET:
-                            client_stop_simulation();
-                            clearParticles();
-                            env.sceneChanged = 1;
-                            env.eye.x = env.eye.ox = 0; 
-                            env.eye.y = env.eye.oy = 3;
-                            env.eye.z = env.eye.oz = 3;
-                            env.eye.ux = 0;
-                            env.eye.uy = 1;
-                            env.eye.uz = 0;
+                            runIC(clearParticles())
                             break;
 
                         case BTN_DEMO1:
-                            client_stop_simulation();
-                            ic_sphere();
-                            env.sceneChanged = 1;
-                            env.eye.x = env.eye.ox = 0; 
-                            env.eye.y = env.eye.oy = 3;
-                            env.eye.z = env.eye.oz = 3;
-                            env.eye.ux = 0;
-                            env.eye.uy = 1;
-                            env.eye.uz = 0;
+                            runIC(ic_sphere());
                             break;
                         case BTN_DEMO2:
-                            client_stop_simulation();
-                            ic_cold_sphere();
-                            env.sceneChanged = 1;
-                            env.eye.x = env.eye.ox = 0; 
-                            env.eye.y = env.eye.oy = 3;
-                            env.eye.z = env.eye.oz = 3;
-                            env.eye.ux = 0;
-                            env.eye.uy = 1;
-                            env.eye.uz = 0;
+                            runIC(ic_cold_sphere());
+                            break;
+                        case BTN_DEMO3:
+                            runIC(ic_cold_sphere());
+                            break;
+                        case BTN_DEMO4:
+                            runIC(ic_cold_sphere());
+                            break;
+                        case BTN_DEMO5:
+                            runIC(ic_cold_sphere());
+                            break;
+                        case BTN_DEMO6:
+                            runIC(ic_cold_sphere());
                             break;
                     }
                 }
@@ -534,10 +539,12 @@ void onClick(int button, int state, int x, int y)
             env.btns[i].state = 0;
         }
     }
+#endif
 }
 
 void onKeyboard(unsigned char key, int x, int y)
 {
+#if 0
     fprintf(stderr, "key %i\n", key);
     switch (key)
     {
@@ -572,6 +579,69 @@ void onKeyboard(unsigned char key, int x, int y)
 #endif
 
         default: 
+            break;
+    }
+#endif
+
+    fprintf(stderr, "key %i\n", key);
+    switch (key)
+    {
+        case BTN_INFO_CLOSE:
+            env.showInfo = INFO_NONE;
+            break;
+        case BTN_ENGLISH_INFO:
+            if (env.showInfo == INFO_ENGLISH)
+                env.showInfo = INFO_NONE;
+            else
+                env.showInfo = INFO_ENGLISH;
+            break;
+        case BTN_DEUTSCH_INFO:
+            if (env.showInfo == INFO_DEUTSCH)
+                env.showInfo = INFO_NONE;
+            else
+                env.showInfo = INFO_DEUTSCH;
+            break;
+        case BTN_PLAY:
+            client_start_simulation();
+            env.sceneChanged = 1;
+            break;
+        case BTN_STOP:
+            client_stop_simulation();
+            env.sceneChanged = 1;
+            break;
+        case BTN_RESET:
+            client_stop_simulation();
+            clearParticles();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            break;
+
+        case BTN_DEMO1:
+            client_stop_simulation();
+            ic_sphere();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            break;
+        case BTN_DEMO2:
+            client_stop_simulation();
+            ic_cold_sphere();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
             break;
     }
 
@@ -796,6 +866,7 @@ void onUpdate()
     glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
     glLoadIdentity();                   // Reset The Projection Matrix
     
+#if WITH_BUTTONS
     for (int i=0; i < env.nButtons; i++)
     {
         if (env.btns[i].img_up != NULL)
@@ -819,10 +890,11 @@ void onUpdate()
             }
         }
     }
+#endif
 
     if (env.showInfo == INFO_ENGLISH)
     {
-        glRasterPos2i((env.screenWidth-1024)/2, (env.screenHeight-768)/2);
+        glRasterPos2i((env.screenWidth-1024), (env.screenHeight-768));
         glDrawPixels(1024,
                      768,
                      GL_RGBA,
@@ -831,7 +903,7 @@ void onUpdate()
     }
     if (env.showInfo == INFO_DEUTSCH)
     {
-        glRasterPos2i((env.screenWidth-1024)/2, (env.screenHeight-768)/2);
+        glRasterPos2i((env.screenWidth-1024), (env.screenHeight-768));
         glDrawPixels(1024,
                      768,
                      GL_RGBA,
