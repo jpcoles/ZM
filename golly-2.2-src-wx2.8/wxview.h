@@ -191,6 +191,11 @@ private:
    int hthumb, vthumb;           // current thumb box positions
    int realkey;                  // key code set by OnKeyDown
    wxString debugkey;            // display debug info for OnKeyDown and OnChar
+
+public:
+   wxBitmap *info_english;
+   wxBitmap *info_deutsch;
+   int show_info;
 };
 
 const wxString empty_pattern       = _("All cells are dead.");

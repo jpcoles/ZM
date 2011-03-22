@@ -117,15 +117,15 @@ enum {
 // #include "bitmaps/zmCH.xpm"
 // #include "bitmaps/zmEN.xpm"
 // #include "bitmaps/zmhelp.xpm"
-   #include "Buttons/buttons_schrittweise_1.xpm"
-   #include "Buttons/buttons_start_1.xpm"
-   #include "Buttons/buttons_zurueck_1.xpm"
-   #include "Buttons/buttons_stopp_1.xpm"
-   #include "Buttons/buttons_vergroessern_1.xpm"
-   #include "Buttons/buttons_verkleinern_1.xpm"
-   #include "Buttons/buttons_deutsch_1.xpm"
-   #include "Buttons/buttons_english_1.xpm"
-   #include "Buttons/buttons_info_1.xpm"
+// #include "Buttons/buttons_schrittweise_1.xpm"
+// #include "Buttons/buttons_start_1.xpm"
+// #include "Buttons/buttons_zurueck_1.xpm"
+// #include "Buttons/buttons_stopp_1.xpm"
+// #include "Buttons/buttons_vergroessern_1.xpm"
+// #include "Buttons/buttons_verkleinern_1.xpm"
+// #include "Buttons/buttons_deutsch_1.xpm"
+// #include "Buttons/buttons_english_1.xpm"
+// #include "Buttons/buttons_info_1.xpm"
 #endif
 
 // -----------------------------------------------------------------------------
@@ -185,6 +185,8 @@ private:
 
    int downid;          // id of currently pressed layer button
    int currbuttwd;      // current width of each layer button
+
+   int lang;
 };
 
 BEGIN_EVENT_TABLE(LayerBar, wxPanel)
@@ -227,17 +229,28 @@ LayerBar::LayerBar(wxWindow* parent, wxCoord xorg, wxCoord yorg, int wd, int ht)
    #endif
 
    // init bitmaps for normal state
-   normbutt[START_TOOL] = wxBITMAP(buttons_start_1);
-   normbutt[STEP_TOOL]  = wxBITMAP(buttons_schrittweise_1);
-   normbutt[STOP_TOOL]  = wxBITMAP(buttons_stopp_1);
-   normbutt[RESET_TOOL] = wxBITMAP(buttons_zurueck_1);
-   normbutt[CH_TOOL]    = wxBITMAP(buttons_deutsch_1);
-   normbutt[EN_TOOL]    = wxBITMAP(buttons_english_1);
-   normbutt[HELP_TOOL]  = wxBITMAP(buttons_info_1);
-   normbutt[ZOOMIN_TOOL]  = wxBITMAP(buttons_vergroessern_1);
-   normbutt[ZOOMOUT_TOOL]  = wxBITMAP(buttons_verkleinern_1);
+   normbutt[START_TOOL]   = wxBitmap(wxT("Buttons/buttons_start.png"), wxBITMAP_TYPE_PNG);
+   normbutt[STEP_TOOL]    = wxBitmap(wxT("Buttons/buttons_schrittweise.png"), wxBITMAP_TYPE_PNG);
+   normbutt[STOP_TOOL]    = wxBitmap(wxT("Buttons/buttons_stopp.png"), wxBITMAP_TYPE_PNG);
+   normbutt[RESET_TOOL]   = wxBitmap(wxT("Buttons/buttons_zurueck.png"), wxBITMAP_TYPE_PNG);
+   normbutt[CH_TOOL]      = wxBitmap(wxT("Buttons/buttons_deutsch.png"), wxBITMAP_TYPE_PNG);
+   normbutt[EN_TOOL]      = wxBitmap(wxT("Buttons/buttons_english.png"), wxBITMAP_TYPE_PNG);
+   normbutt[HELP_TOOL]    = wxBitmap(wxT("Buttons/buttons_info.png"), wxBITMAP_TYPE_PNG);
+   normbutt[ZOOMIN_TOOL]  = wxBitmap(wxT("Buttons/buttons_verkleinern.png"), wxBITMAP_TYPE_PNG);
+   normbutt[ZOOMOUT_TOOL] = wxBitmap(wxT("Buttons/buttons_vergroessern.png"), wxBITMAP_TYPE_PNG);
+   normbutt[EX1_TOOL]     = wxBitmap(wxT("Buttons/buttons_beispiel1.png"), wxBITMAP_TYPE_PNG);
 
-   normbutt[EX1_TOOL]  = wxBITMAP(buttons_deutsch_1);
+   //wxBITMAP(buttons_start_1);
+// normbutt[STEP_TOOL]  = wxBITMAP(buttons_schrittweise_1);
+// normbutt[STOP_TOOL]  = wxBITMAP(buttons_stopp_1);
+// normbutt[RESET_TOOL] = wxBITMAP(buttons_zurueck_1);
+// normbutt[CH_TOOL]    = wxBITMAP(buttons_deutsch_1);
+// normbutt[EN_TOOL]    = wxBITMAP(buttons_english_1);
+// normbutt[HELP_TOOL]  = wxBITMAP(buttons_info_1);
+// normbutt[ZOOMIN_TOOL]  = wxBITMAP(buttons_vergroessern_1);
+// normbutt[ZOOMOUT_TOOL]  = wxBITMAP(buttons_verkleinern_1);
+
+// normbutt[EX1_TOOL]  = wxBITMAP(buttons_deutsch_1);
    //normbutt[EN_TOOL] =   wxBitmap();
    
    // some bitmap buttons also have a down state
@@ -274,6 +287,8 @@ LayerBar::LayerBar(wxWindow* parent, wxCoord xorg, wxCoord yorg, int wd, int ht)
    downid = -1;         // no layer button down as yet
    
    currbuttwd = MAX_TOGGLE_WD;
+
+   lang = 1;
 }
 
 // -----------------------------------------------------------------------------
@@ -408,11 +423,18 @@ void LayerBar::OnButton(wxCommandEvent& event)
       case ZOOMIN_TOOL:    cmdid = wxID_ZOOM_IN; break;
       case ZOOMOUT_TOOL:   cmdid = wxID_ZOOM_OUT; break;
       case EX1_TOOL:
+         cmdid = ID_STOP;
          mainptr->pendingfiles.Add(wxT("Patterns/Life/Guns/2c5-spaceship-gun-p416.rle")); 
          break;
-//    case CH_TOOL:     cmdid = ID_HELP; break;
-//    case EN_TOOL:     cmdid = ID_HELP; break;
-//    case HELP_TOOL:     cmdid = ID_HELP; break;
+      case CH_TOOL:     lang = 1; viewptr->show_info = viewptr->show_info ? lang : 0; RefreshView(); break;
+      case EN_TOOL:     lang = 2; viewptr->show_info = viewptr->show_info ? lang : 0; RefreshView(); break;
+      case HELP_TOOL:   
+        if (viewptr->show_info)
+            viewptr->show_info = 0; 
+        else
+            viewptr->show_info = lang; 
+        RefreshView();
+        break;
       default:             Warning(_("Unexpected button id!")); return;
    }
    
@@ -554,10 +576,13 @@ int LayerBar::AddButton(int id, int x, const wxString& tip)
    int wd,ht;
    wd = normbutt[id].GetWidth();
    ht = normbutt[id].GetHeight();
+
    bitmapbutt[id] = new wxBitmapButton(this, id, normbutt[id], 
                                        wxPoint(x,ypos),
-                                       wxSize(wd,ht));
-                                       //wxNO_BORDER);
+                                       wxSize(wd,ht),
+                                       wxBORDER_STATIC
+                                       );
+   //bitmapbutt[id].Set
    if (bitmapbutt[id] == NULL) {
       Fatal(_("Failed to create layer bar bitmap button!"));
    } else {

@@ -2677,7 +2677,7 @@ MainFrame::MainFrame()
    fullscreen = false;        // not in full screen mode
    showbanner = true;         // avoid first file clearing banner message
 
-   kiosk();
+   //kiosk();
 }
 
 // -----------------------------------------------------------------------------

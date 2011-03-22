@@ -388,7 +388,10 @@ enum {
    
    // these ids aren't associated with any menu item
    ID_LOAD_LEXICON,     // load lexicon pattern
-   ID_HELP_BUTT         // help button in tool bar
+   ID_HELP_BUTT,        // help button in tool bar
+
+   ID_DEUTSCH,
+   ID_ENGLISH,
 };
 
 #endif

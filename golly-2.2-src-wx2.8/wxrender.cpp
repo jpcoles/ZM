@@ -1721,8 +1721,13 @@ void DrawView(wxDC& dc, int tileindex)
       }
    }
    
-   if (viewptr->showcontrols)
-      DrawControls(dc, viewptr->controlsrect);
+// if (viewptr->showcontrols)
+//    DrawControls(dc, viewptr->controlsrect);
+
+   if (viewptr->show_info == 1)
+      dc.DrawBitmap(*(viewptr->info_deutsch), currwd-viewptr->info_deutsch->GetWidth(), 0, true);
+   if (viewptr->show_info == 2)
+      dc.DrawBitmap(*(viewptr->info_english), currwd-viewptr->info_english->GetWidth(), 0, true);
 
    if ( numlayers > 1 && tilelayers ) {
       // restore globals changed above

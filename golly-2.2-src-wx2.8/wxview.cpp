@@ -2983,6 +2983,10 @@ PatternView::PatternView(wxWindow* parent, wxCoord x, wxCoord y, int wd, int ht,
    nopattupdate = false;      // enable pattern updates
    showcontrols = false;      // not showing translucent controls
    oldcursor = NULL;          // for toggling cursor via shift key 
+
+   show_info = 0; 
+   info_english = new wxBitmap(wxT("_info_e_Golly_1920x1080.png"), wxBITMAP_TYPE_PNG);
+   info_deutsch = new wxBitmap(wxT("_info_d_Golly_1920x1080.png"), wxBITMAP_TYPE_PNG);
 }
 
 // -----------------------------------------------------------------------------
@@ -2993,4 +2997,6 @@ PatternView::~PatternView()
    delete dragtimer;
    delete viewbitmap;
    delete cellbrush;
+   delete info_english;
+   delete info_deutsch;
 }
