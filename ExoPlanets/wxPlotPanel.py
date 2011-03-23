@@ -14,7 +14,8 @@ import matplotlib
 matplotlib.interactive( True )
 matplotlib.use( 'WXAgg' )
 from matplotlib import rc
-rc('font', **{'family':'UniversLTStd-Cn'})
+rc('font', **{'family':'UniveLTLigUltCon'})
+#rc('font', **{'family':'UniversLTStd-Cn'})
 
 import numpy as num
 import wx

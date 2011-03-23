@@ -4,7 +4,7 @@ from matplotlib import rc
 from operator import add
 
 import matplotlib.font_manager as fm
-print fm.get_fontconfig_fonts()
+#print fm.get_fontconfig_fonts()
 
 mpl.rcParams['toolbar'] = 'None'
 #print filter(lambda x: x.startswith('font'), mpl.rcParams.keys())
@@ -14,7 +14,7 @@ mpl.rcParams['toolbar'] = 'None'
 #rc('text', usetex=True)
 rc('font', size=20)
 #rc('font', **{'family':'UniversLTStd-Cn'})
-rc('font', **{'family':'Univers LT Std 57 Cn', 'serif':'57 Cn', 'sans-serif':'57 Cn'})
+#rc('font', **{'family':'Univers LT Std 57 Cn', 'serif':'57 Cn', 'sans-serif':'57 Cn'})
 #rc('font', **{'family':'UniversLTStd-Cn'})
 #rc('font', **{'family':'Univers LT Std 57 Cn'})
 rc('text', color='w')
@@ -33,9 +33,10 @@ lang = 'deutsch'
 
 #_ = lambda x: x
 
-INFOTEXT='Explore the exoplanets that have been found so far.\nThese plots are kept up to date with the latest discoveries! \n' + \
-         'Click on the plots at the bottom of the screen\nto see different relations. \n' + \
-         'Click on a point in the main plot\nto show information about that planet.'
+INFOTEXT1='Explore the exoplanets that have been detected.\nThese plots are kept up to date with the latest discoveries! \n' + \
+          'Click on a point in the main plot to show\ninformation about that planet.'
+
+INFOTEXT2='Click on a diagram to the left\nto show in the upper panel.'
 
 def _(s):
     if lang == 'english':
@@ -68,21 +69,21 @@ def _(s):
              r'Uranus'                             : r'Uranus',
              r'Neptune'                            : r'Neptun',
 
-              INFOTEXT:
-              'Entdecken Sie die bisher gefundenen Exoplaneten. Diese Plots sind aktuell mit den neusten Entdeckungen!\n\n',
+              INFOTEXT1:
+               'Erkunden Sie die nachgewiesenen Exoplaneten.\nDiese Aufzeichnungen werden laufend mit den neusten Entdeckungen aktualisiert.\n'
+               'Klicken Sie auf einen Punkt im Hauptplot, um\nInformationen ueber die einzelnen Planeten zu erhalten.',
+              #'Entdecken Sie die bisher gefundenen Exoplaneten. Diese Plots sind aktuell mit den neusten Entdeckungen!\n\n',
                 #'Klicken Sie auf die Plots am unteren Rand des Bildschirms,\num die unterschiedlichen Relationen zu sehen. \r'
-                #'Klicken Sie auf einen Punkt im Hauptplot, um Informationen ueber die einzelnen Planeten zu erhalten.',
-
-
-
+              INFOTEXT2:
+               'Klicken Sie in eines der Diagramme links\num oben die Vergroesserung anzuzeigen.'
             }
         T = t.get(s, None)
         if T is None:
             print "WARNING: no translation for '%s'" % s
             return s
-        print s
-        print '-->'
-        print T
+#       print s
+#       print '-->'
+#       print T
         return T
     else:
         assert 0
@@ -95,6 +96,11 @@ import  wx.lib.layoutf  as layoutf
 import wx.lib.platebtn as platebtn
 import wx.lib.buttons as gbuttons
 from wxPlotPanel import PlotPanel
+try:
+    from agw import advancedsplash as AS
+except ImportError: # if it's not there locally, try the wxPython lib.
+    import wx.lib.agw.advancedsplash as AS
+
 
 from pylab import figure,show,plot, Circle, gca, axis, subplot, \
                   draw, gcf, axes, subplots_adjust, loglog, grid,\
@@ -170,9 +176,10 @@ def readplanets(file):
 
     pl['Pl. Mass']  [:-8] *= 317.83 # Convert to Earth masses
     pl['Pl. Period'][:-8] /= 365.25 # Convert to years
-    pl['Pl. Radius'][:-8] *= 11     # Convert to Earth radii
+    pl['Pl. Radius'][:-8] *= 11.209 # Convert to Earth radii
 
-    pl['Pl. Grav']  = 2.5 * pl['Pl. Mass'] / pl['Pl. Radius']**2
+    #pl['Pl. Grav']  = 2.5 * pl['Pl. Mass'] / pl['Pl. Radius']**2
+    pl['Pl. Grav']  = pl['Pl. Mass'] / pl['Pl. Radius']**2
     pl['Pl. Sol']   = 10 ** (0.4 * (4.8-pl['St. Mag. V.'])) * (pl['St. Dist']/(10*pl['Pl. Semi-axis']))**2
     pl['Pl. Vref']  = 9e-2 * 319 * pl['Pl. Mass'] / 317.83 / sqrt(pl['St. Mass']*pl['Pl. Semi-axis'])
 
@@ -246,12 +253,17 @@ def redraw():
         p.select(selected)
         p.draw(force=True)
         p.Update()
+        p.Refresh()
+        
+    
 
 class HelpText(wx.StaticText):
-    def __init__( self, parent, str, size, **kwargs ):
-        wx.StaticText.__init__( self, parent, size=(600,240), pos=(1350,65)) #, **kwargs )
+    def __init__( self, parent, str, size, pos, **kwargs ):
+        self.str = str
+        wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
         self.Wrap(-1)
-        font = wx.Font(size, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
+        font = wx.Font(18, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
+        #font = wx.Font(22, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
         self.SetFont(font)
         self.SetForegroundColour('WHITE')
         self.SetBackgroundColour('BLACK')
@@ -262,7 +274,10 @@ class HelpText(wx.StaticText):
         pass
 
     def draw(self, force=False):
-        self.SetLabel(_(INFOTEXT))
+        pass
+
+    def draw(self, force=False):
+        self.SetLabel(_(self.str))
 
 #class PlotInfoText(wx.StaticText):
 #    def __init__( self, parent, str, size, **kwargs ):
@@ -391,6 +406,14 @@ class PlotDiagram(PlotPanel):
         if force: 
             self.artist = self.plot()
             self.figure.canvas.draw()
+#           if self.artist is None:
+#               self.artist = self.plot()
+#               self.figure.canvas.draw()
+#           else:
+#               self.artist = self.plot()
+#               self.figure.draw_artist(self.artist)
+            #self.figure.canvas.draw_artist(self.artist)
+            #self.figure.canvas.draw_artist(self.artist)
             #self.select(self.selected)
 
     def __call__(self, event):
@@ -411,6 +434,8 @@ class PlotDiagram(PlotPanel):
 class Fig1(PlotDiagram):
     def __init__( self, parent, issmall, **kwargs ):
         PlotDiagram.__init__( self, parent, issmall, **kwargs )
+        self.background_big = None
+        self.background_small = None
 
     def plot(self):
 
@@ -480,7 +505,7 @@ class Fig2(PlotDiagram):
 
         #ax.axis('scaled')
         ax.set_xlim(1e-9, 2e4)
-        ax.set_ylim(5e-1, 1e2)
+        ax.set_ylim(1e-1, 1e2)
 
         return artist
 
@@ -521,8 +546,11 @@ class Fig3(PlotDiagram):
 class EPFrame(wx.Frame):
 
     def __init__(self, parent, id, title, size):
-        wx.Frame.__init__(self, parent, id, title, size=size, pos=(-350,-30))
-        self.Bind(wx.EVT_CLOSE, self.OnQuit)
+        #wx.Frame.__init__(self, parent, id, title, size=size, pos=(-400,0))
+        wx.Frame.__init__(self, parent, id, title, size=size, pos=(-400,-80))
+        #self.Bind(wx.EVT_CLOSE, self.OnQuit)
+
+        fw, fh = size
 
         panelStyle = wx.SIMPLE_BORDER
         panelStyle = wx.DOUBLE_BORDER
@@ -542,7 +570,7 @@ class EPFrame(wx.Frame):
         sections = []
         wh = 500,320
         offs = 0
-        o = 0,701
+        o = 0,691
         for i,f in enumerate(figs):
             s = make_special_section(p, lambda p, **kwargs: f(p,True, **kwargs), wx.EAST, 
                                      [wh, [o[0]+i*(wh[0]+offs),o[1]]], color=(0,0,0))
@@ -558,12 +586,16 @@ class EPFrame(wx.Frame):
         Helpbmp     = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
         HelpOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
 
+        self.InfoDEbmp = wx.BitmapFromImage(wx.Image('_info_d_Extrasolarep_1920x1080.png',    wx.BITMAP_TYPE_PNG))
+        self.InfoENbmp = wx.BitmapFromImage(wx.Image('_info_e_Extrasolarep_1920x1080.png',    wx.BITMAP_TYPE_PNG))
+        self.infoFrame = None
+
         w,pnl,box = secCtrl = make_section(p, wx.HORIZONTAL, wx.NORTH)
 
         print '*' * 80
         print CHbmp.GetWidth(), CHbmp.GetHeight()
 
-        bp = wx.Panel(p, -1, style=wx.NO_BORDER, size=(1920,1), pos=(0,1080-50))
+        bp = wx.Panel(p, -1, style=wx.NO_BORDER, size=(fw,1), pos=(0,fh-60))
         bp.SetBackgroundColour('#222222')
 
         CHbutton   = gbuttons.GenBitmapButton(p, -1, CHbmp,   style=wx.NO_BORDER,size=(120,40))
@@ -574,15 +606,15 @@ class EPFrame(wx.Frame):
         Helpbutton.SetBitmapSelected(HelpOverbmp)
         print CHbutton.GetSize()
 
-        Helpbutton.SetBitmapSelected(HelpOverbmp)
+        #Helpbutton.SetBitmapSelected(HelpOverbmp)
 
-        CHbutton.SetPosition((1920-50-130-130,1080-45))
-        ENbutton.SetPosition((1920-50-130,1080-45))
-        Helpbutton.SetPosition((1920-50,1080-45))
+        CHbutton.SetPosition((fw-15-40-15-120-15-120,fh-40-10))
+        ENbutton.SetPosition((fw-15-40-15-120,fh-40-10))
+        Helpbutton.SetPosition((fw-15-40,fh-40-10))
 
-        #CHbutton.SetPosition((1920-50-130-130,80-45))
-        #ENbutton.SetPosition((1920-50-130,80-45))
-        #Helpbutton.SetPosition((1920-50,80-45))
+        #CHbutton.SetPosition((fw-50-130-130,80-45))
+        #ENbutton.SetPosition((fw-50-130,80-45))
+        #Helpbutton.SetPosition((fw-50,80-45))
 
         self.CHbtn = CHbutton
         self.ENbtn = ENbutton
@@ -591,12 +623,10 @@ class EPFrame(wx.Frame):
         self.Bind(wx.EVT_BUTTON, self.OnButton, CHbutton)
         self.Bind(wx.EVT_BUTTON, self.OnButton, ENbutton)
         self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
+        #self.Bind(wx.EVT_PAINT, self.OnPaint)
 
-        HelpText(p,
-                'Explore the exoplanets that have been found so far. These plots are kept up to date with the latest discoveries!\n\n',
-                #'Click on the plots at the bottom of the screen to see different relations.\n\n'
-                #'Click on a point in the main plot to show information about that planet.',
-                22)
+        HelpText(p, INFOTEXT1, (600,240), (1350,65))
+        HelpText(p, INFOTEXT2, (600,100), (1500,765))
 
         t = PlanetInfoText(p, '', 20)
         t.SetBackgroundColour('BLACK')
@@ -618,6 +648,17 @@ class EPFrame(wx.Frame):
         bigsections[self.current_main][0].Show()
 #        bigsections[self.current_main][1].draw()
 
+        self.show_info = False
+        self.bitmap = None
+
+        self.InfoDE = wx.StaticBitmap(p, -1, self.InfoDEbmp, (fw-self.InfoDEbmp.GetWidth(), 0))
+        self.InfoEN = wx.StaticBitmap(p, -1, self.InfoENbmp, (fw-self.InfoENbmp.GetWidth(), 0))
+        self.InfoDE.Raise()
+        self.InfoEN.Raise()
+
+        self.InfoDE.Hide()
+        self.InfoEN.Hide()
+
     def set_main_plot(self, which):
         if which != self.current_main:
             old = self.bigsections[self.current_main]
@@ -634,19 +675,57 @@ class EPFrame(wx.Frame):
             #self.box0.Layout()
             #self.panel.Layout()
 
+#   def OnPaint(self, evt):
+#       if self.show_info:
+#           print 'show info'
+#           pdc = wx.PaintDC(self)
+#           try:
+#               dc = wx.GCDC(pdc)
+#           except:
+#               dc = pdc
+#           print self.bitmap
+#           dc.DrawBitmap(self.bitmap, 1024, 0, False)
+
     def OnButton(self, event):
         global lang
+        doredraw = False
         obj = event.GetEventObject()
         if obj is self.CHbtn:
             print 'German!'
             if lang != 'deutsch': 
                 lang = 'deutsch'
-                redraw()
+                doredraw = True
+
         if obj is self.ENbtn:
             print 'English!'
             if lang != 'english': 
                 lang = 'english'
-                redraw()
+                doredraw = True
+
+        if doredraw:
+            redraw()
+
+        if obj is self.Helpbtn or (self.show_info and doredraw):
+            if self.show_info and not doredraw:
+                self.show_info = False
+                self.InfoDE.Hide()
+                self.InfoEN.Hide()
+            else:
+                self.show_info = True
+                if lang == 'english':
+                    self.InfoDE.Hide()
+                    self.InfoEN.Show()
+                if lang == 'deutsch':
+                    self.InfoDE.Show()
+                    self.InfoEN.Hide()
+
+
+    def OnInfoClose(self, event):
+        print 'info close'
+        if self.infoFrame is not None:
+            print 'info close 2'
+            self.infoFrame.Destroy()
+            self.infoFrame = None
 
     def OnQuit(self, event):
         print 'Quit from keyboard disabled.'
