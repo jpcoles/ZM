@@ -894,18 +894,18 @@ void onUpdate()
 
     if (env.showInfo == INFO_ENGLISH)
     {
-        glRasterPos2i((env.screenWidth-1024), (env.screenHeight-768));
-        glDrawPixels(1024,
-                     768,
+        glRasterPos2i((env.screenWidth-1280), (env.screenHeight-1387));
+        glDrawPixels(1280,
+                     1387,
                      GL_RGBA,
                      GL_UNSIGNED_BYTE, 
                      env.info_english);
     }
     if (env.showInfo == INFO_DEUTSCH)
     {
-        glRasterPos2i((env.screenWidth-1024), (env.screenHeight-768));
-        glDrawPixels(1024,
-                     768,
+        glRasterPos2i((env.screenWidth-1280), (env.screenHeight-1387));
+        glDrawPixels(1280,
+                     1387,
                      GL_RGBA,
                      GL_UNSIGNED_BYTE, 
                      env.info_deutsch);

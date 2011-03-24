@@ -166,8 +166,8 @@ int main(int argc, char **argv)
 #endif
 
     int h,w;
-    load_png_image("info_english.png", &env.info_english, &h, &w);
-    load_png_image("info_deutsch.png", &env.info_deutsch, &h, &w);
+    load_png_image("_info_e_StarSpray_2560x1440.png", &env.info_english, &h, &w);
+    load_png_image("_info_d_StarSpray_2560x1440.png", &env.info_deutsch, &h, &w);
 
     if (env.make_movie)
     {
