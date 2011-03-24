@@ -44,10 +44,10 @@
 		88654A240DB29585007C8027 /* celx_position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A110DB29585007C8027 /* celx_position.cpp */; };
 		88654A260DB29585007C8027 /* celx_rotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A130DB29585007C8027 /* celx_rotation.cpp */; };
 		88654A280DB29585007C8027 /* celx_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A150DB29585007C8027 /* celx_vector.cpp */; };
-		AB6509271337BBF400483DC2 /* _info_d_Celestia_einfach_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6509261337BBF400483DC2 /* _info_d_Celestia_einfach_1920x1080.png */; };
-		AB6509291337BC7400483DC2 /* _info_d_Celestia_experten_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6509281337BC7400483DC2 /* _info_d_Celestia_experten_1920x1080.png */; };
-		AB65092B1337BC7E00483DC2 /* _info_e_Celestia_simple_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65092A1337BC7E00483DC2 /* _info_e_Celestia_simple_1920x1080.png */; };
-		AB65092D1337BC8300483DC2 /* _info_e_Celestia_expert_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB65092C1337BC8300483DC2 /* _info_e_Celestia_expert_1920x1080.png */; };
+		AB880FF01339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB880FEC1339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png */; };
+		AB880FF11339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB880FED1339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png */; };
+		AB880FF21339F91400D35B17 /* _info_e_Celestia_expert_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB880FEE1339F91400D35B17 /* _info_e_Celestia_expert_1920x1080.png */; };
+		AB880FF31339F91400D35B17 /* _info_e_Celestia_simple_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB880FEF1339F91400D35B17 /* _info_e_Celestia_simple_1920x1080.png */; };
 		AB9CE8C913376C9E00D562BB /* buttons_einfacher_modus.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CE8BF13376C9E00D562BB /* buttons_einfacher_modus.png */; };
 		AB9CE8CA13376C9E00D562BB /* buttons_expert_mode.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CE8C013376C9E00D562BB /* buttons_expert_mode.png */; };
 		AB9CE8CB13376C9E00D562BB /* buttons_experten_modus.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CE8C113376C9E00D562BB /* buttons_experten_modus.png */; };
@@ -571,10 +571,10 @@
 		88654A140DB29585007C8027 /* celx_rotation.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = celx_rotation.h; path = ../src/celestia/celx_rotation.h; sourceTree = SOURCE_ROOT; };
 		88654A150DB29585007C8027 /* celx_vector.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = celx_vector.cpp; path = ../src/celestia/celx_vector.cpp; sourceTree = SOURCE_ROOT; };
 		88654A160DB29585007C8027 /* celx_vector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = celx_vector.h; path = ../src/celestia/celx_vector.h; sourceTree = SOURCE_ROOT; };
-		AB6509261337BBF400483DC2 /* _info_d_Celestia_einfach_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_d_Celestia_einfach_1920x1080.png; path = "/var/folders/bM/bMqQ2wMEHdibi5i9bp7RqE+++TM/-Tmp-/com.apple.mail.drag-T0x100520020.tmp.t0rddG/_info_d_Celestia_einfach_1920x1080.png"; sourceTree = "<absolute>"; };
-		AB6509281337BC7400483DC2 /* _info_d_Celestia_experten_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_d_Celestia_experten_1920x1080.png; path = "/var/folders/bM/bMqQ2wMEHdibi5i9bp7RqE+++TM/-Tmp-/com.apple.mail.drag-T0x100520020.tmp.jY8iZA/_info_d_Celestia_experten_1920x1080.png"; sourceTree = "<absolute>"; };
-		AB65092A1337BC7E00483DC2 /* _info_e_Celestia_simple_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_e_Celestia_simple_1920x1080.png; path = "/var/folders/bM/bMqQ2wMEHdibi5i9bp7RqE+++TM/-Tmp-/com.apple.mail.drag-T0x100520020.tmp.POr6nm/_info_e_Celestia_simple_1920x1080.png"; sourceTree = "<absolute>"; };
-		AB65092C1337BC8300483DC2 /* _info_e_Celestia_expert_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_e_Celestia_expert_1920x1080.png; path = "/var/folders/bM/bMqQ2wMEHdibi5i9bp7RqE+++TM/-Tmp-/com.apple.mail.drag-T0x100520020.tmp.VqcN9X/_info_e_Celestia_expert_1920x1080.png"; sourceTree = "<absolute>"; };
+		AB880FEC1339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_d_Celestia_einfach_1920x1080.png; path = ../../_info_d_Celestia_einfach_1920x1080.png; sourceTree = SOURCE_ROOT; };
+		AB880FED1339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_d_Celestia_experten_1920x1080.png; path = ../../_info_d_Celestia_experten_1920x1080.png; sourceTree = SOURCE_ROOT; };
+		AB880FEE1339F91400D35B17 /* _info_e_Celestia_expert_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_e_Celestia_expert_1920x1080.png; path = ../../_info_e_Celestia_expert_1920x1080.png; sourceTree = SOURCE_ROOT; };
+		AB880FEF1339F91400D35B17 /* _info_e_Celestia_simple_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = _info_e_Celestia_simple_1920x1080.png; path = ../../_info_e_Celestia_simple_1920x1080.png; sourceTree = SOURCE_ROOT; };
 		AB9CE8BF13376C9E00D562BB /* buttons_einfacher_modus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttons_einfacher_modus.png; path = ../../../../Desktop/buttons/buttons_einfacher_modus.png; sourceTree = SOURCE_ROOT; };
 		AB9CE8C013376C9E00D562BB /* buttons_expert_mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttons_expert_mode.png; path = ../../../../Desktop/buttons/buttons_expert_mode.png; sourceTree = SOURCE_ROOT; };
 		AB9CE8C113376C9E00D562BB /* buttons_experten_modus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buttons_experten_modus.png; path = ../../../../Desktop/buttons/buttons_experten_modus.png; sourceTree = SOURCE_ROOT; };
@@ -1277,10 +1277,10 @@
 		AB19CB5E131FEEC700BFC094 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				AB6509261337BBF400483DC2 /* _info_d_Celestia_einfach_1920x1080.png */,
-				AB6509281337BC7400483DC2 /* _info_d_Celestia_experten_1920x1080.png */,
-				AB65092A1337BC7E00483DC2 /* _info_e_Celestia_simple_1920x1080.png */,
-				AB65092C1337BC8300483DC2 /* _info_e_Celestia_expert_1920x1080.png */,
+				AB880FEC1339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png */,
+				AB880FED1339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png */,
+				AB880FEE1339F91400D35B17 /* _info_e_Celestia_expert_1920x1080.png */,
+				AB880FEF1339F91400D35B17 /* _info_e_Celestia_simple_1920x1080.png */,
 				AB9CE8D513376CC700D562BB /* buttons_zurueck.png */,
 				AB9CE8D613376CC700D562BB /* buttons_verkleinern.png */,
 				AB9CE8D713376CC700D562BB /* buttons_vergroessern.png */,
@@ -2047,10 +2047,10 @@
 				AB9CE8F813376CC700D562BB /* buttons_beispiel1.png in Resources */,
 				AB9CE9381337801F00D562BB /* info_deutsch.png in Resources */,
 				AB9CE93A1337815200D562BB /* info_english.png in Resources */,
-				AB6509271337BBF400483DC2 /* _info_d_Celestia_einfach_1920x1080.png in Resources */,
-				AB6509291337BC7400483DC2 /* _info_d_Celestia_experten_1920x1080.png in Resources */,
-				AB65092B1337BC7E00483DC2 /* _info_e_Celestia_simple_1920x1080.png in Resources */,
-				AB65092D1337BC8300483DC2 /* _info_e_Celestia_expert_1920x1080.png in Resources */,
+				AB880FF01339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png in Resources */,
+				AB880FF11339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png in Resources */,
+				AB880FF21339F91400D35B17 /* _info_e_Celestia_expert_1920x1080.png in Resources */,
+				AB880FF31339F91400D35B17 /* _info_e_Celestia_simple_1920x1080.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
