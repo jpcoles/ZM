@@ -258,23 +258,26 @@ def redraw():
     
 
 class HelpText(wx.StaticText):
-    def __init__( self, parent, str, size, pos, **kwargs ):
+    def __init__( self, parent, str, fontsize, size, pos, **kwargs ):
         self.str = str
-        wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
-        self.Wrap(-1)
-        font = wx.Font(18, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
+        wx.StaticText.__init__( self, parent, pos=pos) #, **kwargs )
+        #wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
+        #self.Wrap(False)
+        #self.Wrap(size[0])
+        font = wx.Font(fontsize, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
         #font = wx.Font(22, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="Univers LT Std 57 Cn")
         self.SetFont(font)
         self.SetForegroundColour('WHITE')
         self.SetBackgroundColour('BLACK')
         plot_diagrams.append(self)
         self.draw(force=True)
+        print self.GetSize()
 
     def select(self, index):
         pass
 
-    def draw(self, force=False):
-        pass
+#   def draw(self, force=False):
+#       pass
 
     def draw(self, force=False):
         self.SetLabel(_(self.str))
@@ -441,6 +444,11 @@ class Fig1(PlotDiagram):
         PlotDiagram.__init__( self, parent, issmall, **kwargs )
         self.background_big = None
         self.background_small = None
+        if not issmall:
+            self.xlabel = HelpText(parent, 'Orbital radius (Astronomical Units)', 20, (600,240), (800,65))
+            self.ylabel = HelpText(parent, 'Mass (Multiples of Earth)', 20, (600,240), (800,85))
+        else:
+            self.smallxlabel = HelpText(parent, 'Orbital radius vs. Mass', 20, (600,240), (800,95))
 
 #   def draw(self, force=False):
 
@@ -473,37 +481,45 @@ class Fig1(PlotDiagram):
     def plot(self):
         ax = self.subplot
             
-        xs = planets['Pl. Semi-axis']
-        ys = planets['Pl. Mass']
-        self.active = w = logical_and(isfinite(xs), isfinite(ys)).nonzero()[0]
-        xs,ys,clrs = xs[w], ys[w], colors[w]
+        if self.artist is None:
+            xs = planets['Pl. Semi-axis']
+            ys = planets['Pl. Mass']
+            self.active = w = logical_and(isfinite(xs), isfinite(ys)).nonzero()[0]
+            xs,ys,clrs = xs[w], ys[w], colors[w]
 
-        ax.set_xscale('log')
-        ax.set_yscale('log')
+            ax.set_xscale('log')
+            ax.set_yscale('log')
 
-        if not self.issmall: 
-            #artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
-            print 'HERERERERER'
-            #ax.grid(True, which='both', ls='-', c='#222222')
-            ax.set_xlabel(_(r'Orbital radius (Astronomical Units)'))
-            ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
-            #ax.xaxis.set_major_formatter(EPFormatter())
-            #ax.yaxis.set_major_formatter(EPFormatter())
+            if not self.issmall: 
+                artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
+                print 'HERERERERER'
+                ax.grid(True, which='both', ls='-', c='#222222')
+                #ax.set_xlabel(_(r'Orbital radius (Astronomical Units)'))
+                #ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
+                ax.xaxis.set_major_formatter(EPFormatter())
+                ax.yaxis.set_major_formatter(EPFormatter())
+            else:
+                artist = ax.scatter(xs, ys, s=40, c=clrs, lw=1, picker=80.)
+                #ax.set_xlabel(_(r'Orbital radius vs. Mass'))
+                ax.xaxis.set_major_locator(NullLocator())
+                ax.yaxis.set_major_locator(NullLocator())
+
+            #ax.axis('scaled')
+            ax.set_xlim(1e-3, 1e3)
+            ax.set_ylim(1e-2, 1e4)
+
+            #print ax.get_position().bounds
+            #ax.figure.canvas.blit(mpl.transforms.Bbox.from_bounds(0,0,1,1))
+            ax.figure.canvas.draw()
         else:
-            #artist = ax.scatter(xs, ys, s=40, c=clrs, lw=1, picker=80.)
-            ax.set_xlabel(_(r'Orbital radius vs. Mass'))
-            #ax.xaxis.set_major_locator(NullLocator())
-            #ax.yaxis.set_major_locator(NullLocator())
+            artist = self.artist
 
+        if not self.issmall:
+            self.xlabel.draw()
+            self.ylabel.draw()
+        else:
+            self.smallxlabel.draw()
 
-        #ax.axis('scaled')
-        ax.set_xlim(1e-3, 1e3)
-        ax.set_ylim(1e-2, 1e4)
-
-        #print ax.get_position().bounds
-        #ax.figure.canvas.blit(mpl.transforms.Bbox.from_bounds(0,0,1,1))
-        ax.figure.canvas.draw()
-        return None
         return artist
 
 
@@ -583,7 +599,7 @@ class EPFrame(wx.Frame):
 
     def __init__(self, parent, id, title, size):
         #wx.Frame.__init__(self, parent, id, title, size=size, pos=(-400,0))
-        wx.Frame.__init__(self, parent, id, title, size=size, pos=(-400,-80))
+        wx.Frame.__init__(self, parent, id, title, size=size, pos=(0,0))
         #self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         fw, fh = size
@@ -648,6 +664,10 @@ class EPFrame(wx.Frame):
         ENbutton.SetPosition((fw-15-40-15-120,fh-40-10))
         Helpbutton.SetPosition((fw-15-40,fh-40-10))
 
+        CHbutton.SetPosition((fw/1.5-15-40-15-120-15-120,0))
+        ENbutton.SetPosition((fw/1.5-15-40-15-120,0))
+        Helpbutton.SetPosition((fw/1.5-15-40,0))
+
         #CHbutton.SetPosition((fw-50-130-130,80-45))
         #ENbutton.SetPosition((fw-50-130,80-45))
         #Helpbutton.SetPosition((fw-50,80-45))
@@ -661,8 +681,8 @@ class EPFrame(wx.Frame):
         self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
         #self.Bind(wx.EVT_PAINT, self.OnPaint)
 
-        HelpText(p, INFOTEXT1, (600,240), (1350,65))
-        HelpText(p, INFOTEXT2, (600,100), (1500,765))
+        HelpText(p, INFOTEXT1, 18, (600,240), (1350,65))
+        HelpText(p, INFOTEXT2, 18, (600,100), (1500,765))
 
         t = PlanetInfoText(p, '', 20)
         t.SetBackgroundColour('BLACK')
