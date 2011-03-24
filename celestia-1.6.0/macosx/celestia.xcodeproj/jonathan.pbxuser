@@ -147,6 +147,14 @@
 			AB5FBA82133B558B00C2F90E /* PBXTextBookmark */ = AB5FBA82133B558B00C2F90E /* PBXTextBookmark */;
 			AB5FBA83133B558B00C2F90E /* PBXTextBookmark */ = AB5FBA83133B558B00C2F90E /* PBXTextBookmark */;
 			AB5FBA84133B558B00C2F90E /* PBXTextBookmark */ = AB5FBA84133B558B00C2F90E /* PBXTextBookmark */;
+			AB5FBA89133B592500C2F90E /* PBXBookmark */ = AB5FBA89133B592500C2F90E /* PBXBookmark */;
+			AB5FBA8A133B592500C2F90E /* PBXBookmark */ = AB5FBA8A133B592500C2F90E /* PBXBookmark */;
+			AB5FBA8B133B592500C2F90E /* PBXBookmark */ = AB5FBA8B133B592500C2F90E /* PBXBookmark */;
+			AB5FBA8C133B592500C2F90E /* PBXTextBookmark */ = AB5FBA8C133B592500C2F90E /* PBXTextBookmark */;
+			AB5FBA8D133B592500C2F90E /* PBXTextBookmark */ = AB5FBA8D133B592500C2F90E /* PBXTextBookmark */;
+			AB5FBA8E133B592500C2F90E /* PBXTextBookmark */ = AB5FBA8E133B592500C2F90E /* PBXTextBookmark */;
+			AB5FBA8F133B592500C2F90E /* PBXTextBookmark */ = AB5FBA8F133B592500C2F90E /* PBXTextBookmark */;
+			AB5FBA90133B592500C2F90E /* PBXTextBookmark */ = AB5FBA90133B592500C2F90E /* PBXTextBookmark */;
 			AB6508B51337B04B00483DC2 = AB6508B51337B04B00483DC2 /* PBXTextBookmark */;
 			AB6509371337C18A00483DC2 = AB6509371337C18A00483DC2 /* PBXTextBookmark */;
 			AB6509391337C18A00483DC2 = AB6509391337C18A00483DC2 /* PBXBookmark */;
@@ -915,6 +923,68 @@
 		vrLen = 1987;
 		vrLoc = 142;
 	};
+	AB5FBA89133B592500C2F90E /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = AB880FED1339F91400D35B17 /* _info_d_Celestia_experten_1920x1080.png */;
+	};
+	AB5FBA8A133B592500C2F90E /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = AB880FEC1339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png */;
+	};
+	AB5FBA8B133B592500C2F90E /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = AB880FEC1339F91400D35B17 /* _info_d_Celestia_einfach_1920x1080.png */;
+	};
+	AB5FBA8C133B592500C2F90E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AB9CE9791337839000D562BB /* InfoWindowController.m */;
+		name = "InfoWindowController.m: 28";
+		rLen = 0;
+		rLoc = 580;
+		rType = 0;
+		vrLen = 1531;
+		vrLoc = 0;
+	};
+	AB5FBA8D133B592500C2F90E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 664";
+		rLen = 0;
+		rLoc = 20701;
+		rType = 0;
+		vrLen = 2026;
+		vrLoc = 20420;
+	};
+	AB5FBA8E133B592500C2F90E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5EDC6B90456666601000002 /* SetTimeWindowController.h */;
+		name = "SetTimeWindowController.h: 24";
+		rLen = 15;
+		rLoc = 658;
+		rType = 0;
+		vrLen = 750;
+		vrLoc = 0;
+	};
+	AB5FBA8F133B592500C2F90E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 632";
+		rLen = 0;
+		rLoc = 19561;
+		rType = 0;
+		vrLen = 2290;
+		vrLoc = 19759;
+	};
+	AB5FBA90133B592500C2F90E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0E02A484DA014901DC /* CelestiaController.h */;
+		name = "CelestiaController.h: 34";
+		rLen = 18;
+		rLoc = 840;
+		rType = 0;
+		vrLen = 1987;
+		vrLoc = 142;
+	};
 	AB6508B51337B04B00483DC2 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = F55F042902B1596A0100020A /* CelestiaSimulation.mm */;
@@ -1264,7 +1334,7 @@
 		isSCMEnabled = 0;
 		scmConfiguration = {
 			repositoryNamesForRoots = {
-				"" = "";
+				"" = celestia;
 				.. = "";
 			};
 		};
