@@ -1660,7 +1660,7 @@ void PatternView::DrawOneCell(wxDC& dc, int cx, int cy, int oldstate, int newsta
    pair<bigint, bigint> lefttop = currlayer->view->at(0, 0);
    wxCoord x = (cx - lefttop.first.toint()) * cellsize;
    wxCoord y = (cy - lefttop.second.toint()) * cellsize;
-   
+
    if (cellsize > 2) cellsize--;    // allow for gap between cells
    
    wxBitmap** iconmaps = NULL;

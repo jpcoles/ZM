@@ -88,7 +88,10 @@ enum {
    STOP_TOOL,
    CH_TOOL,
    EN_TOOL,
-   EX1_TOOL,
+   EX1_DE_TOOL,
+   EX2_DE_TOOL,
+   EX1_EN_TOOL,
+   EX2_EN_TOOL,
    //INFO_TOOL,
    HELP_TOOL,
    ZOOMIN_TOOL,
@@ -186,6 +189,7 @@ private:
    int downid;          // id of currently pressed layer button
    int currbuttwd;      // current width of each layer button
 
+public:
    int lang;
 };
 
@@ -236,9 +240,13 @@ LayerBar::LayerBar(wxWindow* parent, wxCoord xorg, wxCoord yorg, int wd, int ht)
    normbutt[CH_TOOL]      = wxBitmap(wxT("Buttons/buttons_deutsch.png"), wxBITMAP_TYPE_PNG);
    normbutt[EN_TOOL]      = wxBitmap(wxT("Buttons/buttons_english.png"), wxBITMAP_TYPE_PNG);
    normbutt[HELP_TOOL]    = wxBitmap(wxT("Buttons/buttons_info.png"), wxBITMAP_TYPE_PNG);
-   normbutt[ZOOMIN_TOOL]  = wxBitmap(wxT("Buttons/buttons_verkleinern.png"), wxBITMAP_TYPE_PNG);
-   normbutt[ZOOMOUT_TOOL] = wxBitmap(wxT("Buttons/buttons_vergroessern.png"), wxBITMAP_TYPE_PNG);
-   normbutt[EX1_TOOL]     = wxBitmap(wxT("Buttons/buttons_beispiel1.png"), wxBITMAP_TYPE_PNG);
+   normbutt[ZOOMOUT_TOOL] = wxBitmap(wxT("Buttons/buttons_verkleinern.png"), wxBITMAP_TYPE_PNG);
+   normbutt[ZOOMIN_TOOL]  = wxBitmap(wxT("Buttons/buttons_vergroessern.png"), wxBITMAP_TYPE_PNG);
+   normbutt[EX1_DE_TOOL]     = wxBitmap(wxT("Buttons/buttons_beispiel1.png"), wxBITMAP_TYPE_PNG);
+   normbutt[EX2_DE_TOOL]     = wxBitmap(wxT("Buttons/buttons_beispiel2.png"), wxBITMAP_TYPE_PNG);
+
+   normbutt[EX1_EN_TOOL]     = wxBitmap(wxT("Buttons/buttons_example1.png"), wxBITMAP_TYPE_PNG);
+   normbutt[EX2_EN_TOOL]     = wxBitmap(wxT("Buttons/buttons_example2.png"), wxBITMAP_TYPE_PNG);
 
    //wxBITMAP(buttons_start_1);
 // normbutt[STEP_TOOL]  = wxBITMAP(buttons_schrittweise_1);
@@ -422,9 +430,15 @@ void LayerBar::OnButton(wxCommandEvent& event)
       case RESET_TOOL:     cmdid = wxID_NEW; break;
       case ZOOMIN_TOOL:    cmdid = wxID_ZOOM_IN; break;
       case ZOOMOUT_TOOL:   cmdid = wxID_ZOOM_OUT; break;
-      case EX1_TOOL:
+      case EX1_EN_TOOL:
+      case EX1_DE_TOOL:
          cmdid = ID_STOP;
          mainptr->pendingfiles.Add(wxT("Patterns/Life/Guns/2c5-spaceship-gun-p416.rle")); 
+         break;
+      case EX2_EN_TOOL:
+      case EX2_DE_TOOL:
+         cmdid = ID_STOP;
+         mainptr->pendingfiles.Add(wxT("Patterns/Life/Oscillators/low-period.rle")); 
          break;
       case CH_TOOL:     lang = 1; viewptr->show_info = viewptr->show_info ? lang : 0; RefreshView(); break;
       case EN_TOOL:     lang = 2; viewptr->show_info = viewptr->show_info ? lang : 0; RefreshView(); break;
@@ -436,6 +450,21 @@ void LayerBar::OnButton(wxCommandEvent& event)
         RefreshView();
         break;
       default:             Warning(_("Unexpected button id!")); return;
+   }
+
+   if (lang == 1)
+   {
+      bitmapbutt[EX1_EN_TOOL]->Hide();
+      bitmapbutt[EX2_EN_TOOL]->Hide();
+      bitmapbutt[EX1_DE_TOOL]->Show();
+      bitmapbutt[EX2_DE_TOOL]->Show();
+   }
+   else
+   {
+      bitmapbutt[EX1_DE_TOOL]->Hide();
+      bitmapbutt[EX2_DE_TOOL]->Hide();
+      bitmapbutt[EX1_EN_TOOL]->Show();
+      bitmapbutt[EX2_EN_TOOL]->Show();
    }
    
    if (cmdid != -1) {
@@ -588,7 +617,7 @@ int LayerBar::AddButton(int id, int x, const wxString& tip)
    } else {
       //xpos += wd + smallgap;
       
-      bitmapbutt[id]->SetToolTip(tip);
+      //bitmapbutt[id]->SetToolTip(tip);
       bitmapbutt[id]->SetBackgroundColour(wxColour(0,0,0));
       bitmapbutt[id]->SetForegroundColour(wxColour(0,0,0));
       
@@ -657,10 +686,10 @@ void LayerBar::SelectButton(int id, bool select)
          if (downid >= LAYER_0) {
             // deselect old layer button
             togglebutt[downid]->SetValue(false);      
-            togglebutt[downid]->SetToolTip(SWITCH_LAYER);
+            //togglebutt[downid]->SetToolTip(SWITCH_LAYER);
          }
          downid = id;
-         togglebutt[id]->SetToolTip(_("Current layer"));
+         //togglebutt[id]->SetToolTip(_("Current layer"));
       }
       togglebutt[id]->SetValue(select);
       
@@ -682,7 +711,7 @@ void CreateLayerBar(wxWindow* parent)
    int wd, ht;
    parent->GetClientSize(&wd, &ht);
 
-   int smallgap = 16;
+   int smallgap = 15;
 
    layerbarptr = new LayerBar(parent, 0, ht-layerbarht, wd, layerbarht);
    if (layerbarptr == NULL) Fatal(_("Failed to create layer bar!"));
@@ -690,19 +719,38 @@ void CreateLayerBar(wxWindow* parent)
    // create bitmap buttons
    int x = 1380;
    layerbarptr->AddButton(RESET_TOOL, x, _("Clear the board"));
-   x -= 3*(48 + smallgap);
-   layerbarptr->AddButton(ZOOMOUT_TOOL,  x, _("Zoom out"));                x -= 48+smallgap; 
+   x -= 3*(40 + smallgap);
+   layerbarptr->AddButton(ZOOMOUT_TOOL,  x, _("Zoom out"));                x -= 40+smallgap; 
    layerbarptr->AddButton(ZOOMIN_TOOL,  x, _("Zoom in"));
-   x -= 2*(48 + smallgap);
-   layerbarptr->AddButton(STOP_TOOL,  x, _("Stop Simulation"));                x -= 48+smallgap; 
-   layerbarptr->AddButton(STEP_TOOL,  x, _("Step simulation one generation")); x -= 48+smallgap; 
-   layerbarptr->AddButton(START_TOOL, x, _("Start simulation"));               x -= 48+smallgap; 
+   x -= 2*(40 + smallgap);
+   layerbarptr->AddButton(STOP_TOOL,  x, _("Stop Simulation"));                x -= 40+smallgap; 
+   layerbarptr->AddButton(STEP_TOOL,  x, _("Step simulation one generation")); x -= 40+smallgap; 
+   layerbarptr->AddButton(START_TOOL, x, _("Start simulation"));               x -= 40+smallgap; 
 
-   x -= 3*(48 + smallgap);
-   layerbarptr->AddButton(EX1_TOOL,   x, _("Example One"));                    x -= 48+smallgap; 
+   x -= 3*(40 + smallgap);
+   layerbarptr->AddButton(EX2_DE_TOOL,   x, _("Example Two"));                    
+   layerbarptr->AddButton(EX2_EN_TOOL,   x, _("Example Two"));                    x -= 120+smallgap; 
+   layerbarptr->AddButton(EX1_DE_TOOL,   x, _("Example One"));                    
+   layerbarptr->AddButton(EX1_EN_TOOL,   x, _("Example One"));                    x -= 40+smallgap; 
+
+   if (layerbarptr->lang == 1)
+   {
+      bitmapbutt[EX1_EN_TOOL]->Hide();
+      bitmapbutt[EX2_EN_TOOL]->Hide();
+      bitmapbutt[EX1_DE_TOOL]->Show();
+      bitmapbutt[EX2_DE_TOOL]->Show();
+   }
+   else
+   {
+      bitmapbutt[EX1_DE_TOOL]->Hide();
+      bitmapbutt[EX2_DE_TOOL]->Hide();
+      bitmapbutt[EX1_EN_TOOL]->Show();
+      bitmapbutt[EX2_EN_TOOL]->Show();
+   }
 
 
-   x = 1920 - (48 + smallgap);
+
+   x = 1920 - (40 + smallgap);
    layerbarptr->AddButton(HELP_TOOL,  x, _("Help"));                x -= 128+smallgap; 
    layerbarptr->AddButton(CH_TOOL,    x, _("Switch to German"));    x -= 128+smallgap;
    layerbarptr->AddButton(EN_TOOL,    x, _("Switch to English"));   
