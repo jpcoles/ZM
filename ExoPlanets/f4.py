@@ -95,6 +95,7 @@ import  wx
 import  wx.lib.layoutf  as layoutf
 import wx.lib.platebtn as platebtn
 import wx.lib.buttons as gbuttons
+from wx.lib.fancytext import RenderToBitmap
 from wxPlotPanel import PlotPanel
 try:
     from agw import advancedsplash as AS
@@ -249,19 +250,20 @@ def select(index):
         p.select(index)
 
 def redraw():
+    print 'redraw!'
     for p in plot_diagrams:
         p.select(selected)
-        p.draw(force=True)
-        p.Update()
-        p.Refresh()
+        p.draw() #force=True)
+        #p.Update()
+        #p.Refresh()
         
     
 
 class HelpText(wx.StaticText):
     def __init__( self, parent, str, fontsize, size, pos, **kwargs ):
         self.str = str
-        wx.StaticText.__init__( self, parent, pos=pos) #, **kwargs )
-        #wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
+        #wx.StaticText.__init__( self, parent, pos=pos) #, **kwargs )
+        wx.StaticText.__init__( self, parent, size=size, pos=pos) #, **kwargs )
         #self.Wrap(False)
         #self.Wrap(size[0])
         font = wx.Font(fontsize, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
@@ -271,7 +273,7 @@ class HelpText(wx.StaticText):
         self.SetBackgroundColour('BLACK')
         plot_diagrams.append(self)
         self.draw(force=True)
-        print self.GetSize()
+        #print self.GetSize()
 
     def select(self, index):
         pass
@@ -281,6 +283,55 @@ class HelpText(wx.StaticText):
 
     def draw(self, force=False):
         self.SetLabel(_(self.str))
+
+class AxisLabel:
+    def __init__( self, parent, str, axis, fontsize, size, pos, **kwargs ):
+        self.str = str
+        self.parent = parent
+        self.pos = pos
+
+        self.cache = {}
+        self.fontsize = fontsize
+        self.axis = axis
+        self.size = size
+        self.draw(force=True)
+
+    def select(self, index):
+        pass
+
+    def draw(self, force=False):
+        s = _(self.str)
+        if not self.cache.has_key(s):
+            font = wx.Font(self.fontsize, wx.DEFAULT, wx.NORMAL, wx.NORMAL, False, faceName="UniveLTLigUltCon")
+
+            b = wx.EmptyBitmap(*self.size)
+            dc = wx.MemoryDC(b)
+            dc.SetFont(font)
+            dc.SetTextForeground('white')
+            dc.SetTextBackground('black')
+            dc.DrawText(s, 0,0)
+            pos = self.pos
+            if self.axis == 'y':
+                pos = (self.pos[0], self.pos[1]-self.size[0]-font.GetPixelSize()[0])
+                b = b.ConvertToImage().Rotate90(clockwise=False).ConvertToBitmap()
+            b = wx.StaticBitmap(self.parent, -1, b, pos=pos)
+            self.cache[s] = b
+
+#       for k,v in self.cache.iteritems():
+#           v.Hide()
+
+        self.cache[s].Show()
+
+    def Hide(self):
+        print 'hiding', _(self.str)
+#       for k,v in self.cache.iteritems():
+#           v.Hide()
+
+    def Show(self):
+        s = _(self.str)
+        print 'showing', s
+        self.draw()
+        self.cache[s].Show()
 
 #class PlotInfoText(wx.StaticText):
 #    def __init__( self, parent, str, size, **kwargs ):
@@ -333,10 +384,9 @@ class PlanetInfoText(wx.StaticText):
         pass
 
 class PlotDiagram(PlotPanel):
-    def __init__( self, parent, issmall, **kwargs ):
+    def __init__( self, parent, issmall, labels, **kwargs ):
         PlotPanel.__init__( self, parent, **kwargs )
 
-        plot_diagrams.append(self)
 
         self.parent = parent
         self.subplot = None
@@ -350,25 +400,17 @@ class PlotDiagram(PlotPanel):
         else:
             self.figure.canvas.mpl_connect('pick_event', self)
 
+        if self.issmall:
+            self.smallxlabel = labels[0]
+        else:
+            self.xlabel, self.ylabel = labels
+
+        plot_diagrams.append(self)
+
         #self.subplot = self.figure.add_subplot( 111 )
 
     def set_small_panel_index(self, index):
         self.small_panel_index = index
-
-#   def select(self, index):
-#       if self.artist is not None:
-#           n = len(self.artist.get_offsets())
-#           clrs = self.artist.get_facecolors()
-#           print clrs
-#           lw = [3] * n
-
-#           if index is not None:
-#               clrs[index] = [1,0,0,1]
-#               lw[index] = 0
-
-#           self.artist.set_facecolors(clrs)
-#           self.artist.set_linewidths(lw)
-#           self.figure.canvas.draw()
 
     def select(self, index):
         if self.artist is not None:
@@ -397,17 +439,17 @@ class PlotDiagram(PlotPanel):
             self.artist.set_edgecolors(clrs)
             self.artist._sizes = r
             #self.artist.set_linewidths(lw)
-            print self.figure.canvas.GetSize()
+            #print self.figure.canvas.GetSize()
             #self.figure.canvas.draw()
-            print self.figure.canvas.GetSize()
+            #print self.figure.canvas.GetSize()
 
 #   def draw( self, force=False ):
 #       assert False, 'draw() must be overridden'
     
     def draw( self, force=False ):
-        print "DRAW!", self.GetSizeTuple()
+        #print "DRAW!", self.GetSizeTuple()
         if self.subplot is None:
-            print 'drawing!'
+            #print 'drawing!'
             self.subplot = self.figure.add_subplot( 111 )
             force = True
 
@@ -423,6 +465,23 @@ class PlotDiagram(PlotPanel):
             #self.figure.canvas.draw_artist(self.artist)
             #self.figure.canvas.draw_artist(self.artist)
             #self.select(self.selected)
+
+        if self.IsShown():
+            print 'showing axis labels'
+            if not self.issmall:
+                #print self.xlabel.str
+                self.xlabel.Show()
+                self.ylabel.Show()
+            else:
+                self.smallxlabel.Show()
+        else:
+            print 'hiding axis labels'
+            if not self.issmall:
+                #print self.xlabel.str
+                self.xlabel.Hide()
+                self.ylabel.Hide()
+            else:
+                self.smallxlabel.Hide()
 
     def __call__(self, event):
 
@@ -440,43 +499,14 @@ class PlotDiagram(PlotPanel):
         assert False, 'plot() must be overridden'
 
 class Fig1(PlotDiagram):
-    def __init__( self, parent, issmall, **kwargs ):
-        PlotDiagram.__init__( self, parent, issmall, **kwargs )
-        self.background_big = None
-        self.background_small = None
+    def __init__( self, parent, issmall, pos=None, size=None, color=None ):
         if not issmall:
-            self.xlabel = HelpText(parent, 'Orbital radius (Astronomical Units)', 20, (600,240), (800,65))
-            self.ylabel = HelpText(parent, 'Mass (Multiples of Earth)', 20, (600,240), (800,85))
+            labels = [AxisLabel(parent, 'Orbital radius (Astronomical Units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+                      AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            self.smallxlabel = HelpText(parent, 'Orbital radius vs. Mass', 20, (600,240), (800,95))
+            labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
-#   def draw(self, force=False):
-
-#       ax = self.subplot
-
-#       if not self.issmall:
-#           if self.background_big is None:
-#               xs = planets['Pl. Semi-axis']
-#               ys = planets['Pl. Mass']
-#               self.active = w = logical_and(isfinite(xs), isfinite(ys)).nonzero()[0]
-#               xs,ys,clrs = xs[w], ys[w], colors[w]
-
-#               ax.set_xscale('log')
-#               ax.set_yscale('log')
-
-#               artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
-#               print 'HERERERERER'
-#               ax.grid(True, which='both', ls='-', c='#222222')
-#               ax.xaxis.set_major_formatter(EPFormatter())
-#               ax.yaxis.set_major_formatter(EPFormatter())
-
-#               ax.figure.canvas.draw()
-
-#               self.background_big = ax.figure.canvas.copy_from_bbox(ax.bbox)
-
-#           ax.figure.canvas.restore_region(self.background_big)
-#           ax.set_xlabel(_(r'Orbital radius (Astronomical Units)'))
-#           ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
+        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
 
     def plot(self):
         ax = self.subplot
@@ -492,15 +522,11 @@ class Fig1(PlotDiagram):
 
             if not self.issmall: 
                 artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
-                print 'HERERERERER'
                 ax.grid(True, which='both', ls='-', c='#222222')
-                #ax.set_xlabel(_(r'Orbital radius (Astronomical Units)'))
-                #ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
                 ax.xaxis.set_major_formatter(EPFormatter())
                 ax.yaxis.set_major_formatter(EPFormatter())
             else:
                 artist = ax.scatter(xs, ys, s=40, c=clrs, lw=1, picker=80.)
-                #ax.set_xlabel(_(r'Orbital radius vs. Mass'))
                 ax.xaxis.set_major_locator(NullLocator())
                 ax.yaxis.set_major_locator(NullLocator())
 
@@ -508,24 +534,37 @@ class Fig1(PlotDiagram):
             ax.set_xlim(1e-3, 1e3)
             ax.set_ylim(1e-2, 1e4)
 
-            #print ax.get_position().bounds
-            #ax.figure.canvas.blit(mpl.transforms.Bbox.from_bounds(0,0,1,1))
             ax.figure.canvas.draw()
         else:
             artist = self.artist
 
-        if not self.issmall:
-            self.xlabel.draw()
-            self.ylabel.draw()
-        else:
-            self.smallxlabel.draw()
-
         return artist
 
+#   def draw(self, *args, **kwargs):
+#       PlotDiagram.draw(self, *args, **kwargs)
+#       if self.IsShown():
+#           if not self.issmall:
+#               print 'showing axis labels'
+#               self.xlabel.Show()
+#               self.ylabel.Show()
+#           else:
+#               self.smallxlabel.Show()
+#       else:
+#           print 'hiding axis labels'
+#           if not self.issmall:
+#               self.xlabel.Hide()
+#               self.ylabel.Hide()
+#           else:
+#               self.smallxlabel.Hide()
 
 class Fig2(PlotDiagram):
-    def __init__( self, parent, issmall, **kwargs ):
-        PlotDiagram.__init__( self, parent, issmall, **kwargs )
+    def __init__( self, parent, issmall, pos=None, size=None, color=None ):
+        if not issmall:
+            labels = [ AxisLabel(parent, 'Sunlight strength (Earth units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+                       AxisLabel(parent, 'Gravity strength (Earth units)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
+        else:
+            labels = [ AxisLabel(parent, 'Sunlight vs Gravity', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
 
     def plot(self):
         ax = self.subplot
@@ -543,15 +582,15 @@ class Fig2(PlotDiagram):
             artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
             ax.grid(True, which='both', ls='-', c='#222222')
             ax.axvspan(1./4,1./0.56, facecolor='#111111', zorder=-1000)
-            ax.set_xlabel(_(r'Sunlight strength (Earth units)'))
-            ax.set_ylabel(_(r'Gravity strength (Earth units)'))
+            #ax.set_xlabel(_(r'Sunlight strength (Earth units)'))
+            #ax.set_ylabel(_(r'Gravity strength (Earth units)'))
             #ax.xaxis.set_major_formatter(FormatStrFormatter(r'$%0.2f$'))
             #ax.yaxis.set_major_formatter(FormatStrFormatter(r'$%0.2f$'))
             ax.xaxis.set_major_formatter(EPFormatter(True))
             ax.yaxis.set_major_formatter(EPFormatter())
         else:
             artist = ax.scatter(xs, ys, s=40, c=clrs, lw=1, picker=80.)
-            ax.set_xlabel(_(r'Sunlight vs Gravity'))
+            #ax.set_xlabel(_(r'Sunlight vs Gravity'))
             ax.xaxis.set_major_locator(NullLocator())
             ax.yaxis.set_major_locator(NullLocator())
 
@@ -562,8 +601,13 @@ class Fig2(PlotDiagram):
         return artist
 
 class Fig3(PlotDiagram):
-    def __init__( self, parent, issmall, **kwargs ):
-        PlotDiagram.__init__( self, parent, issmall, **kwargs )
+    def __init__( self, parent, issmall, pos=None, size=None, color=None ):
+        if not issmall:
+            labels = [ AxisLabel(parent, 'Reflex velocity (m/s)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+                       AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
+        else:
+            labels = [ AxisLabel(parent, 'Reflex velocity vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
 
     def plot(self):
         ax = self.subplot
@@ -579,13 +623,13 @@ class Fig3(PlotDiagram):
         if not self.issmall: 
             artist = ax.scatter(xs, ys, s=80, c=clrs, lw=1, picker=80., zorder=1000)
             ax.grid(True, which='both', ls='-', c='#222222')
-            ax.set_xlabel(_(r'Reflex velocity (m/s)'))
-            ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
+            #ax.set_xlabel(_(r'Reflex velocity (m/s)'))
+            #ax.set_ylabel(_(r'Mass (Multiples of Earth)'))
             ax.xaxis.set_major_formatter(EPFormatter())
             ax.yaxis.set_major_formatter(EPFormatter())
         else:
             artist = ax.scatter(xs, ys, s=40, c=clrs, lw=1, picker=80.)
-            ax.set_xlabel(_(r'Reflex velocity vs. Mass'))
+            #ax.set_xlabel(_(r'Reflex velocity vs. Mass'))
             ax.xaxis.set_major_locator(NullLocator())
             ax.yaxis.set_major_locator(NullLocator())
 
@@ -599,7 +643,7 @@ class EPFrame(wx.Frame):
 
     def __init__(self, parent, id, title, size):
         #wx.Frame.__init__(self, parent, id, title, size=size, pos=(-400,0))
-        wx.Frame.__init__(self, parent, id, title, size=size, pos=(0,0))
+        wx.Frame.__init__(self, parent, id, title, size=size, pos=(0,0), style=wx.FRAME_NO_TASKBAR)
         #self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
         fw, fh = size
@@ -610,6 +654,7 @@ class EPFrame(wx.Frame):
 
         p = wx.Panel(self, -1, style=wx.NO_BORDER)
         p.SetBackgroundColour('BLACK')
+        #p.SetBackgroundColour('RED')
 
         wh = 1350,701
         o = 0,0
@@ -647,7 +692,7 @@ class EPFrame(wx.Frame):
         print '*' * 80
         print CHbmp.GetWidth(), CHbmp.GetHeight()
 
-        bp = wx.Panel(p, -1, style=wx.NO_BORDER, size=(fw,1), pos=(0,fh-60))
+        bp = wx.Panel(p, -1, style=wx.NO_BORDER, size=(fw,1), pos=(0,fh-6-40-6-1))
         bp.SetBackgroundColour('#222222')
 
         CHbutton   = gbuttons.GenBitmapButton(p, -1, CHbmp,   style=wx.NO_BORDER,size=(120,40))
@@ -660,13 +705,13 @@ class EPFrame(wx.Frame):
 
         #Helpbutton.SetBitmapSelected(HelpOverbmp)
 
-        CHbutton.SetPosition((fw-15-40-15-120-15-120,fh-40-10))
-        ENbutton.SetPosition((fw-15-40-15-120,fh-40-10))
-        Helpbutton.SetPosition((fw-15-40,fh-40-10))
+        CHbutton.SetPosition((fw-15-40-15-120-15-120,fh-40-6))
+        ENbutton.SetPosition((fw-15-40-15-120,fh-40-6))
+        Helpbutton.SetPosition((fw-15-40,fh-40-6))
 
-        CHbutton.SetPosition((fw/1.5-15-40-15-120-15-120,0))
-        ENbutton.SetPosition((fw/1.5-15-40-15-120,0))
-        Helpbutton.SetPosition((fw/1.5-15-40,0))
+#       CHbutton.SetPosition((fw/1.5-15-40-15-120-15-120,0))
+#       ENbutton.SetPosition((fw/1.5-15-40-15-120,0))
+#       Helpbutton.SetPosition((fw/1.5-15-40,0))
 
         #CHbutton.SetPosition((fw-50-130-130,80-45))
         #ENbutton.SetPosition((fw-50-130,80-45))
@@ -681,18 +726,22 @@ class EPFrame(wx.Frame):
         self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
         #self.Bind(wx.EVT_PAINT, self.OnPaint)
 
-        HelpText(p, INFOTEXT1, 18, (600,240), (1350,65))
-        HelpText(p, INFOTEXT2, 18, (600,100), (1500,765))
+        self.misctext = []
+        self.misctext.append(HelpText(p, INFOTEXT1, 18, (600,240), (1350,65)))
+        self.misctext.append(HelpText(p, INFOTEXT2, 18, (600,100), (1500,765)))
 
         t = PlanetInfoText(p, '', 20)
         t.SetBackgroundColour('BLACK')
 
+        self.misctext.append(t)
+
         for s in sections:
+            s[0].Show()
             s[1].draw()
 
         for s in bigsections:
-            s[1].draw()
             s[0].Hide()
+            s[1].draw()
 
         #panelSL.draw()
 
@@ -702,7 +751,7 @@ class EPFrame(wx.Frame):
         self.current_main = 0
         #self.set_main_plot(0)
         bigsections[self.current_main][0].Show()
-#        bigsections[self.current_main][1].draw()
+        bigsections[self.current_main][1].draw()
 
         self.show_info = False
         self.bitmap = None
@@ -722,11 +771,13 @@ class EPFrame(wx.Frame):
 
             new[0].Show()
             old[0].Hide()
+            old[1].draw()
             #self.box0.Replace(0, self.bigsections[which][0])
             #self.box0.Replace(old[0], new[0])
             self.current_main = which
             new[1].draw()
-            new[1].select(None)
+
+            #new[1].select(None)
             print 'Show!'
             #self.box0.Layout()
             #self.panel.Layout()
@@ -766,6 +817,8 @@ class EPFrame(wx.Frame):
                 self.show_info = False
                 self.InfoDE.Hide()
                 self.InfoEN.Hide()
+                for t in self.misctext:
+                    t.Show()
             else:
                 self.show_info = True
                 if lang == 'english':
@@ -774,6 +827,8 @@ class EPFrame(wx.Frame):
                 if lang == 'deutsch':
                     self.InfoDE.Show()
                     self.InfoEN.Hide()
+                for t in self.misctext:
+                    t.Hide()
 
 
     def OnInfoClose(self, event):
@@ -789,7 +844,7 @@ class EPFrame(wx.Frame):
 class EPApp(wx.App):
 
     def OnInit(self):
-        frame = EPFrame(None, -1, _('This should be hidden in Fullscreen'), size=(1920,1102))
+        frame = EPFrame(None, -1, _('This should be hidden in Fullscreen'), size=(1920,1080))
         print "!@#!@#!@#!@#"
         #frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
         frame.Show(True)
@@ -804,8 +859,7 @@ if __name__ == '__main__':
 
     plot_diagrams = []
 
-    figs = [Fig1]
-    #figs = [Fig1, Fig2, Fig3]
+    figs = [Fig1, Fig2, Fig3]
     #figs = [fig1, fig1, fig2, fig3, fig4]
     subplots = []
 
