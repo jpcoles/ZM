@@ -12,13 +12,13 @@
 # WX_RELEASE to match your wxWidgets version (first two digits).
 
 WX_RELEASE = 2.8
-WX_DIR = /Users/planetenfabrik/wxMac-2.8.11
+WX_DIR = /Users/gameoflife/wxMac-2.8.11
 #WX_DIR = /HD/wxWidgets/wxMac-2.8.4
 #!!! 2.8.8 causes problems with selection color (pre-multiply alpha change?)
 #!!! WX_DIR = /HD/wxWidgets/wxMac-2.8.8
 
 # we assume you built a Unicode version of wxWidgets:
-BUILD_DIR = $(WX_DIR)/build-osx
+BUILD_DIR = $(WX_DIR)
 WXINC_DIR = $(BUILD_DIR)/lib/wx/include/mac-unicode-release-static-$(WX_RELEASE)
 WXUNICODEFLAG = u
 

@@ -56,7 +56,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "wxtimeline.h"    // for CreateTimelineBar, TimelineExists, etc
 #include "wxmain.h"
 
-#include "kiosk.h"
 
 #ifdef __WXMAC__
    #include <Carbon/Carbon.h>    // for GetCurrentProcess, etc
@@ -1108,6 +1107,8 @@ void MainFrame::ToggleFullScreen()
    static bool restorepattdir;      // restore pattern directory?
    static bool restorescrdir;       // restore script directory?
 
+   fullscreen = false;
+
    if (!fullscreen) {
       // save current location and size for use in SavePrefs
       wxRect r = GetRect();
@@ -1118,8 +1119,8 @@ void MainFrame::ToggleFullScreen()
    }
 
    fullscreen = !fullscreen;
-   ShowFullScreen(fullscreen,
-      wxFULLSCREEN_NOMENUBAR | wxFULLSCREEN_NOBORDER | wxFULLSCREEN_NOCAPTION);
+   ShowFullScreen(fullscreen, wxFULLSCREEN_ALL);
+      //wxFULLSCREEN_NOMENUBAR | wxFULLSCREEN_NOBORDER | wxFULLSCREEN_NOCAPTION);
 
    if (fullscreen) {
       // hide scroll bars
@@ -1522,6 +1523,7 @@ void MainFrame::OnActivate(wxActivateEvent& event)
       if (event.GetActive()) onetimer->Start(20, wxTIMER_ONE_SHOT);
       // OnOneTimer will be called after delay of 0.02 secs
    #endif
+   if (event.GetActive()) onetimer->Start(100, wxTIMER_ONE_SHOT);
    
    event.Skip();
 }
@@ -1576,7 +1578,7 @@ static bool inidle = false;
 void MainFrame::OnIdle(wxIdleEvent& event)
 {
    if (inidle) return;
-   
+
    #ifdef __WXMSW__
       if ( call_unselect ) {
          // deselect file/folder so user can click the same item
@@ -1861,6 +1863,8 @@ void MainFrame::OnOneTimer(wxTimerEvent& WXUNUSED(event))
    #ifdef __WXGTK__
       UpdateMenuItems(true);
    #endif
+
+   ToggleFullScreen();
 }
 
 // -----------------------------------------------------------------------------
@@ -2677,7 +2681,6 @@ MainFrame::MainFrame()
    fullscreen = false;        // not in full screen mode
    showbanner = true;         // avoid first file clearing banner message
 
-   //kiosk();
 }
 
 // -----------------------------------------------------------------------------

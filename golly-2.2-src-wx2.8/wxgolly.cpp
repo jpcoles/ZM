@@ -57,6 +57,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
    #include "appicon.xpm"
 #endif
 
+#include "kiosk.h"
+
 // -----------------------------------------------------------------------------
 
 // Create a new application object: this macro will allow wxWidgets to create
@@ -377,7 +379,7 @@ bool GollyApp::OnInit()
    }
 
    // show main window
-   if (maximize) mainptr->Maximize(true);
+   //if (maximize) mainptr->Maximize(true);
    mainptr->Show(true);
    SetTopWindow(mainptr);
 
@@ -390,11 +392,14 @@ int GollyApp::OnRun()
 {
    cout << "IsActive = " << mainptr->IsActive() << endl;
 
+   kiosk();
+
    //if (!mainptr->fullscreen) mainptr->ToggleFullScreen();
    //if (showstatus)   mainptr->ToggleStatusBar();
    //if (showtool)     mainptr->ToggleToolBar();
    //if (showpatterns) mainptr->ToggleShowPatterns();
    //if (showscripts)  mainptr->ToggleShowScripts();
+
 
    return wxApp::OnRun();
 }
