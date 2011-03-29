@@ -9,6 +9,7 @@ import  wx
 import  wx.lib.layoutf  as layoutf
 import wx.lib.platebtn as platebtn
 import wx.lib.buttons as gbuttons
+import wx.media
 #from wx.lib.colourutils import GetHighlightColour
 
 
@@ -137,12 +138,26 @@ def move_mybox(b, x,y):
     l.SetPosition([x,y])
     m.SetPosition([x+w,y])
 
+class PCMovie(wx.Frame):
+
+    def __init__(self, parent, id, **kwargs):
+        wx.Frame.__init__(self, parent, id, **kwargs)
+
+        panelStyle = wx.SIMPLE_BORDER
+        panelStyle = wx.DOUBLE_BORDER
+        panelStyle = wx.NO_BORDER
+
+        p = wx.Panel(self, -1, style=wx.NO_BORDER)
+        p.SetBackgroundColour('BLACK')
+        self.p = p
+
+        self.mc = wx.media.MediaCtrl(self, -1, style=wx.SIMPLE_BORDER, pos=(0,0), size=(1920,1080),szBackend=wx.media.MEDIABACKEND_QUICKTIME)
 
 class PCFrame(wx.Frame):
 
-    def __init__(self, parent, id, title, size):
+    def __init__(self, parent, id, **kwargs):
         #wx.Frame.__init__(self, parent, id, title, size=size, pos=(0,0))
-        wx.Frame.__init__(self, parent, id, title, size=size, pos=(2000,0))
+        wx.Frame.__init__(self, parent, id, **kwargs)
         #wx.Frame.__init__(self, parent, id, title, size=size, pos=(-350,-30))
         #self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
@@ -249,15 +264,22 @@ class PCFrame(wx.Frame):
         elif obj is self.PlayBtn:
             r,c = divmod(self.sim_selected, 8)
             print r,c
-            print >>mplayer.stdin, 'loadfile "movie.mpg"'
-            #print >>mplayer.stdin, 'loadfile "mf://mgen/m5/*png"'
-            #print >>mplayer.stdin, 'vo_fullscreen 1'
-            print >>mplayer.stdin, 'osd 0'
-            print >>mplayer.stdin, 'loop 1'
-            print >>mplayer.stdin, 'osd_show_text "hello" 0 10'
-            #self.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
-            self.SetFocus()
+            self.mc.Load('movie.mpg')
+            self.mc.Play()
             pass
+
+#       elif obj is self.PlayBtn:
+#           r,c = divmod(self.sim_selected, 8)
+#           print r,c
+#           print >>mplayer.stdin, 'loadfile "movie.mpg"'
+#           #print >>mplayer.stdin, 'loadfile "mf://mgen/m5/*png"'
+#           #print >>mplayer.stdin, 'vo_fullscreen 1'
+#           print >>mplayer.stdin, 'osd 0'
+#           print >>mplayer.stdin, 'loop 1'
+#           print >>mplayer.stdin, 'osd_show_text "hello" 0 10'
+#           #self.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
+#           self.SetFocus()
+#           pass
 
         else:
             for b,bmp in self.mbtns:
@@ -284,26 +306,37 @@ class PCFrame(wx.Frame):
 class PCApp(wx.App):
 
     def OnInit(self):
-        frame = PCFrame(None, -1, _('This should be hidden in Fullscreen'), size=(1920,1102))
+
+        frame = PCFrame(None, -1, title=_('This should be hidden in Fullscreen'), size=(1920,1080), pos=(0,0), style=wx.FRAME_NO_TASKBAR)
         frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
-        #frame.SetPosition((2000,0))
+        #frame.SetPosition((1920,0))
         frame.Show(True)
-        self.SetTopWindow(frame)
         self.frame = frame
+
+        mframe = PCMovie(None, -1, title=_('This should be hidden in Fullscreen'), size=(1920,1080), pos=(1920,0), style=wx.FRAME_NO_TASKBAR)
+        #frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
+        #frame.SetPosition((2000,0))
+        mframe.Show(True)
+
+        frame.mc = mframe.mc
+        frame.SetFocus()
+        frame.CaptureMouse()
+        self.SetTopWindow(frame)
+
         return True
 
 
 if __name__ == '__main__':
 
-    mplayer = subprocess.Popen(['mplayer', 
-                                '-mf', 'type=png:fps=15', 
-                                '-vo', 'corevideo:device_id=1', 
-                                #'-input', 'nodefault-bindings:conf=/dev/null',
-                                '-quiet', '-slave', '-idle',
-                                '-loop', '0',
-                                '-fs',
-                                '-nomouseinput'
-                                ], stdin=subprocess.PIPE)
+#   mplayer = subprocess.Popen(['mplayer', 
+#                               '-mf', 'type=png:fps=15', 
+#                               '-vo', 'corevideo:device_id=1', 
+#                               #'-input', 'nodefault-bindings:conf=/dev/null',
+#                               '-quiet', '-slave', '-idle',
+#                               '-loop', '0',
+#                               '-fs',
+#                               '-nomouseinput'
+#                               ], stdin=subprocess.PIPE)
     #mplayer.stdout.close()
 
 
