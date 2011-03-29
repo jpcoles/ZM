@@ -42,8 +42,8 @@ extern "C" {
 
 #define WITH_BUTTONS 0
 
-#define BTN_ENGLISH_INFO    97
-#define BTN_DEUTSCH_INFO    113
+#define BTN_ENGLISH_INFO    113 
+#define BTN_DEUTSCH_INFO    97 
 #define BTN_INFO_CLOSE      49
 #define BTN_DEMO1           100
 #define BTN_DEMO2           101

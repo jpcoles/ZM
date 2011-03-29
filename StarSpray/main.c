@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     //env.photo_path = "/Users/jonathan/Pictures/Photo Booth";
     env.background = BLACK;
     env.maxParticles = 10000;
-    env.fullscreen = 0;
+    env.fullscreen = 1;
     env.screenWidth = 1024;
     env.screenHeight = 768;
     env.eye.x = env.eye.ox = 0; 

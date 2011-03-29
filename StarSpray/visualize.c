@@ -44,7 +44,7 @@ void viz_init()
 {
     if (env.fullscreen) glutFullScreen();
     //CGAssociateMouseAndMouseCursorPosition(false);
-    //glutSetCursor(GLUT_CURSOR_NONE);
+    glutSetCursor(GLUT_CURSOR_NONE);
     glClearDepth(1.0f);
 
     //glutEstablishOverlay();
@@ -279,9 +279,9 @@ void on3DDrag(int x0, int y0, int z0)
     float x, y, z;
     float r;
 
-        y1 = -y0 / 1000.0;
-        x1 = -x0 / 1000.0;
-        z1 = -z0 / 1000.0;
+    z1 = -y0 / 1000.0;
+    x1 = -x0 / 1000.0;
+    y1 =  z0 / 1000.0;
 
     fprintf(stderr, "%i %i %i\n", x0,y0,z0);
 
