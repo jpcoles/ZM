@@ -54,7 +54,6 @@
 		AB8B9EAD133B5D700092CA92 /* buttons_experten_modus.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EA3133B5D700092CA92 /* buttons_experten_modus.png */; };
 		AB8B9EAE133B5D700092CA92 /* buttons_einfacher_modus.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EA4133B5D700092CA92 /* buttons_einfacher_modus.png */; };
 		AB8B9EAF133B5D700092CA92 /* buttons_simple_mode.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EA5133B5D700092CA92 /* buttons_simple_mode.png */; };
-		AB8B9EC5133B5EC30092CA92 /* buttons_zurueck.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EB3133B5EC30092CA92 /* buttons_zurueck.png */; };
 		AB8B9EC6133B5EC30092CA92 /* buttons_verkleinern.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EB4133B5EC30092CA92 /* buttons_verkleinern.png */; };
 		AB8B9EC7133B5EC30092CA92 /* buttons_vergroessern.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EB5133B5EC30092CA92 /* buttons_vergroessern.png */; };
 		AB8B9EC8133B5EC30092CA92 /* buttons_stopp.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EB6133B5EC30092CA92 /* buttons_stopp.png */; };
@@ -78,11 +77,15 @@
 		AB8B9EF0133B5F6F0092CA92 /* _info_e_Extrasolarep_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EEA133B5F6F0092CA92 /* _info_e_Extrasolarep_1920x1080.png */; };
 		AB8B9EF1133B5F6F0092CA92 /* _info_e_Golly_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EEB133B5F6F0092CA92 /* _info_e_Golly_1920x1080.png */; };
 		AB8B9EF2133B5F6F0092CA92 /* _info_e_StarSpray_2560x1440.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EEC133B5F6F0092CA92 /* _info_e_StarSpray_2560x1440.png */; };
-		AB8B9EF7133B5FBD0092CA92 /* _info_d_Celestia_einfach_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EF3133B5FBD0092CA92 /* _info_d_Celestia_einfach_1920x1080.png */; };
-		AB8B9EF8133B5FBD0092CA92 /* _info_d_Celestia_experten_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EF4133B5FBD0092CA92 /* _info_d_Celestia_experten_1920x1080.png */; };
-		AB8B9EF9133B5FBD0092CA92 /* _info_e_Celestia_expert_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EF5133B5FBD0092CA92 /* _info_e_Celestia_expert_1920x1080.png */; };
-		AB8B9EFA133B5FBD0092CA92 /* _info_e_Celestia_simple_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9EF6133B5FBD0092CA92 /* _info_e_Celestia_simple_1920x1080.png */; };
 		AB9CE97A1337839000D562BB /* InfoWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CE9791337839000D562BB /* InfoWindowController.m */; };
+		ABB2C8DB1343602F00DD09C4 /* buttons_novice_mode.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8D81343602F00DD09C4 /* buttons_novice_mode.png */; };
+		ABB2C8DC1343602F00DD09C4 /* buttons_expertenstufe.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8D91343602F00DD09C4 /* buttons_expertenstufe.png */; };
+		ABB2C8DD1343602F00DD09C4 /* buttons_anfaengerstufe.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8DA1343602F00DD09C4 /* buttons_anfaengerstufe.png */; };
+		ABB2C8E3134360D800DD09C4 /* _info_d_Celestia_experten_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8DF134360D800DD09C4 /* _info_d_Celestia_experten_1920x1080.png */; };
+		ABB2C8E4134360D800DD09C4 /* _info_e_Celestia_expert_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8E0134360D800DD09C4 /* _info_e_Celestia_expert_1920x1080.png */; };
+		ABB2C8E5134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8E1134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png */; };
+		ABB2C8E6134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8E2134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png */; };
+		ABB2C9001343626300DD09C4 /* buttons_zurueck.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB2C8FF1343626300DD09C4 /* buttons_zurueck.png */; };
 		CE4EEA6E0F50144A003341A2 /* cspice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4EEA6D0F50144A003341A2 /* cspice.a */; };
 		CE5203030F4F9DD0007D0DE8 /* spiceinterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE5202FD0F4F9DD0007D0DE8 /* spiceinterface.cpp */; };
 		CE5203040F4F9DD0007D0DE8 /* spiceorbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE5202FF0F4F9DD0007D0DE8 /* spiceorbit.cpp */; };
@@ -585,7 +588,6 @@
 		AB8B9EA3133B5D700092CA92 /* buttons_experten_modus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_experten_modus.png; sourceTree = "<group>"; };
 		AB8B9EA4133B5D700092CA92 /* buttons_einfacher_modus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_einfacher_modus.png; sourceTree = "<group>"; };
 		AB8B9EA5133B5D700092CA92 /* buttons_simple_mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_simple_mode.png; sourceTree = "<group>"; };
-		AB8B9EB3133B5EC30092CA92 /* buttons_zurueck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_zurueck.png; sourceTree = "<group>"; };
 		AB8B9EB4133B5EC30092CA92 /* buttons_verkleinern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_verkleinern.png; sourceTree = "<group>"; };
 		AB8B9EB5133B5EC30092CA92 /* buttons_vergroessern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_vergroessern.png; sourceTree = "<group>"; };
 		AB8B9EB6133B5EC30092CA92 /* buttons_stopp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_stopp.png; sourceTree = "<group>"; };
@@ -609,12 +611,16 @@
 		AB8B9EEA133B5F6F0092CA92 /* _info_e_Extrasolarep_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Extrasolarep_1920x1080.png; sourceTree = "<group>"; };
 		AB8B9EEB133B5F6F0092CA92 /* _info_e_Golly_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Golly_1920x1080.png; sourceTree = "<group>"; };
 		AB8B9EEC133B5F6F0092CA92 /* _info_e_StarSpray_2560x1440.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_StarSpray_2560x1440.png; sourceTree = "<group>"; };
-		AB8B9EF3133B5FBD0092CA92 /* _info_d_Celestia_einfach_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_d_Celestia_einfach_1920x1080.png; sourceTree = "<group>"; };
-		AB8B9EF4133B5FBD0092CA92 /* _info_d_Celestia_experten_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_d_Celestia_experten_1920x1080.png; sourceTree = "<group>"; };
-		AB8B9EF5133B5FBD0092CA92 /* _info_e_Celestia_expert_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Celestia_expert_1920x1080.png; sourceTree = "<group>"; };
-		AB8B9EF6133B5FBD0092CA92 /* _info_e_Celestia_simple_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Celestia_simple_1920x1080.png; sourceTree = "<group>"; };
 		AB9CE93C1337827A00D562BB /* InfoWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoWindowController.h; sourceTree = "<group>"; };
 		AB9CE9791337839000D562BB /* InfoWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoWindowController.m; sourceTree = "<group>"; };
+		ABB2C8D81343602F00DD09C4 /* buttons_novice_mode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_novice_mode.png; sourceTree = "<group>"; };
+		ABB2C8D91343602F00DD09C4 /* buttons_expertenstufe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_expertenstufe.png; sourceTree = "<group>"; };
+		ABB2C8DA1343602F00DD09C4 /* buttons_anfaengerstufe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_anfaengerstufe.png; sourceTree = "<group>"; };
+		ABB2C8DF134360D800DD09C4 /* _info_d_Celestia_experten_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_d_Celestia_experten_1920x1080.png; sourceTree = "<group>"; };
+		ABB2C8E0134360D800DD09C4 /* _info_e_Celestia_expert_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Celestia_expert_1920x1080.png; sourceTree = "<group>"; };
+		ABB2C8E1134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_e_Celestia_simple_1920x1080.png; sourceTree = "<group>"; };
+		ABB2C8E2134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _info_d_Celestia_einfach_1920x1080.png; sourceTree = "<group>"; };
+		ABB2C8FF1343626300DD09C4 /* buttons_zurueck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_zurueck.png; sourceTree = "<group>"; };
 		CE4EEA6D0F50144A003341A2 /* cspice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = cspice.a; path = lib/cspice.a; sourceTree = "<group>"; };
 		CE5202FD0F4F9DD0007D0DE8 /* spiceinterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spiceinterface.cpp; path = ../src/celengine/spiceinterface.cpp; sourceTree = SOURCE_ROOT; };
 		CE5202FE0F4F9DD0007D0DE8 /* spiceinterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spiceinterface.h; path = ../src/celengine/spiceinterface.h; sourceTree = SOURCE_ROOT; };
@@ -1285,17 +1291,20 @@
 		AB19CB5E131FEEC700BFC094 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				AB8B9EF3133B5FBD0092CA92 /* _info_d_Celestia_einfach_1920x1080.png */,
-				AB8B9EF4133B5FBD0092CA92 /* _info_d_Celestia_experten_1920x1080.png */,
-				AB8B9EF5133B5FBD0092CA92 /* _info_e_Celestia_expert_1920x1080.png */,
-				AB8B9EF6133B5FBD0092CA92 /* _info_e_Celestia_simple_1920x1080.png */,
+				ABB2C8FF1343626300DD09C4 /* buttons_zurueck.png */,
+				ABB2C8DF134360D800DD09C4 /* _info_d_Celestia_experten_1920x1080.png */,
+				ABB2C8E0134360D800DD09C4 /* _info_e_Celestia_expert_1920x1080.png */,
+				ABB2C8E1134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png */,
+				ABB2C8E2134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png */,
+				ABB2C8D81343602F00DD09C4 /* buttons_novice_mode.png */,
+				ABB2C8D91343602F00DD09C4 /* buttons_expertenstufe.png */,
+				ABB2C8DA1343602F00DD09C4 /* buttons_anfaengerstufe.png */,
 				AB8B9EE7133B5F6F0092CA92 /* _info_d_Extrasolarep_1920x1080.png */,
 				AB8B9EE8133B5F6F0092CA92 /* _info_d_Golly_1920x1080.png */,
 				AB8B9EE9133B5F6F0092CA92 /* _info_d_StarSpray_2560x1440.png */,
 				AB8B9EEA133B5F6F0092CA92 /* _info_e_Extrasolarep_1920x1080.png */,
 				AB8B9EEB133B5F6F0092CA92 /* _info_e_Golly_1920x1080.png */,
 				AB8B9EEC133B5F6F0092CA92 /* _info_e_StarSpray_2560x1440.png */,
-				AB8B9EB3133B5EC30092CA92 /* buttons_zurueck.png */,
 				AB8B9EB4133B5EC30092CA92 /* buttons_verkleinern.png */,
 				AB8B9EB5133B5EC30092CA92 /* buttons_vergroessern.png */,
 				AB8B9EB6133B5EC30092CA92 /* buttons_stopp.png */,
@@ -2039,7 +2048,6 @@
 				AB8B9EAD133B5D700092CA92 /* buttons_experten_modus.png in Resources */,
 				AB8B9EAE133B5D700092CA92 /* buttons_einfacher_modus.png in Resources */,
 				AB8B9EAF133B5D700092CA92 /* buttons_simple_mode.png in Resources */,
-				AB8B9EC5133B5EC30092CA92 /* buttons_zurueck.png in Resources */,
 				AB8B9EC6133B5EC30092CA92 /* buttons_verkleinern.png in Resources */,
 				AB8B9EC7133B5EC30092CA92 /* buttons_vergroessern.png in Resources */,
 				AB8B9EC8133B5EC30092CA92 /* buttons_stopp.png in Resources */,
@@ -2063,10 +2071,14 @@
 				AB8B9EF0133B5F6F0092CA92 /* _info_e_Extrasolarep_1920x1080.png in Resources */,
 				AB8B9EF1133B5F6F0092CA92 /* _info_e_Golly_1920x1080.png in Resources */,
 				AB8B9EF2133B5F6F0092CA92 /* _info_e_StarSpray_2560x1440.png in Resources */,
-				AB8B9EF7133B5FBD0092CA92 /* _info_d_Celestia_einfach_1920x1080.png in Resources */,
-				AB8B9EF8133B5FBD0092CA92 /* _info_d_Celestia_experten_1920x1080.png in Resources */,
-				AB8B9EF9133B5FBD0092CA92 /* _info_e_Celestia_expert_1920x1080.png in Resources */,
-				AB8B9EFA133B5FBD0092CA92 /* _info_e_Celestia_simple_1920x1080.png in Resources */,
+				ABB2C8DB1343602F00DD09C4 /* buttons_novice_mode.png in Resources */,
+				ABB2C8DC1343602F00DD09C4 /* buttons_expertenstufe.png in Resources */,
+				ABB2C8DD1343602F00DD09C4 /* buttons_anfaengerstufe.png in Resources */,
+				ABB2C8E3134360D800DD09C4 /* _info_d_Celestia_experten_1920x1080.png in Resources */,
+				ABB2C8E4134360D800DD09C4 /* _info_e_Celestia_expert_1920x1080.png in Resources */,
+				ABB2C8E5134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png in Resources */,
+				ABB2C8E6134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png in Resources */,
+				ABB2C9001343626300DD09C4 /* buttons_zurueck.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

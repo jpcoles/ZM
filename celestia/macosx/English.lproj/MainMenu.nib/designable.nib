@@ -12,10 +12,10 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
-			<integer value="57"/>
 			<integer value="717"/>
 			<integer value="3236"/>
+			<integer value="2"/>
+			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -99,7 +99,7 @@
 						<object class="NSButton" id="782118615">
 							<reference key="NSNextResponder" ref="656328663"/>
 							<int key="NSvFlags">260</int>
-							<string key="NSFrame">{{20, 5}, {40, 40}}</string>
+							<string key="NSFrame">{{137, 5}, {40, 40}}</string>
 							<reference key="NSSuperview" ref="656328663"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<bool key="NSEnabled">YES</bool>
@@ -199,7 +199,7 @@
 						<object class="NSButton" id="364036619">
 							<reference key="NSNextResponder" ref="656328663"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{92, 5}, {40, 40}}</string>
+							<string key="NSFrame">{{10, 5}, {40, 40}}</string>
 							<reference key="NSSuperview" ref="656328663"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<int key="NSTag">100</int>
@@ -225,7 +225,7 @@
 						<object class="NSButton" id="405805736">
 							<reference key="NSNextResponder" ref="656328663"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{142, 5}, {40, 40}}</string>
+							<string key="NSFrame">{{60, 5}, {40, 40}}</string>
 							<reference key="NSSuperview" ref="656328663"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="790511224">
@@ -334,7 +334,7 @@
 								<int key="NSButtonFlags2">6</int>
 								<object class="NSCustomResource" key="NSNormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">buttons_einfacher_modus</string>
+									<string key="NSResourceName">buttons_anfaengerstufe</string>
 								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
@@ -7665,14 +7665,14 @@
 							<reference ref="594463623"/>
 							<reference ref="787226480"/>
 							<reference ref="723447019"/>
-							<reference ref="782118615"/>
-							<reference ref="364036619"/>
-							<reference ref="405805736"/>
 							<reference ref="1050695619"/>
 							<reference ref="256008345"/>
 							<reference ref="774822039"/>
 							<reference ref="84860239"/>
 							<reference ref="672733453"/>
+							<reference ref="364036619"/>
+							<reference ref="405805736"/>
+							<reference ref="782118615"/>
 						</object>
 						<reference key="parent" ref="886314750"/>
 					</object>
@@ -12542,9 +12542,9 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{398, 96}, {1676, 480}}</string>
+					<string>{{404, 158}, {1676, 480}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{398, 96}, {1676, 480}}</string>
+					<string>{{404, 158}, {1676, 480}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<boolean value="NO"/>
@@ -12958,7 +12958,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwiwAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDCAAAwiwAAA</bytes>
 					</object>
 					<real value="0.0"/>
 					<reference ref="13205946"/>
@@ -12982,12 +12982,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABCogAAwiwAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABCuAAAwiwAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDFQAAwiwAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDDgAAwiwAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -15084,8 +15084,8 @@
 				<string>_info_d_Celestia_experten_1920x1080</string>
 				<string>_info_e_Celestia_expert_1920x1080</string>
 				<string>_info_e_Celestia_simple_1920x1080</string>
+				<string>buttons_anfaengerstufe</string>
 				<string>buttons_deutsch</string>
-				<string>buttons_einfacher_modus</string>
 				<string>buttons_english</string>
 				<string>buttons_experten_modus</string>
 				<string>buttons_geh_zu_objekt</string>
@@ -15107,8 +15107,8 @@
 				<string>{960, 1027}</string>
 				<string>{960, 1027}</string>
 				<string>{960, 1027}</string>
-				<string>{120, 40}</string>
 				<string>{200, 40}</string>
+				<string>{120, 40}</string>
 				<string>{120, 40}</string>
 				<string>{200, 40}</string>
 				<string>{170, 40}</string>

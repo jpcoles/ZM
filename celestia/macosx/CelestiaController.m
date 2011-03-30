@@ -646,7 +646,7 @@ NSString* fatalErrorMessage;
 	[btnGotoObject setImage:[NSImage imageNamed:@"buttons_geh_zu_objekt.png"]];
 	[btnSetTime setImage:[NSImage imageNamed:@"buttons_tag_zeit.png"]];
 	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_experten_modus.png"]];
-	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_einfacher_modus.png"]];	
+	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_anfaengerstufe.png"]];	
 }
 		   
 - (IBAction) setEnglish: (id) sender
@@ -656,7 +656,7 @@ NSString* fatalErrorMessage;
 	[btnGotoObject setImage:[NSImage imageNamed:@"buttons_go_to_object.png"]];
 	[btnSetTime setImage:[NSImage imageNamed:@"buttons_set_time.png"]];
 	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_expert_mode.png"]];
-	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_simple_mode.png"]];
+	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_novice_mode.png"]];
 }
 
 - (IBAction) setExpertMode: (id) sender
