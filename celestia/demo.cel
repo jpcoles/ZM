@@ -3,8 +3,9 @@
 	labels { clear "planets|minorplanets|stars|constellations" }
 	renderflags { set "stars|planets"
                       clear "constellations|orbits|cloudmaps" }
-	print { text "Beginning demo . . .\nPress ESC to end." origin "center" duration 2 }
-	wait { duration 2.0 }
+	#print { text "Beginning demo . . .\nPress ESC to end." origin "center" duration 2 }
+
+	#wait { duration 2.0 }
 
 	print { text "Let's start near home . . ." row -3 }
 	select { object "Sol/Earth" }

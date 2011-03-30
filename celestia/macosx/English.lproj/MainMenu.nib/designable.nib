@@ -13,7 +13,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="717"/>
-			<integer value="603"/>
+			<integer value="57"/>
 			<integer value="2"/>
 			<integer value="3236"/>
 		</object>
@@ -376,19 +376,9 @@
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="10137662">
 									<reference key="NSMenu" ref="981871440"/>
+									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Preferences...</string>
 									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="491158803"/>
-									<reference key="NSMixedImage" ref="748635284"/>
-								</object>
-								<object class="NSMenuItem" id="34486009">
-									<reference key="NSMenu" ref="981871440"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -402,27 +392,10 @@
 									<reference key="NSMixedImage" ref="748635284"/>
 									<int key="NSTag">100</int>
 								</object>
-								<object class="NSMenuItem" id="14271748">
-									<reference key="NSMenu" ref="981871440"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="491158803"/>
-									<reference key="NSMixedImage" ref="748635284"/>
-								</object>
-								<object class="NSMenuItem" id="49417447">
-									<reference key="NSMenu" ref="981871440"/>
-									<string key="NSTitle">Fullscreen</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="491158803"/>
-									<reference key="NSMixedImage" ref="748635284"/>
-								</object>
 								<object class="NSMenuItem" id="369499786">
 									<reference key="NSMenu" ref="981871440"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Quit Celestia</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -7360,14 +7333,6 @@
 					<int key="connectionID">3223</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleFullScreen:</string>
-						<reference key="source" ref="270168872"/>
-						<reference key="destination" ref="49417447"/>
-					</object>
-					<int key="connectionID">3228</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="597057798"/>
@@ -7698,22 +7663,14 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="10137662"/>
-							<reference ref="14271748"/>
 							<reference ref="369499786"/>
 							<reference ref="211592973"/>
-							<reference ref="34486009"/>
-							<reference ref="49417447"/>
 						</object>
 						<reference key="parent" ref="306340281"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">129</int>
 						<reference key="object" ref="10137662"/>
-						<reference key="parent" ref="981871440"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">143</int>
-						<reference key="object" ref="14271748"/>
 						<reference key="parent" ref="981871440"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -7724,11 +7681,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">735</int>
 						<reference key="object" ref="211592973"/>
-						<reference key="parent" ref="981871440"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">757</int>
-						<reference key="object" ref="34486009"/>
 						<reference key="parent" ref="981871440"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -11488,11 +11440,6 @@
 						<reference key="parent" ref="84860239"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">3227</int>
-						<reference key="object" ref="49417447"/>
-						<reference key="parent" ref="981871440"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">3229</int>
 						<reference key="object" ref="256008345"/>
 						<object class="NSMutableArray" key="children">
@@ -11643,8 +11590,6 @@
 					<string>1390.ImportedFromIB2</string>
 					<string>1391.IBPluginDependency</string>
 					<string>1391.ImportedFromIB2</string>
-					<string>143.IBPluginDependency</string>
-					<string>143.ImportedFromIB2</string>
 					<string>1546.IBPluginDependency</string>
 					<string>1546.ImportedFromIB2</string>
 					<string>1547.IBEditorWindowLastContentRect</string>
@@ -12115,7 +12060,6 @@
 					<string>3224.IBPluginDependency</string>
 					<string>3224.IBViewBoundsToFrameTransform</string>
 					<string>3225.IBPluginDependency</string>
-					<string>3227.IBPluginDependency</string>
 					<string>3229.IBPluginDependency</string>
 					<string>3229.IBViewBoundsToFrameTransform</string>
 					<string>3230.IBPluginDependency</string>
@@ -12282,8 +12226,6 @@
 					<string>733.ImportedFromIB2</string>
 					<string>735.IBPluginDependency</string>
 					<string>735.ImportedFromIB2</string>
-					<string>757.IBPluginDependency</string>
-					<string>757.ImportedFromIB2</string>
 					<string>758.IBPluginDependency</string>
 					<string>758.ImportedFromIB2</string>
 					<string>759.IBPluginDependency</string>
@@ -12480,8 +12422,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>{{1065, 543}, {168, 43}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13001,7 +12941,6 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABETkAAwiwAAA</bytes>
 					</object>
@@ -13114,7 +13053,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{424, 698}, {158, 103}}</string>
+					<string>{{424, 738}, {144, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13192,8 +13131,6 @@
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">P4AAAL+AAABDEgAAwigAAA</bytes>
 					</object>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
