@@ -13,9 +13,9 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="717"/>
-			<integer value="3236"/>
+			<integer value="603"/>
 			<integer value="2"/>
-			<integer value="57"/>
+			<integer value="3236"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -310,7 +310,7 @@
 								<int key="NSButtonFlags2">6</int>
 								<object class="NSCustomResource" key="NSNormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">buttons_experten_modus</string>
+									<string key="NSResourceName">buttons_expertenstufe</string>
 								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
@@ -377,8 +377,7 @@
 								<object class="NSMenuItem" id="10137662">
 									<reference key="NSMenu" ref="981871440"/>
 									<string key="NSTitle">Preferences...</string>
-									<string key="NSKeyEquiv">,</string>
-									<int key="NSKeyEquivModMask">1048576</int>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -417,8 +416,7 @@
 								<object class="NSMenuItem" id="49417447">
 									<reference key="NSMenu" ref="981871440"/>
 									<string key="NSTitle">Fullscreen</string>
-									<string key="NSKeyEquiv">f</string>
-									<int key="NSKeyEquivModMask">1048576</int>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -426,8 +424,7 @@
 								<object class="NSMenuItem" id="369499786">
 									<reference key="NSMenu" ref="981871440"/>
 									<string key="NSTitle">Quit Celestia</string>
-									<string key="NSKeyEquiv">q</string>
-									<int key="NSKeyEquivModMask">1048576</int>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -591,17 +588,15 @@
 								<object class="NSMenuItem" id="960481347">
 									<reference key="NSMenu" ref="700875299"/>
 									<string key="NSTitle">Set Time…</string>
-									<string key="NSKeyEquiv">t</string>
-									<int key="NSKeyEquivModMask">1048576</int>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
 								</object>
 								<object class="NSMenuItem" id="96629833">
 									<reference key="NSMenu" ref="700875299"/>
-									<string key="NSTitle">Current Date                                !</string>
+									<string key="NSTitle">Current Date</string>
 									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -631,7 +626,7 @@
 								<object class="NSMenuItem" id="597958330">
 									<reference key="NSMenu" ref="700875299"/>
 									<string key="NSTitle">Faster</string>
-									<string key="NSKeyEquiv">l</string>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -640,7 +635,7 @@
 								<object class="NSMenuItem" id="624760515">
 									<reference key="NSMenu" ref="700875299"/>
 									<string key="NSTitle">Slower</string>
-									<string key="NSKeyEquiv">k</string>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -649,7 +644,7 @@
 								<object class="NSMenuItem" id="998486193">
 									<reference key="NSMenu" ref="700875299"/>
 									<string key="NSTitle">Real Time</string>
-									<string key="NSKeyEquiv">\</string>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -658,7 +653,7 @@
 								<object class="NSMenuItem" id="290874453">
 									<reference key="NSMenu" ref="700875299"/>
 									<string key="NSTitle">Reverse</string>
-									<string key="NSKeyEquiv">j</string>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="491158803"/>
 									<reference key="NSMixedImage" ref="748635284"/>
@@ -696,7 +691,7 @@
 											<object class="NSMenuItem" id="637193962">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Planets</string>
-												<string key="NSKeyEquiv">p</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -705,7 +700,7 @@
 											<object class="NSMenuItem" id="110971194">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Dwarf Planets</string>
-												<string key="NSKeyEquiv">P</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -714,7 +709,7 @@
 											<object class="NSMenuItem" id="22153172">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Moons</string>
-												<string key="NSKeyEquiv">m</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -723,7 +718,7 @@
 											<object class="NSMenuItem" id="1053464095">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Minor Moons</string>
-												<string key="NSKeyEquiv">M</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -732,7 +727,7 @@
 											<object class="NSMenuItem" id="394734377">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Asteroids</string>
-												<string key="NSKeyEquiv">w</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -741,7 +736,7 @@
 											<object class="NSMenuItem" id="982987890">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Comets</string>
-												<string key="NSKeyEquiv">W</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -750,7 +745,7 @@
 											<object class="NSMenuItem" id="839699958">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Spacecraft</string>
-												<string key="NSKeyEquiv">n</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -759,7 +754,7 @@
 											<object class="NSMenuItem" id="933624728">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Stars</string>
-												<string key="NSKeyEquiv">b</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -768,7 +763,7 @@
 											<object class="NSMenuItem" id="12146622">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Galaxies</string>
-												<string key="NSKeyEquiv">e</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -777,8 +772,7 @@
 											<object class="NSMenuItem" id="987111466">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Globulars</string>
-												<string key="NSKeyEquiv">E</string>
-												<int key="NSKeyEquivModMask">131072</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -807,7 +801,7 @@
 											<object class="NSMenuItem" id="336876191">
 												<reference key="NSMenu" ref="813104133"/>
 												<string key="NSTitle">Constellations</string>
-												<string key="NSKeyEquiv">=</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -832,7 +826,7 @@
 											<object class="NSMenuItem" id="485628575">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">On/Off</string>
-												<string key="NSKeyEquiv">o</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -852,8 +846,7 @@
 											<object class="NSMenuItem" id="637001771">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">Planets</string>
-												<string key="NSKeyEquiv">P</string>
-												<int key="NSKeyEquivModMask">1048576</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -871,8 +864,7 @@
 											<object class="NSMenuItem" id="740859560">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">Moons</string>
-												<string key="NSKeyEquiv">M</string>
-												<int key="NSKeyEquivModMask">1048576</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -890,8 +882,7 @@
 											<object class="NSMenuItem" id="219693457">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">Asteroids</string>
-												<string key="NSKeyEquiv">A</string>
-												<int key="NSKeyEquivModMask">1048576</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -900,8 +891,7 @@
 											<object class="NSMenuItem" id="476093910">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">Comets</string>
-												<string key="NSKeyEquiv">C</string>
-												<int key="NSKeyEquivModMask">1048576</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -910,8 +900,7 @@
 											<object class="NSMenuItem" id="743966701">
 												<reference key="NSMenu" ref="700557022"/>
 												<string key="NSTitle">Spacecraft</string>
-												<string key="NSKeyEquiv">S</string>
-												<int key="NSKeyEquivModMask">1048576</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -946,7 +935,7 @@
 											<object class="NSMenuItem" id="948666419">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Clouds</string>
-												<string key="NSKeyEquiv">i</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -955,8 +944,7 @@
 											<object class="NSMenuItem" id="854948095">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Atmospheres</string>
-												<string key="NSKeyEquiv">a</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -965,8 +953,7 @@
 											<object class="NSMenuItem" id="793625959">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Nightside lights</string>
-												<string key="NSKeyEquiv">l</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -975,8 +962,7 @@
 											<object class="NSMenuItem" id="86515569">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Eclipse shadows</string>
-												<string key="NSKeyEquiv">e</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -985,8 +971,7 @@
 											<object class="NSMenuItem" id="165016887">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Comet Tails</string>
-												<string key="NSKeyEquiv">t</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -995,7 +980,7 @@
 											<object class="NSMenuItem" id="874800326">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Galaxies</string>
-												<string key="NSKeyEquiv">u</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1004,8 +989,7 @@
 											<object class="NSMenuItem" id="471430904">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Globulars</string>
-												<string key="NSKeyEquiv">U</string>
-												<int key="NSKeyEquivModMask">131072</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1014,7 +998,7 @@
 											<object class="NSMenuItem" id="280012676">
 												<reference key="NSMenu" ref="888743818"/>
 												<string key="NSTitle">Nebulae</string>
-												<string key="NSKeyEquiv">^</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1039,7 +1023,7 @@
 											<object class="NSMenuItem" id="763297430">
 												<reference key="NSMenu" ref="469740913"/>
 												<string key="NSTitle">Constellation figures</string>
-												<string key="NSKeyEquiv">/</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1048,8 +1032,7 @@
 											<object class="NSMenuItem" id="96022893">
 												<reference key="NSMenu" ref="469740913"/>
 												<string key="NSTitle">Constellation boundaries</string>
-												<string key="NSKeyEquiv">b</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1058,8 +1041,7 @@
 											<object class="NSMenuItem" id="436830569">
 												<reference key="NSMenu" ref="469740913"/>
 												<string key="NSTitle">Markers</string>
-												<string key="NSKeyEquiv">k</string>
-												<int key="NSKeyEquivModMask">262144</int>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1083,7 +1065,7 @@
 											<object class="NSMenuItem" id="818110932">
 												<reference key="NSMenu" ref="34387403"/>
 												<string key="NSTitle">Equatorial</string>
-												<string key="NSKeyEquiv">;</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1135,7 +1117,7 @@
 											<object class="NSMenuItem" id="1053251828">
 												<reference key="NSMenu" ref="447476454"/>
 												<string key="NSTitle">On/Off</string>
-												<string key="NSKeyEquiv">&amp;</string>
+												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="491158803"/>
 												<reference key="NSMixedImage" ref="748635284"/>
@@ -1370,7 +1352,7 @@
 														<object class="NSMenuItem" id="781609550">
 															<reference key="NSMenu" ref="584965554"/>
 															<string key="NSTitle">More Stars Visible</string>
-															<string key="NSKeyEquiv">]</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1379,7 +1361,7 @@
 														<object class="NSMenuItem" id="190239669">
 															<reference key="NSMenu" ref="584965554"/>
 															<string key="NSTitle">Fewer Stars Visible</string>
-															<string key="NSKeyEquiv">[</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1388,8 +1370,7 @@
 														<object class="NSMenuItem" id="703945797">
 															<reference key="NSMenu" ref="584965554"/>
 															<string key="NSTitle">Based on Field of View</string>
-															<string key="NSKeyEquiv">y</string>
-															<int key="NSKeyEquivModMask">262144</int>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1414,7 +1395,7 @@
 														<object class="NSMenuItem" id="82636549">
 															<reference key="NSMenu" ref="564304636"/>
 															<string key="NSTitle">More Ambient Light</string>
-															<string key="NSKeyEquiv">}</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1423,7 +1404,7 @@
 														<object class="NSMenuItem" id="463476403">
 															<reference key="NSMenu" ref="564304636"/>
 															<string key="NSTitle">Less Ambient Light</string>
-															<string key="NSKeyEquiv">{</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1448,7 +1429,7 @@
 														<object class="NSMenuItem" id="64001890">
 															<reference key="NSMenu" ref="628068381"/>
 															<string key="NSTitle">Brighter Galaxies</string>
-															<string key="NSKeyEquiv">)</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -1457,7 +1438,7 @@
 														<object class="NSMenuItem" id="790773093">
 															<reference key="NSMenu" ref="628068381"/>
 															<string key="NSTitle">Dimmer Galaxies</string>
-															<string key="NSKeyEquiv">(</string>
+															<string key="NSKeyEquiv"/>
 															<int key="NSMnemonicLoc">2147483647</int>
 															<reference key="NSOnImage" ref="491158803"/>
 															<reference key="NSMixedImage" ref="748635284"/>
@@ -6595,14 +6576,6 @@
 					<int key="connectionID">785</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">menu</string>
-						<reference key="source" ref="588905554"/>
-						<reference key="destination" ref="293081025"/>
-					</object>
-					<int key="connectionID">795</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">activateMenuItem:</string>
 						<reference key="source" ref="270168872"/>
@@ -7618,6 +7591,22 @@
 					</object>
 					<int key="connectionID">3275</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">reset:</string>
+						<reference key="source" ref="270168872"/>
+						<reference key="destination" ref="782118615"/>
+					</object>
+					<int key="connectionID">3276</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menu_quit</string>
+						<reference key="source" ref="14923299"/>
+						<reference key="destination" ref="369499786"/>
+					</object>
+					<int key="connectionID">3278</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -7666,13 +7655,13 @@
 							<reference ref="787226480"/>
 							<reference ref="723447019"/>
 							<reference ref="1050695619"/>
-							<reference ref="256008345"/>
 							<reference ref="774822039"/>
 							<reference ref="84860239"/>
 							<reference ref="672733453"/>
 							<reference ref="364036619"/>
 							<reference ref="405805736"/>
 							<reference ref="782118615"/>
+							<reference ref="256008345"/>
 						</object>
 						<reference key="parent" ref="886314750"/>
 					</object>
@@ -11647,6 +11636,7 @@
 					<string>1369.windowTemplate.minSize</string>
 					<string>1388.IBPluginDependency</string>
 					<string>1388.ImportedFromIB2</string>
+					<string>1389.IBEditorWindowLastContentRect</string>
 					<string>1389.IBPluginDependency</string>
 					<string>1389.ImportedFromIB2</string>
 					<string>1390.IBPluginDependency</string>
@@ -11657,6 +11647,7 @@
 					<string>143.ImportedFromIB2</string>
 					<string>1546.IBPluginDependency</string>
 					<string>1546.ImportedFromIB2</string>
+					<string>1547.IBEditorWindowLastContentRect</string>
 					<string>1547.IBPluginDependency</string>
 					<string>1547.ImportedFromIB2</string>
 					<string>1548.IBPluginDependency</string>
@@ -12045,6 +12036,7 @@
 					<string>253.ImportedFromIB2</string>
 					<string>2531.IBPluginDependency</string>
 					<string>2531.ImportedFromIB2</string>
+					<string>2532.IBEditorWindowLastContentRect</string>
 					<string>2532.IBPluginDependency</string>
 					<string>2532.ImportedFromIB2</string>
 					<string>2533.IBPluginDependency</string>
@@ -12330,6 +12322,7 @@
 					<string>825.ImportedFromIB2</string>
 					<string>840.IBPluginDependency</string>
 					<string>840.ImportedFromIB2</string>
+					<string>841.IBEditorWindowLastContentRect</string>
 					<string>841.IBPluginDependency</string>
 					<string>841.ImportedFromIB2</string>
 					<string>842.IBPluginDependency</string>
@@ -12378,8 +12371,10 @@
 					<string>890.ImportedFromIB2</string>
 					<string>896.IBPluginDependency</string>
 					<string>896.ImportedFromIB2</string>
+					<string>897.IBEditorWindowLastContentRect</string>
 					<string>897.IBPluginDependency</string>
 					<string>897.ImportedFromIB2</string>
+					<string>898.IBEditorWindowLastContentRect</string>
 					<string>898.IBPluginDependency</string>
 					<string>898.ImportedFromIB2</string>
 					<string>901.IBPluginDependency</string>
@@ -12388,6 +12383,7 @@
 					<string>905.ImportedFromIB2</string>
 					<string>910.IBPluginDependency</string>
 					<string>910.ImportedFromIB2</string>
+					<string>911.IBEditorWindowLastContentRect</string>
 					<string>911.IBPluginDependency</string>
 					<string>911.ImportedFromIB2</string>
 					<string>912.IBPluginDependency</string>
@@ -12439,6 +12435,7 @@
 					<string>958.ImportedFromIB2</string>
 					<string>968.IBPluginDependency</string>
 					<string>968.ImportedFromIB2</string>
+					<string>969.IBEditorWindowLastContentRect</string>
 					<string>969.IBPluginDependency</string>
 					<string>969.ImportedFromIB2</string>
 					<string>971.IBPluginDependency</string>
@@ -12482,6 +12479,7 @@
 					<string>{213, 107}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>{{1065, 543}, {168, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -12492,6 +12490,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>{{1065, 583}, {152, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -12553,7 +12552,7 @@
 					<string>{640, 480}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{444, 614}, {233, 233}}</string>
+					<string>{{618, 533}, {233, 233}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -12900,6 +12899,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>{{1102, 585}, {123, 83}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -12939,7 +12939,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{356, 847}, {296, 20}}</string>
+					<string>{{412, 801}, {296, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13087,7 +13087,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{562, 694}, {309, 153}}</string>
+					<string>{{694, 613}, {299, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13114,7 +13114,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{368, 744}, {168, 103}}</string>
+					<string>{{424, 698}, {158, 103}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13230,7 +13230,90 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{614, 704}, {131, 143}}</string>
+					<string>{{628, 658}, {131, 143}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{1202, 480}, {163, 263}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{1202, 540}, {162, 163}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{877, 563}, {188, 83}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{1065, 563}, {187, 43}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{1065, 563}, {205, 63}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{759, 588}, {159, 193}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{{1102, 335}, {160, 313}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13251,7 +13334,6 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{896, 732}, {185, 163}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13266,84 +13348,7 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>{{745, 644}, {188, 83}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>{{745, 434}, {169, 313}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<boolean value="YES"/>
+					<string>{{1102, 625}, {222, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -13376,7 +13381,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">3275</int>
+			<int key="maxID">3278</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -13394,6 +13399,7 @@
 							<string>forward:</string>
 							<string>openScript:</string>
 							<string>rerunScript:</string>
+							<string>reset:</string>
 							<string>setDeutsch:</string>
 							<string>setEnglish:</string>
 							<string>setExpertMode:</string>
@@ -13423,6 +13429,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
@@ -13435,6 +13442,7 @@
 							<string>forward:</string>
 							<string>openScript:</string>
 							<string>rerunScript:</string>
+							<string>reset:</string>
 							<string>setDeutsch:</string>
 							<string>setEnglish:</string>
 							<string>setExpertMode:</string>
@@ -13470,6 +13478,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">rerunScript:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">reset:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -13963,6 +13975,7 @@
 							<string>latitudeFieldLabel</string>
 							<string>longitudeField</string>
 							<string>longitudeFieldLabel</string>
+							<string>menu_quit</string>
 							<string>objectField</string>
 							<string>objectFieldLabel</string>
 							<string>unitsButton</string>
@@ -13975,6 +13988,7 @@
 							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
+							<string>NSMenuItem</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSPopUpButton</string>
@@ -13990,6 +14004,7 @@
 							<string>latitudeFieldLabel</string>
 							<string>longitudeField</string>
 							<string>longitudeFieldLabel</string>
+							<string>menu_quit</string>
 							<string>objectField</string>
 							<string>objectFieldLabel</string>
 							<string>unitsButton</string>
@@ -14019,6 +14034,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">longitudeFieldLabel</string>
 								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">menu_quit</string>
+								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">objectField</string>
@@ -15087,7 +15106,7 @@
 				<string>buttons_anfaengerstufe</string>
 				<string>buttons_deutsch</string>
 				<string>buttons_english</string>
-				<string>buttons_experten_modus</string>
+				<string>buttons_expertenstufe</string>
 				<string>buttons_geh_zu_objekt</string>
 				<string>buttons_info</string>
 				<string>buttons_objekt_auswahl</string>

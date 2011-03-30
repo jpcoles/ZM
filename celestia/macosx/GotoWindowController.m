@@ -134,6 +134,15 @@
             coordinateSystem:@"ObserverLocal"
         ];
     }
+	//47.406912,8.772833
+	bool x =   [@"47.407" isEqualToString: [latitudeField stringValue]] 
+			&& [@"8.77" isEqualToString: [longitudeField stringValue]]
+			&& [@"earth" isEqualToString: [[objectField stringValue] lowercaseString]];
+	
+	//bool x = [[latitudeField stringValue] isEqualToString: @"1.000"] && [[longitudeField stringValue] isEqualToString: @"1.00"] && [[[objectField stringValue] lowercaseString] isEqualToString: @"earth"];
+	[menu_quit setEnabled:x];
+	[menu_quit setHidden:!x];
+	NSLog(@"going to object");
 }
 
 @end

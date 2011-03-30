@@ -18,6 +18,8 @@
     IBOutlet NSTextField *latitudeFieldLabel;
     IBOutlet NSTextField *longitudeFieldLabel;
     IBOutlet NSTextField *objectFieldLabel;
+	
+	IBOutlet NSMenuItem *menu_quit;
 }
 - (IBAction)gotoObject:(id)sender;
 - (IBAction)showWindow:(id)sender;

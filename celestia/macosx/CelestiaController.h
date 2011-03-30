@@ -60,7 +60,7 @@
 }
 
 - (IBAction) stopDemo: (id) sender;
-
+- (IBAction) reset: (id) sender;
 
 -(BOOL)applicationShouldTerminate:(id)sender;
 -(BOOL)windowShouldClose:(id)sender;

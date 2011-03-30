@@ -27,17 +27,17 @@
   preloadtex { object "Sol/Earth" }
   preloadtex { object "Sol/Earth/Moon" }
 
-  select {object "Sol"}
-  goto   {time 3.0 distance 30}
-  wait   {duration 3.0}
+  #select {object "Sol"}
+  #goto   {time 3.0 distance 30}
+  #wait   {duration 3.0}
 
   select {object "Sol/Earth"}
   follow {}
   goto   {time 3.0  distance 6.0}
-  wait   {duration 2.0}
+  #wait   {duration 2.0}
 
-  print  {text "Welcome to Celestia!"  row -3  column 1  duration 3}
-  wait   {duration 3.0}
+  #print  {text "Welcome to Celestia!"  row -3  column 1  duration 3}
+  #wait   {duration 3.0}
 
 #****************************************************************************
 #  The lines of code above are the entire start.cel script. Below, is a     *

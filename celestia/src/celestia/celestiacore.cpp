@@ -761,6 +761,7 @@ void CelestiaCore::mouseButtonUp(float x, float y, int button)
             if (!oldSel.empty() && oldSel == newSel)
                 sim->centerSelection();
         }
+#if 0
         else if (button == RightButton)
         {
             float pickX, pickY;
@@ -777,7 +778,7 @@ void CelestiaCore::mouseButtonUp(float x, float y, int button)
                 if (contextMenuCallback != NULL)
                     contextMenuCallback(x, y, sel);
             }
-        }
+		}
         else if (button == MiddleButton)
 	    {
             if ((*activeView)->zoom != 1)
@@ -795,6 +796,7 @@ void CelestiaCore::mouseButtonUp(float x, float y, int button)
             if((renderer->getRenderFlags() & Renderer::ShowAutoMag) != 0)
 	        setFaintestAutoMag();
 	    }
+#endif
     }
 }
 

@@ -381,7 +381,7 @@ NSString* fatalErrorMessage;
     // timezone setting requiring simulation time, but this dependency
     // has been removed. In fact timezone needs to be set in order to
     // correctly set the simulation time so settings loaded before starting.
-    [settings loadUserDefaults];
+    [settings loadAppDefaults];
 
     [appCore start:[NSDate date]];
 
@@ -639,13 +639,19 @@ NSString* fatalErrorMessage;
 	[appCore cancelScript];
 }
 
+- (IBAction) reset: (id) sender
+{
+	[self runScript: @"start.cel" ];   
+	[settings loadAppDefaults];
+}
+
 - (IBAction) setDeutsch: (id) sender
 {
 	[[appCore simulation] setLanguage:0];
 	[btnObjBrowser setImage:[NSImage imageNamed:@"buttons_objekt_auswahl.png"]];
 	[btnGotoObject setImage:[NSImage imageNamed:@"buttons_geh_zu_objekt.png"]];
 	[btnSetTime setImage:[NSImage imageNamed:@"buttons_tag_zeit.png"]];
-	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_experten_modus.png"]];
+	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_expertenstufe.png"]];
 	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_anfaengerstufe.png"]];	
 }
 		   
@@ -704,6 +710,8 @@ NSString* fatalErrorMessage;
     SetSystemUIMode(kUIModeAllHidden, options);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
 	
+	[self runScript: @"start.cel" ];   
+	[settings loadAppDefaults];
 }
 
 
