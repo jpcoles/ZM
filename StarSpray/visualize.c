@@ -375,11 +375,11 @@ void on3DDrag(int x0, int y0, int z0)
                     env.eye.y /= r/1.01;
                     env.eye.z /= r/1.01;
                 }
-                else if (r > 70.01)
+                else if (r > 30.01)
                 {
-                    env.eye.x /= r/70.01;
-                    env.eye.y /= r/70.01;
-                    env.eye.z /= r/70.01;
+                    env.eye.x /= r/30.01;
+                    env.eye.y /= r/30.01;
+                    env.eye.z /= r/30.01;
                 }
                 break;
             }
@@ -631,6 +631,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.ux = 0;
             env.eye.uy = 1;
             env.eye.uz = 0;
+            client_start_simulation();
             break;
         case BTN_DEMO2:
             client_stop_simulation();
@@ -642,6 +643,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.ux = 0;
             env.eye.uy = 1;
             env.eye.uz = 0;
+            client_start_simulation();
             break;
     }
 
