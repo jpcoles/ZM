@@ -78,7 +78,7 @@ void ic_sphere()
 {
     int i,j;
     double r, z, t, w, x,y, d, v;
-    env.pList.nParticles = 10000;
+    env.pList.nParticles = 5000;
     if (env.pList.nParticles > env.maxParticles)
         env.pList.nParticles = env.maxParticles;
 
