@@ -38,6 +38,15 @@ INFOTEXT1='Explore the exoplanets that have been detected.\nThese plots are kept
 
 INFOTEXT2='Click on a diagram to the left\nto show in the upper panel.'
 
+btable = { 'O': -4.3,
+           'B': -3.00,
+           'A': -0.15,
+           'F': -0.01,
+           'G': -0.10,
+           'K': -0.24,
+           'M': -2.5
+         }
+
 def _(s):
     if lang == 'english':
         return s
@@ -175,17 +184,29 @@ def readplanets(file):
     w = array(map(lambda x: x[:3] == 'PSR', pl['Planet Name']))
     pl['St. Mass'][w] = 1.4
 
+
     pl['Pl. Mass']  [:-8] *= 317.83 # Convert to Earth masses
     pl['Pl. Period'][:-8] /= 365.25 # Convert to years
     pl['Pl. Radius'][:-8] *= 11.209 # Convert to Earth radii
 
-    #pl['Pl. Grav']  = 2.5 * pl['Pl. Mass'] / pl['Pl. Radius']**2
     pl['Pl. Grav']  = pl['Pl. Mass'] / pl['Pl. Radius']**2
-    pl['Pl. Sol']   = 10 ** (0.4 * (4.8-pl['St. Mag. V.'])) * (pl['St. Dist']/(10*pl['Pl. Semi-axis']))**2
+    w = isnan(pl['Pl. Radius'])
+    pl['Pl. Grav'][w] = pl['Pl. Mass'][w]**0.3 * (0.5)**(0.66)
+
+    f = lambda x: btable.get(x[0], 0) if len(x) else 0
+    print pl['St. Spec. Type']
+    bolcorr = array([ f(x) for x in pl['St. Spec. Type'] ])
+    print bolcorr
+
+    pl['Pl. Sol']   = 10 ** (0.4 * (4.8-(pl['St. Mag. V.'] + bolcorr))) * (pl['St. Dist']/(10*pl['Pl. Semi-axis']))**2
     pl['Pl. Vref']  = 9e-2 * 319 * pl['Pl. Mass'] / 317.83 / sqrt(pl['St. Mass']*pl['Pl. Semi-axis'])
 
     #print pl['St. Mag. V.'][-8:]
     #print pl['Pl. Sol'][-8:]
+
+    for i,n in enumerate(pl['Planet Name']):
+        if n.startswith('Gl 581'):
+            colors[i] = 'green'
 
 
     #print pl
@@ -507,6 +528,9 @@ class Fig1(PlotDiagram):
             labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
         PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
+        #self.Bind(wx.EVT_SHOW, self.OnShow)
+
+    #def 
 
     def plot(self):
         ax = self.subplot
