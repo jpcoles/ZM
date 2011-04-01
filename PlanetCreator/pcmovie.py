@@ -89,7 +89,7 @@ class MovieInfoText(wx.StaticText):
                _('Mean semimajor axis:  %s\n'))
 
         f = lambda fmt,x,units: (fmt % x) + ' ' + units if not None else '%9s'%'Unknown'
-        if index:
+        if index is not None:
             self.SetLabel(str % (
                 f('%6.2f', ALL_DATA[index][0], _('Myr')),
                 f('%6.2f', ALL_DATA[index][2], _('Earth masses')),
@@ -214,20 +214,29 @@ class PCFrame(wx.Frame):
         x,y = 100,20
         w,h = 125,125
         self.mbtns = []
-        for i in range(8):
-            for j in range(8):
-                if [i,j] == [0,0]:
-                    bmp = wx.BitmapFromImage(wx.Image('mov-%i-%i.png'% (i,i), wx.BITMAP_TYPE_PNG))
+        index = 0
+        for name in ['EJS', 'CJS', 'EEJS', 'CJSECC']:
+            for t in [1,2,3,5]:
+                for p0 in [1,2]:
+                    for m in [10,5]:
+                        fname = 'thumbs/cthumb_%s_t%ip%im%i.s.png' % (name,t,p0,m)
+                        bmp = wx.BitmapFromImage(wx.Image(fname, wx.BITMAP_TYPE_PNG))
                 #b = gbuttons.GenBitmapButton(p, -1, bmp, style=wx.NO_BORDER,size=(110,110), pos=(x+w*j, y+h*i)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
                 #b = platebtn.PlateButton(p, -1, "", bmp, style=platebtn.PB_STYLE_DEFAULT, size=(110,110), pos=(x+w*j, y+h*i))
                 #b = platebtn.PlateButton(p, -1, "", bmp, style=platebtn.PB_STYLE_SQUARE|platebtn.PB_STYLE_TOGGLE, size=(110,110), pos=(x+w*j, y+h*i))
-                b = platebtn.PlateButton(p, -1, "", bmp, style=platebtn.PB_STYLE_SQUARE, size=(110,110), pos=(x+w*j, y+h*i))
-                b.index = i * 8 + j
-                b.SetBackgroundColour(wx.BLACK)
-                b.SetPressColor(wx.RED)
-                b.SetLabelColor(wx.RED)
-                #self.Bind(wx.EVT_BUTTON, self.OnButton, b)
-                self.mbtns.append([b,bmp])
+
+                        j = index % 8;
+                        i = index / 8;
+
+                        b = platebtn.PlateButton(p, -1, "", bmp, style=platebtn.PB_STYLE_SQUARE, size=(110,110), pos=(x+w*j, y+h*i))
+                        b.index = index
+                        b.SetBackgroundColour(wx.BLACK)
+                        b.SetPressColor(wx.RED)
+                        b.SetLabelColor(wx.RED)
+                        b.name = fname
+                        #self.Bind(wx.EVT_BUTTON, self.OnButton, b)
+                        self.mbtns.append([b,bmp])
+                        index += 1
 
     def OnButton(self, event):
         global lang
@@ -275,6 +284,7 @@ class PCFrame(wx.Frame):
                     self.PlayBtn.Enable(True)
                     self.info_text.update(b.index)
                     self.sim_selected = b.index
+                    print b.name
                 else:
                     b.Enable(True)
 
