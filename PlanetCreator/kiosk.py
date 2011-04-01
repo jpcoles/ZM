@@ -22,7 +22,7 @@ objc.loadBundleFunctions(bundle, globals(), (
 ))
 
 options = (  kUIOptionDisableAppleMenu 
-           #| kUIOptionDisableProcessSwitch 
+           | kUIOptionDisableProcessSwitch 
            | kUIOptionDisableForceQuit 
            | kUIOptionDisableSessionTerminate 
            | kUIOptionDisableHide

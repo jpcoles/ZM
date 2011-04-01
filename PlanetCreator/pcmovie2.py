@@ -359,7 +359,8 @@ class PCApp(wx.App):
         frame.Show(True)
         self.frame = frame
 
-        mframe = PCMovie(None, -1, title=_('This should be hidden in Fullscreen'), size=(1920,1080), pos=(1920,0), style=wx.FRAME_NO_TASKBAR)
+        mframe = PCMovie(None, -1, title=_('This should be hidden in Fullscreen'), size=(1920,1080), pos=(0,-1080), style=wx.FRAME_NO_TASKBAR)
+        #mframe = PCMovie(None, -1, title=_('This should be hidden in Fullscreen'), size=(1920,1080), pos=(1920,0), style=wx.FRAME_NO_TASKBAR)
         #frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
         #frame.SetPosition((2000,0))
         mframe.Show(True)
