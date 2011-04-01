@@ -204,9 +204,9 @@ def readplanets(file):
     #print pl['St. Mag. V.'][-8:]
     #print pl['Pl. Sol'][-8:]
 
-    for i,n in enumerate(pl['Planet Name']):
-        if n.startswith('Gl 581'):
-            colors[i] = 'green'
+#   for i,n in enumerate(pl['Planet Name']):
+#       if n.startswith('Gl 581'):
+#           colors[i] = 'green'
 
 
     #print pl
@@ -336,17 +336,17 @@ class AxisLabel:
                 pos = (self.pos[0], self.pos[1]-self.size[0]-font.GetPixelSize()[0])
                 b = b.ConvertToImage().Rotate90(clockwise=False).ConvertToBitmap()
             b = wx.StaticBitmap(self.parent, -1, b, pos=pos)
+            b.Raise()
             self.cache[s] = b
 
-#       for k,v in self.cache.iteritems():
-#           v.Hide()
+        self.Hide()
 
-        self.cache[s].Show()
+        #self.cache[s].Show()
 
     def Hide(self):
         print 'hiding', _(self.str)
-#       for k,v in self.cache.iteritems():
-#           v.Hide()
+        for k,v in self.cache.iteritems():
+            v.Hide()
 
     def Show(self):
         s = _(self.str)
@@ -421,10 +421,12 @@ class PlotDiagram(PlotPanel):
         else:
             self.figure.canvas.mpl_connect('pick_event', self)
 
-        if self.issmall:
-            self.smallxlabel = labels[0]
-        else:
-            self.xlabel, self.ylabel = labels
+#       if self.issmall:
+#           self.smallxlabel = labels[0]
+#       else:
+#           self.xlabel, self.ylabel = labels
+
+        self.labels = labels
 
         plot_diagrams.append(self)
 
@@ -445,8 +447,8 @@ class PlotDiagram(PlotPanel):
             #clrs = colors[self.active]
             clrs = ['black'] * n
 
-            print index, self.selected
-            if index:
+            print 'index/selected', index, self.selected
+            if index is not None:
                 self.selected = index
 #               index = (self.active==index).nonzero()[0]
 #               print index, self.selected
@@ -487,22 +489,22 @@ class PlotDiagram(PlotPanel):
             #self.figure.canvas.draw_artist(self.artist)
             #self.select(self.selected)
 
-        if self.IsShown():
-            print 'showing axis labels'
-            if not self.issmall:
-                #print self.xlabel.str
-                self.xlabel.Show()
-                self.ylabel.Show()
-            else:
-                self.smallxlabel.Show()
-        else:
-            print 'hiding axis labels'
-            if not self.issmall:
-                #print self.xlabel.str
-                self.xlabel.Hide()
-                self.ylabel.Hide()
-            else:
-                self.smallxlabel.Hide()
+#       if self.IsShown():
+#           print 'showing axis labels'
+#           if not self.issmall:
+#               #print self.xlabel.str
+#               self.xlabel.Show()
+#               self.ylabel.Show()
+#           else:
+#               self.smallxlabel.Show()
+#       else:
+#           print 'hiding axis labels'
+#           if not self.issmall:
+#               #print self.xlabel.str
+#               self.xlabel.Hide()
+#               self.ylabel.Hide()
+#           else:
+#               self.smallxlabel.Hide()
 
     def __call__(self, event):
 
@@ -519,18 +521,24 @@ class PlotDiagram(PlotPanel):
     def plot(self):
         assert False, 'plot() must be overridden'
 
+    def Show(self, *args):
+        PlotPanel.Show(self, *args)
+        for x in self.labels: x.Show()
+
+    def Hide(self, *args):
+        PlotPanel.Hide(self, *args)
+        for x in self.labels: x.Hide()
+
+
 class Fig1(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
+        PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            labels = [AxisLabel(parent, 'Orbital radius (Astronomical Units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+            self.labels = [AxisLabel(parent, 'Orbital radius (Astronomical Units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
                       AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+            self.labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
-        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
-        #self.Bind(wx.EVT_SHOW, self.OnShow)
-
-    #def 
 
     def plot(self):
         ax = self.subplot
@@ -564,6 +572,7 @@ class Fig1(PlotDiagram):
 
         return artist
 
+
 #   def draw(self, *args, **kwargs):
 #       PlotDiagram.draw(self, *args, **kwargs)
 #       if self.IsShown():
@@ -583,12 +592,12 @@ class Fig1(PlotDiagram):
 
 class Fig2(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
+        PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            labels = [ AxisLabel(parent, 'Sunlight strength (Earth units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+            self.labels = [ AxisLabel(parent, 'Sunlight strength (Earth units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
                        AxisLabel(parent, 'Gravity strength (Earth units)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            labels = [ AxisLabel(parent, 'Sunlight vs Gravity', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
-        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
+            self.labels = [ AxisLabel(parent, 'Sunlight vs Gravity', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
     def plot(self):
         ax = self.subplot
@@ -626,12 +635,12 @@ class Fig2(PlotDiagram):
 
 class Fig3(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
+        PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            labels = [ AxisLabel(parent, 'Reflex velocity (m/s)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
+            self.labels = [ AxisLabel(parent, 'Reflex velocity (m/s)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
                        AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            labels = [ AxisLabel(parent, 'Reflex velocity vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
-        PlotDiagram.__init__( self, parent, issmall, labels, pos=pos, size=size, color=color )
+            self.labels = [ AxisLabel(parent, 'Reflex velocity vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
     def plot(self):
         ax = self.subplot
