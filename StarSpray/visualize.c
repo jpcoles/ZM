@@ -286,7 +286,7 @@ void on3DDrag(int x0, int y0, int z0)
     x1 = -x0 / 1000.0;
     y1 =  z0 / 1000.0;
 
-    fprintf(stderr, "%i %i %i\n", x0,y0,z0);
+    //fprintf(stderr, "%i %i %i\n", x0,y0,z0);
 
     if (env.simStatus == SIM_STOPPED)
     {
@@ -624,7 +624,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             break;
 
-        case BTN_DEMO1:
+        case BTN_DEMO2:
             client_stop_simulation();
             ic_sphere();
             env.sceneChanged = 1;
@@ -636,7 +636,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             client_start_simulation();
             break;
-        case BTN_DEMO2:
+        case BTN_DEMO1:
             client_stop_simulation();
             ic_cold_sphere();
             env.sceneChanged = 1;
@@ -648,7 +648,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             client_start_simulation();
             break;
-        case BTN_DEMO3:
+        case BTN_DEMO5:
             client_stop_simulation();
             ic_figure_eight();
             env.sceneChanged = 1;
@@ -660,7 +660,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             client_start_simulation();
             break;
-        case BTN_DEMO4:
+        case BTN_DEMO3:
             client_stop_simulation();
             ic_plummer_sphere();
             env.sceneChanged = 1;
@@ -672,7 +672,7 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             client_start_simulation();
             break;
-        case BTN_DEMO5:
+        case BTN_DEMO6:
             client_stop_simulation();
             ic_colliding_plummer_spheres();
             env.sceneChanged = 1;

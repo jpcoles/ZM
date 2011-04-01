@@ -45,12 +45,12 @@ extern "C" {
 #define BTN_ENGLISH_INFO    113 
 #define BTN_DEUTSCH_INFO    97 
 #define BTN_INFO_CLOSE      49
-#define BTN_DEMO1           51 //100
-#define BTN_DEMO2           52 // 101
-#define BTN_DEMO3           53 // 102
-#define BTN_DEMO4           54 // 103
-#define BTN_DEMO5           55 // 104
-#define BTN_DEMO6           56 // 105
+#define BTN_DEMO1           100
+#define BTN_DEMO2           101
+#define BTN_DEMO3           51
+#define BTN_DEMO4           103
+#define BTN_DEMO5           114
+#define BTN_DEMO6           52
 #define BTN_PLAY            119
 #define BTN_STOP            50
 #define BTN_RESET           115
