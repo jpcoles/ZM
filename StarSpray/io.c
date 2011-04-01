@@ -87,7 +87,8 @@ void saveICs()
     //vel = (float *)realloc(vel, env.pList.nParticles * 3 * sizeof(float));
     //memset(vel, 0, env.pList.nParticles * 3 * sizeof(float));
 
-    if (writeTipsyPositions("starspray-ic.std", env.pList.pos, env.pList.vel, env.pList.nParticles))
+    //if (writeTipsyPositions("starspray-ic.std", env.pList.pos, env.pList.vel, env.pList.nParticles))
+    if (writeTipsyPositions("starspray-ic.std", &env.pList))
         assert(0);
 }
 

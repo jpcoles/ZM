@@ -24,6 +24,8 @@ int client_start(int argc, char **argv)
     env.pList.movingParticleIndex=0;
     env.pList.pos  = MALLOC(float, env.maxParticles * 3);        assert(env.pList.pos  != NULL);
     env.pList.vel  = MALLOC(float, env.maxParticles * 3);        assert(env.pList.vel  != NULL);
+    env.pList.mass = MALLOC(float, env.maxParticles * 3);        assert(env.pList.mass != NULL);
+    env.pList.soft = MALLOC(float, env.maxParticles * 3);        assert(env.pList.soft != NULL);
     env.pList.dest = MALLOC(float, env.maxParticles * 3);        assert(env.pList.dest != NULL);
     env.pList.step = MALLOC(unsigned int, env.maxParticles * 1); assert(env.pList.step != NULL);
     env.pList.clr  = MALLOC(float, env.maxParticles * 4);        assert(env.pList.clr  != NULL);

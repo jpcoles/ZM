@@ -186,6 +186,9 @@ void doSpray()
         env.pList.vel[pi+1] = 
         env.pList.vel[pi+2] = 0;
 
+        env.pList.mass[env.pList.nParticles] = 0;
+        env.pList.soft[env.pList.nParticles] = 0;
+
         env.pList.step[env.pList.nParticles] = 0;
 
         env.pList.clr[ci+0] = 0; 
@@ -523,7 +526,7 @@ void onClick(int button, int state, int x, int y)
                             runIC(ic_cold_sphere());
                             break;
                         case BTN_DEMO5:
-                            runIC(ic_cold_sphere());
+                            runIC(ic_figure_eight());
                             break;
                         case BTN_DEMO6:
                             runIC(ic_cold_sphere());
@@ -636,6 +639,42 @@ void onKeyboard(unsigned char key, int x, int y)
         case BTN_DEMO2:
             client_stop_simulation();
             ic_cold_sphere();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            client_start_simulation();
+            break;
+        case BTN_DEMO3:
+            client_stop_simulation();
+            ic_figure_eight();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            client_start_simulation();
+            break;
+        case BTN_DEMO4:
+            client_stop_simulation();
+            ic_plummer_sphere();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            client_start_simulation();
+            break;
+        case BTN_DEMO5:
+            client_stop_simulation();
+            ic_colliding_plummer_spheres();
             env.sceneChanged = 1;
             env.eye.x = env.eye.ox = 0; 
             env.eye.y = env.eye.oy = 3;

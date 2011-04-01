@@ -2,6 +2,7 @@
 #include <iostream>
 #include <assert.h>
 #include <ftipsy.hpp>
+#include "starspray.h"
 #include "tipsyio.h"
 
 using namespace std;
@@ -39,7 +40,7 @@ int loadTipsyPositions(char *filename, float *pos, float *vel, unsigned int nPar
     return 0;
 }
 
-int writeTipsyPositions(char *filename, float *pos, float *vel, unsigned int nParticles)
+int writeTipsyPositions(char *filename, ParticleList *pList) //float *pos, float *vel, unsigned int nParticles)
 {
     ofTipsy out;
 
@@ -50,7 +51,7 @@ int writeTipsyPositions(char *filename, float *pos, float *vel, unsigned int nPa
     if (!out.is_open()) return 1;
 
     h.h_time = 0;
-    h.h_nBodies = nParticles;
+    h.h_nBodies = pList->nParticles;
     h.h_nDims = 3;
     h.h_nDark = h.h_nBodies;
     h.h_nSph  = 
@@ -58,12 +59,25 @@ int writeTipsyPositions(char *filename, float *pos, float *vel, unsigned int nPa
     
     out << h;
 
-    float mass = 1.0f / h.h_nBodies;
-    float soft = 1.0f / sqrtf(h.h_nBodies);
+    float *pos = pList->pos;
+    float *vel = pList->vel;
+    float *mass = pList->mass;
+    float *soft = pList->soft;
+
+    //float mass = 1.0f / h.h_nBodies;
+    ////float soft = 1.0f / sqrtf(h.h_nBodies);
     for (unsigned int i=0; i < h.h_nDark; i++)
     {
-        d.mass    = mass;
-        d.eps     = soft;
+        if (*mass == 0)
+        {
+            d.mass = 1.0f / h.h_nBodies;
+            d.eps  = 1.0f / sqrtf(h.h_nBodies);
+        }
+        else
+        {
+            d.mass    = *mass++;
+            d.eps     = *soft++;
+        }
         d.phi     = 0;
         d.density = 0;
 
