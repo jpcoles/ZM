@@ -99,6 +99,8 @@
 - (IBAction) setEnglish: (id) sender;
 - (IBAction) setExpertMode: (id) sender;
 - (IBAction) setNoviceMode: (id) sender;
+- (IBAction) showInfo: (id) sender;
+
 
 
 @end

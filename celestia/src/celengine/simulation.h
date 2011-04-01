@@ -119,6 +119,9 @@ class Simulation
 	void setMode(int m);
 	int getMode();
 	
+	void setShowInfo(int i);
+	int getShowInfo();
+	
  private:
     SolarSystem* getSolarSystem(const Star* star);
 
@@ -141,6 +144,7 @@ class Simulation
 	
 	int language;
 	int mode;
+	int show_info;
 };
 
 #endif // _CELENGINE_SIMULATION_H_

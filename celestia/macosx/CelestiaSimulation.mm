@@ -248,4 +248,14 @@ FrameOfReference getFrame() const;
 	return [self simulation]->getMode();
 }
 
+-(void)setShowInfo:(int)i
+{
+	[self simulation]->setShowInfo(i);
+}
+
+-(int)getShowInfo
+{
+	return [self simulation]->getShowInfo();
+}
+
 @end

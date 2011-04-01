@@ -13,6 +13,8 @@
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
 
+#include <sstream>
+#include <assert.h>
 #include <cstdio>
 #include <iostream>
 #include <fstream>
@@ -46,6 +48,10 @@
 #include <celutil/debug.h>
 #include <celutil/utf8.h>
 #include "url.h"
+#include "image.h"
+
+#include <unistd.h>
+
 
 #ifdef CELX
 #include <celengine/scriptobject.h>
@@ -382,6 +388,27 @@ CelestiaCore::CelestiaCore() :
     clog.rdbuf(console.rdbuf());
     cerr.rdbuf(console.rdbuf());
     console.setWindowHeight(ConsolePageRows);
+	
+	string infoDEex("../_info_d_Celestia_experten_1920x1080.png");
+	string infoDEnv("../_info_d_Celestia_simple_1920x1080.png");
+	string infoENex("../_info_e_Celestia_expert_1920x1080.png");
+	string infoENnv("../_info_e_Celestia_einfach_1920x1080.png");
+
+	string s(getcwd(NULL,0));
+	warning("ARG\n");
+	warning(s);
+	warning("\n");
+	
+	info_deutsch_ex = LoadPNGImage(infoDEex); assert(info_deutsch_ex != NULL);
+	info_deutsch_nv = LoadPNGImage(infoDEnv); assert(info_deutsch_nv != NULL);
+	info_english_ex = LoadPNGImage(infoENex); assert(info_english_ex != NULL);
+	info_english_nv = LoadPNGImage(infoENnv); assert(info_english_nv != NULL);
+
+	stringstream ss;
+	ss << "Hello " << info_deutsch_ex->getFormat();
+	warning(ss.str());
+	
+
 }
 
 CelestiaCore::~CelestiaCore()
@@ -2458,6 +2485,8 @@ void CelestiaCore::draw()
     if (!viewUpdateRequired())
         return;
     viewChanged = false;
+	
+	
 
     if (views.size() == 1)
     {
@@ -2497,6 +2526,61 @@ void CelestiaCore::draw()
         glDisable(GL_SCISSOR_TEST);
         glViewport(0, 0, width, height);
     }
+	
+#define SHOW_INFO(w) do { \
+glRasterPos2i(width-w->getWidth(), height); \
+glDrawPixels(w->getWidth(), \
+w->getHeight(), \
+GL_RGBA, \
+GL_UNSIGNED_BYTE, \
+w->getPixels()); \
+} while (0)
+	
+	stringstream ss;
+	ss << "Showing info? " << sim->getShowInfo() << endl;
+	ss << info_deutsch_ex->getWidth() << " " << info_deutsch_ex->getHeight() << endl;
+	warning(ss.str());
+	
+	int info = sim->getShowInfo();
+	if (info)
+	{
+		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
+		glPushMatrix();
+		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
+		glPushMatrix();
+		
+		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
+		glLoadIdentity();                   // Reset The Projection Matrix
+		gluOrtho2D(0,width, 0, height);
+		
+		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
+		glLoadIdentity();                   // Reset The Projection Matrix
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glEnable(GL_BLEND);
+		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+		glPixelZoom( 1.0, -1.0 );
+		glDisable(GL_DEPTH_TEST);
+		glDisable(GL_LIGHTING);
+
+		switch (info)
+		{	
+			case 1: SHOW_INFO(info_deutsch_ex); break;
+			case 2: SHOW_INFO(info_deutsch_nv); break;
+			case 3: SHOW_INFO(info_english_ex); break;
+			case 4: SHOW_INFO(info_english_nv); break;
+		}
+		
+		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
+		glPopMatrix();
+		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
+		glPopMatrix();
+		
+	}
+	
+	viewChanged = true;
+	return;
+	
 
     renderOverlay();
 	if (showConsole)
@@ -2508,8 +2592,7 @@ void CelestiaCore::draw()
         console.render(ConsolePageRows);
         console.end();
     }
-
-
+		
     if (movieCapture != NULL && recording)
         movieCapture->captureFrame();
 

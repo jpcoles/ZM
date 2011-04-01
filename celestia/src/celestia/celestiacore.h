@@ -470,6 +470,14 @@ class CelestiaCore // : public Watchable<CelestiaCore>
     friend TextureFont* getFont(CelestiaCore*);
     friend TextureFont* getTitleFont(CelestiaCore*);
 #endif
+	
+public:
+	int show_info;
+	Image *info_deutsch_ex;
+	Image *info_deutsch_nv;
+	Image *info_english_ex;
+	Image *info_english_nv;
+
 };
 
 #endif // _CELESTIACORE_H_

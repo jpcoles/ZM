@@ -57,5 +57,7 @@
 -(int)getLanguage;
 -(void)setMode:(int)m;
 -(int)getMode;
+-(void)setShowInfo:(int)i;
+-(int)getShowInfo;
 
 @end

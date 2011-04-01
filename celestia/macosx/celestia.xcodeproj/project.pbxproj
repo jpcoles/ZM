@@ -44,6 +44,43 @@
 		88654A240DB29585007C8027 /* celx_position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A110DB29585007C8027 /* celx_position.cpp */; };
 		88654A260DB29585007C8027 /* celx_rotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A130DB29585007C8027 /* celx_rotation.cpp */; };
 		88654A280DB29585007C8027 /* celx_vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 88654A150DB29585007C8027 /* celx_vector.cpp */; };
+		AB155C411345C75E00697E54 /* asterisms.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF6A09910E8F00D05031 /* asterisms.dat */; };
+		AB155C421345C75E00697E54 /* asteroids.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF6B09910E8F00D05031 /* asteroids.ssc */; };
+		AB155C431345C75E00697E54 /* boundaries.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF6C09910E8F00D05031 /* boundaries.dat */; };
+		AB155C441345C75E00697E54 /* charm2.stc in Resources */ = {isa = PBXBuildFile; fileRef = FF7B2B110E89B1A30089BF43 /* charm2.stc */; };
+		AB155C451345C75E00697E54 /* comets.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF6E09910E8F00D05031 /* comets.ssc */; };
+		AB155C461345C75E00697E54 /* earth_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7009910E8F00D05031 /* earth_locs.ssc */; };
+		AB155C471345C75E00697E54 /* eros_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7109910E8F00D05031 /* eros_locs.ssc */; };
+		AB155C481345C75E00697E54 /* extrasolar.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7209910E8F00D05031 /* extrasolar.ssc */; };
+		AB155C491345C75E00697E54 /* extrasolar.stc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7309910E8F00D05031 /* extrasolar.stc */; };
+		AB155C4A1345C75E00697E54 /* galaxies.dsc in Resources */ = {isa = PBXBuildFile; fileRef = FF7B2B120E89B1A30089BF43 /* galaxies.dsc */; };
+		AB155C4B1345C75E00697E54 /* gaspra_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7509910E8F00D05031 /* gaspra_locs.ssc */; };
+		AB155C4C1345C75E00697E54 /* globulars.dsc in Resources */ = {isa = PBXBuildFile; fileRef = FF7B2B130E89B1A30089BF43 /* globulars.dsc */; };
+		AB155C4D1345C75E00697E54 /* hdxindex.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7609910E8F00D05031 /* hdxindex.dat */; };
+		AB155C4E1345C75E00697E54 /* ida_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7809910E8F00D05031 /* ida_locs.ssc */; };
+		AB155C4F1345C75E00697E54 /* itokawa_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = FF7B2B140E89B1A30089BF43 /* itokawa_locs.ssc */; };
+		AB155C501345C75E00697E54 /* jupitermoons_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7909910E8F00D05031 /* jupitermoons_locs.ssc */; };
+		AB155C511345C75E00697E54 /* mars_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7B09910E8F00D05031 /* mars_locs.ssc */; };
+		AB155C521345C75E00697E54 /* marsmoons_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7C09910E8F00D05031 /* marsmoons_locs.ssc */; };
+		AB155C531345C75E00697E54 /* merc_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7D09910E8F00D05031 /* merc_locs.ssc */; };
+		AB155C541345C75E00697E54 /* minormoons.ssc in Resources */ = {isa = PBXBuildFile; fileRef = CED3D1860FD8036C003B4562 /* minormoons.ssc */; };
+		AB155C551345C75E00697E54 /* moon_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7E09910E8F00D05031 /* moon_locs.ssc */; };
+		AB155C561345C75E00697E54 /* nearstars.stc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF7F09910E8F00D05031 /* nearstars.stc */; };
+		AB155C571345C75E00697E54 /* neptunemoons_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8009910E8F00D05031 /* neptunemoons_locs.ssc */; };
+		AB155C581345C75E00697E54 /* numberedmoons.ssc in Resources */ = {isa = PBXBuildFile; fileRef = CED3D1870FD8036C003B4562 /* numberedmoons.ssc */; };
+		AB155C591345C75E00697E54 /* outersys.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8109910E8F00D05031 /* outersys.ssc */; };
+		AB155C5A1345C75E00697E54 /* revised.stc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8209910E8F00D05031 /* revised.stc */; };
+		AB155C5B1345C75E00697E54 /* ring_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8309910E8F00D05031 /* ring_locs.ssc */; };
+		AB155C5C1345C75E00697E54 /* saoxindex.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8409910E8F00D05031 /* saoxindex.dat */; };
+		AB155C5D1345C75E00697E54 /* saturnmoons_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8509910E8F00D05031 /* saturnmoons_locs.ssc */; };
+		AB155C5E1345C75E00697E54 /* solarsys.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8609910E8F00D05031 /* solarsys.ssc */; };
+		AB155C5F1345C75E00697E54 /* spectbins.stc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8909910E8F00D05031 /* spectbins.stc */; };
+		AB155C601345C75E00697E54 /* starnames.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8A09910E8F00D05031 /* starnames.dat */; };
+		AB155C611345C75E00697E54 /* stars.dat in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8B09910E8F00D05031 /* stars.dat */; };
+		AB155C621345C75E00697E54 /* uranusmoons_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8D09910E8F00D05031 /* uranusmoons_locs.ssc */; };
+		AB155C631345C75E00697E54 /* venus_locs.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8E09910E8F00D05031 /* venus_locs.ssc */; };
+		AB155C641345C75E00697E54 /* visualbins.stc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF8F09910E8F00D05031 /* visualbins.stc */; };
+		AB155C651345C75E00697E54 /* world-capitals.ssc in Resources */ = {isa = PBXBuildFile; fileRef = E567EF9009910E8F00D05031 /* world-capitals.ssc */; };
 		AB8B9EA6133B5D700092CA92 /* buttons_object_browser.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9E9C133B5D700092CA92 /* buttons_object_browser.png */; };
 		AB8B9EA7133B5D700092CA92 /* buttons_objekt_auswahl.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9E9D133B5D700092CA92 /* buttons_objekt_auswahl.png */; };
 		AB8B9EA8133B5D700092CA92 /* buttons_tag_zeit.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8B9E9E133B5D700092CA92 /* buttons_tag_zeit.png */; };
@@ -1334,6 +1371,7 @@
 				AB8B9EA5133B5D700092CA92 /* buttons_simple_mode.png */,
 			);
 			name = Buttons;
+			path = ../data/Buttons;
 			sourceTree = "<group>";
 		};
 		CE52031E0F4FA1CD007D0DE8 /* Spice */ = {
@@ -2079,6 +2117,43 @@
 				ABB2C8E5134360D800DD09C4 /* _info_e_Celestia_simple_1920x1080.png in Resources */,
 				ABB2C8E6134360D800DD09C4 /* _info_d_Celestia_einfach_1920x1080.png in Resources */,
 				ABB2C9001343626300DD09C4 /* buttons_zurueck.png in Resources */,
+				AB155C411345C75E00697E54 /* asterisms.dat in Resources */,
+				AB155C421345C75E00697E54 /* asteroids.ssc in Resources */,
+				AB155C431345C75E00697E54 /* boundaries.dat in Resources */,
+				AB155C441345C75E00697E54 /* charm2.stc in Resources */,
+				AB155C451345C75E00697E54 /* comets.ssc in Resources */,
+				AB155C461345C75E00697E54 /* earth_locs.ssc in Resources */,
+				AB155C471345C75E00697E54 /* eros_locs.ssc in Resources */,
+				AB155C481345C75E00697E54 /* extrasolar.ssc in Resources */,
+				AB155C491345C75E00697E54 /* extrasolar.stc in Resources */,
+				AB155C4A1345C75E00697E54 /* galaxies.dsc in Resources */,
+				AB155C4B1345C75E00697E54 /* gaspra_locs.ssc in Resources */,
+				AB155C4C1345C75E00697E54 /* globulars.dsc in Resources */,
+				AB155C4D1345C75E00697E54 /* hdxindex.dat in Resources */,
+				AB155C4E1345C75E00697E54 /* ida_locs.ssc in Resources */,
+				AB155C4F1345C75E00697E54 /* itokawa_locs.ssc in Resources */,
+				AB155C501345C75E00697E54 /* jupitermoons_locs.ssc in Resources */,
+				AB155C511345C75E00697E54 /* mars_locs.ssc in Resources */,
+				AB155C521345C75E00697E54 /* marsmoons_locs.ssc in Resources */,
+				AB155C531345C75E00697E54 /* merc_locs.ssc in Resources */,
+				AB155C541345C75E00697E54 /* minormoons.ssc in Resources */,
+				AB155C551345C75E00697E54 /* moon_locs.ssc in Resources */,
+				AB155C561345C75E00697E54 /* nearstars.stc in Resources */,
+				AB155C571345C75E00697E54 /* neptunemoons_locs.ssc in Resources */,
+				AB155C581345C75E00697E54 /* numberedmoons.ssc in Resources */,
+				AB155C591345C75E00697E54 /* outersys.ssc in Resources */,
+				AB155C5A1345C75E00697E54 /* revised.stc in Resources */,
+				AB155C5B1345C75E00697E54 /* ring_locs.ssc in Resources */,
+				AB155C5C1345C75E00697E54 /* saoxindex.dat in Resources */,
+				AB155C5D1345C75E00697E54 /* saturnmoons_locs.ssc in Resources */,
+				AB155C5E1345C75E00697E54 /* solarsys.ssc in Resources */,
+				AB155C5F1345C75E00697E54 /* spectbins.stc in Resources */,
+				AB155C601345C75E00697E54 /* starnames.dat in Resources */,
+				AB155C611345C75E00697E54 /* stars.dat in Resources */,
+				AB155C621345C75E00697E54 /* uranusmoons_locs.ssc in Resources */,
+				AB155C631345C75E00697E54 /* venus_locs.ssc in Resources */,
+				AB155C641345C75E00697E54 /* visualbins.stc in Resources */,
+				AB155C651345C75E00697E54 /* world-capitals.ssc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7341,14 +7341,6 @@
 					<int key="connectionID">3242</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showWindow:</string>
-						<reference key="source" ref="1014493898"/>
-						<reference key="destination" ref="594463623"/>
-					</object>
-					<int key="connectionID">3243</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">window</string>
 						<reference key="source" ref="1014493898"/>
@@ -7571,6 +7563,14 @@
 						<reference key="destination" ref="369499786"/>
 					</object>
 					<int key="connectionID">3278</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showInfo:</string>
+						<reference key="source" ref="270168872"/>
+						<reference key="destination" ref="594463623"/>
+					</object>
+					<int key="connectionID">3279</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -12481,9 +12481,9 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{404, 158}, {1676, 480}}</string>
+					<string>{{-266, 134}, {1676, 480}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{404, 158}, {1676, 480}}</string>
+					<string>{{-266, 134}, {1676, 480}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<boolean value="NO"/>
@@ -13318,7 +13318,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">3278</int>
+			<int key="maxID">3279</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -13343,6 +13343,7 @@
 							<string>setNoviceMode:</string>
 							<string>showGLInfo:</string>
 							<string>showHelp:</string>
+							<string>showInfo:</string>
 							<string>showInfoURL:</string>
 							<string>showPanel:</string>
 							<string>stopDemo:</string>
@@ -13350,6 +13351,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -13386,6 +13388,7 @@
 							<string>setNoviceMode:</string>
 							<string>showGLInfo:</string>
 							<string>showHelp:</string>
+							<string>showInfo:</string>
 							<string>showInfoURL:</string>
 							<string>showPanel:</string>
 							<string>stopDemo:</string>
@@ -13443,6 +13446,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showHelp:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">showInfo:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

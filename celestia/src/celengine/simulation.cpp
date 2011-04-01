@@ -27,7 +27,8 @@ Simulation::Simulation(Universe* _universe) :
     faintestVisible(5.0f),
     pauseState(false),
 	language(0),
-	mode(0)
+	mode(0),
+	show_info(0)
 {
     activeObserver = new Observer();
     observers.insert(observers.end(), activeObserver);
@@ -578,3 +579,12 @@ int Simulation::getMode()
 	return mode;
 }
 
+void Simulation::setShowInfo(int i)
+{
+	show_info = i;
+}
+
+int Simulation::getShowInfo()
+{
+	return show_info;
+}

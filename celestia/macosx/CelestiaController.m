@@ -653,6 +653,14 @@ NSString* fatalErrorMessage;
 	[btnSetTime setImage:[NSImage imageNamed:@"buttons_tag_zeit.png"]];
 	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_expertenstufe.png"]];
 	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_anfaengerstufe.png"]];	
+	
+	if ([[appCore simulation] getShowInfo])
+	{
+		int mode = [[appCore simulation] getMode];
+		int lang = [[appCore simulation] getLanguage];
+		NSLog(@"%i", (1 + mode + 2*lang));
+		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
+	}
 }
 		   
 - (IBAction) setEnglish: (id) sender
@@ -663,6 +671,14 @@ NSString* fatalErrorMessage;
 	[btnSetTime setImage:[NSImage imageNamed:@"buttons_set_time.png"]];
 	[btnExpertMode setImage:[NSImage imageNamed:@"buttons_expert_mode.png"]];
 	[btnNoviceMode setImage:[NSImage imageNamed:@"buttons_novice_mode.png"]];
+	
+	if ([[appCore simulation] getShowInfo])
+	{
+		int mode = [[appCore simulation] getMode];
+		int lang = [[appCore simulation] getLanguage];
+		NSLog(@"%i", (1 + mode + 2*lang));
+		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
+	}
 }
 
 - (IBAction) setExpertMode: (id) sender
@@ -714,6 +730,30 @@ NSString* fatalErrorMessage;
 	[settings loadAppDefaults];
 }
 
+- (IBAction) showInfo: (id) sender
+{
+	NSLog(@"called showInfo");
+	int x = [[appCore simulation] getShowInfo];
+	NSLog(@"%i", x);
+	if ([[appCore simulation] getShowInfo])
+	{
+		NSLog(@"showInfo off...");
+
+		[[appCore simulation] setShowInfo: 0];
+	}
+	else
+	{
+		NSLog(@"showInfo on...");
+
+		int mode = [[appCore simulation] getMode];
+		int lang = [[appCore simulation] getLanguage];
+		NSLog(@"%i", (1 + mode + 2*lang));
+		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
+
+	}
+	NSLog(@"end showInfo");
+
+}
 
 /* Full screen toggle method. Uses a borderless window that covers the screen so that context menus continue to work. */
 - (IBAction) toggleFullScreen: (id) sender
