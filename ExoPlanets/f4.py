@@ -106,10 +106,10 @@ import wx.lib.platebtn as platebtn
 import wx.lib.buttons as gbuttons
 from wx.lib.fancytext import RenderToBitmap
 from wxPlotPanel import PlotPanel
-try:
-    from agw import advancedsplash as AS
-except ImportError: # if it's not there locally, try the wxPython lib.
-    import wx.lib.agw.advancedsplash as AS
+#try:
+    #from agw import advancedsplash as AS
+#except ImportError: # if it's not there locally, try the wxPython lib.
+    #import wx.lib.agw.advancedsplash as AS
 
 
 from pylab import figure,show,plot, Circle, gca, axis, subplot, \
@@ -337,6 +337,7 @@ class AxisLabel:
                 b = b.ConvertToImage().Rotate90(clockwise=False).ConvertToBitmap()
             b = wx.StaticBitmap(self.parent, -1, b, pos=pos)
             b.Raise()
+            b.Hide()
             self.cache[s] = b
 
         something_shown = False
@@ -347,9 +348,7 @@ class AxisLabel:
             v.Hide()
 
         if something_shown:
-            self.Show()
-
-        #self.cache[s].Show()
+            self.cache[s].Show()
 
     def Hide(self):
         print 'hiding', _(self.str)
@@ -545,10 +544,10 @@ class Fig1(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
         PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            self.labels = [AxisLabel(parent, 'Orbital radius (Astronomical Units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
-                      AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
+            self.labels = [AxisLabel(parent, 'Orbital radius (Astronomical Units)', 'x', 20, (600,25), (pos[0]+170,pos[1] + size[1] - 35)), 
+                      AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,25), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            self.labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+            self.labels = [ AxisLabel(parent, 'Orbital radius vs. Mass', 'x', 20, (600,25), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
 
     def plot(self):
@@ -605,10 +604,10 @@ class Fig2(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
         PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            self.labels = [ AxisLabel(parent, 'Sunlight strength (Earth units)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
-                       AxisLabel(parent, 'Gravity strength (Earth units)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
+            self.labels = [ AxisLabel(parent, 'Sunlight strength (Earth units)', 'x', 20, (600,25), (pos[0]+170,pos[1] + size[1] - 35)), 
+                       AxisLabel(parent, 'Gravity strength (Earth units)', 'y', 20, (600,25), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            self.labels = [ AxisLabel(parent, 'Sunlight vs Gravity', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+            self.labels = [ AxisLabel(parent, 'Sunlight vs Gravity', 'x', 20, (600,25), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
     def plot(self):
         ax = self.subplot
@@ -648,10 +647,10 @@ class Fig3(PlotDiagram):
     def __init__( self, parent, issmall, pos=None, size=None, color=None ):
         PlotDiagram.__init__( self, parent, issmall, [], pos=pos, size=size, color=color )
         if not issmall:
-            self.labels = [ AxisLabel(parent, 'Reflex velocity (m/s)', 'x', 20, (600,240), (pos[0]+170,pos[1] + size[1] - 35)), 
-                       AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,240), (pos[0]+55,pos[1]+size[1]-55)) ]
+            self.labels = [ AxisLabel(parent, 'Reflex velocity (m/s)', 'x', 20, (600,25), (pos[0]+170,pos[1] + size[1] - 35)), 
+                       AxisLabel(parent, 'Mass (Multiples of Earth)', 'y', 20, (600,25), (pos[0]+55,pos[1]+size[1]-55)) ]
         else:
-            self.labels = [ AxisLabel(parent, 'Reflex velocity vs. Mass', 'x', 20, (600,240), (pos[0]+65,pos[1] + size[1] - 28)) ]
+            self.labels = [ AxisLabel(parent, 'Reflex velocity vs. Mass', 'x', 20, (600,25), (pos[0]+65,pos[1] + size[1] - 28)) ]
 
     def plot(self):
         ax = self.subplot
@@ -890,7 +889,7 @@ class EPApp(wx.App):
     def OnInit(self):
         frame = EPFrame(None, -1, _('This should be hidden in Fullscreen'), size=(1920,1080))
         print "!@#!@#!@#!@#"
-        #frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
+        frame.ShowFullScreen(True, style=wx.FULLSCREEN_ALL)
         frame.Show(True)
         self.SetTopWindow(frame)
         self.frame = frame
