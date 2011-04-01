@@ -339,7 +339,15 @@ class AxisLabel:
             b.Raise()
             self.cache[s] = b
 
-        self.Hide()
+        something_shown = False
+        for k,v in self.cache.iteritems():
+            if v.IsShown(): something_shown = True
+
+        for k,v in self.cache.iteritems():
+            v.Hide()
+
+        if something_shown:
+            self.Show()
 
         #self.cache[s].Show()
 
@@ -478,6 +486,9 @@ class PlotDiagram(PlotPanel):
 
         if force: 
             self.artist = self.plot()
+
+        for x in self.labels: x.draw()
+
             #self.figure.canvas.draw()
 #           if self.artist is None:
 #               self.artist = self.plot()
