@@ -163,7 +163,8 @@ class PCMovie(wx.Frame):
         self.p = p
 
         try:
-            self.mc = wx.media.MediaCtrl(self, -1, style=wx.SIMPLE_BORDER, pos=(0,0), size=(1920,1080),szBackend=wx.media.MEDIABACKEND_QUICKTIME)
+            self.mc = wx.media.MediaCtrl(self, -1, style=wx.SIMPLE_BORDER, pos=(0,0), size=(1920,1102),szBackend=wx.media.MEDIABACKEND_QUICKTIME)
+            self.mc.SetBackgroundColour('BLACK')
         except NotImplementedError:
             self.mc = TempMediaCtrl()
 
@@ -239,6 +240,8 @@ class PCFrame(wx.Frame):
 
         self.hilightbox = None
         self.sim_selected = None
+        self.b_selected = None
+        self.playing = None
 
         x,y = 100,20
         w,h = 125,125
@@ -249,7 +252,10 @@ class PCFrame(wx.Frame):
                 for p0 in [1,2]:
                     for m in [10,5]:
                         fname = 'thumbs/cthumb_%s_t%ip%im%i.s.png' % (name,t,p0,m)
-                        bmp = wx.BitmapFromImage(wx.Image(fname, wx.BITMAP_TYPE_PNG))
+                        try:
+                            bmp = wx.BitmapFromImage(wx.Image(fname, wx.BITMAP_TYPE_PNG))
+                        except:
+                            pass
                         j = index % 8;
                         i = index / 8;
 
@@ -259,6 +265,7 @@ class PCFrame(wx.Frame):
                         b.SetPressColor(wx.RED)
                         b.SetLabelColor(wx.RED)
                         b.name = fname
+                        b.mname = 'movies/%s_t%ip%im%i.mpg' % (name,t,p0,m)
                         #self.Bind(wx.EVT_BUTTON, self.OnButton, b)
                         self.mbtns.append([b,bmp])
                         index += 1
@@ -292,10 +299,17 @@ class PCFrame(wx.Frame):
         elif obj is self.HelpBtn:
             print 'Help!'
 
-        elif obj is self.PlayBtn:
+        elif obj is self.PlayBtn and self.sim_selected is not None:
             r,c = divmod(self.sim_selected, 8)
             print r,c
-            self.mc.Load('movie.mpg')
+            self.mframe.Show()
+            if self.playing is None or self.playing != self.b_selected.mname:
+                self.mc.Load(self.b_selected.mname)
+                print 'Would play', self.b_selected.mname
+                #self.mc.Load('movie.mpg')
+                self.playing = self.b_selected.mname
+            else:
+                self.mc.Stop()
             self.mc.Play()
             pass
 
@@ -328,6 +342,7 @@ class PCFrame(wx.Frame):
                     self.PlayBtn.Enable(True)
                     self.info_text.update(b.index)
                     self.sim_selected = b.index
+                    self.b_selected = b
                 else:
                     b.Enable(True)
 
@@ -349,6 +364,7 @@ class PCApp(wx.App):
         #frame.SetPosition((2000,0))
         mframe.Show(True)
 
+        frame.mframe = mframe
         frame.mc = mframe.mc
         frame.SetFocus()
         frame.CaptureMouse()
