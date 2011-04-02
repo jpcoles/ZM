@@ -2529,7 +2529,7 @@ void CelestiaCore::draw()
     }
 	
 #define SHOW_INFO(w) do { \
-glRasterPos2i(width - w->getWidth(), height); \
+glRasterPos2i(width - (width-1920) - w->getWidth(), height); \
 glDrawPixels(w->getWidth(), w->getHeight(), \
 GL_RGBA, \
 GL_UNSIGNED_BYTE, \
@@ -2547,15 +2547,15 @@ w->getPixels()); \
 		//glEnable(GL_BLEND);
 		//glEnable(GL_ALPHA_TEST);
 		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glAlphaFunc(GL_GREATER, 0.0f);
+		//glAlphaFunc(GL_GREATER, 0.0f);
 		
 		//glBlendFunc(GL_SRC_ALPHA,GL_ONE);
 		glPixelZoom( 1.0, -1.0 );
 		glDisable(GL_DEPTH_TEST);
 		glDisable(GL_LIGHTING);
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		glPushAttrib(GL_DEPTH_BUFFER_BIT | GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT);
-		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+		//glPushAttrib(GL_DEPTH_BUFFER_BIT | GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT);
+		//glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 		
 		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
 		glPushMatrix();
