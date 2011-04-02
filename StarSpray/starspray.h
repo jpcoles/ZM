@@ -48,7 +48,7 @@ extern "C" {
 #define BTN_DEMO1           100
 #define BTN_DEMO2           101
 #define BTN_DEMO3           51
-#define BTN_DEMO4           103
+#define BTN_DEMO4           104
 #define BTN_DEMO5           114
 #define BTN_DEMO6           52
 #define BTN_PLAY            119

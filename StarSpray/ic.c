@@ -384,3 +384,70 @@ void ic_figure_eight()
     env.pList.soft[2] = soft;
 }
 
+void ic_logo()
+{
+    int i,j,k;
+    const int ncp = 10;
+    float scale = 0.5;
+    float cp[ncp][3] = // control points
+    { { -4,  1.5, 0. },
+      { -1,  1.5, 0. },
+      { -4, -1.5, 0. },
+      { -1, -1.5, 0. },
+      { 0,0, 0. },
+      {  1, -1.5, 0. },
+      {  1,  1.5, 0. },
+      { 2.5, 0.5, 0. },
+      { 4,   1.5, 0. },
+      { 4, -1.5, 0. }
+    };
+
+    int p=0;
+    int oi = 0;
+    for (i=1; i < ncp; i++, oi++)
+    {
+        if (cp[i][0] == 0 && cp[i][1] == 0 && cp[i][2] == 0)
+        {
+            i += 2;
+            oi += 2;
+        }
+
+        int interp=10;
+        for (j=0; j < interp; j++)
+        {
+            float x = cp[oi][0] + (cp[i][0] - cp[oi][0]) / interp * j;
+            float y = cp[oi][1] + (cp[i][1] - cp[oi][1]) / interp * j;
+            float z = cp[oi][2] + (cp[i][2] - cp[oi][2]) / interp * j;
+
+            x *= scale;
+            y *= scale;
+            z *= scale;
+
+            for (k=0; k < 40; k++)
+            {
+                float xx, yy, zz;
+                xx = (2*drand48() - 1) * 0.12;
+                yy = (2*drand48() - 1) * 0.12;
+                zz = (2*drand48() - 1) * 0.12;
+
+                env.pList.pos[3*p+0] = xx + x;
+                env.pList.pos[3*p+1] = yy + y;
+                env.pList.pos[3*p+2] = zz + z;
+
+                env.pList.vel[3*p+0] = 0;
+                env.pList.vel[3*p+1] = 0;
+                env.pList.vel[3*p+2] = 0;
+
+                env.pList.mass[p] = .001;
+                env.pList.soft[p] = 1e-1;
+                p++;
+            }
+        }
+    }
+
+    env.pList.nParticles = p;
+    if (env.pList.nParticles > env.maxParticles)
+        env.pList.nParticles = env.maxParticles;
+    env.pList.movingParticleIndex = env.pList.nParticles;
+}
+

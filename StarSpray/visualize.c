@@ -684,6 +684,18 @@ void onKeyboard(unsigned char key, int x, int y)
             env.eye.uz = 0;
             client_start_simulation();
             break;
+        case BTN_DEMO4:
+            client_stop_simulation();
+            ic_logo();
+            env.sceneChanged = 1;
+            env.eye.x = env.eye.ox = 0; 
+            env.eye.y = env.eye.oy = 3;
+            env.eye.z = env.eye.oz = 3;
+            env.eye.ux = 0;
+            env.eye.uy = 1;
+            env.eye.uz = 0;
+            client_start_simulation();
+            break;
     }
 
     env.sceneChanged = 1;
