@@ -390,10 +390,11 @@ CelestiaCore::CelestiaCore() :
     console.setWindowHeight(ConsolePageRows);
 	
 	string infoDEex("../_info_d_Celestia_experten_1920x1080.png");
-	string infoDEnv("../_info_d_Celestia_simple_1920x1080.png");
+	string infoDEnv("../_info_d_Celestia_einfach_1920x1080.png");
 	string infoENex("../_info_e_Celestia_expert_1920x1080.png");
-	string infoENnv("../_info_e_Celestia_einfach_1920x1080.png");
+	string infoENnv("../_info_e_Celestia_simple_1920x1080.png");
 
+	
 	string s(getcwd(NULL,0));
 	warning("ARG\n");
 	warning(s);
@@ -2528,9 +2529,8 @@ void CelestiaCore::draw()
     }
 	
 #define SHOW_INFO(w) do { \
-glRasterPos2i(width-w->getWidth(), height); \
-glDrawPixels(w->getWidth(), \
-w->getHeight(), \
+glRasterPos2i(width - w->getWidth(), height); \
+glDrawPixels(w->getWidth(), w->getHeight(), \
 GL_RGBA, \
 GL_UNSIGNED_BYTE, \
 w->getPixels()); \
@@ -2544,6 +2544,19 @@ w->getPixels()); \
 	int info = sim->getShowInfo();
 	if (info)
 	{
+		//glEnable(GL_BLEND);
+		//glEnable(GL_ALPHA_TEST);
+		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glAlphaFunc(GL_GREATER, 0.0f);
+		
+		//glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+		glPixelZoom( 1.0, -1.0 );
+		glDisable(GL_DEPTH_TEST);
+		glDisable(GL_LIGHTING);
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glPushAttrib(GL_DEPTH_BUFFER_BIT | GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT);
+		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+		
 		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
 		glPushMatrix();
 		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
@@ -2555,31 +2568,25 @@ w->getPixels()); \
 		
 		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
 		glLoadIdentity();                   // Reset The Projection Matrix
-		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		glEnable(GL_BLEND);
-		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		//glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-		glPixelZoom( 1.0, -1.0 );
-		glDisable(GL_DEPTH_TEST);
-		glDisable(GL_LIGHTING);
+
 
 		switch (info)
 		{	
-			case 1: SHOW_INFO(info_deutsch_ex); break;
-			case 2: SHOW_INFO(info_deutsch_nv); break;
-			case 3: SHOW_INFO(info_english_ex); break;
-			case 4: SHOW_INFO(info_english_nv); break;
+			case 1: SHOW_INFO(info_deutsch_nv); break;
+			case 2: SHOW_INFO(info_deutsch_ex); break;
+			case 3: SHOW_INFO(info_english_nv); break;
+			case 4: SHOW_INFO(info_english_ex); break;
 		}
 		
 		glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
 		glPopMatrix();
 		glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
 		glPopMatrix();
-		
+		glPopAttrib();
 	}
 	
-	viewChanged = true;
-	return;
+	//viewChanged = true;
+	//return;
 	
 
     renderOverlay();
