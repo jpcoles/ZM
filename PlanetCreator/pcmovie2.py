@@ -24,40 +24,12 @@ def _(s):
     if lang == 'english':
         return s
     elif lang == 'deutsch':
-        t = {r'Orbital radius (Astronomical Units)': r'Umlaufbahn Radius (astronomische Einheit)',
-             r'Mass (Multiples of Earth)'          : r'Masse (Mehrlinge von der Erde)',
-             r'Orbital radius vs. Mass'            : r'Umlaufbahn Radius vs. Masse',
-             r'Sunlight strength (Earth units)'    : r'Sonnenlicht Grosse (Erde Einheiten)',
-             r'Gravity strength (Earth units)'     : r'Schwerkraft Grosse (Erde Einheiten)',
-             r'Sunlight vs Gravity'                : r'Sonnenlicht vs. Schwerkraft',
-             r'Reflex velocity (m/s)'              : r'Reflex Geschwindigkeit (m/s)',
-             r'Mass (Multiples of Earth)'          : r'Masse (Mehrlinge von der Erde)',
-             r'Reflex velocity vs. Mass'           : r'Reflex Geschwindigkeit vs. Masse',
-              'Mass:           %s\n'               :  'Masse:               %s\n',
-              'Radius:         %s\n'               :  'Radius:              %s\n',
-              'Year:           %s\n'               :  'Jahr:                %s\n',
-              'Orbit radius:   %s\n'               :  'Umlaufbahn Radius:   %s\n',
-
-              'Earth masses'                       :  'Erdmassen',
-              'Earth radii'                        :  'Erdradien',
-              'Earth years'                        :  'Erdjahre',
-
-             r'Mercury'                            : r'Merkur',
-             r'Venus'                              : r'Venus',
-             r'Earth'                              : r'Erde',
-             r'Mars'                               : r'Mars',
-             r'Jupiter'                            : r'Jupiter',
-             r'Saturn'                             : r'Saturn',
-             r'Uranus'                             : r'Uranus',
-             r'Neptune'                            : r'Neptun',
-
-              #INFOTEXT:
-              #'Entdecken Sie die bisher gefundenen Exoplaneten. Diese Plots sind aktuell mit den neusten Entdeckungen!\n\n',
-                #'Klicken Sie auf die Plots am unteren Rand des Bildschirms,\num die unterschiedlichen Relationen zu sehen. \r'
-                #'Klicken Sie auf einen Punkt im Hauptplot, um Informationen ueber die einzelnen Planeten zu erhalten.',
-
-
-
+        t = {r'Planetesimal Mass:    %s\n': r'Planetoid Masse:    %s\n',
+             r'Formed Planets:       %s\n': r'Enstanden Planeten: %s\n',
+             r'Average orbit radius: %s\n': r'Umlaufbahn Radius:  %s\n',
+             r'Average ellipticity:  %s\n': r'Elliptischkeit:     %s\n',
+             r'Gas loss time:        %s\n': r'Gas Verlehrzeit:    %s\n',
+             INFOTEXT: r''
             }
         T = t.get(s, None)
         if T is None:
@@ -83,20 +55,20 @@ class MovieInfoText(wx.StaticText):
 
     def update(self, index):
         str = (
-               _('Decay time:           %s\n') +
                _('Planetesimal Mass:    %s\n') +
-               _('Formed Planets:    %s\n') +
-               _('Mean eccentricity:    %s\n') +
-               _('Mean semimajor axis:  %s\n'))
+               _('Formed Planets:       %s\n') +
+               _('Average orbit radius: %s\n') +
+               _('Average ellipticity:  %s\n') +
+               _('Gas loss time:        %s\n'))
 
         f = lambda fmt,x,units: (fmt % x) + ' ' + units if not None else '%9s'%'Unknown'
         if index is not None:
             self.SetLabel(str % (
-                f('%6.2f', ALL_DATA[index][0], _('Myr')),
                 f('%6.2f', ALL_DATA[index][2], _('Earth masses')),
                 f('%6i', ALL_DATA[index][3], ''),
                 f('%6.2f', ALL_DATA[index][7], 'AU'),
-                f('%6.2f', ALL_DATA[index][8], 'AU')
+                f('%6.2f', ALL_DATA[index][8], ''),
+                f('%6.2f', ALL_DATA[index][0], _('Myr'))
                 ))
         else:
             self.SetLabel('')
@@ -214,6 +186,10 @@ class PCFrame(wx.Frame):
         ENbutton.SetPosition((1920-50-130,1080-45))
         Helpbutton.SetPosition((1920-50,1080-45))
 
+        CHbutton.SetPosition((1920-50-130-130-500,1080-45))
+        ENbutton.SetPosition((1920-50-130-500,1080-45))
+        Helpbutton.SetPosition((1920-50-500,1080-45))
+
         #CHbutton.SetPosition((1920-50-130-130,80-45))
         #ENbutton.SetPosition((1920-50-130,80-45))
         #Helpbutton.SetPosition((1920-50,80-45))
@@ -289,13 +265,14 @@ class PCFrame(wx.Frame):
             print 'German!'
             if lang != 'deutsch': 
                 lang = 'deutsch'
-                #redraw()
+                redraw()
 
         elif obj is self.ENBtn:
             print 'English!'
             if lang != 'english': 
                 lang = 'english'
-                #redraw()
+                redraw()
+
         elif obj is self.HelpBtn:
             print 'Help!'
 
