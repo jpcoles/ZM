@@ -2527,7 +2527,8 @@ void CelestiaCore::draw()
         glDisable(GL_SCISSOR_TEST);
         glViewport(0, 0, width, height);
     }
-	
+	//glRasterPos2i(width - (width-1920) - w->getWidth(), height-(height-1080)); \
+
 #define SHOW_INFO(w) do { \
 glRasterPos2i(width - (width-1920) - w->getWidth(), height); \
 glDrawPixels(w->getWidth(), w->getHeight(), \
@@ -2539,6 +2540,7 @@ w->getPixels()); \
 	stringstream ss;
 	ss << "Showing info? " << sim->getShowInfo() << endl;
 	ss << info_deutsch_ex->getWidth() << " " << info_deutsch_ex->getHeight() << endl;
+	ss << width <<" " << height << endl;
 	warning(ss.str());
 	
 	int info = sim->getShowInfo();

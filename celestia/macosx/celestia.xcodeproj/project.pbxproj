@@ -2032,7 +2032,6 @@
 			isa = PBXProject;
 			buildConfigurationList = E532F41D0933316100D7D5B3 /* Build configuration list for PBXProject "celestia" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
