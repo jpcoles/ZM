@@ -15,7 +15,7 @@ import wx.media
 
 lang = 'deutsch'
 
-INFOTEXT='Explore the recent simulations of planet formation. Each\n' + \
+INFOTEXT='Explore the recent planet formation simulations. Each\n' + \
          'picture to the left represents a different initial configuration.\n\n' + \
          'Click on a picture to see the configuration. Click the play \n' + \
          'button to see the simulation on the overhead monitor.'
@@ -24,11 +24,11 @@ def _(s):
     if lang == 'english':
         return s
     elif lang == 'deutsch':
-        t = {r'Planetesimal Mass:    %s\n': r'Planetoid Masse:    %s\n',
-             r'Formed Planets:       %s\n': r'Enstanden Planeten: %s\n',
-             r'Average orbit radius: %s\n': r'Umlaufbahn Radius:  %s\n',
-             r'Average ellipticity:  %s\n': r'Elliptischkeit:     %s\n',
-             r'Gas loss time:        %s\n': r'Gas Verlehrzeit:    %s\n',
+        t = {'Planetesimal Mass:    %s\n': 'Planetoid Masse:    %s\n',
+             'Formed Planets:       %s\n': 'Enstanden Planeten: %s\n',
+             'Average orbit radius: %s\n': 'Umlaufbahn Radius:  %s\n',
+             'Average ellipticity:  %s\n': 'Elliptischkeit:     %s\n',
+             'Gas loss time:        %s\n': 'Gas Verlehrzeit:    %s\n',
              INFOTEXT: r''
             }
         T = t.get(s, None)
@@ -72,6 +72,10 @@ class MovieInfoText(wx.StaticText):
                 ))
         else:
             self.SetLabel('')
+        self.index = index
+
+    def draw(self):
+        self.update(self.index)
 
 class HelpText(wx.StaticText):
     def __init__( self, parent, str, size, pos, **kwargs ):
@@ -161,8 +165,8 @@ class PCFrame(wx.Frame):
         CHOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_deutsch.png', wx.BITMAP_TYPE_PNG))
         ENbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_english.png', wx.BITMAP_TYPE_PNG))
         ENOverbmp   = wx.BitmapFromImage(wx.Image('Buttons/buttons_english.png', wx.BITMAP_TYPE_PNG))
-        Helpbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
-        HelpOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
+        #Helpbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
+        #HelpOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_info.png',    wx.BITMAP_TYPE_PNG))
 
         Playbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_start.png',    wx.BITMAP_TYPE_PNG))
         PlayOverbmp = wx.BitmapFromImage(wx.Image('Buttons/buttons_start.png',    wx.BITMAP_TYPE_PNG))
@@ -173,22 +177,22 @@ class PCFrame(wx.Frame):
         CHbutton = gbuttons.GenBitmapButton(p, -1, CHbmp, style=wx.NO_BORDER,size=(120,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
         #ENbutton   = wx.BitmapButton(p, -1, ENbmp,   style=wx.BU_EXACTFIT, size=(120,40))
         ENbutton = gbuttons.GenBitmapButton(p, -1, ENbmp, style=wx.NO_BORDER,size=(120,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
-        Helpbutton = gbuttons.GenBitmapButton(p, -1, Helpbmp, style=wx.NO_BORDER,size=(40,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
+        #Helpbutton = gbuttons.GenBitmapButton(p, -1, Helpbmp, style=wx.NO_BORDER,size=(40,40)) #, style=platebtn.PB_STYLE_DEFAULT, size=(120,40))
         #Helpbutton = platebtn.PlateButton(p, -1, "", Helpbmp, style=platebtn.PB_STYLE_DEFAULT, size=(40,40))
         #Helpbutton = platebtn.PlateButton(p, -1, Helpbmp, style=wx.BU_EXACTFIT, size=(40,40))
         #Helpbutton.SetPressColor(wx.RED)
         #CHbutton.SetPressColor(wx.RED)
         CHbutton.SetBitmapSelected(CHOverbmp)
         ENbutton.SetBitmapSelected(ENOverbmp)
-        Helpbutton.SetBitmapSelected(HelpOverbmp)
+        #Helpbutton.SetBitmapSelected(HelpOverbmp)
 
         CHbutton.SetPosition((1920-50-130-130,1080-45))
         ENbutton.SetPosition((1920-50-130,1080-45))
-        Helpbutton.SetPosition((1920-50,1080-45))
+        #Helpbutton.SetPosition((1920-50,1080-45))
 
         CHbutton.SetPosition((1920-50-130-130-500,1080-45))
         ENbutton.SetPosition((1920-50-130-500,1080-45))
-        Helpbutton.SetPosition((1920-50-500,1080-45))
+        #Helpbutton.SetPosition((1920-50-500,1080-45))
 
         #CHbutton.SetPosition((1920-50-130-130,80-45))
         #ENbutton.SetPosition((1920-50-130,80-45))
@@ -202,14 +206,14 @@ class PCFrame(wx.Frame):
 
         self.CHBtn = CHbutton
         self.ENBtn = ENbutton
-        self.HelpBtn = Helpbutton
+        #self.HelpBtn = Helpbutton
 
         self.Bind(wx.EVT_BUTTON, self.OnButton)
         #self.Bind(wx.EVT_TOGGLEBUTTON, self.OnToggle)
         #self.Bind(wx.EVT_BUTTON, self.OnButton, ENbutton)
         #self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
 
-        HelpText(p, INFOTEXT, (600,100), (1350,65))
+        self.help_text = HelpText(p, INFOTEXT, (600,100), (1350,65))
 
         self.info_text = MovieInfoText(p, '', 20)
         self.info_text.SetBackgroundColour('BLACK')
@@ -265,16 +269,16 @@ class PCFrame(wx.Frame):
             print 'German!'
             if lang != 'deutsch': 
                 lang = 'deutsch'
-                redraw()
+                self.redraw()
 
         elif obj is self.ENBtn:
             print 'English!'
             if lang != 'english': 
                 lang = 'english'
-                redraw()
+                self.redraw()
 
-        elif obj is self.HelpBtn:
-            print 'Help!'
+        #elif obj is self.HelpBtn:
+            #print 'Help!'
 
         elif obj is self.PlayBtn and self.sim_selected is not None:
             r,c = divmod(self.sim_selected, 8)
@@ -325,6 +329,10 @@ class PCFrame(wx.Frame):
 
     def OnQuit(self, event):
         print 'Quit from keyboard disabled.'
+
+    def redraw(self):
+        self.info_text.draw()
+        self.help_text.draw()
 
 class PCApp(wx.App):
 
