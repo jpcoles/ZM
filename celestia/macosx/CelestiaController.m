@@ -694,7 +694,7 @@ NSString* fatalErrorMessage;
 	[btnSetTime setHidden:YES];
 	
 	int options = kUIOptionDisableAppleMenu
-	| kUIOptionDisableProcessSwitch
+	//| kUIOptionDisableProcessSwitch
 	| kUIOptionDisableForceQuit
 	| kUIOptionDisableSessionTerminate
 	| kUIOptionDisableHide
@@ -703,6 +703,14 @@ NSString* fatalErrorMessage;
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
 	SetSystemUIMode(kUIModeContentHidden, options);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
+	
+	if ([[appCore simulation] getShowInfo])
+	{
+		int mode = [[appCore simulation] getMode];
+		int lang = [[appCore simulation] getLanguage];
+		NSLog(@"%i", (1 + mode + 2*lang));
+		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
+	}	
 }
 
 - (IBAction) setNoviceMode: (id) sender
@@ -716,7 +724,7 @@ NSString* fatalErrorMessage;
 	[btnSetTime setHidden:NO];
 	
 	int options = kUIOptionDisableAppleMenu
-	| kUIOptionDisableProcessSwitch
+	//| kUIOptionDisableProcessSwitch
 	| kUIOptionDisableForceQuit
 	| kUIOptionDisableSessionTerminate
 	| kUIOptionDisableHide
@@ -725,6 +733,14 @@ NSString* fatalErrorMessage;
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
     SetSystemUIMode(kUIModeAllHidden, options);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
+	
+	if ([[appCore simulation] getShowInfo])
+	{
+		int mode = [[appCore simulation] getMode];
+		int lang = [[appCore simulation] getLanguage];
+		NSLog(@"%i", (1 + mode + 2*lang));
+		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
+	}	
 	
 	[self runScript: @"start.cel" ];   
 	[settings loadAppDefaults];
@@ -766,7 +782,7 @@ NSString* fatalErrorMessage;
 	[[self window] setBackgroundColor:[NSColor blackColor]];
 		
 	int options = kUIOptionDisableAppleMenu
-			| kUIOptionDisableProcessSwitch
+			//| kUIOptionDisableProcessSwitch
 			| kUIOptionDisableForceQuit
 			| kUIOptionDisableSessionTerminate
 			| kUIOptionDisableHide

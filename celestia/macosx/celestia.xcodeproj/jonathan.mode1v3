@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -271,6 +269,7 @@
 								<string>CE5203200F4FA20A007D0DE8</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>F578B7AE02B3E35F0100020A</string>
+								<string>AB19CB5E131FEEC700BFC094</string>
 								<string>E5E198960C1D9BB90094D8BB</string>
 								<string>29B97318FDCFA39411CA2CEA</string>
 								<string>E54343100783C3F200053094</string>
@@ -286,6 +285,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>34</integer>
 									<integer>29</integer>
 									<integer>28</integer>
 									<integer>16</integer>
@@ -293,7 +293,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 49}, {409, 646}}</string>
+							<string>{{0, 417}, {409, 658}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -305,14 +305,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {426, 664}}</string>
+						<string>{{0, 0}, {426, 676}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>409</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>28 323 798 705 0 0 1680 1028 </string>
+						<string>28 311 1393 717 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -323,12 +323,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CelestiaController.m</string>
+								<string>celestiacore.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -336,11 +338,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CelestiaController.m</string>
+										<string>celestiacore.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>AB155D27134756BF00697E54</string>
+										<string>AB84DE5913476C720051FB18</string>
 										<key>history</key>
 										<array>
 											<string>ABCFBFB112BE16160066D908</string>
@@ -436,8 +438,12 @@
 											<string>AB155B821345C28700697E54</string>
 											<string>AB155B831345C28700697E54</string>
 											<string>AB155CCD1345D1F100697E54</string>
-											<string>AB155D221347544100697E54</string>
-											<string>AB155D231347544100697E54</string>
+											<string>ABE77C50134759D10089465D</string>
+											<string>AB84DE1B134765D70051FB18</string>
+											<string>AB84DE1C134765D70051FB18</string>
+											<string>AB84DE1D134765D70051FB18</string>
+											<string>AB84DE2A134766D10051FB18</string>
+											<string>AB84DE2B134766D10051FB18</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -449,14 +455,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {367, 569}}</string>
+								<string>{{0, 0}, {962, 575}}</string>
 								<key>RubberWindowFrame</key>
-								<string>28 323 798 705 0 0 1680 1028 </string>
+								<string>28 311 1393 717 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>569pt</string>
+							<string>575pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -469,18 +475,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 574}, {367, 90}}</string>
+								<string>{{0, 580}, {962, 96}}</string>
 								<key>RubberWindowFrame</key>
-								<string>28 323 798 705 0 0 1680 1028 </string>
+								<string>28 311 1393 717 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>90pt</string>
+							<string>96pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>367pt</string>
+					<string>962pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -495,9 +501,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>AB155A3A134379C700697E54</string>
+				<string>AB84DE02134765730051FB18</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>AB155A3B134379C700697E54</string>
+				<string>AB84DE03134765730051FB18</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -635,17 +641,16 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>AB155A43134379C700697E54</string>
-		<string>AB155A44134379C700697E54</string>
+		<string>AB84DE0D134765730051FB18</string>
+		<string>AB84DE0E134765730051FB18</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>AB5FBAB5133B599900C2F90E</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>ABCFBF8412B56C460066D908</string>
-		<string>/Users/jonathan/uni/ZM/celestia/macosx/celestia.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
+		<string>/Users/jonathan/uni/ZM/celestia/macosx/celestia.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>28 323 798 705 0 0 1680 1028 </string>
+	<string>28 311 1393 717 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -661,14 +666,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>celestiacore.cpp</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -724,7 +727,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>ABCFBF8412B56C460066D908</string>
-				<string>AB155A12134376F800697E54</string>
+				<string>AB84DE04134765730051FB18</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -737,7 +740,7 @@
 			<key>WindowToolGUID</key>
 			<string>ABCFBF8412B56C460066D908</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -846,13 +849,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>AB155A13134376F800697E54</string>
+				<string>AB84DE05134765730051FB18</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>AB155A14134376F800697E54</string>
-				<string>AB155A15134376F800697E54</string>
-				<string>AB155A16134376F800697E54</string>
-				<string>AB155A17134376F800697E54</string>
-				<string>AB155A18134376F800697E54</string>
+				<string>AB84DE06134765730051FB18</string>
+				<string>AB84DE07134765730051FB18</string>
+				<string>AB84DE08134765730051FB18</string>
+				<string>AB84DE09134765730051FB18</string>
+				<string>AB84DE0A134765730051FB18</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -895,7 +898,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {1089, 705}}</string>
 										<key>RubberWindowFrame</key>
-										<string>321 0 1089 1028 0 0 1680 1028 </string>
+										<string>591 0 1089 1028 0 0 1680 1028 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -919,7 +922,7 @@
 								<key>Frame</key>
 								<string>{{0, 710}, {1089, 277}}</string>
 								<key>RubberWindowFrame</key>
-								<string>321 0 1089 1028 0 0 1680 1028 </string>
+								<string>591 0 1089 1028 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXProjectFindModule</string>
@@ -942,13 +945,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>AB155A40134379C700697E54</string>
-				<string>AB155A41134379C700697E54</string>
+				<string>AB84DE2D134766D10051FB18</string>
+				<string>AB84DE2E134766D10051FB18</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
 			<key>WindowString</key>
-			<string>321 0 1089 1028 0 0 1680 1028 </string>
+			<string>591 0 1089 1028 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
@@ -1008,7 +1011,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>AB155A19134376F800697E54</string>
+				<string>AB84DE0B134765730051FB18</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
