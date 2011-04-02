@@ -694,7 +694,7 @@ NSString* fatalErrorMessage;
 	[btnSetTime setHidden:YES];
 	
 	int options = kUIOptionDisableAppleMenu
-	//| kUIOptionDisableProcessSwitch
+	| kUIOptionDisableProcessSwitch
 	| kUIOptionDisableForceQuit
 	| kUIOptionDisableSessionTerminate
 	| kUIOptionDisableHide
@@ -716,7 +716,7 @@ NSString* fatalErrorMessage;
 	[btnSetTime setHidden:NO];
 	
 	int options = kUIOptionDisableAppleMenu
-	//| kUIOptionDisableProcessSwitch
+	| kUIOptionDisableProcessSwitch
 	| kUIOptionDisableForceQuit
 	| kUIOptionDisableSessionTerminate
 	| kUIOptionDisableHide
@@ -764,18 +764,16 @@ NSString* fatalErrorMessage;
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
 	[[self window] setBackgroundColor:[NSColor blackColor]];
-	
-	return;
-	
+		
 	int options = kUIOptionDisableAppleMenu
-			//| kUIOptionDisableProcessSwitch
+			| kUIOptionDisableProcessSwitch
 			| kUIOptionDisableForceQuit
 			| kUIOptionDisableSessionTerminate
 			| kUIOptionDisableHide
 	;
 	
 	[[self window] setStyleMask: NSBorderlessWindowMask]; 
-    //SetSystemUIMode(kUIModeAllHidden, options);
+    SetSystemUIMode(kUIModeAllHidden, options);
 	[[self window] setFrame:[[NSScreen mainScreen] frame] display:YES];
 	[[self window] setBackgroundColor:[NSColor blackColor]];
 	return;

@@ -457,6 +457,11 @@
 			AB155D181345D83C00697E54 /* PBXTextBookmark */ = AB155D181345D83C00697E54 /* PBXTextBookmark */;
 			AB155D1C1345D87500697E54 /* PBXTextBookmark */ = AB155D1C1345D87500697E54 /* PBXTextBookmark */;
 			AB155D201345D8A200697E54 /* PBXTextBookmark */ = AB155D201345D8A200697E54 /* PBXTextBookmark */;
+			AB155D221347544100697E54 /* PBXTextBookmark */ = AB155D221347544100697E54 /* PBXTextBookmark */;
+			AB155D231347544100697E54 /* PBXTextBookmark */ = AB155D231347544100697E54 /* PBXTextBookmark */;
+			AB155D241347544100697E54 /* PBXTextBookmark */ = AB155D241347544100697E54 /* PBXTextBookmark */;
+			AB155D251347559600697E54 /* PBXTextBookmark */ = AB155D251347559600697E54 /* PBXTextBookmark */;
+			AB155D26134755B400697E54 /* PBXTextBookmark */ = AB155D26134755B400697E54 /* PBXTextBookmark */;
 			AB19C5ED131BABA400BFC094 = AB19C5ED131BABA400BFC094 /* PBXTextBookmark */;
 			AB19C5F1131BABA400BFC094 = AB19C5F1131BABA400BFC094 /* PBXTextBookmark */;
 			AB19C5F2131BABA400BFC094 = AB19C5F2131BABA400BFC094 /* PBXTextBookmark */;
@@ -645,7 +650,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 974";
 		rLen = 8;
-		rLoc = 31029;
+		rLoc = 31011;
 		rType = 0;
 		vrLen = 1510;
 		vrLoc = 29802;
@@ -1903,7 +1908,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 692";
 		rLen = 13;
-		rLoc = 21854;
+		rLoc = 21852;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 20741;
@@ -2974,7 +2979,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 724";
 		rLen = 11;
-		rLoc = 22726;
+		rLoc = 22722;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 21775;
@@ -2984,7 +2989,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 735";
 		rLen = 0;
-		rLoc = 22965;
+		rLoc = 22961;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 22308;
@@ -3688,7 +3693,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 735";
 		rLen = 0;
-		rLoc = 22965;
+		rLoc = 22961;
 		rType = 0;
 		vrLen = 1743;
 		vrLoc = 22985;
@@ -4064,7 +4069,7 @@
 		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
 		name = "CelestiaController.m: 735";
 		rLen = 0;
-		rLoc = 22965;
+		rLoc = 22961;
 		rType = 0;
 		vrLen = 1753;
 		vrLoc = 23394;
@@ -4261,6 +4266,53 @@
 		rType = 0;
 		vrLen = 982;
 		vrLoc = 74910;
+	};
+	AB155D221347544100697E54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F51C6D8B02959960014901DC /* celestiacore.cpp */;
+		name = "celestiacore.cpp: 2566";
+		rLen = 0;
+		rLoc = 75148;
+		rType = 0;
+		vrLen = 1020;
+		vrLoc = 74910;
+	};
+	AB155D231347544100697E54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		rLen = 3;
+		rLoc = 21538;
+		rType = 0;
+	};
+	AB155D241347544100697E54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 697";
+		rLen = 3;
+		rLoc = 21538;
+		rType = 0;
+		vrLen = 1075;
+		vrLoc = 20979;
+	};
+	AB155D251347559600697E54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 697";
+		rLen = 3;
+		rLoc = 21538;
+		rType = 0;
+		vrLen = 1075;
+		vrLoc = 20979;
+	};
+	AB155D26134755B400697E54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F5040B0F02A484DA014901DC /* CelestiaController.m */;
+		name = "CelestiaController.m: 697";
+		rLen = 3;
+		rLoc = 21538;
+		rType = 0;
+		vrLen = 1075;
+		vrLoc = 20979;
 	};
 	AB19C5ED131BABA400BFC094 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -5575,9 +5627,9 @@
 	};
 	F5040B0F02A484DA014901DC /* CelestiaController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1028, 14183}}";
-			sepNavSelRange = "{20518, 0}";
-			sepNavVisRange = "{19691, 1656}";
+			sepNavIntBoundsRect = "{{0, 0}, {628, 14079}}";
+			sepNavSelRange = "{21538, 3}";
+			sepNavVisRange = "{20979, 1075}";
 			sepNavWindowFrame = "{{292, 0}, {1212, 1028}}";
 		};
 	};
@@ -5620,7 +5672,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {607, 68419}}";
 			sepNavSelRange = "{75148, 0}";
-			sepNavVisRange = "{74910, 982}";
+			sepNavVisRange = "{74910, 1020}";
 			sepNavWindowFrame = "{{367, 292}, {1286, 820}}";
 		};
 	};
