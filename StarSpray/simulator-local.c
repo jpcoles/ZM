@@ -75,7 +75,8 @@ int loadNextFrameFromSimulator()
     //while (flock(fileno(fp), LOCK_EX | LOCK_NB) == EWOULDBLOCK) { usleep(100); }
     fclose(fp);
 
-    return loadTipsyPositions(filename, env.pList.pos, env.pList.vel, env.pList.nParticles);
+    return loadTipsyPositions(filename, &env.pList);
+    //return loadTipsyPositions(filename, env.pList.pos, env.pList.vel, env.pList.nParticles);
 }
 
 int write_config_file(char *filename)

@@ -438,7 +438,7 @@ void ic_logo()
                 env.pList.vel[3*p+1] = 0;
                 env.pList.vel[3*p+2] = 0;
 
-                env.pList.mass[p] = .001;
+                env.pList.mass[p] = .0005;
                 env.pList.soft[p] = 1e-1;
                 p++;
             }

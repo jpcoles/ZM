@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-int loadTipsyPositions(char *filename, float *pos, float *vel, unsigned int nParticles);
+int loadTipsyPositions(char *filename, ParticleList *pList);
 int writeTipsyPositions(char *filename, ParticleList *pList);
 #ifndef SERVER
 int loadSprayPattern(char *filename, SprayPattern *sp);

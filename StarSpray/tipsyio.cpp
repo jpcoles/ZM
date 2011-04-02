@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int loadTipsyPositions(char *filename, float *pos, float *vel, unsigned int nParticles)
+int loadTipsyPositions(char *filename, ParticleList *pList)
 {
     ifTipsy in;
 
@@ -19,7 +19,12 @@ int loadTipsyPositions(char *filename, float *pos, float *vel, unsigned int nPar
 
     in >> h;
 
-    if (h.h_nDark != nParticles) {assert(0); return 2; }
+    if (h.h_nDark != pList->nParticles) {assert(0); return 2; }
+
+    float *pos = pList->pos;
+    float *vel = pList->vel;
+    float *mass = pList->mass;
+    float *soft = pList->soft;
 
     for (unsigned int i=0; i < h.h_nDark; i++)
     {
@@ -31,6 +36,9 @@ int loadTipsyPositions(char *filename, float *pos, float *vel, unsigned int nPar
         *vel++ = d.vel[0];
         *vel++ = d.vel[1];
         *vel++ = d.vel[2];
+
+        *mass++ = d.mass;
+        *soft++ = d.eps;
 
         //cerr << d.pos[0] << " " << d.pos[1] << " " << d.pos[2] << endl;
     }
