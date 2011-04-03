@@ -15,9 +15,9 @@ import wx.media
 
 lang = 'deutsch'
 
-INFOTEXT='Explore the recent planet formation simulations. Each\n' + \
-         'picture to the left represents a different initial configuration.\n\n' + \
-         'Click on a picture to see the configuration. Click the play \n' + \
+INFOTEXT='Explore the recent planet formation simulations. Each' + \
+         'picture\nto the left represents a different initial configuration.\n\n' + \
+         'Click on a picture to see the configuration.\nClick the play' + \
          'button to see the simulation on the overhead monitor.'
 
 def _(s):
@@ -34,8 +34,8 @@ def _(s):
              'Unknown': 'Unbekannt',
              INFOTEXT: 'Erkunden Sie die aktuellen Planetentstehungs Simulationen.\n' + \
                        'Jedes Bild auf der linken Seite entspricht unterschiedlichen\n' + \
-                       'Anfangsbedingungen. Klicken Sie auf das Bild um die Werte\n' + \
-                       'zu sehen. Klicken Sie auf den Wiedergabeknopf um die\n' + \
+                       'Anfangsbedingungen.\n\nKlicken Sie auf das Bild um die Werte' + \
+                       'zu sehen.\nKlicken Sie auf den Wiedergabeknopf um die\n' + \
                        'Simulation auf dem oberen Bildschirm zu sehen.'
             }
         T = t.get(s, None)
@@ -197,8 +197,8 @@ class PCFrame(wx.Frame):
         ENbutton.SetPosition((1920-50-130,1080-45))
         #Helpbutton.SetPosition((1920-50,1080-45))
 
-        CHbutton.SetPosition((1920-50-130-130-500,1080-45))
-        ENbutton.SetPosition((1920-50-130-500,1080-45))
+        CHbutton.SetPosition((1920-130-130,1080-45))
+        ENbutton.SetPosition((1920-130,1080-45))
         #Helpbutton.SetPosition((1920-50-500,1080-45))
 
         #CHbutton.SetPosition((1920-50-130-130,80-45))
@@ -207,7 +207,7 @@ class PCFrame(wx.Frame):
 
         self.SimIcon = None
 
-        self.PlayBtn = gbuttons.GenBitmapButton(p, -1, Playbmp, style=wx.NO_BORDER,size=(40,40), pos=(1460,270))
+        self.PlayBtn = gbuttons.GenBitmapButton(p, -1, Playbmp, style=wx.NO_BORDER,size=(40,40), pos=(1475,270))
         self.PlayBtn.Enable(False)
         #self.Bind(wx.EVT_BUTTON, self.OnButton, self.PlayBtn)
 
@@ -238,7 +238,7 @@ class PCFrame(wx.Frame):
             for t in [1,2,3,5]:
                 for p0 in [1,2]:
                     for m in [10,5]:
-                        fname = 'thumbs/cthumb_%s_t%ip%im%i.s.png' % (name,t,p0,m)
+                        fname = 'thumbs2/cthumb_%s_t%ip%im%i.s.png' % (name,t,p0,m)
                         try:
                             bmp = wx.BitmapFromImage(wx.Image(fname, wx.BITMAP_TYPE_PNG))
                         except:
@@ -252,7 +252,7 @@ class PCFrame(wx.Frame):
                         b.SetPressColor(wx.RED)
                         b.SetLabelColor(wx.RED)
                         b.name = fname
-                        b.mname = 'movies/%s_t%ip%im%i.mpg' % (name,t,p0,m)
+                        b.mname = 'movies2/%s_t%ip%im%i.mpg' % (name,t,p0,m)
                         #self.Bind(wx.EVT_BUTTON, self.OnButton, b)
                         self.mbtns.append([b,bmp])
                         index += 1
