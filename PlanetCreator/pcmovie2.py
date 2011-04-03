@@ -24,12 +24,19 @@ def _(s):
     if lang == 'english':
         return s
     elif lang == 'deutsch':
-        t = {'Planetesimal Mass:    %s\n': 'Planetoid Masse:    %s\n',
-             'Formed Planets:       %s\n': 'Enstanden Planeten: %s\n',
-             'Average orbit radius: %s\n': 'Umlaufbahn Radius:  %s\n',
-             'Average ellipticity:  %s\n': 'Elliptischkeit:     %s\n',
-             'Gas loss time:        %s\n': 'Gas Verlehrzeit:    %s\n',
-             INFOTEXT: r''
+        t = {'Planetesimal Mass:    %s\n': 'Planetoiden Masse:          %s\n',
+             'Formed Planets:       %s\n': 'Geformte Planeten:          %s\n',
+             'Average orbit radius: %s\n': 'Mittlerer Umlaufbahnradius: %s\n',
+             'Average ellipticity:  %s\n': 'Mittlere Elliptizitaet:     %s\n',
+             'Gas loss time:        %s\n': 'Gas Abstosszeit:            %s\n',
+
+             'Earth masses': 'Erdmasse',
+             'Unknown': 'Unbekannt',
+             INFOTEXT: 'Erkunden Sie die aktuellen Planetentstehungs Simulationen.\n' + \
+                       'Jedes Bild auf der linken Seite entspricht unterschiedlichen\n' + \
+                       'Anfangsbedingungen. Klicken Sie auf das Bild um die Werte\n' + \
+                       'zu sehen. Klicken Sie auf den Wiedergabeknopf um die\n' + \
+                       'Simulation auf dem oberen Bildschirm zu sehen.'
             }
         T = t.get(s, None)
         if T is None:
@@ -44,7 +51,7 @@ def _(s):
 
 class MovieInfoText(wx.StaticText):
     def __init__( self, parent, str, size, **kwargs ):
-        wx.StaticText.__init__( self, parent, label=str, size=(500,250), pos=(1350,350)) #, **kwargs )
+        wx.StaticText.__init__( self, parent, label=str, size=(600,250), pos=(1150,350)) #, **kwargs )
         #font = wx.Font(size, wx.SWISS, wx.NORMAL, wx.NORMAL)
         #font = wx.Font(size, wx.NORMAL, wx.SYS_SYSTEM_FIXED_FONT, wx.NORMAL, face='Krungthep')
         font = wx.Font(size, wx.NORMAL, wx.SYS_SYSTEM_FIXED_FONT, wx.NORMAL, face='Courier New Bold')
@@ -61,7 +68,7 @@ class MovieInfoText(wx.StaticText):
                _('Average ellipticity:  %s\n') +
                _('Gas loss time:        %s\n'))
 
-        f = lambda fmt,x,units: (fmt % x) + ' ' + units if not None else '%9s'%'Unknown'
+        f = lambda fmt,x,units: (fmt % x) + ' ' + units if not None else '%9s'% _('Unknown')
         if index is not None:
             self.SetLabel(str % (
                 f('%6.2f', ALL_DATA[index][2], _('Earth masses')),
@@ -213,7 +220,7 @@ class PCFrame(wx.Frame):
         #self.Bind(wx.EVT_BUTTON, self.OnButton, ENbutton)
         #self.Bind(wx.EVT_BUTTON, self.OnButton, Helpbutton)
 
-        self.help_text = HelpText(p, INFOTEXT, (600,100), (1350,65))
+        self.help_text = HelpText(p, INFOTEXT, (600,100), (1150,65))
 
         self.info_text = MovieInfoText(p, '', 20)
         self.info_text.SetBackgroundColour('BLACK')
