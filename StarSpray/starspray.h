@@ -157,6 +157,8 @@ typedef struct
 
     int sceneChanged;
 
+    int stereo;
+
 } Environment;
 
 #endif

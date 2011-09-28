@@ -723,55 +723,68 @@ void onUpdateInfo()
     glutStrokeCharacter(GLUT_STROKE_ROMAN, 'H');
 }
 
-void onUpdate() 
+void MakeScene(int LorR, double eyesep)
 {
     unsigned int i;
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glMatrixMode(GL_MODELVIEW);             // Select The Modelview Matrix
-    glLoadIdentity();                   // Reset The Modelview Matrix
-
-//    glutSwapBuffers();
-//    return;
-
-    gluLookAt(env.eye.x, env.eye.y, env.eye.z,  
-              0.0, 0.0, 0.0,  
-              env.eye.ux, env.eye.uy, env.eye.uz);  
-
-    //glColor4f(1,1,1,.5);
-    //glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-    //glRectf(-.5, -.5, .5, .5);
-
-    //env.eye.roll = env.eye.pitch = env.eye.heading = 0;
-
-    //gluLookAt(env.eye.x, env.eye.y, env.eye.z,  env.pointer.x, env.pointer.y, env.pointer.z,  0.0, 1.0, 0.); 
 
     float cx = env.pointer.x;
     float cy = env.pointer.y;
     float cz = env.pointer.z;
 
-#if 0
+    double aperture = 50;
+    double focallength = 70;
+    double near = .1;
+    double far = 10000.;
+    double ratio = env.screenWidth / env.screenHeight;
+    double radians = M_PI/180. * aperture / 2;
+    double wd2 = near * tan(radians);
+    double ndfl = near / focallength;
+    double left, right, top, bottom;
 
-    glDisable(GL_LIGHTING);
-    glPushMatrix();
-    glColor4f(1,0,0,1);
-    //glLineWidth(2.0);
-    glRasterPos2f(0,0);
-    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, 'H');
-    //glLineWidth(1);
-    glPopMatrix();
+    int buffer;
 
-#endif
+    switch (LorR)
+    {
+        case -1: buffer = GL_BACK_LEFT;  break;
+        case +1: buffer = GL_BACK_RIGHT; break;
+        default: buffer = GL_BACK; break;
+    }
 
-    //cx = -1*cos(-env.eye.angle) - cz*sin(-env.eye.angle);
-    //cz = -1*sin(-env.eye.angle) + cz*cos(-env.eye.angle);
-    //cx = -1*cos(-env.eye.angle)
-    //cz = -1*sin(-env.eye.angle) + cz*cos(-env.eye.angle);
+    Coord r;
+
+    CROSS(r.x,r.y,r.z, 
+          -env.eye.x, -env.eye.y, -env.eye.z,
+          env.eye.ux, env.eye.uy, env.eye.uz, 1);
+
+    NORM(r.x,r.y,r.z, r.x,r.y,r.z);
+
+    r.x *= eyesep / 2 * LorR;
+    r.y *= eyesep / 2 * LorR;
+    r.z *= eyesep / 2 * LorR;
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //gluPerspective(45.0f,(GLfloat)env.screenWidth/(GLfloat)env.screenHeight,0.01f, 101.0f); 
+
+    left  = - ratio * wd2 + 0.5 * eyesep * ndfl * LorR;
+    right =   ratio * wd2 + 0.5 * eyesep * ndfl * LorR;
+    top    =   wd2;
+    bottom = - wd2;
+    glFrustum(left,right,bottom,top,near,far);
+
+    glMatrixMode(GL_MODELVIEW);
+//  glDrawBuffer(LorR < 0 ? GL_BACK_LEFT : GL_BACK_RIGHT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    gluLookAt(env.eye.x + r.x, 
+              env.eye.y + r.y,
+              env.eye.z + r.z,  
+              r.x, r.y, r.z,
+              env.eye.ux, env.eye.uy, env.eye.uz);  
 
     if (env.simStatus == SIM_STOPPED)
     {
-        //glDisable(GL_LIGHTING);
         glPushMatrix();
 
         switch (env.background)
@@ -786,43 +799,13 @@ void onUpdate()
 
 
         glTranslatef(env.pointer.x, env.pointer.y, env.pointer.z);
-        //glRotated(-env.eye.angle * 180/M_PI, 0, 1, 0);
         glutWireSphere(.2, 15, 15);
 
         glPopMatrix();
-        //glEnable(GL_LIGHTING);
     }
 
-    //glEnable (GL_BLEND);
-    //glEnable(GL_LIGHT0);                 // Enable light source
-
-#if 1
     GLfloat light_pos[] = {env.eye.x, env.eye.y, env.eye.z, 1};
-
-    //GLfloat light_dir[] = {-env.eye.x, -env.eye.y, -env.eye.z};
-    //GLfloat light_amb[] = {0.7, 0.7, 0.7, 0.7};
-    //GLfloat light_dir[] = {env.pointer.x-env.eye.x, env.pointer.y-env.eye.y, env.pointer.z-env.eye.z};
-    //GLfloat light_dir[] = {env.eye.x-env.pointer.x, env.eye.y-env.pointer.y, env.eye.z-env.pointer.z};
-
     glLightfv(GL_LIGHT0, GL_POSITION,       light_pos);
-    //glLightfv(GL_LIGHT0, GL_AMBIENT, light_amb);
-    //glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, light_dir);
-
-#endif
-
-#if  0
-    glBegin(GL_LINES);
-    glColor4f(1,0,0,1);
-    glVertex3f(-cos(-env.eye.angle)-env.pointer.x,cy,cz);
-    glVertex3f(cos(-env.eye.angle)+env.pointer.x,cy,cz);
-    glColor4f(0,1,0,1);
-    glVertex3f(cx,cy-1,cz);
-    glVertex3f(cx,cy+1,cz);
-    glColor4f(0,0,1,1);
-    glVertex3f(cx,cy,cz-1);
-    glVertex3f(cx,cy,cz+1);
-    glEnd();
-#endif
 
 #if WITH_POINTS
     //if (first_time)
@@ -839,13 +822,6 @@ void onUpdate()
 
     glDrawArrays(GL_POINTS, 0, env.pList.nParticles);
 #else
-
-#if 0
-    glPushMatrix();
-    glTranslatef(0,0,-3);
-    glutSolidSphere( 1.0,  20,  20);
-    glPopMatrix();
-#endif
 
 #if 1
     if (!env.sceneChanged)
@@ -964,32 +940,15 @@ void onUpdate()
                      env.info_deutsch);
     }
 
-    
-    //glEnable(GL_DEPTH_TEST);
-    //glPopMatrix();
-    
-
-//  glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
-//  glLoadIdentity();                   // Reset The Projection Matrix
-//  gluOrtho2D(0,env.screenWidth, 0, env.screenHeight);
-//  
-//  glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
-//  glLoadIdentity();                   // Reset The Projection Matrix
-
     char text[256];
     char *tp;
     sprintf(text, "%5i / %i", env.pList.movingParticleIndex, env.maxParticles);
 
     glDisable(GL_LIGHTING);
-    //glPushMatrix();
     glColor3f(1,1,1);
     glRasterPos2i(5,30);
     for (tp = text; *tp != '\0'; tp++)
-    {
         glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *tp);
-        //glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *tp);
-        //glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *tp);
-    }
 
     if (env.simStatus == SIM_RUNNING)
     {
@@ -1007,14 +966,25 @@ void onUpdate()
         }
         glutBitmapCharacter(GLUT_BITMAP_9_BY_15, '|');
     }
-    //glPopMatrix();
     glEnable(GL_LIGHTING);
 
     glMatrixMode(GL_MODELVIEW);                // Select The Projection Matrix
     glPopMatrix();
     glMatrixMode(GL_PROJECTION);                // Select The Projection Matrix
     glPopMatrix();
+}
 
+void onUpdate() 
+{
+    if (env.stereo)
+    {
+        MakeScene(-1, 4);
+        MakeScene(+1, 4);
+    }
+    else
+    {
+        MakeScene(0, 0);
+    }
 
 
 //  if (env.make_movie)

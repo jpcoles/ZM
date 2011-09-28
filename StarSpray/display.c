@@ -12,12 +12,18 @@ extern Environment env;
 
 void display_start(int argc, char **argv)
 {
-    glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+    glutInit(&argc,argv);
+
+    int glut_parms = GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH;
+
+    if (env.stereo)
+        glut_parms |= GLUT_STEREO;
+
+    glutInitDisplayMode(glut_parms);
 
     //glutInitWindowPosition(100,100);
     glutInitWindowSize(env.screenWidth,env.screenHeight);
 
-    glutInit(&argc,argv);
     glutCreateWindow("Star Spray");
     viz_init();
     glutMainLoop();

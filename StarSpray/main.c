@@ -34,6 +34,7 @@ int main(int argc, char **argv)
         {"help", no_argument, 0, 'h'},
         {"bcolor", required_argument, 0, 0},
         {"fullscreen", no_argument, 0, 0},
+        {"stereo", no_argument, 0, 0},
         {0, 0, 0, 0}
     };
 
@@ -49,6 +50,8 @@ int main(int argc, char **argv)
     env.eye.ux = 0;
     env.eye.uy = 1;
     env.eye.uz = 0;
+
+    env.stereo = 0;
 
     env.showInfo = INFO_NONE;
 
@@ -89,6 +92,10 @@ int main(int argc, char **argv)
                             help();
                     }
                 } 
+                else if (!strcmp("stereo", long_options[option_index].name))
+                {
+                    env.stereo = 1;
+                }
                 else if (!strcmp("frames", long_options[option_index].name))
                 {
                     env.maxTimesteps = atoi(optarg);
