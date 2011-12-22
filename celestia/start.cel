@@ -172,24 +172,24 @@
 
 # Field of View (UNcomment / modify to meet your needs)...
 # Default is 25 degrees, at a screen resolution of 1024 x 768
-#  set {name "FOV" value 25.0}
+set {name "FOV" value 25.0}
 
 
 # Ambient light level (UNcomment / modify to meet your needs)...
 # 0.0 to 0.5 is a good Lo-Hi range
-#  set {name "AmbientLightLevel" value 0.1}
+set {name "AmbientLightLevel" value 0.1}
 
 
 # Faintest visible star magnitude (brightness)...
 # (UNcomment / modify to meet your needs)
 # Celestia UI: 0.8 to 15.2, default is 6.0
 #
-#  setvisibilitylimit {magnitude 6.0}
+setvisibilitylimit {magnitude 6.0}
 
 
 # Faintest auto-magnitude brightness, at 45 degrees, Default is 8.5...
 # (UNcomment / modify to meet your needs)
-#  setfaintestautomag45deg {magnitude 8.5}
+setfaintestautomag45deg {magnitude 8.5}
 
 
 # Items to be displayed (rendered):
@@ -259,17 +259,17 @@
 # Marker control:
 # Unmark any objects that are currently Marked and disable Marker display...
 # (UNcomment to suit your needs)
-#  unmarkall { }
+unmarkall { }
 
 
 # Minimum orbit diameter to be rendered (in pixels)...
 # (UNcomment / modify  to suit your needs)
-#  set {name "MinOrbitSize"  value 1.0}
+set {name "MinOrbitSize"  value 1.0}
 
 
 # Furthest visible star distance, default is 1000000...
 # (UNcomment / modify to suit your needs)
-#  set {name "StarDistanceLimit"  value 1000000}
+set {name "StarDistanceLimit"  value 1000000}
 
 
 # Time rate (1x, 100x, 1000x, etc.)...
@@ -279,7 +279,7 @@
 #               1.0 = Real Time (default)
 #            1000.0 = Good moon orbit motion
 #
-#  timerate {rate 1.0}
+timerate {rate 1.0}
 
 
 #****************************************************************************

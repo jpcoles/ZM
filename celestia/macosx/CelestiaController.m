@@ -641,6 +641,9 @@ NSString* fatalErrorMessage;
 
 - (IBAction) reset: (id) sender
 {
+	[appCore cancelScript];
+	[[appCore simulation] setTimeScale:1];
+	[[appCore simulation] cancelMotion];
 	[self runScript: @"start.cel" ];   
 	[settings loadAppDefaults];
 }
@@ -710,7 +713,13 @@ NSString* fatalErrorMessage;
 		int lang = [[appCore simulation] getLanguage];
 		NSLog(@"%i", (1 + mode + 2*lang));
 		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
-	}	
+	}
+	
+	[appCore cancelScript];
+	[[appCore simulation] setTimeScale:1.0];
+	[[appCore simulation] cancelMotion];
+	[self runScript: @"start.cel" ];   
+	[settings loadAppDefaults];
 }
 
 - (IBAction) setNoviceMode: (id) sender
@@ -742,6 +751,9 @@ NSString* fatalErrorMessage;
 		[[appCore simulation] setShowInfo:(1 + mode + 2*lang)];
 	}	
 	
+	[appCore cancelScript];
+	[[appCore simulation] setTimeScale:1];
+	[[appCore simulation] cancelMotion];
 	[self runScript: @"start.cel" ];   
 	[settings loadAppDefaults];
 }

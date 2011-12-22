@@ -59,5 +59,6 @@
 -(int)getMode;
 -(void)setShowInfo:(int)i;
 -(int)getShowInfo;
+-(void)setTimeScale:(double)s;
 
 @end

@@ -27,9 +27,9 @@ t1262780238
 s5094
 
 N/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004C6131EE0000000000B37440
-t1281438190
-s11760704
+c000000004E5656FF0000000000B38E90
+t1314281215
+s11767440
 
 N/Users/celestia/ZM/celestia/macosx/POConverter.m
 c000000004D8B2B1E0000000000005077
@@ -49,6 +49,25 @@ s120
 N/Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.o
 t1300966203
 s31684
+
+N/Users/celestia/celestia/macosx/POConverter.m
+c000000004EF33D9C0000000000005077
+t1324563868
+s20599
+i<Foundation/Foundation.h>
+
+N/Users/celestia/celestia/macosx/build/Development/POConverter
+t1324563862
+s23024
+
+N/Users/celestia/celestia/macosx/build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.LinkFileList
+c000000004EF33D960000000000000078
+t1324563862
+s120
+
+N/Users/celestia/celestia/macosx/build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.o
+t2
+s0
 
 N/Users/jonathan/uni/Zoology/celestia-1.6.0/macosx/POConverter.m
 c000000004A3FA8870000000000005077
@@ -95,6 +114,9 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@56"Compile /Users/celestia/ZM/celestia/macosx/POConverter.m322659002#322659003#0(0"0(0#0#48"/Users/celestia/ZM/celestia/macosx/POConverter.m7665776580704888832#1014"    cd /Users/celestia/ZM/celestia/macosx    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -DPNG_SUPPORT -DCELX -DLUA_USE_MACOSX -DLUA_VER=0x050100 -DUSE_SPICE -DTARGET_CELESTIA -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/POConverter.hmap -F/Users/celestia/ZM/celestia/macosx/build/Development -I/Users/celestia/ZM/celestia/macosx/build/Development/include -I/Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/DerivedSources/i386 -I/Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/DerivedSources -c /Users/celestia/ZM/celestia/macosx/POConverter.m -o /Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.o0#
 
+CCompileC build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.o /Users/celestia/celestia/macosx/POConverter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
 CCompileC build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.o /Users/jonathan/uni/Zoology/celestia-1.6.0/macosx/POConverter.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s313879608.031119
 e313879608.684324
@@ -130,6 +152,9 @@ x/Users/celestia/ZM/celestia/macosx/build/Development/POConverter
 xnormal
 xi386
 lSLF07#2@69"Link /Users/celestia/ZM/celestia/macosx/build/Development/POConverter322659003#322659003#0(0"0(0#0#0"4300911832#533"    cd /Users/celestia/ZM/celestia/macosx    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/celestia/ZM/celestia/macosx/build/Development -F/Users/celestia/ZM/celestia/macosx/build/Development -filelist /Users/celestia/ZM/celestia/macosx/build/celestia.build/Development/POConverter.build/Objects-normal/i386/POConverter.LinkFileList -mmacosx-version-min=10.6 -framework Foundation -o /Users/celestia/ZM/celestia/macosx/build/Development/POConverter0#
+
+CLd /Users/celestia/celestia/macosx/build/Development/POConverter normal i386
+r0
 
 CLd /Users/jonathan/uni/Zoology/celestia-1.6.0/macosx/build/Development/POConverter normal i386
 s313879608.684418
