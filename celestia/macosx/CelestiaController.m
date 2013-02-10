@@ -487,6 +487,7 @@ NSString* fatalErrorMessage;
 
 -(BOOL)applicationShouldTerminate:(id)sender
 {
+	/*
    if (  NSRunAlertPanel(NSLocalizedString(@"Quit Celestia?",@""),
                          NSLocalizedString(@"Are you sure you want to quit Celestia?",@""),
                          NSLocalizedString(@"Quit",@""),
@@ -495,6 +496,7 @@ NSString* fatalErrorMessage;
    {
        return NO;
    }
+	 */
 
     if (timer != nil) {
         [timer invalidate];
