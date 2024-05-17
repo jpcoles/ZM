@@ -487,15 +487,15 @@ void onClick(int button, int state, int x, int y)
                 {
                     switch (env.btns[i].id)
                     {
-                        case BTN_INFO:
+                        case BTN_INFO_CLOSE:
                             break;
-                        case BTN_ENGLISH:
+                        case BTN_ENGLISH_INFO:
                             if (env.showInfo == INFO_ENGLISH)
                                 env.showInfo = INFO_NONE;
                             else
                                 env.showInfo = INFO_ENGLISH;
                             break;
-                        case BTN_DEUTSCH:
+                        case BTN_DEUTSCH_INFO:
                             if (env.showInfo == INFO_DEUTSCH)
                                 env.showInfo = INFO_NONE;
                             else
@@ -510,7 +510,7 @@ void onClick(int button, int state, int x, int y)
                             env.sceneChanged = 1;
                             break;
                         case BTN_RESET:
-                            runIC(clearParticles())
+                            runIC(clearParticles());
                             break;
 
                         case BTN_DEMO1:

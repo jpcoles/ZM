@@ -1,6 +1,7 @@
 #include <iostream>
 #include <assert.h>
 #include <math.h>
+#include <string.h> // memcpy
 #include "grid.hpp"
 #include "tiplim.hpp"
 

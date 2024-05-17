@@ -1,5 +1,5 @@
-CC			 =	g++
-CXX			 =	g++
+CC			 =	clang++
+CXX			 =	clang++
 
 PLATFORM		 =	Darwin
 #PLATFORM		 =	Linux

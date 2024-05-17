@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     //env.photo_path = "/Users/jonathan/Pictures/Photo Booth";
     env.background = BLACK;
     env.maxParticles = 10000;
-    env.fullscreen = 1;
+    env.fullscreen = 0;
     env.screenWidth = 1024;
     env.screenHeight = 768;
     env.eye.x = env.eye.ox = 0; 
@@ -146,9 +146,9 @@ int main(int argc, char **argv)
 #define O(x) (o+=x+s,-o)
     ButtonImage btns[] = 
         { 
-          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    -(o),   10, 0,0, NULL,NULL, 0, BTN_INFO},
-          {"Buttons/buttons_english.png", "Buttons/buttons_english.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_ENGLISH},
-          {"Buttons/buttons_deutsch.png", "Buttons/buttons_deutsch.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_DEUTSCH},
+          {"Buttons/buttons_info.png",    "Buttons/buttons_info.png",    -(o),   10, 0,0, NULL,NULL, 0, BTN_INFO_CLOSE},
+          {"Buttons/buttons_english.png", "Buttons/buttons_english.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_ENGLISH_INFO},
+          {"Buttons/buttons_deutsch.png", "Buttons/buttons_deutsch.png", O(120), 10, 0,0, NULL,NULL, 0, BTN_DEUTSCH_INFO},
           {"Buttons/buttons_zurueck.png", "Buttons/buttons_zurueck.png", O(80),  10, 0,0, NULL,NULL, 0, BTN_RESET},
           {"Buttons/buttons_stopp.png",   "Buttons/buttons_stopp.png",   O(80),  10, 0,0, NULL,NULL, 0, BTN_STOP},
           {"Buttons/buttons_start.png",   "Buttons/buttons_start.png",   O(40),  10, 0,0, NULL,NULL, 0, BTN_PLAY},

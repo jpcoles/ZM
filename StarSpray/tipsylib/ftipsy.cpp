@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <iostream>
 #include <netinet/in.h> // ntohl
+#include <string.h> //strcmp
 #include "ftipsy.hpp"
 #include "native.h"
 #include "standard.h"

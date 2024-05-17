@@ -3,6 +3,7 @@
 #include <assert.h>
 #include "zstream.hpp"
 #include <iostream>
+#include <string.h> // memcpy
 
 zstreambuf::zstreambuf( std::streambuf *sb )
 { 

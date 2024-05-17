@@ -299,7 +299,7 @@ void load_png_image(char *fname, png_bytep *buf, int *buf_h, int *buf_w)
 
     if (color_type == PNG_COLOR_TYPE_GRAY && bit_depth < 8)
     {
-        png_set_gray_1_2_4_to_8(png_ptr);
+        png_set_expand_gray_1_2_4_to_8(png_ptr);
     }
 
     if (png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS))
@@ -335,7 +335,7 @@ void load_png_image(char *fname, png_bytep *buf, int *buf_h, int *buf_w)
     }
 
 
-    png_start_read_image(png_ptr);
+    //png_start_read_image(png_ptr);
 
     for (int i = height-1; i >= 0; i--)
     {

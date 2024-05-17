@@ -11,7 +11,7 @@
 
 #LISTING=-g -Wa,-adhln=$*.lst
 
-CXX=g++
+CXX=clang++
 WARN=-Wall -Wfloat-equal -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline
 CPPFLAGS=-fPIC -O3 -Wall -Wextra $(WARN) $(LISTING)
 
